@@ -2,8 +2,6 @@
 
 #include "instruments/Reverb1.orc"
 
-#include "instruments/major-chord-synth.orc"
-
 #include "instruments/linn-drum.orc"
 
 #include "instruments/808.orc"
