@@ -1,0 +1,60 @@
+; Chorused Synth
+
+connect "ChorusedSynth", "ChorusedSynthOut", "ChorusedSynthMixerChannel", "ChorusedSynthIn"
+connect "ChorusedSynthMixerChannel", "ChorusedSynthOutL", "Mixer", "MixerInL"
+connect "ChorusedSynthMixerChannel", "ChorusedSynthOutR", "Mixer", "MixerInR"
+alwayson "ChorusedSynthMixerChannel"
+
+gkChorusedSynthFader init 1
+gkChorusedSynthPan init 50
+
+instr ChorusedSynth
+    ;CONTROL SIGNALS
+    ;output action  args
+
+
+    kamp    linseg    p4, (p3 - (p3 * 0.1)), p4, (p3 * 0.1), 0 ; amplitude envelope
+    ifreq    =        (p5 < 15 ? cpspch(p5) : p5)
+    kfreq   linseg    ifreq*1.2, (p3*0.2), ifreq
+
+    iTable ftgenonce 100, 0, 16384, 20, 1
+
+    ;AUDIO SIGNALS
+    ;output action  args
+    ;               amp     hz                    f
+    aChorusedSynth1      oscil   kamp,    cpspch(p5),          100 ; main oscillator
+
+    aChorusedSynth2      oscil   kamp,   (cpspch(p5) * 0.99),  100 ; chorus oscillator
+
+    aChorusedSynth3      oscil   kamp,   (cpspch(p5) * 1.01),  100
+                         outleta "ChorusedSynthOut", aChorusedSynth1 + aChorusedSynth2 + aChorusedSynth3
+endin
+
+instr ChorusedSynthFader
+    gkChorusedSynthFader linseg p4, p3, p5
+endin
+
+instr ChorusedSynthPan
+    gkChorusedSynthPan linseg p4, p3, p5
+endin
+
+instr ChorusedSynthMixerChannel
+    aChorusedSynthL inleta "ChorusedSynthIn"
+    aChorusedSynthR inleta "ChorusedSynthIn"
+
+    kChorusedSynthFader = gkChorusedSynthFader
+    kChorusedSynthPan = gkChorusedSynthPan
+
+    if kChorusedSynthPan > 100 then
+        kChorusedSynthPan = 100
+    elseif kChorusedSynthPan < 0 then
+        kChorusedSynthPan = 0
+    endif
+
+    aChorusedSynthL = (aChorusedSynthL * ((100 - kChorusedSynthPan) * 2 / 100)) * kChorusedSynthFader
+    aChorusedSynthR = (aChorusedSynthR * (kChorusedSynthPan * 2 / 100)) * kChorusedSynthFader
+
+    outleta "ChorusedSynthOutL", aChorusedSynthL
+    outleta "ChorusedSynthOutR", aChorusedSynthR
+endin
+
