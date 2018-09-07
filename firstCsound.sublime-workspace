@@ -1,0 +1,1542 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"poscil",
+				"poscil3"
+			],
+			[
+				"iDrum",
+				"iDrumName"
+			],
+			[
+				"CHoru",
+				"ChorusedSynthPan"
+			],
+			[
+				"gk",
+				"gkReverb1Cutoff"
+			],
+			[
+				"p5",
+				"p5"
+			],
+			[
+				"gkReverb1",
+				"gkReverb1Delay"
+			],
+			[
+				"gkRever",
+				"gkReverbDry"
+			],
+			[
+				"aRev",
+				"aReverbInR"
+			],
+			[
+				"aRe",
+				"aReverbWetR"
+			],
+			[
+				"aRever",
+				"aReverbR"
+			],
+			[
+				"aRE",
+				"aReverbInL"
+			],
+			[
+				"aR",
+				"aReverbL"
+			],
+			[
+				"else",
+				"elseif"
+			],
+			[
+				"aA",
+				"aAmenBreakR"
+			],
+			[
+				"AmenBreak",
+				"AmenBreakOut"
+			],
+			[
+				"aCh",
+				"aChorusedSynthL"
+			],
+			[
+				"aChor",
+				"aChorusedSynthR"
+			],
+			[
+				"aCHor",
+				"aChorusedSynthL"
+			],
+			[
+				"al",
+				"alinn4"
+			],
+			[
+				"aLinn",
+				"alinn3"
+			],
+			[
+				"ali",
+				"aLinnDrumL"
+			],
+			[
+				"LinnDrumInL",
+				"LinnDrumInL"
+			],
+			[
+				"aS",
+				"aSignalL"
+			],
+			[
+				"Signal",
+				"SignalIn"
+			],
+			[
+				"aSign",
+				"aSignalR"
+			],
+			[
+				"ga",
+				"gaMasterOut"
+			],
+			[
+				"ftgen",
+				"ftgenonce"
+			],
+			[
+				"SD",
+				"SDrumNum"
+			],
+			[
+				"end",
+				"endif"
+			],
+			[
+				"beat",
+				"beatsPerMeasure"
+			],
+			[
+				"a2",
+				"a2"
+			],
+			[
+				"gain",
+				"gain"
+			],
+			[
+				"sndwar",
+				"sndwarpst"
+			],
+			[
+				"start",
+				"startTime"
+			],
+			[
+				"length",
+				"lengthOfMeasure"
+			],
+			[
+				"kick",
+				"kickCount"
+			],
+			[
+				"startPoin",
+				"startPointInMeasure"
+			],
+			[
+				"margin",
+				"margin-bottom"
+			],
+			[
+				"mar",
+				"margin-top"
+			],
+			[
+				"max",
+				"max-height"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"whit",
+				"white-navs"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"marg",
+				"margin-right"
+			],
+			[
+				"pl-but",
+				"pl-button-white"
+			],
+			[
+				"fff",
+				"fff"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"thumbnails",
+				"thumbnails1"
+			],
+			[
+				"swa",
+				"swatchInterval"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"swatches",
+				"swatcheshere"
+			],
+			[
+				"color",
+				"color2"
+			],
+			[
+				"background",
+				"background-color"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "iDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Cabasa.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Clap.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Cowbell.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Crash.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/HatClosed1.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/HatClosed2.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/HatClosed3.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/HatClosed4.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/HatClosed5.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/HatClosed6.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/HatClosed7.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/HatOpen.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Kick.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Ride.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Rimshot1.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Rimshot2.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Rimshot3.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Rimshot4.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Rimshot5.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Rimshot6.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Rimshot7.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Rimshot8.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Rimshot9.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Snare1.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Snare2.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Snare3.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Snare4.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Snare5.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Snare6.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Snare7.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Snare8.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Snare9.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Snare10.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Snare11.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Snare12.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Snare13.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Snare14.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Tambourine.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Tom1.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Tom2.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Tom3.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Tom4.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Tom5.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Tom6.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Tom7.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Tom8.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Tom9.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Tom10.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Tom11.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Tom12.aif\", 0, 0, 0\niDrumSample[lenArray(iDrumName)] ftgenonce 0, 0, 0, 1, \"instruments/LinnDrumLM-2/Normalized/Tom13.aif\", 0, 0, 0",
+			"settings":
+			{
+				"buffer_size": 5790,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "iDrumName[lenArray(iDrumName)] \"Cabasa\"\niDrumName[lenArray(iDrumName)] \"Clap\"\niDrumName[lenArray(iDrumName)] \"Cowbell\"\niDrumName[lenArray(iDrumName)] \"Crash\"\niDrumName[lenArray(iDrumName)] \"HatClosed1\"\niDrumName[lenArray(iDrumName)] \"HatClosed2\"\niDrumName[lenArray(iDrumName)] \"HatClosed3\"\niDrumName[lenArray(iDrumName)] \"HatClosed4\"\niDrumName[lenArray(iDrumName)] \"HatClosed5\"\niDrumName[lenArray(iDrumName)] \"HatClosed6\"\niDrumName[lenArray(iDrumName)] \"HatClosed7\"\niDrumName[lenArray(iDrumName)] \"HatOpen\"\niDrumName[lenArray(iDrumName)] \"Kick\"\niDrumName[lenArray(iDrumName)] \"Ride\"\niDrumName[lenArray(iDrumName)] \"Rimshot1\"\niDrumName[lenArray(iDrumName)] \"Rimshot2\"\niDrumName[lenArray(iDrumName)] \"Rimshot3\"\niDrumName[lenArray(iDrumName)] \"Rimshot4\"\niDrumName[lenArray(iDrumName)] \"Rimshot5\"\niDrumName[lenArray(iDrumName)] \"Rimshot6\"\niDrumName[lenArray(iDrumName)] \"Rimshot7\"\niDrumName[lenArray(iDrumName)] \"Rimshot8\"\niDrumName[lenArray(iDrumName)] \"Rimshot9\"\niDrumName[lenArray(iDrumName)] \"Snare1\"\niDrumName[lenArray(iDrumName)] \"Snare2\"\niDrumName[lenArray(iDrumName)] \"Snare3\"\niDrumName[lenArray(iDrumName)] \"Snare4\"\niDrumName[lenArray(iDrumName)] \"Snare5\"\niDrumName[lenArray(iDrumName)] \"Snare6\"\niDrumName[lenArray(iDrumName)] \"Snare7\"\niDrumName[lenArray(iDrumName)] \"Snare8\"\niDrumName[lenArray(iDrumName)] \"Snare9\"\niDrumName[lenArray(iDrumName)] \"Snare10\"\niDrumName[lenArray(iDrumName)] \"Snare11\"\niDrumName[lenArray(iDrumName)] \"Snare12\"\niDrumName[lenArray(iDrumName)] \"Snare13\"\niDrumName[lenArray(iDrumName)] \"Snare14\"\niDrumName[lenArray(iDrumName)] \"Tambourine\"\niDrumName[lenArray(iDrumName)] \"Tom1\"\niDrumName[lenArray(iDrumName)] \"Tom2\"\niDrumName[lenArray(iDrumName)] \"Tom3\"\niDrumName[lenArray(iDrumName)] \"Tom4\"\niDrumName[lenArray(iDrumName)] \"Tom5\"\niDrumName[lenArray(iDrumName)] \"Tom6\"\niDrumName[lenArray(iDrumName)] \"Tom7\"\niDrumName[lenArray(iDrumName)] \"Tom8\"\niDrumName[lenArray(iDrumName)] \"Tom9\"\niDrumName[lenArray(iDrumName)] \"Tom10\"\niDrumName[lenArray(iDrumName)] \"Tom11\"\niDrumName[lenArray(iDrumName)] \"Tom12\"\niDrumName[lenArray(iDrumName)] \"Tom13\"",
+			"settings":
+			{
+				"buffer_size": 2067,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "instruments/sample.orc",
+			"settings":
+			{
+				"buffer_size": 1156,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "instruments/linn-drum.orc",
+			"settings":
+			{
+				"buffer_size": 9950,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "instruments/mixer.orc",
+			"settings":
+			{
+				"buffer_size": 384,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "hardBeat.csd",
+			"settings":
+			{
+				"buffer_size": 6705,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "newSong.csd",
+			"settings":
+			{
+				"buffer_size": 3731,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 47.0,
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"Package ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 431.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/jhughes/Music/csound-1/instruments/linn-drumOld.orc",
+		"/Users/jhughes/Music/csound-1/instruments/808.orc",
+		"/Users/jhughes/Music/csound-1/instruments/mixer.orc",
+		"/Users/jhughes/Music/csound-1/instruments/Reverb1.orc",
+		"/Users/jhughes/Music/csound-1/instruments/collected-orchestra.orc",
+		"/Users/jhughes/Music/csound-1/instruments/chorused-synth.orc",
+		"/Users/jhughes/Music/csound-1/mixer.csd",
+		"/Users/jhughes/Music/csound-1/instruments/bass.orc",
+		"/Users/jhughes/Music/csound-1/instruments/amenBreak.orc",
+		"/Users/jhughes/Music/csound-1/instruments/simpleOscillator.orc",
+		"/Users/jhughes/Music/csound-1/instruments/signal.orc",
+		"/Users/jhughes/Music/csound-1/instruments/sample.orc",
+		"/Users/jhughes/Music/csound-1/instruments/linn-drum.orc",
+		"/Users/jhughes/Music/csound-1/firstCsound.sublime-workspace",
+		"/Users/jhughes/Music/csound-1/instruments/major-chord-synth.orc",
+		"/Users/jhughes/Music/csound-1/tuffTurf.csd",
+		"/Users/jhughes/Music/csound-1/newSong.csd",
+		"/Users/jhughes/Music/csound-1/hardBeat.csd",
+		"/Users/jhughes/Music/csound-1/instruments/amenBreak2.orc",
+		"/Users/jhughes/Music/csound-1/instruments/fm-oscillator.orc",
+		"/Users/jhughes/Music/csound-1/giantSteps.csd",
+		"/Users/jhughes/Music/csound-1/amenExp.csd",
+		"/Users/jhughes/Music/csound-1/utility-macros/score-macros.orc",
+		"/Users/jhughes/Music/csound-1/outputExperiments.csd",
+		"/Users/jhughes/Music/csound-1/newBeat.csd",
+		"/Users/jhughes/Music/csound-1/shortTestBeat.csd",
+		"/Users/jhughes/Music/csound-1/instruments/firstReverb.orc",
+		"/Users/jhughes/Music/csound-1/opcodeTests.aif",
+		"/Users/jhughes/Music/csound-1/sndwarpTest.csd",
+		"/Users/jhughes/Music/csound-1/grainTest.csd",
+		"/Users/jhughes/Music/csound-1/instruments/grainTest.csd",
+		"/Users/jhughes/Music/csound-1/pan_example.csd",
+		"/Users/jhughes/Music/csound-1/instruments/amen-break.wav",
+		"/Users/jhughes/Music/csound-1/Notes",
+		"/Users/jhughes/Music/csound-1/sketch.csd",
+		"/Users/jhughes/Music/csound-1/opcodeTests.csd",
+		"/Users/jhughes/Music/csound-1/pan_layers.csd",
+		"/Users/jhughes/Music/csound-1/binaural.csd",
+		"/Users/jhughes/Music/csound-1/drum-loops.sco",
+		"/Users/jhughes/Music/csound-1/opcode_tests.sco",
+		"/Users/jhughes/Music/csound-1/giant-steps.sco",
+		"/Users/jhughes/Music/csound-1/instruments/opcode_learning.orc",
+		"/Users/jhughes/Music/csound-1/collected-orchestra.orc",
+		"/Users/jhughes/Music/csound-1/intro.sco",
+		"/Users/jhughes/Music/csound-1/score_utilities.sco",
+		"/Users/jhughes/Music/csound-1/synth1.orc",
+		"/Users/jhughes/Music/untitled folder 3/Toots/toot12.sco",
+		"/Users/jhughes/Music/untitled folder 3/Toots/toot12.orc",
+		"/Volumes/Projects/FreePeople/fusebox/public/_view/vLocalization/_shared/dsp_mobile_localeTemplate.cfm",
+		"/Volumes/Projects/FreePeople/fusebox/public/_view/vLocalization/_shared/dsp_localeTemplate.cfm",
+		"/Volumes/Projects/FreePeople/fusebox/public/_view/vLocalization/_shared/dsp_headerContent.cfm",
+		"/Volumes/Projects/FreePeople/fusebox/public/_view/vLocalization/_shared/dsp_mobile_headerContent.cfm",
+		"/Users/jhughes/Desktop/Personal Ticket Log",
+		"/Volumes/Projects/FreePeople/htdocs/demo/rd-wireframes/content/international.html",
+		"/Volumes/Projects/FreePeople/htdocs/web.config",
+		"/Volumes/Projects/FreePeople/fusebox/public/_view/vLayout/_shared/dsp_footer.cfm",
+		"/Volumes/Projects/FreePeople/htdocs/resources/_shared/video/video-generatedsource.html",
+		"/Volumes/Projects/FreePeople/htdocs/resources/_shared/video/video-with.html",
+		"/Volumes/Projects/FreePeople/htdocs/resources/_shared/video/video-without.html",
+		"/Volumes/Projects/FreePeople/htdocs/resources/_shared/stylesheets/scss/layout.scss",
+		"/Volumes/Projects/FreePeople/fusebox/public/_view/vCheckout/_shared/dsp_paymentInformationForm.cfm",
+		"/Volumes/Projects/FreePeople/fusebox/public/_view/vCheckout/_shared/dsp_shippingAddressForm.cfm",
+		"/Volumes/Projects/FreePeople/fusebox/public/_view/vCheckout/_shared/dsp_ajaxAddressResponse.cfm",
+		"/Volumes/Projects/FreePeople/htdocs/demo/rd-wireframes/_system/_cf/checkout/_addresses.html",
+		"/Volumes/Projects/FreePeople/htdocs/.sass-cache/143983b827eab676da956d6ec3d0412454456e23/layout.scssc",
+		"/Volumes/Projects/FreePeople/fusebox/public/_view/vSearch/_shared/dsp_searchFilterNavigation.cfm",
+		"/Volumes/Projects/FreePeople/fusebox/public/_view/vSearch/_shared/dsp_searchResultsTemplatePageless.cfm",
+		"/Volumes/Projects/FreePeople/fusebox/public/_view/vSearch/_shared/dsp_productFilterNavigationPageless.cfm",
+		"/Volumes/Projects/FreePeople/fusebox/public/_view/vSearch/_shared/dsp_mobile_searchResultsTemplate.cfm",
+		"/Volumes/Projects/FreePeople/htdocs/resources/_shared/js/linc/widgets/seoContentToggle.js",
+		"/Volumes/Projects/FreePeople/htdocs/resources/_shared/stylesheets/scss/header-footer.scss",
+		"/Volumes/Projects/FreePeople/htdocs/resources/_shared/stylesheets/scss/framework-components.scss",
+		"/Volumes/Projects/FreePeople/htdocs/resources/_shared/stylesheets/scss/tooltips.scss",
+		"/Volumes/Projects/FreePeople/htdocs/resources/_shared/stylesheets/css/tooltips.css",
+		"/Volumes/Projects/FreePeople/htdocs/resources/us/assetPackagesConfig.json",
+		"/Volumes/Projects/FreePeople/htdocs/resources/uk/assetPackagesConfig.json",
+		"/Volumes/Projects/FreePeople/htdocs/resources/jp/assetPackagesConfig.json",
+		"/Volumes/Projects/FreePeople/htdocs/resources/cn/assetPackagesConfig.json",
+		"/Volumes/Projects/FreePeople/htdocs/resources/_shared/assetPackagesConfig.json",
+		"/Volumes/Projects/FreePeople/htdocs/resources/_shared/js/linc/widgets/autoSelect.js",
+		"/Volumes/Projects/FreePeople/htdocs/resources/_shared/stylesheets/scss/seo-content.scss",
+		"/Volumes/Projects/FreePeople/htdocs/resources/_shared/stylesheets/scss/_utilities.scss",
+		"/Volumes/Projects/FreePeople/htdocs/resources/freepeople/assetPackagesConfig.json",
+		"/Volumes/Projects/FreePeople/htdocs/resources/packages/css/.gitignore",
+		"/Volumes/Projects/FreePeople/htdocs/resources/_shared/js/signals/dist/docs/symbols/src/_Users_millermedeiros_Projects__open_source_js-signals_dist_signals.js.html",
+		"/Volumes/Projects/FreePeople/htdocs/resources/_shared/stylesheets/scss/_compass.scss",
+		"/Volumes/Projects/FreePeople/htdocs/.sass-cache/01456fb8e9d79e34e3220bce4e0646f8a8b85d89/_utilities.scssc",
+		"/Users/jhughes/Documents/RCA/tattoo-wp altered/style.css",
+		"/Users/jhughes/Documents/WEBLABS-254/modcon",
+		"/Users/jhughes/Documents/WEBLABS-254/wl-middleman-boilerplate",
+		"/Users/jhughes/Documents/WEBLABS-254/rms-responsive-wireframes",
+		"/Users/jhughes/Desktop/Tickets I got today:",
+		"/Users/jhughes/Documents/RCA/tattoo-wp/includes/styles-template.php",
+		"/Users/jhughes/Documents/RCA/tattoo-wp/style.css",
+		"/Users/jhughes/Documents/RCA/tattoo-wp/index.php",
+		"/Users/jhughes/Documents/RCA/tattoo-wp/header.php",
+		"/Users/jhughes/Documents/RCA/tattoo-wp/includes/functions.php",
+		"/Users/jhughes/Documents/RCA/tattoo-wp/functions.php",
+		"/Users/jhughes/Documents/RCA/tattoo-wp/homepage.php",
+		"/Users/jhughes/Documents/RCA/tattoo-wp/page.php",
+		"/Users/jhughes/Documents/RCA/tattoo-wp/category.php",
+		"/Users/jhughes/Documents/RCA/tattoo-wp/contact.php",
+		"/Users/jhughes/Documents/RCA/tattoo-wp/faq.php",
+		"/Users/jhughes/Documents/RCA/tattoo-wp/largepage.php",
+		"/Users/jhughes/Documents/RCA/tattoo-wp/search.php",
+		"/Users/jhughes/Documents/RCA/tattoo-wp/single.php",
+		"/Users/jhughes/Documents/RCA/tattoo-wp/smallpage.php",
+		"/Users/jhughes/Documents/RCA/tattoo-wp/artists.php",
+		"/Users/jhughes/Documents/RCA/tattoo-wp/archive.php",
+		"/Users/jhughes/Documents/RCA/tattoo-wp/about.php",
+		"/Users/jhughes/Documents/RCA/tattoo-wp/404.php",
+		"/Volumes/Projects/FreePeople/htdocs/resources/_shared/js/linc/widgets/colorCycler.js",
+		"/Volumes/Projects/FreePeople/fusebox/public/_view/vImage/_shared/dsp_productFPMEBreadCrumb.cfm",
+		"/Volumes/Projects/FreePeople/fusebox/public/_view/vProducts/_shared/dsp_detailImages.cfm",
+		"/Volumes/Projects/FreePeople/fusebox/public/_view/vProducts/_shared/dsp_detailPageTemplate.cfm",
+		"/Volumes/Projects/FreePeople/fusebox/public/_view/vCategory/_shared/dsp_mobile_breadCrumb.cfm",
+		"/Volumes/Projects/FreePeople/fusebox/public/_view/vCollections/_shared/dsp_productFPMEBreadCrumb.cfm",
+		"/Users/jhughes/Documents/WebLinc Diary - things done and things to do",
+		"/Users/jhughes/Desktop/MASTER TO DO LIST",
+		"/Volumes/Projects/personal_presentation/style.css",
+		"/Volumes/Projects/personal_presentation/style.scss",
+		"/Volumes/Projects/personal_presentation/index.html",
+		"/Volumes/Projects/personal_presentation/style.css.map",
+		"/Users/jhughes/Desktop/dumbwebsite/style.css",
+		"/Users/jhughes/Desktop/dumbwebsite/index.html",
+		"/Users/jhughes/Desktop/dumbwebsite/style.scss",
+		"/Users/jhughes/Desktop/dumbwebsite/style.css.map",
+		"/Users/jhughes/Library/Application Support/Sublime Text 2/Packages/User/scss.sublime-settings"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"/Users/jhughes/Music/csound-1/",
+			"/Volumes/Projects/FreePeople/htdocs/resources/_shared/js",
+			"",
+			"fusebox/",
+			"/fusebox",
+			"fusebox",
+			"",
+			"fusebox",
+			"htdocs/resources/_shared",
+			"fusebox/public/",
+			"fusebox/public/_view",
+			"fusebox/public/_model",
+			"fusebox/public/",
+			"fusebox/public/_controller",
+			"fusebox/public/",
+			"fusebox/public/_controller/",
+			"/fusebox/public/_controller/*",
+			"/fusebox/public/_controller",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"ftgenonce",
+			"(iDrumName)]",
+			"ftgenonce",
+			"Tom1",
+			"Kick",
+			"Snare1",
+			"    \n",
+			"Kick",
+			"Rimshot1",
+			"iRimshot1",
+			"Kick",
+			"HatClosed1",
+			"Kick",
+			"limit",
+			"ChorusedSynth",
+			"\" 0",
+			"(0 + $loopCount)",
+			"\" 0",
+			".5 0",
+			"hat",
+			"linn",
+			"LinnDrumOut",
+			"LinnDrum",
+			"bass",
+			"ChorusedSynth",
+			"Signal",
+			"= ",
+			"Delay",
+			"Reverb",
+			"Reverberator",
+			"aReverbIn",
+			"aReverbInR",
+			"arightou",
+			"LinnDrum",
+			"simpleOscillator",
+			"ChorusedSynth",
+			"LinnDrum",
+			"linseg",
+			"lin",
+			"beat1",
+			"amen",
+			"fm-oscillator",
+			"AmenBreak",
+			"ChorusedSynth",
+			"firstReverb",
+			"simpleOsci",
+			"AmenBreak",
+			"AmenBreakMixerChannel",
+			"ChorusedSynth",
+			"0.15",
+			"amenBreak",
+			"ChorusedSynth",
+			"chorusedSynth",
+			"LinnDrum",
+			"linnDrumLM2",
+			"linnDrum",
+			"linnDrumLM2",
+			"Signal",
+			"L",
+			"Signal",
+			"i ",
+			"i",
+			"feedbackdel",
+			"gaRev",
+			"2",
+			"f ",
+			"iTable",
+			"\"Kick\"      1            1",
+			"\"HatClosed1\"      1            1",
+			".aif",
+			"cpspch(p5)",
+			"p4",
+			"KickDrum0001",
+			"SnareDrum0008",
+			"KickDrum0020",
+			".2",
+			"TR-808",
+			"snare",
+			"HatClosed2",
+			"kick",
+			"linnDrumLM2",
+			"HatClosed2",
+			"kick",
+			"linnDrumLM2",
+			"$loopCNT % 2",
+			"[$loopCNT % 2 + 1]",
+			"Kicks09",
+			"\"Kicks09\"          1    .5",
+			"kicks01",
+			"snare09",
+			"hiHats",
+			"linn",
+			"808",
+			"hatopen",
+			"HatClosed",
+			"snare",
+			"kick",
+			"linnDrumLM2",
+			"Modifier",
+			"\"HatClosed2\"   1    .25",
+			"333",
+			"HatClosed1",
+			"$loopCNT",
+			"simpleOscillator",
+			"^",
+			"^+0",
+			"snare13",
+			".25",
+			"7.0",
+			"$BPM",
+			"6.0",
+			"6.",
+			"7.",
+			"half",
+			"Fm",
+			"chorusedSynth",
+			"whole",
+			"achorusedSnth",
+			" .05",
+			" .5",
+			" a",
+			".095",
+			".15",
+			"Hat",
+			" .5",
+			"i \"linnDrumLM2\"",
+			" 0\n",
+			" 0"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"Reverb1",
+			"Reverb",
+			"SimpleOscillator",
+			"AmenBreak",
+			"ChorusedSynth"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"settings":
+					{
+						"buffer_size": 5790,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								5790
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
+							"syntax": "Packages/Csound/Csound.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"settings":
+					{
+						"buffer_size": 2067,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								2067
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
+							"syntax": "Packages/Csound/Csound.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "instruments/sample.orc",
+					"settings":
+					{
+						"buffer_size": 1156,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								819,
+								819
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"devel": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": "load-save",
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/Csound/Csound.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "instruments/linn-drum.orc",
+					"settings":
+					{
+						"buffer_size": 9950,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								878,
+								878
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"devel": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": "load-save",
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/Csound/Csound.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 4,
+					"file": "instruments/mixer.orc",
+					"settings":
+					{
+						"buffer_size": 384,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								355,
+								218
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"devel": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": "load-save",
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/Csound/Csound.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "hardBeat.csd",
+					"settings":
+					{
+						"buffer_size": 6705,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								494,
+								494
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"devel": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": "load-save",
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/Csound/Csound.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "newSong.csd",
+					"settings":
+					{
+						"buffer_size": 3731,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								56,
+								56
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"devel": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": "load-save",
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/Csound/Csound.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				0,
+				1,
+				1,
+				2
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			0.418180177486,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"sample",
+				"instruments/sample.orc"
+			],
+			[
+				"chorus",
+				"instruments/chorused-synth.orc"
+			],
+			[
+				"mix",
+				"instruments/mixer.orc"
+			],
+			[
+				"hard",
+				"hardBeat.csd"
+			],
+			[
+				"mixer",
+				"instruments/mixer.orc"
+			],
+			[
+				"rever",
+				"instruments/Reverb1.orc"
+			],
+			[
+				"collec",
+				"instruments/collected-orchestra.orc"
+			],
+			[
+				"chorused",
+				"instruments/chorused-synth.orc"
+			],
+			[
+				"news",
+				"newSong.csd"
+			],
+			[
+				"amenb",
+				"instruments/amenBreak.orc"
+			],
+			[
+				"lin",
+				"instruments/linn-drum.orc"
+			],
+			[
+				"har",
+				"hardBeat.csd"
+			],
+			[
+				"amen",
+				"instruments/amenBreak.orc"
+			],
+			[
+				"linn",
+				"instruments/linn-drum.orc"
+			],
+			[
+				"simple",
+				"instruments/simpleOscillator.orc"
+			],
+			[
+				"amenbreak",
+				"instruments/amenBreak.orc"
+			],
+			[
+				"bass",
+				"instruments/bass.orc"
+			],
+			[
+				"giant",
+				"giantSteps.csd"
+			],
+			[
+				"major",
+				"instruments/major-chord-synth.orc"
+			],
+			[
+				"tu",
+				"tuffTurf.csd"
+			],
+			[
+				"asset",
+				"htdocs/resources/us/assetPackagesConfig.json"
+			],
+			[
+				"assetpack",
+				"htdocs/resources/uk/assetPackagesConfig.json"
+			],
+			[
+				"assetpackagesconfig",
+				"htdocs/resources/uk/assetPackagesConfig.json"
+			],
+			[
+				"assetpackages",
+				"htdocs/resources/jp/assetPackagesConfig.json"
+			],
+			[
+				"internation",
+				"htdocs/demo/rd-wireframes/content/international.html"
+			],
+			[
+				"web.",
+				"htdocs/web.config"
+			],
+			[
+				"footer.cf",
+				"fusebox/public/_view/vLayout/_shared/dsp_footer.cfm"
+			],
+			[
+				"layout.scss",
+				"htdocs/resources/_shared/stylesheets/scss/layout.scss"
+			],
+			[
+				"layout.",
+				"htdocs/.sass-cache/143983b827eab676da956d6ec3d0412454456e23/layout.scssc"
+			],
+			[
+				"shippingad",
+				"fusebox/public/_view/vCheckout/_shared/dsp_shippingAddressForm.cfm"
+			],
+			[
+				"dsp_search",
+				"fusebox/public/_view/vSearch/_shared/dsp_searchFilterNavigation.cfm"
+			],
+			[
+				"_util",
+				"htdocs/resources/_shared/stylesheets/scss/_utilities.scss"
+			],
+			[
+				"header-footer",
+				"htdocs/resources/_shared/stylesheets/scss/header-footer.scss"
+			],
+			[
+				"framework-compon",
+				"htdocs/resources/_shared/stylesheets/scss/framework-components.scss"
+			],
+			[
+				"tooltips.scss",
+				"htdocs/resources/_shared/stylesheets/scss/tooltips.scss"
+			],
+			[
+				"tooltip",
+				"htdocs/resources/_shared/stylesheets/css/tooltips.css"
+			],
+			[
+				"giti",
+				"htdocs/resources/packages/css/.gitignore"
+			],
+			[
+				"_utilities.scss",
+				"htdocs/resources/_shared/stylesheets/scss/_utilities.scss"
+			],
+			[
+				"_utili",
+				"htdocs/.sass-cache/01456fb8e9d79e34e3220bce4e0646f8a8b85d89/_utilities.scssc"
+			],
+			[
+				"page",
+				"page.php"
+			],
+			[
+				"pa",
+				"page.php"
+			],
+			[
+				"hom",
+				"homepage.php"
+			],
+			[
+				"styl",
+				"style.css"
+			],
+			[
+				"head",
+				"header.php"
+			],
+			[
+				"style",
+				"style.css"
+			],
+			[
+				"index",
+				"index.php"
+			],
+			[
+				"header",
+				"header.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 279.0,
+	"status_bar_visible": true
+}
