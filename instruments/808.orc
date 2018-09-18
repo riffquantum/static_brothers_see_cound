@@ -15,20 +15,18 @@ instr TR808
     SDrumName strget p4
     SFullPath strcat "instruments/Roland TR-808/", SDrumName
     SFullPath strcat SFullPath, ".aif"
-
-    a8081  diskin SFullPath, p5
     kKillswitch init p7
+
+    if (kKillswitch == 0) then
+        a8081  diskin SFullPath, p5
+    endif
 
     kres1           rms (a8081 * p6)
 
     a8083          gain a8081, kres1
 
-    ; if (kKillswitch == 0) then
-        outleta "TR808OutL", a8083
-        outleta "TR808OutR", a8083
-    ; endif
-
-    ; out a8083, a8083
+    outleta "TR808OutL", a8083
+    outleta "TR808OutR", a8083
 endin
 
 

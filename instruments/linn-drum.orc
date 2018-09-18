@@ -19,7 +19,9 @@ instr LinnDrum
     SFullPath strcat SFullPath, ".aif"
     kKillswitch init p7
 
-    alinn1, alinn2  diskin SFullPath, p5
+    if (kKillswitch == 0) then
+        alinn1, alinn2  diskin SFullPath, p5
+    endif
 
     kres1           rms (alinn1 * p6)
     kres2           rms (alinn2 * p6)
@@ -27,12 +29,8 @@ instr LinnDrum
     alinn3          gain alinn1, kres1
     alinn4          gain alinn2, kres2
 
-    ; if (kKillswitch == 0) then
-        outleta "LinnDrumOutL", alinn3
-        outleta "LinnDrumOutR", alinn4
-    ; endif
-
-    ; out alinn3, alinn4
+    outleta "LinnDrumOutL", alinn3
+    outleta "LinnDrumOutR", alinn4
 endin
 
 instr LinnDrumFader
