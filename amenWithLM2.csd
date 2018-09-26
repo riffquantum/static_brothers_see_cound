@@ -11,11 +11,8 @@
         nchnls = 2          ; number of channels of audio output
         0dbfs = 1           ;
 
-        #include "instruments/collected-orchestra.orc"
-
-        instr mixer
-            gaMasterOut = 0
-        endin
+        #include "opcodes/opcode-manifest.orc"
+        #include "instruments/orchestra-manifest.orc"
 
     </CsInstruments>
 

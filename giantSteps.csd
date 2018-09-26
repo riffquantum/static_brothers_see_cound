@@ -11,7 +11,8 @@
         nchnls = 2          ; number of channels of audio output
         0dbfs = 10          ;
 
-        #include "instruments/collected-orchestra.orc"
+        #include "opcodes/opcode-manifest.orc"
+        #include "instruments/orchestra-manifest.orc"
 
     </CsInstruments>
 

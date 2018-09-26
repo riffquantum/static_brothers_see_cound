@@ -13,8 +13,11 @@ gkLinnDrumFader init 1
 gkLinnDrumPan init 50
 
 instr LinnDrum
-
+    
+    
     SModifier strget p4
+    
+
     SFullPath strcat "instruments/LinnDrumLM-2/Normalized/", SModifier
     SFullPath strcat SFullPath, ".aif"
     kKillswitch init p7
@@ -61,3 +64,6 @@ instr LinnDrumMixerChannel
     outleta "LinnDrumOutR", aLinnDrumR
 endin
     
+instr LinnDrumSequencer
+    
+endin

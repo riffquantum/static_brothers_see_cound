@@ -10,10 +10,10 @@ gkAmenBreakPan init 50
 
 instr AmenBreak
 
-    iTable ftgenonce 100, 0, 8192, 20, 2, 1
+    iTable ftgenonce 0, 0, 8192, 20, 2, 1
 
     ;Sfname,                                      kamp, kfreq, kpitch, kgrsize, kprate, ifun, iolaps [,imaxgrsize , ioffset]
-    aAmen diskgrain "instruments/amen-break.wav", 1,    10000,     1,  0.0001,     p4, 100,  1000
+    aAmen diskgrain "instruments/amen-break.wav", 1,    10000,     1,  0.0001,     p4, iTable,  1000
 
     outleta "AmenBreakOut", aAmen
 
