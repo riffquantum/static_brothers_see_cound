@@ -1,5 +1,7 @@
 #include "instruments/chorused-synth.orc"
 
+#include "instruments/chorused-synth--midi-in.orc"
+
 #include "instruments/Reverb1.orc"
 
 #include "instruments/linn-drum.orc"
@@ -18,3 +20,4 @@
 
 #include "instruments/mixer.orc"
 
+#include "instruments/masterMidiInterface.orc"

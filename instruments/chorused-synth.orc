@@ -22,11 +22,11 @@ instr ChorusedSynth
     ;AUDIO SIGNALS
     ;output action  args
     ;               amp     hz                    f
-    aChorusedSynth1      oscil   kamp,    cpspch(p5),          100 ; main oscillator
+    aChorusedSynth1      oscil   kamp,    ifreq,          100 ; main oscillator
 
-    aChorusedSynth2      oscil   kamp,   (cpspch(p5) * 0.99),  100 ; chorus oscillator
+    aChorusedSynth2      oscil   kamp,   (ifreq * 0.99),  100 ; chorus oscillator
 
-    aChorusedSynth3      oscil   kamp,   (cpspch(p5) * 1.01),  100
+    aChorusedSynth3      oscil   kamp,   (ifreq * 1.01),  100
                          outleta "ChorusedSynthOut", aChorusedSynth1 + aChorusedSynth2 + aChorusedSynth3
 endin
 

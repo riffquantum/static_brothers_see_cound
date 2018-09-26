@@ -22,17 +22,33 @@ instr Reverb1
 endin
 
 instr Reverb1Wet
+  if (p3 == 0) then
+    gkReverb1Dry = p5
+  else
     gkReverb1Dry linseg p4, p3, p5
+  endif
 endin
 
 instr Reverb1Dry
+  if (p3 == 0) then
+    gkReverb1Wet = p5
+  else
     gkReverb1Wet linseg p4, p3, p5
+  endif
 endin
 
 instr Reverb1DelayKnob
+  if (p3 == 0) then
+    gkReverb1Delay = p5
+  else
     gkReverb1Delay linseg p4, p3, p5
+  endif
 endin
 
 instr Reverb1CutoffKnob
+  if (p3 == 0) then
+    gkReverb1Cutoff = p5
+  else
     gkReverb1Cutoff linseg p4, p3, p5
+  endif
 endin
