@@ -22,9 +22,5 @@
 		i "Reverb1DelayKnob" 0 0.1 1 1
         i "Reverb1CutoffKnob" 0 0.1 .100 300
 		i "MidiMonitor" 0 3600   
-		i "ChorusedSynthy" 0 3600
-		;sine wave.
-		f 1 0 16384 10 1
-		i 2 0 3600
 	</CsScore>
 </CsoundSynthesizer>
