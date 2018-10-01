@@ -2,6 +2,8 @@
 
 #include "instruments/chorused-synth--midi-in.orc"
 
+#include "instruments/chorused-synth--quarter-tone.orc"
+
 #include "instruments/Reverb1.orc"
 
 #include "instruments/linn-drum.orc"
