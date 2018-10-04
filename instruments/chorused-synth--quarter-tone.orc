@@ -12,21 +12,25 @@ instr ChorusedSynthQuarterTone
     ;CONTROL SIGNALS
     ;output action  args
 
-    kamp     =        0.1
+    ;kEnvelope madsr .1, .5, .1, 0.01
+    
+
+
+    kEnvelope linenr .1, .2, .5, 0.001
 
     iMidiNote notnum
     
-    ifreq = midiNoteQuarterToneKeyboardLayout(iMidiNote, 7)
+    iFrequency = midiNoteQuarterToneKeyboardLayout(iMidiNote, 7)
     
-    kfreq   linseg    ifreq*1.2, 0.1, ifreq
+    kFrequency   linseg    iFrequency*1.2, 0.1, iFrequency
 
     iTable ftgenonce 100, 0, 16384, 20, 1
 
-    aChorusedSynthQuarterTone1      oscil   kamp,    ifreq,          100 ; main oscillator
+    aChorusedSynthQuarterTone1      oscil   kEnvelope,    kFrequency,          100 ; main oscillator
 
-    aChorusedSynthQuarterTone2      oscil   kamp,   (ifreq * 0.99),  100 ; chorus oscillator
+    aChorusedSynthQuarterTone2      oscil   kEnvelope,   (kFrequency * 0.99),  100 ; chorus oscillator
 
-    aChorusedSynthQuarterTone3      oscil   kamp,   (ifreq * 1.01),  100
+    aChorusedSynthQuarterTone3      oscil   kEnvelope,   (kFrequency * 1.01),  100
                          outleta "ChorusedSynthQuarterToneOut", aChorusedSynthQuarterTone1 + aChorusedSynthQuarterTone2 + aChorusedSynthQuarterTone3
 endin
 

@@ -1,7 +1,7 @@
 <CsoundSynthesizer>
 
     <CsOptions>
-        -odac
+        -odac -Ma  -m0
     </CsOptions>
 
     <CsInstruments>
@@ -13,6 +13,9 @@
 
         #include "opcodes/opcode-manifest.orc"
         #include "instruments/orchestra-manifest.orc"
+
+        massign 2, "ChorusedSynthQuarterTone"
+        massign 3, "ChorusedSynthMidiIn"
 
     </CsInstruments>
 
