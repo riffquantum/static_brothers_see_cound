@@ -19,6 +19,11 @@ instr MasterMidiInterface
 	kstatus, kchan, kdata1, kdata2  midiin 
 	ktrigger  changed  kstatus, kchan, kdata1, kdata2
 
+	if kchan != 1 then
+		kgoto end
+	endif
+
+
 	if ktrigger ==1 && (kstatus == 0 || kstatus == 128) then
 		kgoto end
 	endif
