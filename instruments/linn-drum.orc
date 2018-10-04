@@ -1,5 +1,13 @@
-; Linn Drum
-; Older version of my LinnDrum that uses the diskin opcode
+/* LinnDrum LM2
+    Sampler using samples from the LinnDrum LM2 drum machine. 
+
+    p4 - Drum Name - String - valid values:
+    p5 - coresponds to kpitch on diskin opcode
+    p6 - amplitude modifier
+    p7 - kill switch - Note will only output audio when this
+        equals 0. Use it with a loop count and some arithmetic
+        to turn notes on and off per measure.
+*/
 
 connect "LinnDrum", "LinnDrumOutL", "LinnDrumMixerChannel", "LinnDrumInL"
 connect "LinnDrum", "LinnDrumOutR", "LinnDrumMixerChannel", "LinnDrumInR"

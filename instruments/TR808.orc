@@ -1,4 +1,13 @@
-; Linn Drum
+/* TR808
+    Sampler using samples from the Roland TR-808 drum machine. 
+
+    p4 - Drum Name - String - valid values:
+    p5 - coresponds to kpitch on diskin opcode
+    p6 - amplitude modifier
+    p7 - kill switch - Note will only output audio when this
+        equals 0. Use it with a loop count and some arithmetic
+        to turn notes on and off per measure.
+*/
 
 connect "TR808", "TR808OutL", "TR808MixerChannel", "TR808InL"
 connect "TR808", "TR808OutR", "TR808MixerChannel", "TR808InR"

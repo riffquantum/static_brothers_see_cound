@@ -8,7 +8,9 @@
 
 #include "instruments/linn-drum.orc"
 
-#include "instruments/808.orc"
+#include "instruments/TR808.orc"
+
+#include "instruments/TR606.orc"
 
 #include "instruments/simpleOscillator.orc"
 
