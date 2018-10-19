@@ -9,7 +9,7 @@
         kr = 4800           ; control rate is 4410 Hz
         ksmps = 10          ; number of samples in a control period (sr/kr)
         nchnls = 2          ; number of channels of audio output
-        0dbfs = 1           ;
+        0dbfs = 5           ;
         
 		#include "opcodes/opcode-manifest.orc"
         #include "instruments/orchestra-manifest.orc"

@@ -1,27 +1,29 @@
-#include "instruments/chorused-synth.orc"
+#include "instruments/chorusedSynth/chorusedSynth.orc"
 
-#include "instruments/chorused-synth--midi-in.orc"
+#include "instruments/chorusedSynth/chorusedSynth--midi-in.orc"
 
-#include "instruments/chorused-synth--quarter-tone.orc"
+#include "instruments/chorusedSynth/chorusedSynth--quarter-tone.orc"
 
-#include "instruments/Reverb1.orc"
+#include "instruments/reverb/reverb.orc"
 
-#include "instruments/linn-drum.orc"
+#include "instruments/linnDrum/linnDrum.orc"
 
-#include "instruments/TR808.orc"
+#include "instruments/TR808/TR808.orc"
 
-#include "instruments/TR606.orc"
+#include "instruments/TR606/TR606.orc"
 
-#include "instruments/simpleOscillator.orc"
+#include "instruments/simpleOscillator/simpleOscillator.orc"
 
-#include "instruments/amenBreak.orc"
+#include "instruments/amenBreak/amenBreak.orc"
 
-#include "instruments/amenBreak2.orc"
+#include "instruments/funkyDrummerBreak/funkyDrummerBreak.orc"
 
-#include "instruments/signal.orc"
+#include "instruments/itsExpectedBreak/itsExpectedBreak.orc"
 
-#include "instruments/sample.orc"
+#include "instruments/signal/signal.orc"
 
-#include "instruments/mixer.orc"
+#include "instruments/sample/sample.orc"
 
-#include "instruments/masterMidiInterface.orc"
+#include "instruments/mixer/mixer.orc"
+
+#include "instruments/masterMidiInterface/masterMidiInterface.orc"

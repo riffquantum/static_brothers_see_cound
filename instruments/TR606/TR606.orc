@@ -33,7 +33,7 @@ gkTR606Pan init 50
 
 instr TR606
     SDrumName strget p4
-    SFullPath = "instruments/Roland TR-606/"
+    SFullPath = "instruments/TR606/Roland TR-606/"
     if (p8 == 1) then
         SFullPath strcat SFullPath, "Saturated/"
     else
