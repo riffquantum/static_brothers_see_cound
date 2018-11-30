@@ -53,6 +53,9 @@
             
             scoreline_i beatScoreline( "itsExpectedBreakDiskin", 1, 1, {{ 2.5 }})
             scoreline_i beatScoreline( "itsExpectedBreakDiskin", 2.5, 1, {{ 2.5}})
+
+            scoreline_i beatScoreline( "thinkBreakDiskin", 0, 2, {{ 0 "3" }})
+            scoreline_i beatScoreline( "thinkBreakDiskin", 2, 2, {{ 2 "2" }})
         endin
     </CsInstruments>
 
@@ -71,7 +74,7 @@
             i "breaks" + 4
             i "breaks" + 4
 
-            i "pattern2" 4 4
+            i "pattern2" 8 4
             
 
             i "pattern2" + 4

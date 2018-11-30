@@ -22,6 +22,8 @@
 
 #include "gumboBreak/gumboBreak.orc"
 
+#include "thinkBreak/thinkBreak.orc"
+
 #include "signal/signal.orc"
 
 #include "sample/sample.orc"
