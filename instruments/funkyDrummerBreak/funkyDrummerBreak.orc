@@ -1,5 +1,6 @@
 /* funkyDrummerBreak
     A set of funkyDrummer Break Instruments each using different opcodes for playing and manipulating the sample. This file is meant to serve as an area for experimentation with different opcodes for manipulating drum breaks
+    BPM: ~101
 */
 
 connect "funkyDrummerBreakDiskin", "funkyDrummerBreakOutL", "funkyDrummerBreakMixerChannel", "funkyDrummerBreakInL"
@@ -19,6 +20,8 @@ gkfunkyDrummerBreakFader init 1
 gkfunkyDrummerBreakPan init 50
 gSfunkyDrummerFilePath init "instruments/funkyDrummerBreak/funkydrummerbreak.wav"
 
+giFunkyDrummerBreakBPM init 101
+giFunkyDrummerFactor = giBPM / giFunkyDrummerBreakBPM
 
 instr funkyDrummerBPMsetter
     ;this does not work. Why?
@@ -32,9 +35,9 @@ instr funkyDrummerBPMsetter
 endin
 
 instr funkyDrummerBreakDiskin
-    kpitch = p4
+    kpitch = giFunkyDrummerFactor
     
-    iSkipTimeInBeats = p5
+    iSkipTimeInBeats = p4
     iFileLength filelen gSfunkyDrummerFilePath
     iSkipTime = iFileLength / 16 * iSkipTimeInBeats
     

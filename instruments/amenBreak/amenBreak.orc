@@ -1,5 +1,6 @@
 /* amenBreak
     A set of Amen Break Instruments each using different opcodes for playing and manipulating the sample. This file is meant to serve as an area for experimentation with different opcodes for manipulating drum breaks
+    BPM: ~137
 */
 
 connect "AmenBreakDiskin", "AmenBreakOut", "AmenBreakMixerChannel", "AmenBreakIn"
@@ -14,6 +15,8 @@ gkAmenBreakFader init 1
 gkAmenBreakPan init 50
 gSAmenFilePath init "instruments/amenBreak/amen-break.wav"
 
+giAmenBreakBPM init 137
+giAmenFactor = giBPM / giAmenBreakBPM
 
 instr AmenBPMsetter
     ;this does not work. Why?
@@ -27,9 +30,9 @@ instr AmenBPMsetter
 endin
 
 instr AmenBreakDiskin
-    kpitch = p4
+    kpitch = giAmenFactor
     
-    iSkipTimeInBeats = p5
+    iSkipTimeInBeats = p4
     iFileLength filelen gSAmenFilePath
     iSkipTime = iFileLength / 16 * iSkipTimeInBeats
     

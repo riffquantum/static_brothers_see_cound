@@ -54,13 +54,16 @@ instr MasterMidiInterface
 
 		; Hat Open
 		if kdata1 == 55  then
-			scoreline {{i "LinnDrum" 0 1 "kick" 1 .5 0}}, ktrigger
+			scoreline {{i "LinnDrum" 0 1 "HatOpen" 1 .5 0}}, ktrigger
 			kgoto end
 		endif
 
 		; Hat Closed
 		if kdata1 == 47  then
 			scoreline {{i "LinnDrum" 0 1 "HatClosed5" 1 .5 0}}, ktrigger
+			clear gaInterrupt1L, gaInterrupt1R
+			gaInterrupt1R = 0
+			gaInterrupt1L = 0
 			kgoto end
 		endif
 

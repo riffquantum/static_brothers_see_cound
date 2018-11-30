@@ -1,3 +1,6 @@
-#include "opcodes/getTableSizeFromSample.orc"
+#include "getTableSizeFromSample.orc"
 
-#include "opcodes/midiNoteQuarterToneKeyboardLayout.orc"
+#include "midiNoteQuarterToneKeyboardLayout.orc"
+
+#include "beatScoreline.orc"
+

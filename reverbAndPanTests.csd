@@ -5,11 +5,9 @@
 
 
 <CsInstruments>
-    sr     = 48000
-    kr     = 4800
-    ksmps  = 10
-    nchnls = 2
-    0dbfs  = 1
+    #include "config/defaultConfig.orc"
+    
+    giBPM = 120
 
     #include "opcodes/opcode-manifest.orc"
     #include "instruments/orchestra-manifest.orc"

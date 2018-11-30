@@ -1,5 +1,6 @@
 /* itsExpectedBreak
     A set of itsExpected Break Instruments each using different opcodes for playing and manipulating the sample. This file is meant to serve as an area for experimentation with different opcodes for manipulating drum breaks
+    BPM: ~60
 */
 
 connect "itsExpectedBreakDiskin", "itsExpectedBreakOutL", "itsExpectedBreakMixerChannel", "itsExpectedBreakInL"
@@ -21,6 +22,8 @@ gSitsExpectedFilePath init "instruments/itsExpectedBreak/itsExpectedbreak.wav"
 
 giitsExpectedBreakBPM init 87.25
 
+giitsExpectedFactor = giBPM / giitsExpectedBreakBPM
+
 instr itsExpectedBPMsetter
     ;this does not work. Why?
     iMultiplier = p4
@@ -33,9 +36,9 @@ instr itsExpectedBPMsetter
 endin
 
 instr itsExpectedBreakDiskin
-    kpitch = p4
+    kpitch = giitsExpectedFactor
     
-    iSkipTimeInBeats = p5
+    iSkipTimeInBeats = p4
     iFileLength filelen gSitsExpectedFilePath
     iSkipTime = iFileLength / 16 * iSkipTimeInBeats
     
