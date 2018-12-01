@@ -22,7 +22,7 @@ gkTR808Pan init 50
 
 instr TR808
     SDrumName strget p4
-    SFullPath strcat "instruments/TR808/Roland TR-808/", SDrumName
+    SFullPath strcat "instruments/TR808/RolandTR-808/", SDrumName
     SFullPath strcat SFullPath, ".aif"
     kKillswitch init p7
 
