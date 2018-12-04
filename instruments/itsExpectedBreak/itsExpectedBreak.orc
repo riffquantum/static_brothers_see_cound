@@ -1,6 +1,9 @@
 /* itsExpectedBreak
-    A set of itsExpected Break Instruments each using different opcodes for playing and manipulating the sample. This file is meant to serve as an area for experimentation with different opcodes for manipulating drum breaks
+    A set of sampling instruments each using different opcodes for playing and manipulating a drum break from It's Expected, I'm Gone by The Minutemen.
+
+    Sample Source: It's Expected, I'm Gone - The Minutemen
     BPM: ~60
+    Length: 16 beats
 */
 
 connect "itsExpectedBreakDiskin", "itsExpectedBreakOutL", "itsExpectedBreakMixerChannel", "itsExpectedBreakInL"
@@ -24,30 +27,21 @@ giitsExpectedBreakBPM init 87.25
 
 giitsExpectedFactor = giBPM / giitsExpectedBreakBPM
 
-instr itsExpectedBPMsetter
-    ;this does not work. Why?
-    iMultiplier = p4
-    iitsExpectedLength filelen gSitsExpectedFilePath
-    iitsExpectedBPM = (60 / (iitsExpectedLength / 16)) * iMultiplier
-    SScoreStatement sprintf {{t 0 %i}}, iitsExpectedBPM
-    kTrigger metro 1
+giitsExpectedFileLength filelen gSitsExpectedFilePath
+giitsExpectedLengthOfBeat = giitsExpectedFileLength / 16
 
-    scoreline SScoreStatement, kTrigger
-endin
 
 instr itsExpectedBreakDiskin
     kpitch = giitsExpectedFactor
     
     iSkipTimeInBeats = p4
-    iFileLength filelen gSitsExpectedFilePath
-    iSkipTime = iFileLength / 16 * iSkipTimeInBeats
+    iSkipTime = giitsExpectedLengthOfBeat * iSkipTimeInBeats
     
     iwraparound= 1
     iformat = 0
     iskipinit = 0
 
-    ;Sfname,                                      kamp, kfreq, kpitch, kgrsize, kprate, ifun, iolaps [,imaxgrsize , ioffset]
-    aitsExpectedL, aitsExpectedR diskin "instruments/itsExpectedBreak/itsExpectedbreak.wav", kpitch, iSkipTime, iwraparound, iformat, iskipinit
+    aitsExpectedL, aitsExpectedR diskin gSitsExpectedFilePath, kpitch, iSkipTime, iwraparound, iformat, iskipinit
 
     outleta "itsExpectedBreakOutL", aitsExpectedL
     outleta "itsExpectedBreakOutR", aitsExpectedR
@@ -55,11 +49,19 @@ instr itsExpectedBreakDiskin
 endin
 
 instr itsExpectedBreakDiskgrain
-
     iTable ftgenonce 0, 0, 8192, 20, 2, 1
+    kamplitude = p4
+    iTimeFactor = p5 * giitsExpectedFactor
+    kpitch = p6
+    iskipTimeInBeats = p7
+    kgrainsize = 0.004
+    ioverlaps = 2
+    kpointerRate = 1/ioverlaps * iTimeFactor
+    kfreq = ioverlaps/kgrainsize
+    imaxgrainsize = 1
+    iskipTime = giitsExpectedLengthOfBeat * iskipTimeInBeats
 
-    ;Sfname,                                      kamp, kfreq, kpitch, kgrsize, kprate, ifun, iolaps [,imaxgrsize , ioffset]
-    aitsExpectedL, aitsExpectedR diskgrain "instruments/itsExpectedBreak/itsExpectedbreak.wav", 1,    10000,     1,  0.0001,     p4, iTable,  1000
+    aitsExpectedL, aitsExpectedR diskgrain gSitsExpectedFilePath, kamplitude,    kfreq,     kpitch, kgrainsize ,     kpointerRate, iTable,  ioverlaps, imaxgrainsize, iskipTime
 
     outleta "itsExpectedBreakOutL", aitsExpectedL
     outleta "itsExpectedBreakOutR", aitsExpectedR
@@ -68,28 +70,25 @@ endin
 
 instr itsExpectedBreakSndwarp
     iitsExpectedFileSampleRate filesr gSitsExpectedFilePath
-    
     iitsExpectedTableLength getTableSizeFromSample gSitsExpectedFilePath
-
     ;iTable ftgenonce 0, 0, 8192, 20, 2, 1
     iTable ftgenonce 2, 0, 16384, 9, 0.5, 1, 0
-    iitsExpectedTable ftgenonce 0, 0, iitsExpectedTableLength, 1, "instruments/itsExpectedBreak/itsExpectedbreak.wav", 0, 0, 0
-
-    kxpitch = iitsExpectedFileSampleRate / iitsExpectedFileSampleRate
-    ;aitsExpected grain 0.1,   kxpitch,     10,     10,       10,         .010, iitsExpectedTable, iTable,    0.01,      1
+    iitsExpectedTable ftgenonce 0, 0, iitsExpectedTableLength, 1, gSitsExpectedFilePath, 0, 0, 0
     
     ;sndwarp arguments
-    kamplitude = 1
-    ktimewarp = 0.9
-    kresample linseg 1, p4, 1000
+    kamplitude = p4
+    ktimewarp = p5 * (1/giitsExpectedFactor)
+    kresample = p6
     isampleTable = iitsExpectedTable
-    ibeginningTime = 0
-    iwindowSize = 5
+    iskipTimeInBeats = p7
+    ioverlap = p8
+    ibeginningTime =  giitsExpectedLengthOfBeat * iskipTimeInBeats
+    iwindowSize = 10
     irandw = 0
-    ioverlap = 1
     ienvelopeTable = iTable
     itimemode = 0
-    aitsExpectedL, aitsExpectedR sndwarp kamplitude, ktimewarp, kresample, isampleTable, ibeginningTime, iwindowSize, irandw, ioverlap, ienvelopeTable, itimemode
+
+    aitsExpectedL, aitsExpectedR sndwarpst kamplitude, ktimewarp, kresample, isampleTable, ibeginningTime, iwindowSize, irandw, ioverlap, ienvelopeTable, itimemode
 
     outleta "itsExpectedBreakOutL", aitsExpectedL
     outleta "itsExpectedBreakOutR", aitsExpectedR

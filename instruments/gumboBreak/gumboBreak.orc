@@ -1,5 +1,7 @@
 /* gumboBreak
-    A set of sampling instruments each using different opcodes for playing and manipulating the long drum and bass break from The Gumbo Variations by Frank Zappa. This file is meant to serve as an area for experimentation with different opcodes for manipulating drum breaks
+    A set of sampling instruments each using different opcodes for playing and manipulating the long drum and bass break from The Gumbo Variations by Frank Zappa.
+    
+    Sample Source: The Gumbo Variations - Frank Zappa
     BPM: ~122.75
     Length: 48 beats
 */
@@ -19,80 +21,75 @@ alwayson "gumboBreakMixerChannel"
 
 gkgumboBreakFader init 1
 gkgumboBreakPan init 50
-gSitsExpectedFilePath init "instruments/gumboBreak/gumboBreak.wav"
+gSgumboFilePath init "instruments/gumboBreak/gumboBreak.wav"
 
 gigumboBreakBPM init 122.75
-giGumboFactor = giBPM / gigumboBreakBPM
+gigumboFactor = giBPM / gigumboBreakBPM
 
-instr itsExpectedBPMsetter
-    ;this does not work. Why?
-    iMultiplier = p4
-    iitsExpectedLength filelen gSitsExpectedFilePath
-    iitsExpectedBPM = (123 / (iitsExpectedLength / 16)) * iMultiplier
-    SScoreStatement sprintf {{t 0 %i}}, iitsExpectedBPM
-    kTrigger metro 1
+gigumboFileLength filelen gSgumboFilePath
+gigumboLengthOfBeat = gigumboFileLength / 48
 
-    scoreline SScoreStatement, kTrigger
-endin
 
 instr gumboBreakDiskin
-    kpitch = giGumboFactor
+    kpitch = gigumboFactor
     
     iSkipTimeInBeats = p4
-    iFileLength filelen gSitsExpectedFilePath
-    iSkipTime = iFileLength / 48 * iSkipTimeInBeats
+    iSkipTime = gigumboLengthOfBeat * iSkipTimeInBeats
     
     iwraparound= 1
     iformat = 0
     iskipinit = 0
 
-    ;Sfname,                                      kamp, kfreq, kpitch, kgrsize, kprate, ifun, iolaps [,imaxgrsize , ioffset]
-    aitsExpectedL, aitsExpectedR diskin "instruments/gumboBreak/gumboBreak.wav", kpitch, iSkipTime, iwraparound, iformat, iskipinit
+    agumboL, agumboR diskin gSgumboFilePath, kpitch, iSkipTime, iwraparound, iformat, iskipinit
 
-    outleta "gumboBreakOutL", aitsExpectedL
-    outleta "gumboBreakOutR", aitsExpectedR
+    outleta "gumboBreakOutL", agumboL
+    outleta "gumboBreakOutR", agumboR
 
 endin
 
 instr gumboBreakDiskgrain
-
     iTable ftgenonce 0, 0, 8192, 20, 2, 1
+    kamplitude = p4
+    iTimeFactor = p5 * gigumboFactor
+    kpitch = p6
+    iskipTimeInBeats = p7
+    kgrainsize = 0.004
+    ioverlaps = 2
+    kpointerRate = 1/ioverlaps * iTimeFactor
+    kfreq = ioverlaps/kgrainsize
+    imaxgrainsize = 1
+    iskipTime = gigumboLengthOfBeat * iskipTimeInBeats
 
-    ;Sfname,                                      kamp, kfreq, kpitch, kgrsize, kprate, ifun, iolaps [,imaxgrsize , ioffset]
-    aitsExpectedL, aitsExpectedR diskgrain "instruments/gumboBreak/gumboBreak.wav", 1,    10000,     1,  0.0001,     p4, iTable,  1000
+    agumboL, agumboR diskgrain gSgumboFilePath, kamplitude,    kfreq,     kpitch, kgrainsize ,     kpointerRate, iTable,  ioverlaps, imaxgrainsize, iskipTime
 
-    outleta "gumboBreakOutL", aitsExpectedL
-    outleta "gumboBreakOutR", aitsExpectedR
+    outleta "gumboBreakOutL", agumboL
+    outleta "gumboBreakOutR", agumboR
 
 endin
 
 instr gumboBreakSndwarp
-    iitsExpectedFileSampleRate filesr gSitsExpectedFilePath
-    
-    iitsExpectedTableLength getTableSizeFromSample gSitsExpectedFilePath
-
+    igumboFileSampleRate filesr gSgumboFilePath
+    igumboTableLength getTableSizeFromSample gSgumboFilePath
     ;iTable ftgenonce 0, 0, 8192, 20, 2, 1
     iTable ftgenonce 2, 0, 16384, 9, 0.5, 1, 0
-    iitsExpectedTable ftgenonce 0, 0, iitsExpectedTableLength, 1, "instruments/gumboBreak/gumboBreak.wav", 0, 0, 0
+    igumboTable ftgenonce 0, 0, igumboTableLength, 1, gSgumboFilePath, 0, 0, 0
 
-    kxpitch = iitsExpectedFileSampleRate / iitsExpectedFileSampleRate
-    ;aitsExpected grain 0.1,   kxpitch,     10,     10,       10,         .010, iitsExpectedTable, iTable,    0.01,      1
-    
-    ;sndwarp arguments
-    kamplitude = 1
-    ktimewarp = 0.9
-    kresample linseg 1, p4, 1000
-    isampleTable = iitsExpectedTable
-    ibeginningTime = 0
-    iwindowSize = 5
+    kamplitude = p4
+    ktimewarp = p5 * (1/gigumboFactor)
+    kresample = p6
+    isampleTable = igumboTable
+    iskipTimeInBeats = p7
+    ioverlap = p8
+    ibeginningTime =  gigumboLengthOfBeat * iskipTimeInBeats
+    iwindowSize = 10
     irandw = 0
-    ioverlap = 1
     ienvelopeTable = iTable
     itimemode = 0
-    aitsExpectedL, aitsExpectedR sndwarp kamplitude, ktimewarp, kresample, isampleTable, ibeginningTime, iwindowSize, irandw, ioverlap, ienvelopeTable, itimemode
 
-    outleta "gumboBreakOutL", aitsExpectedL
-    outleta "gumboBreakOutR", aitsExpectedR
+    agumboL, agumboR sndwarpst kamplitude, ktimewarp, kresample, isampleTable, ibeginningTime, iwindowSize, irandw, ioverlap, ienvelopeTable, itimemode
+
+    outleta "gumboBreakOutL", agumboL
+    outleta "gumboBreakOutR", agumboR
 
 endin
 

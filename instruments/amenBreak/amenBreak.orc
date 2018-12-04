@@ -1,6 +1,9 @@
 /* amenBreak
-    A set of Amen Break Instruments each using different opcodes for playing and manipulating the sample. This file is meant to serve as an area for experimentation with different opcodes for manipulating drum breaks
+    A set of sampling instruments each using different opcodes for playing and manipulating the drum break from Amen, Brother by The Winstons.
+
+    Sample Source: Amen, Brother - The Winstons
     BPM: ~137
+    Length: 16 beats
 */
 
 connect "AmenBreakDiskin", "AmenBreakOut", "AmenBreakMixerChannel", "AmenBreakIn"
@@ -18,41 +21,39 @@ gSAmenFilePath init "instruments/amenBreak/amen-break.wav"
 giAmenBreakBPM init 137
 giAmenFactor = giBPM / giAmenBreakBPM
 
-instr AmenBPMsetter
-    ;this does not work. Why?
-    iMultiplier = p4
-    iAmenLength filelen gSAmenFilePath
-    iAmenBPM = (60 / (iAmenLength / 16)) * iMultiplier
-    SScoreStatement sprintf {{t 0 %i}}, iAmenBPM
-    kTrigger metro 1
-
-    scoreline SScoreStatement, kTrigger
-endin
+giAmenFileLength filelen gSAmenFilePath
+giAmenLengthOfBeat = giAmenFileLength / 16
 
 instr AmenBreakDiskin
     kpitch = giAmenFactor
     
     iSkipTimeInBeats = p4
-    iFileLength filelen gSAmenFilePath
-    iSkipTime = iFileLength / 16 * iSkipTimeInBeats
+    iSkipTime = giAmenLengthOfBeat * iSkipTimeInBeats
     
     iwraparound= 1
     iformat = 0
     iskipinit = 0
 
-    ;Sfname,                                      kamp, kfreq, kpitch, kgrsize, kprate, ifun, iolaps [,imaxgrsize , ioffset]
-    aAmen diskin "instruments/amenBreak/amen-break.wav", kpitch, iSkipTime, iwraparound, iformat, iskipinit
+    aAmen diskin gSAmenFilePath, kpitch, iSkipTime, iwraparound, iformat, iskipinit
 
     outleta "AmenBreakOut", aAmen
 
 endin
 
 instr AmenBreakDiskgrain
-
     iTable ftgenonce 0, 0, 8192, 20, 2, 1
-
-    ;Sfname,                                      kamp, kfreq, kpitch, kgrsize, kprate, ifun, iolaps [,imaxgrsize , ioffset]
-    aAmen diskgrain "instruments/amenBreak/amen-break.wav", 1,    10000,     1,  0.0001,     p4, iTable,  1000
+    kamplitude = p4
+    iTimeFactor = p5 * giAmenFactor
+    kpitch = p6
+    iskipTimeInBeats = p7
+    kgrainsize = 0.004
+    ioverlaps = 2
+    kpointerRate = 1/ioverlaps * iTimeFactor
+    kfreq = ioverlaps/kgrainsize
+    imaxgrainsize = 1
+    iskipTime = giAmenLengthOfBeat * iskipTimeInBeats
+    
+    aAmen diskgrain gSAmenFilePath, kamplitude,    kfreq,     kpitch, kgrainsize ,     kpointerRate, iTable,  ioverlaps, imaxgrainsize, iskipTime
 
     outleta "AmenBreakOut", aAmen
 
@@ -60,27 +61,23 @@ endin
 
 instr AmenBreakSndwarp
     iAmenFileSampleRate filesr gSAmenFilePath
-    
     iAmenTableLength getTableSizeFromSample gSAmenFilePath
-
     ;iTable ftgenonce 0, 0, 8192, 20, 2, 1
     iTable ftgenonce 2, 0, 16384, 9, 0.5, 1, 0
-    iAmenTable ftgenonce 0, 0, iAmenTableLength, 1, "instruments/amenBreak/amen-break.wav", 0, 0, 0
-
-    kxpitch = iAmenFileSampleRate / iAmenFileSampleRate
-    ;aAmen grain 0.1,   kxpitch,     10,     10,       10,         .010, iAmenTable, iTable,    0.01,      1
+    iAmenTable ftgenonce 0, 0, iAmenTableLength, 1, gSAmenFilePath, 0, 0, 0
     
-    ;sndwarp arguments
-    kamplitude = 1
-    ktimewarp = 0.9
-    kresample linseg 1, p4, 1000
+    kamplitude = p4
+    ktimewarp = p5 * (1/giAmenFactor)
+    kresample = p6
     isampleTable = iAmenTable
-    ibeginningTime = 0
-    iwindowSize = 5
+    iskipTimeInBeats = p7
+    ioverlap = p8
+    ibeginningTime =  giAmenLengthOfBeat * iskipTimeInBeats
+    iwindowSize = 10
     irandw = 0
-    ioverlap = 1
     ienvelopeTable = iTable
     itimemode = 0
+    
     aAmen sndwarp kamplitude, ktimewarp, kresample, isampleTable, ibeginningTime, iwindowSize, irandw, ioverlap, ienvelopeTable, itimemode
 
     outleta "AmenBreakOut", aAmen

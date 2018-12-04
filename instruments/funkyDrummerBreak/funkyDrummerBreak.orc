@@ -1,6 +1,9 @@
 /* funkyDrummerBreak
-    A set of funkyDrummer Break Instruments each using different opcodes for playing and manipulating the sample. This file is meant to serve as an area for experimentation with different opcodes for manipulating drum breaks
+    A set of sampling instruments each using different opcodes for playing and manipulating the drum break from Funky Drummer by James Brown.
+    
+    Sample Source: Funky Drummer - James Brown
     BPM: ~101
+    Length: 16 beats
 */
 
 connect "funkyDrummerBreakDiskin", "funkyDrummerBreakOutL", "funkyDrummerBreakMixerChannel", "funkyDrummerBreakInL"
@@ -18,35 +21,26 @@ alwayson "funkyDrummerBreakMixerChannel"
 
 gkfunkyDrummerBreakFader init 1
 gkfunkyDrummerBreakPan init 50
-gSfunkyDrummerFilePath init "instruments/funkyDrummerBreak/funkydrummerbreak.wav"
+gSFunkyDrummerFilePath init "instruments/funkyDrummerBreak/funkydrummerbreak.wav"
 
 giFunkyDrummerBreakBPM init 101
 giFunkyDrummerFactor = giBPM / giFunkyDrummerBreakBPM
 
-instr funkyDrummerBPMsetter
-    ;this does not work. Why?
-    iMultiplier = p4
-    ifunkyDrummerLength filelen gSfunkyDrummerFilePath
-    ifunkyDrummerBPM = (60 / (ifunkyDrummerLength / 16)) * iMultiplier
-    SScoreStatement sprintf {{t 0 %i}}, ifunkyDrummerBPM
-    kTrigger metro 1
+giFunkyDrummerFileLength filelen gSFunkyDrummerFilePath
+giFunkyDrummerLengthOfBeat = giFunkyDrummerFileLength / 16
 
-    scoreline SScoreStatement, kTrigger
-endin
 
 instr funkyDrummerBreakDiskin
     kpitch = giFunkyDrummerFactor
     
     iSkipTimeInBeats = p4
-    iFileLength filelen gSfunkyDrummerFilePath
-    iSkipTime = iFileLength / 16 * iSkipTimeInBeats
+    iSkipTime = giFunkyDrummerLengthOfBeat * iSkipTimeInBeats
     
     iwraparound= 1
     iformat = 0
     iskipinit = 0
 
-    ;Sfname,                                      kamp, kfreq, kpitch, kgrsize, kprate, ifun, iolaps [,imaxgrsize , ioffset]
-    afunkyDrummerL, afunkyDrummerR diskin "instruments/funkyDrummerBreak/funkydrummerbreak.wav", kpitch, iSkipTime, iwraparound, iformat, iskipinit
+    afunkyDrummerL, afunkyDrummerR diskin gSFunkyDrummerFilePath, kpitch, iSkipTime, iwraparound, iformat, iskipinit
 
     outleta "funkyDrummerBreakOutL", afunkyDrummerL
     outleta "funkyDrummerBreakOutR", afunkyDrummerR
@@ -54,11 +48,19 @@ instr funkyDrummerBreakDiskin
 endin
 
 instr funkyDrummerBreakDiskgrain
-
     iTable ftgenonce 0, 0, 8192, 20, 2, 1
+    kamplitude = p4
+    iTimeFactor = p5 * giFunkyDrummerFactor
+    kpitch = p6
+    iskipTimeInBeats = p7
+    kgrainsize = 0.004
+    ioverlaps = 2
+    kpointerRate = 1/ioverlaps * iTimeFactor
+    kfreq = ioverlaps/kgrainsize
+    imaxgrainsize = 1
+    iskipTime = giFunkyDrummerLengthOfBeat * iskipTimeInBeats
 
-    ;Sfname,                                      kamp, kfreq, kpitch, kgrsize, kprate, ifun, iolaps [,imaxgrsize , ioffset]
-    afunkyDrummerL, afunkyDrummerR diskgrain "instruments/funkyDrummerBreak/funkydrummerbreak.wav", 1,    10000,     1,  0.0001,     p4, iTable,  1000
+    afunkyDrummerL, afunkyDrummerR diskgrain gSFunkyDrummerFilePath, kamplitude,    kfreq,     kpitch, kgrainsize ,     kpointerRate, iTable,  ioverlaps, imaxgrainsize, iskipTime
 
     outleta "funkyDrummerBreakOutL", afunkyDrummerL
     outleta "funkyDrummerBreakOutR", afunkyDrummerR
@@ -66,29 +68,25 @@ instr funkyDrummerBreakDiskgrain
 endin
 
 instr funkyDrummerBreakSndwarp
-    ifunkyDrummerFileSampleRate filesr gSfunkyDrummerFilePath
-    
-    ifunkyDrummerTableLength getTableSizeFromSample gSfunkyDrummerFilePath
-
+    iFunkyDrummerFileSampleRate filesr gSFunkyDrummerFilePath
+    iFunkyDrummerTableLength getTableSizeFromSample gSFunkyDrummerFilePath
     ;iTable ftgenonce 0, 0, 8192, 20, 2, 1
     iTable ftgenonce 2, 0, 16384, 9, 0.5, 1, 0
-    ifunkyDrummerTable ftgenonce 0, 0, ifunkyDrummerTableLength, 1, "instruments/funkyDrummerBreak/funkydrummerbreak.wav", 0, 0, 0
-
-    kxpitch = ifunkyDrummerFileSampleRate / ifunkyDrummerFileSampleRate
-    ;afunkyDrummer grain 0.1,   kxpitch,     10,     10,       10,         .010, ifunkyDrummerTable, iTable,    0.01,      1
+    iFunkyDrummerTable ftgenonce 0, 0, iFunkyDrummerTableLength, 1, gSFunkyDrummerFilePath, 0, 0, 0
     
-    ;sndwarp arguments
-    kamplitude = 1
-    ktimewarp = 0.9
-    kresample linseg 1, p4, 1000
-    isampleTable = ifunkyDrummerTable
-    ibeginningTime = 0
-    iwindowSize = 5
+    kamplitude = p4
+    ktimewarp = p5 * (1/giFunkyDrummerFactor)
+    kresample = p6
+    isampleTable = iFunkyDrummerTable
+    iskipTimeInBeats = p7
+    ioverlap = p8
+    ibeginningTime =  giFunkyDrummerLengthOfBeat * iskipTimeInBeats
+    iwindowSize = 10
     irandw = 0
-    ioverlap = 1
     ienvelopeTable = iTable
     itimemode = 0
-    afunkyDrummerL, afunkyDrummerR sndwarp kamplitude, ktimewarp, kresample, isampleTable, ibeginningTime, iwindowSize, irandw, ioverlap, ienvelopeTable, itimemode
+
+    afunkyDrummerL, afunkyDrummerR sndwarpst kamplitude, ktimewarp, kresample, isampleTable, ibeginningTime, iwindowSize, irandw, ioverlap, ienvelopeTable, itimemode
 
     outleta "funkyDrummerBreakOutL", afunkyDrummerL
     outleta "funkyDrummerBreakOutR", afunkyDrummerR
