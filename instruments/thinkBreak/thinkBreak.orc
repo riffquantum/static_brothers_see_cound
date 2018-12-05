@@ -19,6 +19,9 @@ connect "thinkBreakMixerChannel", "thinkBreakOutL", "Mixer", "MixerInL"
 connect "thinkBreakMixerChannel", "thinkBreakOutR", "Mixer", "MixerInR"
 alwayson "thinkBreakMixerChannel"
 
+gkthinkBreakEqBass init 1
+gkthinkBreakEqMid init 1
+gkthinkBreakEqHigh init 1
 gkthinkBreakFader init 1
 gkthinkBreakPan init 50
 
@@ -115,6 +118,17 @@ instr thinkBreakSndwarp
 
 endin
 
+instr thinkBreakBassKnob
+    gkthinkBreakEqBass linseg p4, p3, p5
+endin
+
+instr thinkBreakMidKnob
+    gkthinkBreakEqMid linseg p4, p3, p5
+endin
+
+instr thinkBreakHighKnob
+    gkthinkBreakEqHigh linseg p4, p3, p5  
+endin
 
 instr thinkBreakFader
     gkthinkBreakFader linseg p4, p3, p5
@@ -130,6 +144,11 @@ instr thinkBreakMixerChannel
 
     kthinkBreakFader = gkthinkBreakFader
     kthinkBreakPan = gkthinkBreakPan
+    kthinkBreakEqBass = gkthinkBreakEqBass
+    kthinkBreakEqMid = gkthinkBreakEqMid
+    kthinkBreakEqHigh = gkthinkBreakEqHigh
+
+    athinkBreakL, athinkBreakR threeBandEqStereo athinkBreakL, athinkBreakR, kthinkBreakEqBass, kthinkBreakEqMid, kthinkBreakEqHigh
 
     if kthinkBreakPan > 100 then
         kthinkBreakPan = 100

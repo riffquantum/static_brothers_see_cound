@@ -5,6 +5,9 @@ connect "SimpleOscillatorMixerChannel", "SimpleOscillatorOutL", "Mixer", "MixerI
 connect "SimpleOscillatorMixerChannel", "SimpleOscillatorOutR", "Mixer", "MixerInR"
 alwayson "SimpleOscillatorMixerChannel"
 
+gkSimpleOscillatorEqBass init 1
+gkSimpleOscillatorEqMid init 1
+gkSimpleOscillatorEqHigh init 1
 gkSimpleOscillatorFader init 1
 gkSimpleOscillatorPan init 50
 
@@ -18,6 +21,18 @@ instr SimpleOscillator
     ;               amp     hz                    f
     aSimpleOscillator1      oscil   kamp,    cpspch(p5),          2 ; main oscillator
                          outleta "SimpleOscillatorOut", aSimpleOscillator1
+endin
+
+instr SimpleOscillatorBassKnob
+    gkSimpleOscillatorEqBass linseg p4, p3, p5
+endin
+
+instr SimpleOscillatorMidKnob
+    gkSimpleOscillatorEqMid linseg p4, p3, p5
+endin
+
+instr SimpleOscillatorHighKnob
+    gkSimpleOscillatorEqHigh linseg p4, p3, p5  
 endin
 
 instr SimpleOscillatorFader
@@ -34,6 +49,12 @@ instr SimpleOscillatorMixerChannel
 
     kSimpleOscillatorFader = gkSimpleOscillatorFader
     kSimpleOscillatorPan = gkSimpleOscillatorPan
+    kSimpleOscillatorEqBass = gkSimpleOscillatorEqBass
+    kSimpleOscillatorEqMid = gkSimpleOscillatorEqMid
+    kSimpleOscillatorEqHigh = gkSimpleOscillatorEqHigh
+
+
+    aSimpleOscillatorL, aSimpleOscillatorR threeBandEqStereo aSimpleOscillatorL, aSimpleOscillatorR, kSimpleOscillatorEqBass, kSimpleOscillatorEqMid, kSimpleOscillatorEqHigh
 
     if kSimpleOscillatorPan > 100 then
         kSimpleOscillatorPan = 100

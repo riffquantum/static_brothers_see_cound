@@ -5,6 +5,9 @@ connect "SignalMixerChannel", "SignalOutL", "Mixer", "MixerInL"
 connect "SignalMixerChannel", "SignalOutR", "Mixer", "MixerInR"
 alwayson "SignalMixerChannel"
 
+gkSignalEqBass init 1
+gkSignalEqMid init 1
+gkSignalEqHigh init 1
 gkSignalFader init 1
 gkSignalPan init 50
 
@@ -17,6 +20,17 @@ instr Signal
             outleta "SignalOut", aSignal
 endin
 
+instr SignalBassKnob
+    gkSignalEqBass linseg p4, p3, p5
+endin
+
+instr SignalMidKnob
+    gkSignalEqMid linseg p4, p3, p5
+endin
+
+instr SignalHighKnob
+    gkSignalEqHigh linseg p4, p3, p5  
+endin
 
 instr SignalFader
     gkSignalFader linseg p4, p3, p5
@@ -34,6 +48,11 @@ instr SignalMixerChannel
 
     kSignalFader = gkSignalFader
     kSignalPan = gkSignalPan
+    kSignalEqBass = gkSignalEqBass
+    kSignalEqMid = gkSignalEqMid
+    kSignalEqHigh = gkSignalEqHigh
+
+    aSignalL, aSignalR threeBandEqStereo aSignalL, aSignalR, kSignalEqBass, kSignalEqMid, kSignalEqHigh
 
     if kSignalPan > 100 then
         kSignalPan = 100

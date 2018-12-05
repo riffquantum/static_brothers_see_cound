@@ -28,6 +28,9 @@ connect "TR606MixerChannel", "TR606OutR", "Mixer", "MixerInR"
 ; connect "TR606MixerChannel", "TR606OutR", "Reverb1", "Reverb1InR"
 alwayson "TR606MixerChannel"
 
+gkTR606EqBass init 1
+gkTR606EqMid init 1
+gkTR606EqHigh init 1
 gkTR606Fader init 1
 gkTR606Pan init 50
 
@@ -60,6 +63,17 @@ instr TR606
     outleta "TR606OutR", a8083
 endin
 
+instr TR606BassKnob
+    gkTR606EqBass linseg p4, p3, p5
+endin
+
+instr TR606MidKnob
+    gkTR606EqMid linseg p4, p3, p5
+endin
+
+instr TR606HighKnob
+    gkTR606EqHigh linseg p4, p3, p5  
+endin
 
 instr TR606Fader
     gkTR606Fader linseg p4, p3, p5
@@ -75,6 +89,11 @@ instr TR606MixerChannel
 
     kTR606Fader = gkTR606Fader
     kTR606Pan = gkTR606Pan
+    kTR606EqBass = gkTR606EqBass
+    kTR606EqMid = gkTR606EqMid
+    kTR606EqHigh = gkTR606EqHigh
+
+    aTR606L, aTR606R threeBandEqStereo aTR606L, aTR606R, kTR606EqBass, kTR606EqMid, kTR606EqHigh
 
     if kTR606Pan > 100 then
         kTR606Pan = 100

@@ -5,6 +5,9 @@ connect "SampleMixerChannel", "SampleOutL", "Mixer", "MixerInL"
 connect "SampleMixerChannel", "SampleOutR", "Mixer", "MixerInR"
 alwayson "SampleMixerChannel"
 
+gkSampleEqBass init 1
+gkSampleEqMid init 1
+gkSampleEqHigh init 1
 gkSampleFader init 1
 gkSamplePan init 50
 
@@ -16,6 +19,18 @@ instr Sample
 
     aSample poscil3 p4, p5/iDur, iSample
             out aSample
+endin
+
+instr SampleBassKnob
+    gkSampleEqBass linseg p4, p3, p5
+endin
+
+instr SampleMidKnob
+    gkSampleEqMid linseg p4, p3, p5
+endin
+
+instr SampleHighKnob
+    gkSampleEqHigh linseg p4, p3, p5  
 endin
 
 instr SampleFader
@@ -34,6 +49,11 @@ instr SampleMixerChannel
 
     kSampleFader = gkSampleFader
     kSamplePan = gkSamplePan
+    kSampleEqBass = gkSampleEqBass
+    kSampleEqMid = gkSampleEqMid
+    kSampleEqHigh = gkSampleEqHigh
+
+    aSampleL, aSampleR threeBandEqStereo aSampleL, aSampleR, kSampleEqBass, kSampleEqMid, kSampleEqHigh
 
     if kSamplePan > 100 then
         kSamplePan = 100

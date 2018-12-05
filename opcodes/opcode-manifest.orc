@@ -4,3 +4,5 @@
 
 #include "beatScoreline.orc"
 
+#include "threeBandEq.orc"
+

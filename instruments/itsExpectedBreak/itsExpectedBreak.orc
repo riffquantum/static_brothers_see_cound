@@ -19,6 +19,9 @@ connect "itsExpectedBreakMixerChannel", "itsExpectedBreakOutL", "Mixer", "MixerI
 connect "itsExpectedBreakMixerChannel", "itsExpectedBreakOutR", "Mixer", "MixerInR"
 alwayson "itsExpectedBreakMixerChannel"
 
+gkitsExpectedBreakEqBass init 1
+gkitsExpectedBreakEqMid init 1
+gkitsExpectedBreakEqHigh init 1
 gkitsExpectedBreakFader init 1
 gkitsExpectedBreakPan init 50
 gSitsExpectedFilePath init "instruments/itsExpectedBreak/itsExpectedbreak.wav"
@@ -95,6 +98,18 @@ instr itsExpectedBreakSndwarp
 
 endin
 
+instr itsExpectedBreakBassKnob
+    gkitsExpectedBreakEqBass linseg p4, p3, p5
+endin
+
+instr itsExpectedBreakMidKnob
+    gkitsExpectedBreakEqMid linseg p4, p3, p5
+endin
+
+instr itsExpectedBreakHighKnob
+    gkitsExpectedBreakEqHigh linseg p4, p3, p5  
+endin
+
 instr itsExpectedBreakFader
     gkitsExpectedBreakFader linseg p4, p3, p5
 endin
@@ -109,6 +124,11 @@ instr itsExpectedBreakMixerChannel
 
     kitsExpectedBreakFader = gkitsExpectedBreakFader
     kitsExpectedBreakPan = gkitsExpectedBreakPan
+    kitsExpectedBreakEqBass = gkitsExpectedBreakEqBass
+    kitsExpectedBreakEqMid = gkitsExpectedBreakEqMid
+    kitsExpectedBreakEqHigh = gkitsExpectedBreakEqHigh
+
+    aitsExpectedBreakL, aitsExpectedBreakR threeBandEqStereo aitsExpectedBreakL, aitsExpectedBreakR, kitsExpectedBreakEqBass, kitsExpectedBreakEqMid, kitsExpectedBreakEqHigh
 
     if kitsExpectedBreakPan > 100 then
         kitsExpectedBreakPan = 100

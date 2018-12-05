@@ -5,6 +5,9 @@ connect "ChorusedSynthMixerChannel", "ChorusedSynthOutL", "Mixer", "MixerInL"
 connect "ChorusedSynthMixerChannel", "ChorusedSynthOutR", "Mixer", "MixerInR"
 alwayson "ChorusedSynthMixerChannel"
 
+gkChorusedSynthEqBass init 1
+gkChorusedSynthEqMid init 1
+gkChorusedSynthEqHigh init 1
 gkChorusedSynthFader init 1
 gkChorusedSynthPan init 50
 
@@ -30,6 +33,18 @@ instr ChorusedSynth
                          outleta "ChorusedSynthOut", aChorusedSynth1 + aChorusedSynth2 + aChorusedSynth3
 endin
 
+instr ChorusedSynthBassKnob
+    gkChorusedSynthEqBass linseg p4, p3, p5
+endin
+
+instr ChorusedSynthMidKnob
+    gkChorusedSynthEqMid linseg p4, p3, p5
+endin
+
+instr ChorusedSynthHighKnob
+    gkChorusedSynthEqHigh linseg p4, p3, p5  
+endin
+
 instr ChorusedSynthFader
     gkChorusedSynthFader linseg p4, p3, p5
 endin
@@ -44,6 +59,11 @@ instr ChorusedSynthMixerChannel
 
     kChorusedSynthFader = gkChorusedSynthFader
     kChorusedSynthPan = gkChorusedSynthPan
+    kChorusedSynthEqBass = gkChorusedSynthEqBass
+    kChorusedSynthEqMid = gkChorusedSynthEqMid
+    kChorusedSynthEqHigh = gkChorusedSynthEqHigh
+        
+    aChorusedSynthL, aChorusedSynthR threeBandEqStereo aChorusedSynthL, aChorusedSynthR, kChorusedSynthEqBass, kChorusedSynthEqMid, kChorusedSynthEqHigh
 
     if kChorusedSynthPan > 100 then
         kChorusedSynthPan = 100

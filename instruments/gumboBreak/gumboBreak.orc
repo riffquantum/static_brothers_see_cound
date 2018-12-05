@@ -19,6 +19,9 @@ connect "gumboBreakMixerChannel", "gumboBreakOutL", "Mixer", "MixerInL"
 connect "gumboBreakMixerChannel", "gumboBreakOutR", "Mixer", "MixerInR"
 alwayson "gumboBreakMixerChannel"
 
+gkgumboBreakEqBass init 1
+gkgumboBreakEqMid init 1
+gkgumboBreakEqHigh init 1
 gkgumboBreakFader init 1
 gkgumboBreakPan init 50
 gSgumboFilePath init "instruments/gumboBreak/gumboBreak.wav"
@@ -93,6 +96,18 @@ instr gumboBreakSndwarp
 
 endin
 
+instr gumboBreakBassKnob
+    gkgumboBreakEqBass linseg p4, p3, p5
+endin
+
+instr gumboBreakMidKnob
+    gkgumboBreakEqMid linseg p4, p3, p5
+endin
+
+instr gumboBreakHighKnob
+    gkgumboBreakEqHigh linseg p4, p3, p5  
+endin
+
 instr gumboBreakFader
     gkgumboBreakFader linseg p4, p3, p5
 endin
@@ -107,6 +122,11 @@ instr gumboBreakMixerChannel
 
     kgumboBreakFader = gkgumboBreakFader
     kgumboBreakPan = gkgumboBreakPan
+    kgumboBreakEqBass = gkgumboBreakEqBass
+    kgumboBreakEqMid = gkgumboBreakEqMid
+    kgumboBreakEqHigh = gkgumboBreakEqHigh
+
+    agumboBreakL, agumboBreakR threeBandEqStereo agumboBreakL, agumboBreakR, kgumboBreakEqBass, kgumboBreakEqMid, kgumboBreakEqHigh
 
     if kgumboBreakPan > 100 then
         kgumboBreakPan = 100

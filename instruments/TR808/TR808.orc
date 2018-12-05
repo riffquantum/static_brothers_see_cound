@@ -17,6 +17,9 @@ connect "TR808MixerChannel", "TR808OutR", "Mixer", "MixerInR"
 ; connect "TR808MixerChannel", "TR808OutR", "Reverb1", "Reverb1InR"
 alwayson "TR808MixerChannel"
 
+gkTR808EqBass init 1
+gkTR808EqMid init 1
+gkTR808EqHigh init 1
 gkTR808Fader init 1
 gkTR808Pan init 50
 
@@ -38,6 +41,17 @@ instr TR808
     outleta "TR808OutR", a8083
 endin
 
+instr TR808BassKnob
+    gkTR808EqBass linseg p4, p3, p5
+endin
+
+instr TR808MidKnob
+    gkTR808EqMid linseg p4, p3, p5
+endin
+
+instr TR808HighKnob
+    gkTR808EqHigh linseg p4, p3, p5  
+endin
 
 instr TR808Fader
     gkTR808Fader linseg p4, p3, p5
@@ -53,6 +67,11 @@ instr TR808MixerChannel
 
     kTR808Fader = gkTR808Fader
     kTR808Pan = gkTR808Pan
+    kTR808EqBass = gkTR808EqBass
+    kTR808EqMid = gkTR808EqMid
+    kTR808EqHigh = gkTR808EqHigh
+
+    aTR808L, aTR808R threeBandEqStereo aTR808L, aTR808R, kTR808EqBass, kTR808EqMid, kTR808EqHigh
 
     if kTR808Pan > 100 then
         kTR808Pan = 100

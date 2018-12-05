@@ -14,6 +14,9 @@ connect "AmenBreakMixerChannel", "AmenBreakOutL", "Mixer", "MixerInL"
 connect "AmenBreakMixerChannel", "AmenBreakOutR", "Mixer", "MixerInR"
 alwayson "AmenBreakMixerChannel"
 
+gkAmenBreakEqBass init 1
+gkAmenBreakEqMid init 1
+gkAmenBreakEqHigh init 1
 gkAmenBreakFader init 1
 gkAmenBreakPan init 50
 gSAmenFilePath init "instruments/amenBreak/amen-break.wav"
@@ -84,6 +87,18 @@ instr AmenBreakSndwarp
 
 endin
 
+instr AmenBreakBassKnob
+    gkAmenBreakEqBass linseg p4, p3, p5
+endin
+
+instr AmenBreakMidKnob
+    gkAmenBreakEqMid linseg p4, p3, p5
+endin
+
+instr AmenBreakHighKnob
+    gkAmenBreakEqHigh linseg p4, p3, p5  
+endin
+
 instr AmenBreakFader
     gkAmenBreakFader linseg p4, p3, p5
 endin
@@ -98,6 +113,11 @@ instr AmenBreakMixerChannel
 
     kAmenBreakFader = gkAmenBreakFader
     kAmenBreakPan = gkAmenBreakPan
+    kAmenBreakEqBass = gkAmenBreakEqBass
+    kAmenBreakEqMid = gkAmenBreakEqMid
+    kAmenBreakEqHigh = gkAmenBreakEqHigh
+
+    aAmenBreakL, aAmenBreakR threeBandEqStereo aAmenBreakL, aAmenBreakR, kAmenBreakEqBass, kAmenBreakEqMid, kAmenBreakEqHigh
 
     if kAmenBreakPan > 100 then
         kAmenBreakPan = 100

@@ -20,6 +20,9 @@ connect "LinnDrumMixerChannel", "LinnDrumOutL", "Reverb1", "Reverb1InL"
 connect "LinnDrumMixerChannel", "LinnDrumOutR", "Reverb1", "Reverb1InR"
 alwayson "LinnDrumMixerChannel"
 
+gkLinnDrumEqBass init 1
+gkLinnDrumEqMid init 1
+gkLinnDrumEqHigh init 1
 gkLinnDrumFader init 1
 gkLinnDrumPan init 50
 
@@ -59,6 +62,18 @@ instr LinnDrum
     end:
 endin
 
+instr LinnDrumBassKnob
+    gkLinnDrumEqBass linseg p4, p3, p5
+endin
+
+instr LinnDrumMidKnob
+    gkLinnDrumEqMid linseg p4, p3, p5
+endin
+
+instr LinnDrumHighKnob
+    gkLinnDrumEqHigh linseg p4, p3, p5  
+endin
+
 instr LinnDrumFader
     gkLinnDrumFader linseg p4, p3, p5
 endin
@@ -76,6 +91,11 @@ instr LinnDrumMixerChannel
 
     kLinnDrumFader = gkLinnDrumFader
     kLinnDrumPan = gkLinnDrumPan
+    kLinnDrumEqBass = gkLinnDrumEqBass
+    kLinnDrumEqMid = gkLinnDrumEqMid
+    kLinnDrumEqHigh = gkLinnDrumEqHigh
+
+    aLinnDrumL, aLinnDrumR threeBandEqStereo aLinnDrumL, aLinnDrumR, kLinnDrumEqBass, kLinnDrumEqMid, kLinnDrumEqHigh
 
     if kLinnDrumPan > 100 then
         kLinnDrumPan = 100

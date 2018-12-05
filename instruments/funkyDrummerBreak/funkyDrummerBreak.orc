@@ -19,6 +19,9 @@ connect "funkyDrummerBreakMixerChannel", "funkyDrummerBreakOutL", "Mixer", "Mixe
 connect "funkyDrummerBreakMixerChannel", "funkyDrummerBreakOutR", "Mixer", "MixerInR"
 alwayson "funkyDrummerBreakMixerChannel"
 
+gkfunkyDrummerBreakEqBass init 1
+gkfunkyDrummerBreakEqMid init 1
+gkfunkyDrummerBreakEqHigh init 1
 gkfunkyDrummerBreakFader init 1
 gkfunkyDrummerBreakPan init 50
 gSFunkyDrummerFilePath init "instruments/funkyDrummerBreak/funkydrummerbreak.wav"
@@ -93,6 +96,18 @@ instr funkyDrummerBreakSndwarp
 
 endin
 
+instr funkyDrummerBreakBassKnob
+    gkfunkyDrummerBreakEqBass linseg p4, p3, p5
+endin
+
+instr funkyDrummerBreakMidKnob
+    gkfunkyDrummerBreakEqMid linseg p4, p3, p5
+endin
+
+instr funkyDrummerBreakHighKnob
+    gkfunkyDrummerBreakEqHigh linseg p4, p3, p5  
+endin
+
 instr funkyDrummerBreakFader
     gkfunkyDrummerBreakFader linseg p4, p3, p5
 endin
@@ -107,6 +122,11 @@ instr funkyDrummerBreakMixerChannel
 
     kfunkyDrummerBreakFader = gkfunkyDrummerBreakFader
     kfunkyDrummerBreakPan = gkfunkyDrummerBreakPan
+    kfunkyDrummerBreakEqBass = gkfunkyDrummerBreakEqBass
+    kfunkyDrummerBreakEqMid = gkfunkyDrummerBreakEqMid
+    kfunkyDrummerBreakEqHigh = gkfunkyDrummerBreakEqHigh
+
+    afunkyDrummerBreakL, afunkyDrummerBreakR threeBandEqStereo afunkyDrummerBreakL, afunkyDrummerBreakR, kfunkyDrummerBreakEqBass, kfunkyDrummerBreakEqMid, kfunkyDrummerBreakEqHigh
 
     if kfunkyDrummerBreakPan > 100 then
         kfunkyDrummerBreakPan = 100

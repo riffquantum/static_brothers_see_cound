@@ -9,6 +9,9 @@ connect "generalSamplerMixerChannel", "generalSamplerOutL", "Mixer", "MixerInL"
 connect "generalSamplerMixerChannel", "generalSamplerOutR", "Mixer", "MixerInR"
 alwayson "generalSamplerMixerChannel"
 
+gkgeneralSamplerEqBass init 1
+gkgeneralSamplerEqMid init 1
+gkgeneralSamplerEqHigh init 1
 gkgeneralSamplerFader init 1
 gkgeneralSamplerPan init 50
 
@@ -100,6 +103,18 @@ instr generalSamplerSndwarp
 
 endin
 
+instr generalSamplerBassKnob
+    gkgeneralSamplerEqBass linseg p4, p3, p5
+endin
+
+instr generalSamplerMidKnob
+    gkgeneralSamplerEqMid linseg p4, p3, p5
+endin
+
+instr generalSamplerHighKnob
+    gkgeneralSamplerEqHigh linseg p4, p3, p5  
+endin
+
 instr generalSamplerFader
     gkgeneralSamplerFader linseg p4, p3, p5
 endin
@@ -114,6 +129,11 @@ instr generalSamplerMixerChannel
 
     kgeneralSamplerFader = gkgeneralSamplerFader
     kgeneralSamplerPan = gkgeneralSamplerPan
+    kgeneralSamplerEqBass = gkgeneralSamplerEqBass
+    kgeneralSamplerEqMid = gkgeneralSamplerEqMid
+    kgeneralSamplerEqHigh = gkgeneralSamplerEqHigh
+
+    ageneralSamplerL, ageneralSamplerR threeBandEqStereo ageneralSamplerL, ageneralSamplerR, kgeneralSamplerEqBass, kgeneralSamplerEqMid, kgeneralSamplerEqHigh
 
     if kgeneralSamplerPan > 100 then
         kgeneralSamplerPan = 100
