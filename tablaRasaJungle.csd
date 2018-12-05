@@ -17,10 +17,10 @@
         instr drumPattern
             Sdiskgrainparams = {{  }}
 
-            ;scoreline_i beatScoreline( "itsExpectedBreakDiskgrain", 0, 8, {{ 4 1 1 0 }} )
-            ;scoreline_i beatScoreline( "itsExpectedBreakSndwarp", 8, 8, {{ 4 1 1 0 2 }} )
+            scoreline_i beatScoreline( "generalSamplerDiskgrain", 0, 8, {{ "tablasitarloop1.wav" 1 1 1 1 .004 2 }} )
+            ;scoreline_i beatScoreline( "generalSamplerSndwarp", 8, 8, {{ "tablasitarloop1.wav" 4 1 1 0 2 }} )
 
-            scoreline_i beatScoreline( "itsExpectedBreakDiskin", 0, 4, {{ 0 }} )
+            ;scoreline_i beatScoreline( "generalSamplerDiskin", 0, 4, {{ "tablasitarloop1.wav" 0 }} )
         endin
 
         instr pattern1
@@ -28,7 +28,7 @@
 
             SsampleString sprintfk {{ "tablasitarloop1.wav" %f 0}}, itablaFactor
 
-            scoreline_i beatScoreline( "diskinSampler", 0, 8, SsampleString )
+            scoreline_i beatScoreline( "generalSamplerDiskin", 0, 8, SsampleString )
         endin
 
         instr breakbeatPattern
@@ -47,7 +47,7 @@
 
             SsampleString sprintfk {{ "tablaloop2.wav" %f 0}}, itablaFactor
 
-            scoreline_i beatScoreline( "diskinSampler", 0, 16, SsampleString )
+            scoreline_i beatScoreline( "generalSamplerDiskin", 0, 16, SsampleString )
         endin
 
         instr pattern3
@@ -55,7 +55,7 @@
 
             SsampleString sprintfk {{ "tablarasaranga2.wav" %f 0}}, itablaFactor
 
-            scoreline_i beatScoreline( "diskinSampler", 0, 8, SsampleString )
+            scoreline_i beatScoreline( "generalSamplerDiskin", 0, 8, SsampleString )
         endin
 
         instr pattern4
@@ -64,7 +64,7 @@
 
             SsampleString sprintfk {{ "tablabreakdown.wav" %f %f}}, itablaFactor, itablaSkipTime
 
-            scoreline_i beatScoreline( "diskinSampler", 0, 8, SsampleString )
+            scoreline_i beatScoreline( "generalSamplerDiskin", 0, 8, SsampleString )
         endin
 
         
