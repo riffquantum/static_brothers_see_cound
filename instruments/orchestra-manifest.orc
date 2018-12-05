@@ -1,3 +1,5 @@
+#include "setBPM/setBPM.orc"
+
 #include "chorusedSynth/chorusedSynth.orc"
 
 #include "chorusedSynth/chorusedSynth--midi-in.orc"
@@ -27,6 +29,8 @@
 #include "signal/signal.orc"
 
 #include "sample/sample.orc"
+
+#include "diskinSampler/diskinSampler.orc"
 
 #include "masterMidiInterface/masterMidiInterface.orc"
 
