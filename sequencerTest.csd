@@ -7,10 +7,11 @@
     <CsInstruments>
         #include "config/defaultConfig.orc"
 
-        giBPM = 170
+        giBPM = 80
 
         #include "opcodes/opcode-manifest.orc"
         #include "instruments/orchestra-manifest.orc"
+
 
         instr pattern1 
             iStartTime = 0
@@ -51,18 +52,18 @@
                 scoreline_i beatScoreline( "funkyDrummerBreakDiskin", 1.5,  1.5, {{ 4.9 }} )
                 scoreline_i beatScoreline( "funkyDrummerBreakDiskin", 3,  1, {{ 4.9 }} )
             
-            scoreline_i beatScoreline( "itsExpectedBreakDiskin", 1, 1, {{ 2.5 }})
-            scoreline_i beatScoreline( "itsExpectedBreakDiskin", 2.5, 1, {{ 2.5}})
+            scoreline_i beatScoreline( "itsExpectedBreakDiskin", 1, 1, {{ 1.5 }})
+            scoreline_i beatScoreline( "itsExpectedBreakDiskin", 2.5, 1, {{ 1.5}})
 
-            scoreline_i beatScoreline( "thinkBreakDiskin", 0, 2, {{ 0 "3" }})
-            scoreline_i beatScoreline( "thinkBreakDiskin", 2, 2, {{ 2 "2" }})
+            scoreline_i beatScoreline( "thinkBreakDiskin", 0, 2, {{ 2 0 }})
+            scoreline_i beatScoreline( "thinkBreakDiskin", 2, 2, {{ 0 0 }})
         endin
     </CsInstruments>
 
     <CsScore>
         #define beatsPerMeasure # 4 #
 
-        #define bpm # 170 #
+        #define bpm # 80 #
         
         
             t 0 [$bpm]
@@ -74,7 +75,7 @@
             i "breaks" + 4
             i "breaks" + 4
 
-            i "pattern2" 8 4
+            i "pattern2" 4 4
             
 
             i "pattern2" + 4
@@ -82,9 +83,9 @@
             
             
             { 4 loopCount
-            i "TR808" [($loopCount * $beatsPerMeasure) + 0]       1      "KickDrum0005"          1    1 0
+            i "TR808" [($loopCount * $beatsPerMeasure) + 0]       1      "KickDrum5"          1    1 0
 
-            i "TR808" [($loopCount * $beatsPerMeasure) + 2]       1      "KickDrum0005"          1    1 0
+            i "TR808" [($loopCount * $beatsPerMeasure) + 2]       1      "KickDrum5"          1    1 0
 
             
             

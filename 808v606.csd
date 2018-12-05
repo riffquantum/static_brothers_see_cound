@@ -66,41 +66,41 @@
         t 0 130
         { 4 loopCNT
             ;Beat 1
-            i "TR808" [($loopCNT * $beatsPerMeasure) + 0]       1      "KickDrum0005"          1    1 0
-                i "TR808" ^+0   .5    "Closed HiHat0001"   1    1
+            i "TR808" [($loopCNT * $beatsPerMeasure) + 0]       1      "KickDrum5"          1    1 0
+                i "TR808" ^+0   .5    "ClosedHiHat1"   1    1
 
 
                 i "TR808" ^+0   0.25    "Open Hihat0001"       1    1 [$loopCNT % 2 - 1]
 
-                i "TR808" +     .25     "Closed HiHat0001"    1    1 [$loopCNT % 2 - 1]
+                i "TR808" +     .25     "ClosedHiHat1"    1    1 [$loopCNT % 2 - 1]
 
-                i "TR808" [($loopCNT * $beatsPerMeasure) + 0.25]     1    "SnareDrum0001"       1    1 [$loopCNT % 2 - 1]
+                i "TR808" [($loopCNT * $beatsPerMeasure) + 0.25]     1    "SnareDrum1"       1    1 [$loopCNT % 2 - 1]
 
-                i "TR808" [($loopCNT * $beatsPerMeasure) + 0.5]       1      "KickDrum0005"          1    1 0
+                i "TR808" [($loopCNT * $beatsPerMeasure) + 0.5]       1      "KickDrum5"          1    1 0
 
 
             ;Beat 2
-            i "TR808" [($loopCNT * $beatsPerMeasure) + 1]       1    "KickDrum0005"          1    1 0
-                i "TR808" ^+0     1    "SnareDrum0001"       1    1
-                i "TR808" ^+0     .5     "Closed HiHat0001"   1    1
+            i "TR808" [($loopCNT * $beatsPerMeasure) + 1]       1    "KickDrum5"          1    1 0
+                i "TR808" ^+0     1    "SnareDrum1"       1    1
+                i "TR808" ^+0     .5     "ClosedHiHat1"   1    1
 
-                i "TR808" +     .5     "Closed HiHat0002"    1    1
+                i "TR808" +     .5     "ClosedHiHat2"    1    1
 
-                i "TR808" [($loopCNT * $beatsPerMeasure) + 1.75]     1    "SnareDrum0001"       1    1
+                i "TR808" [($loopCNT * $beatsPerMeasure) + 1.75]     1    "SnareDrum1"       1    1
 
             ;Beat 3
-            i "TR808" [($loopCNT * $beatsPerMeasure) + 2]       1    "KickDrum0005"          1    1
-                i "TR808" ^+0     .5     "Closed HiHat0001"   1    1
-                i "TR808" +     .5     "Closed HiHat0003"    1    1
+            i "TR808" [($loopCNT * $beatsPerMeasure) + 2]       1    "KickDrum5"          1    1
+                i "TR808" ^+0     .5     "ClosedHiHat1"   1    1
+                i "TR808" +     .5     "ClosedHiHat3"    1    1
 
 
 
-                i "TR808" [($loopCNT * $beatsPerMeasure) + 2.25]     1    "SnareDrum0001"       1    1 0
+                i "TR808" [($loopCNT * $beatsPerMeasure) + 2.25]     1    "SnareDrum1"       1    1 0
             ;Beat 4
-            i "TR808" [($loopCNT * $beatsPerMeasure) + 3]       1    "KickDrum0005"          1    1 0
-                i "TR808" ^+0     1    "SnareDrum0001"       1    1 0
-                i "TR808" ^+0     .5     "Closed HiHat0001"   1    1
-                i "TR808" +     .5     "Closed HiHat0001"    1    1
+            i "TR808" [($loopCNT * $beatsPerMeasure) + 3]       1    "KickDrum5"          1    1 0
+                i "TR808" ^+0     1    "SnareDrum1"       1    1 0
+                i "TR808" ^+0     .5     "ClosedHiHat1"   1    1
+                i "TR808" +     .5     "ClosedHiHat1"    1    1
 
             i "TR808" [($loopCNT * $beatsPerMeasure) + 3]       1    "Clav"          1    1 [($loopCNT + 1) % 4]
 
