@@ -30,7 +30,7 @@
 
 #include "sample/sample.orc"
 
-#include "diskinSampler/diskinSampler.orc"
+#include "generalSampler/generalSampler.orc"
 
 #include "masterMidiInterface/masterMidiInterface.orc"
 
