@@ -77,11 +77,11 @@ endin
 
 instr generalSamplerSndwarp
     SsampleFilename = p4
-    kamplitude = p4
-    ktimewarp = p5
-    kresample = p6
-    ibeginningTime =  p7
-    ioverlap = p8
+    kamplitude = p5
+    ktimewarp = p6
+    kresample = p7
+    ibeginningTime =  p8
+    ioverlap = p9
     iwindowSize = 10
     
     SsampleFilePath strcat "instruments/generalSampler/samples/", SsampleFilename

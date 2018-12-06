@@ -14,15 +14,6 @@
 
         #include "patterns/sixteenthHats606.orc"
 
-        instr drumPattern
-            Sdiskgrainparams = {{  }}
-
-            scoreline_i beatScoreline( "generalSamplerDiskgrain", 0, 8, {{ "tablasitarloop1.wav" 1 1 1 1 .004 2 }} )
-            ;scoreline_i beatScoreline( "generalSamplerSndwarp", 8, 8, {{ "tablasitarloop1.wav" 4 1 1 0 2 }} )
-
-            ;scoreline_i beatScoreline( "generalSamplerDiskin", 0, 4, {{ "tablasitarloop1.wav" 0 }} )
-        endin
-
         instr pattern1
             itablaFactor = giBPM / 149.5
 
@@ -74,12 +65,13 @@
         #define beatsPerMeasure # 4 #
 
         #define bpm # 170 #
-            m sectionwhatever
+            m intro
                 t 0 [$bpm]
-                i "drumPattern" 0  4
-                i "drumPattern" +  4
-                i "drumPattern" +  4
-                i "drumPattern" +  4
+                i "pattern3" 0 8
+                i "breakbeatPattern" 0 8
+
+                i "AmenBreakFader" 0 8 0 1
+                i "funkyDrummerBreakFader" 0 8 0 1
             s
 
             
