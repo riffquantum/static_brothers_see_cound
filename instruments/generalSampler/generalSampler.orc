@@ -2,8 +2,14 @@
     A general purpose wrapper for sampling via diskin opcode. 
 */
 
-connect "generalSampler", "generalSamplerOutL", "generalSamplerMixerChannel", "generalSamplerInL"
-connect "generalSampler", "generalSamplerOutR", "generalSamplerMixerChannel", "generalSamplerInR"
+connect "generalSamplerDiskin", "generalSamplerOutL", "generalSamplerMixerChannel", "generalSamplerInL"
+connect "generalSamplerDiskin", "generalSamplerOutR", "generalSamplerMixerChannel", "generalSamplerInR"
+
+connect "generalSamplerDiskgrain", "generalSamplerOutL", "generalSamplerMixerChannel", "generalSamplerInL"
+connect "generalSamplerDiskgrain", "generalSamplerOutR", "generalSamplerMixerChannel", "generalSamplerInR"
+
+connect "generalSamplerSndwarp", "generalSamplerOutL", "generalSamplerMixerChannel", "generalSamplerInL"
+connect "generalSamplerSndwarp", "generalSamplerOutR", "generalSamplerMixerChannel", "generalSamplerInR"
 
 connect "generalSamplerMixerChannel", "generalSamplerOutL", "Mixer", "MixerInL"
 connect "generalSamplerMixerChannel", "generalSamplerOutR", "Mixer", "MixerInR"
@@ -23,21 +29,21 @@ instr generalSamplerDiskin
     SsampleFilePath strcat "instruments/generalSampler/samples/", SsampleFilename
     iFileNumChannels filenchnls SsampleFilePath
 
-    
+
     iwraparound= 1
     iformat = 0
     iskipinit = 0
 
     if iFileNumChannels == 2 then
         ageneralSamplerL, ageneralSamplerR diskin SsampleFilePath, kpitch, iSkipTime, iwraparound, iformat, iskipinit
+
     elseif iFileNumChannels == 1 then
         ageneralSamplerL diskin SsampleFilePath, kpitch, iSkipTime, iwraparound, iformat, iskipinit
         ageneralSamplerR = ageneralSamplerL
     endif
-
+    
     outleta "generalSamplerOutL", ageneralSamplerL
     outleta "generalSamplerOutR", ageneralSamplerR
-
 endin
 
 instr generalSamplerDiskgrain
@@ -62,6 +68,7 @@ instr generalSamplerDiskgrain
         ageneralSamplerL diskgrain SsampleFilePath, kamplitude,    kfreq,     kpitch, kgrainsize ,     kpointerRate, iTable,  ioverlaps, imaxgrainsize, iskipTime
         ageneralSamplerR = ageneralSamplerL
     endif
+
 
     outleta "generalSamplerOutL", ageneralSamplerL
     outleta "generalSamplerOutR", ageneralSamplerR
@@ -127,6 +134,8 @@ instr generalSamplerMixerChannel
     ageneralSamplerL inleta "generalSamplerInL"
     ageneralSamplerR inleta "generalSamplerInR"
 
+    out ageneralSamplerL, ageneralSamplerR
+
     kgeneralSamplerFader = gkgeneralSamplerFader
     kgeneralSamplerPan = gkgeneralSamplerPan
     kgeneralSamplerEqBass = gkgeneralSamplerEqBass
@@ -143,6 +152,7 @@ instr generalSamplerMixerChannel
 
     ageneralSamplerL = (ageneralSamplerL * ((100 - kgeneralSamplerPan) * 2 / 100)) * kgeneralSamplerFader
     ageneralSamplerR = (ageneralSamplerR * (kgeneralSamplerPan * 2 / 100)) * kgeneralSamplerFader
+
 
     outleta "generalSamplerOutL", ageneralSamplerL
     outleta "generalSamplerOutR", ageneralSamplerR
