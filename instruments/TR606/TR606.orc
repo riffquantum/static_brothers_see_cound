@@ -36,26 +36,32 @@ gkTR606Pan init 50
 
 instr TR606
     SDrumName strget p4
+    kPitch = p5
+    kVelocity = p6
+    kKillSwitch = p7
+    iSaturated = p8
+    iAccent = p9
+
+
     SFullPath = "instruments/TR606/Roland TR-606/"
-    if (p8 == 1) then
+    if (iSaturated == 1) then
         SFullPath strcat SFullPath, "Saturated/"
     else
         SFullPath strcat SFullPath, "Normal/"
     endif
 
-    if (p9 == 1) then
+    if (iAccent == 1) then
         SFullPath strcat SFullPath, "accent"
     endif
 
     SFullPath strcat SFullPath, SDrumName
     SFullPath strcat SFullPath, ".wav"
-    kKillswitch init p7
 
-    if (kKillswitch == 0) then
-        a8081  diskin SFullPath, p5
+    if (kKillSwitch == 0) then
+        a8081  diskin SFullPath, kPitch
     endif
 
-    kres1           rms (a8081 * p6)
+    kres1           rms (a8081 * kVelocity)
 
     a8083          gain a8081, kres1
 
