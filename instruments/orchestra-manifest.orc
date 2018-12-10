@@ -26,6 +26,12 @@
 
 #include "thinkBreak/thinkBreak.orc"
 
+#include "loserInTheEndBreak/loserInTheEndBreak.orc"
+
+#include "gettinHappyBreak/gettinHappyBreak.orc"
+
+#include "transformationDayBreak/transformationDayBreak.orc"
+
 #include "signal/signal.orc"
 
 #include "sample/sample.orc"
