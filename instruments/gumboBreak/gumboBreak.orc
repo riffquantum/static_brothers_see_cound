@@ -15,8 +15,6 @@ connect "gumboBreakDiskgrain", "gumboBreakOutR", "gumboBreakMixerChannel", "gumb
 connect "gumboBreakSndwarp", "gumboBreakOutL", "gumboBreakMixerChannel", "gumboBreakInL"
 connect "gumboBreakSndwarp", "gumboBreakOutR", "gumboBreakMixerChannel", "gumboBreakInR"
 
-connect "gumboBreakMixerChannel", "gumboBreakOutL", "Mixer", "MixerInL"
-connect "gumboBreakMixerChannel", "gumboBreakOutR", "Mixer", "MixerInR"
 alwayson "gumboBreakMixerChannel"
 
 gkgumboBreakEqBass init 1

@@ -1,8 +1,7 @@
 ; Sample
 
 connect "Sample", "SampleOut", "SampleMixerChannel", "SampleIn"
-connect "SampleMixerChannel", "SampleOutL", "Mixer", "MixerInL"
-connect "SampleMixerChannel", "SampleOutR", "Mixer", "MixerInR"
+
 alwayson "SampleMixerChannel"
 
 gkSampleEqBass init 1

@@ -1,8 +1,7 @@
 ; Chorused Synth
 
 connect "SimpleOscillator", "SimpleOscillatorOut", "SimpleOscillatorMixerChannel", "SimpleOscillatorIn"
-connect "SimpleOscillatorMixerChannel", "SimpleOscillatorOutL", "Mixer", "MixerInL"
-connect "SimpleOscillatorMixerChannel", "SimpleOscillatorOutR", "Mixer", "MixerInR"
+
 alwayson "SimpleOscillatorMixerChannel"
 
 gkSimpleOscillatorEqBass init 1

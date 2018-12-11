@@ -1,8 +1,6 @@
 ; Chorused Synth
 
 connect "ChorusedSynth", "ChorusedSynthOut", "ChorusedSynthMixerChannel", "ChorusedSynthIn"
-connect "ChorusedSynthMixerChannel", "ChorusedSynthOutL", "Mixer", "MixerInL"
-connect "ChorusedSynthMixerChannel", "ChorusedSynthOutR", "Mixer", "MixerInR"
 alwayson "ChorusedSynthMixerChannel"
 
 gkChorusedSynthEqBass init 1

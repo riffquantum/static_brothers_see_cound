@@ -14,10 +14,7 @@
 
 connect "LinnDrum", "LinnDrumOutL", "LinnDrumMixerChannel", "LinnDrumInL"
 connect "LinnDrum", "LinnDrumOutR", "LinnDrumMixerChannel", "LinnDrumInR"
-; connect "LinnDrumMixerChannel", "LinnDrumOutL", "Mixer", "MixerInL"
-; connect "LinnDrumMixerChannel", "LinnDrumOutR", "sMixer", "MixerInR"
-connect "LinnDrumMixerChannel", "LinnDrumOutL", "Reverb1", "Reverb1InL"
-connect "LinnDrumMixerChannel", "LinnDrumOutR", "Reverb1", "Reverb1InR"
+
 alwayson "LinnDrumMixerChannel"
 
 gkLinnDrumEqBass init 1

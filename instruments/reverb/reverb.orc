@@ -1,6 +1,4 @@
 alwayson "Reverb1"
-connect "Reverb1", "Reverb1OutL", "Mixer", "MixerInL"
-connect "Reverb1", "Reverb1OutR", "Mixer", "MixerInR"
 
 gkReverb1Wet init 1
 gkReverb1Dry init 1

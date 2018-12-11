@@ -15,6 +15,11 @@ TO DO:
 
 * Improve responsiveness of real time MIDI input
 
-* Add EQ to mixer channels and knob instruments for 3 or 4 bands
-
 * Write a BPM setter instrument that can change the global BPM variable at different points in the score. This might mean changing the BPM variable to k rate.
+
+* Effects
+	- reverb
+	- delay
+	- echo
+	- chorus
+	- distortion

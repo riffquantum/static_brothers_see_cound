@@ -1,8 +1,7 @@
 ; Signal
 
 connect "Signal", "SignalOut", "SignalMixerChannel", "SignalIn"
-connect "SignalMixerChannel", "SignalOutL", "Mixer", "MixerInL"
-connect "SignalMixerChannel", "SignalOutR", "Mixer", "MixerInR"
+
 alwayson "SignalMixerChannel"
 
 gkSignalEqBass init 1

@@ -15,8 +15,6 @@ connect "gettinHappyBreakDiskgrain", "gettinHappyBreakOutR", "gettinHappyBreakMi
 connect "gettinHappyBreakSndwarp", "gettinHappyBreakOutL", "gettinHappyBreakMixerChannel", "gettinHappyBreakInL"
 connect "gettinHappyBreakSndwarp", "gettinHappyBreakOutR", "gettinHappyBreakMixerChannel", "gettinHappyBreakInR"
 
-connect "gettinHappyBreakMixerChannel", "gettinHappyBreakOutL", "Mixer", "MixerInL"
-connect "gettinHappyBreakMixerChannel", "gettinHappyBreakOutR", "Mixer", "MixerInR"
 alwayson "gettinHappyBreakMixerChannel"
 
 gkgettinHappyBreakEqBass init 1

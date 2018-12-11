@@ -11,8 +11,6 @@ connect "generalSamplerDiskgrain", "generalSamplerOutR", "generalSamplerMixerCha
 connect "generalSamplerSndwarp", "generalSamplerOutL", "generalSamplerMixerChannel", "generalSamplerInL"
 connect "generalSamplerSndwarp", "generalSamplerOutR", "generalSamplerMixerChannel", "generalSamplerInR"
 
-connect "generalSamplerMixerChannel", "generalSamplerOutL", "Mixer", "MixerInL"
-connect "generalSamplerMixerChannel", "generalSamplerOutR", "Mixer", "MixerInR"
 alwayson "generalSamplerMixerChannel"
 
 gkgeneralSamplerEqBass init 1
@@ -26,7 +24,7 @@ instr generalSamplerDiskin
     kpitch = p5
     iSkipTime = p6
     
-    SsampleFilePath strcat "instruments/generalSampler/samples/", SsampleFilename
+    SsampleFilePath strcat "samples/", SsampleFilename
     iFileNumChannels filenchnls SsampleFilePath
 
 

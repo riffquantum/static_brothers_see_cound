@@ -1,8 +1,6 @@
 ; Chorused Synth
 
 connect "ChorusedSynthMidiIn", "ChorusedSynthMidiInOut", "ChorusedSynthMidiInMixerChannel", "ChorusedSynthMidiInIn"
-connect "ChorusedSynthMidiInMixerChannel", "ChorusedSynthMidiInOutL", "Mixer", "MixerInL"
-connect "ChorusedSynthMidiInMixerChannel", "ChorusedSynthMidiInOutR", "Mixer", "MixerInR"
 alwayson "ChorusedSynthMidiInMixerChannel"
 
 gkChorusedSynthMidiInFader init 1

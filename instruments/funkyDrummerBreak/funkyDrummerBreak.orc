@@ -15,8 +15,6 @@ connect "funkyDrummerBreakDiskgrain", "funkyDrummerBreakOutR", "funkyDrummerBrea
 connect "funkyDrummerBreakSndwarp", "funkyDrummerBreakOutL", "funkyDrummerBreakMixerChannel", "funkyDrummerBreakInL"
 connect "funkyDrummerBreakSndwarp", "funkyDrummerBreakOutR", "funkyDrummerBreakMixerChannel", "funkyDrummerBreakInR"
 
-connect "funkyDrummerBreakMixerChannel", "funkyDrummerBreakOutL", "Mixer", "MixerInL"
-connect "funkyDrummerBreakMixerChannel", "funkyDrummerBreakOutR", "Mixer", "MixerInR"
 alwayson "funkyDrummerBreakMixerChannel"
 
 gkfunkyDrummerBreakEqBass init 1

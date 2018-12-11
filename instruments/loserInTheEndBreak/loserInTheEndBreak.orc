@@ -15,8 +15,6 @@ connect "loserInTheEndBreakDiskgrain", "loserInTheEndBreakOutR", "loserInTheEndB
 connect "loserInTheEndBreakSndwarp", "loserInTheEndBreakOutL", "loserInTheEndBreakMixerChannel", "loserInTheEndBreakInL"
 connect "loserInTheEndBreakSndwarp", "loserInTheEndBreakOutR", "loserInTheEndBreakMixerChannel", "loserInTheEndBreakInR"
 
-connect "loserInTheEndBreakMixerChannel", "loserInTheEndBreakOutL", "Mixer", "MixerInL"
-connect "loserInTheEndBreakMixerChannel", "loserInTheEndBreakOutR", "Mixer", "MixerInR"
 alwayson "loserInTheEndBreakMixerChannel"
 
 gkloserInTheEndBreakEqBass init 1
