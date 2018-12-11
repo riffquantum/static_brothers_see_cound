@@ -54,7 +54,7 @@ instr generalSamplerDiskgrain
     ioverlaps = p10
 
     iTable ftgenonce 0, 0, 8192, 20, 2, 1
-    SsampleFilePath strcat "instruments/generalSampler/samples/", SsampleFilename
+    SsampleFilePath strcat "samples/", SsampleFilename
     iFileNumChannels filenchnls SsampleFilePath
     kpointerRate = 1/ioverlaps * iTimeFactor
     kfreq = ioverlaps/kgrainsize
@@ -82,7 +82,7 @@ instr generalSamplerSndwarp
     ioverlap = p9
     iwindowSize = 10
     
-    SsampleFilePath strcat "instruments/generalSampler/samples/", SsampleFilename
+    SsampleFilePath strcat "samples/", SsampleFilename
     iFileNumChannels filenchnls SsampleFilePath
     igeneralSamplerFileSampleRate filesr SsampleFilePath
     igeneralSamplerTableLength getTableSizeFromSample SsampleFilePath
