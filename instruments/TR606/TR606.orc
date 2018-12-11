@@ -1,5 +1,5 @@
 /* TR606
-    Sampler using samples from the Roland TR-606 drum machine. 
+    Sampler using samples from the Roland TR-606 drum machine.
 
     p4 - Drum Name - String - valid values:
         kick
@@ -15,7 +15,7 @@
         equals 0. Use it with a loop count and some arithmetic
         to turn notes on and off per measure.
     p8 - if 1 then it will play the "saturated" version of the sample.
-        That's a version of the sample where the volume was maxed out 
+        That's a version of the sample where the volume was maxed out
         on the original machine.
     p9 - if 1 then it will play the "accent" version of the sample
 */
@@ -75,7 +75,7 @@ instr TR606MidKnob
 endin
 
 instr TR606HighKnob
-    gkTR606EqHigh linseg p4, p3, p5  
+    gkTR606EqHigh linseg p4, p3, p5
 endin
 
 instr TR606Fader
@@ -109,6 +109,4 @@ instr TR606MixerChannel
 
     outleta "TR606OutL", aTR606L
     outleta "TR606OutR", aTR606R
-
-    out aTR606L, aTR606R
 endin

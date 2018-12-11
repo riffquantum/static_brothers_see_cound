@@ -1,5 +1,5 @@
 /* generalSampler
-    A general purpose wrapper for sampling via diskin opcode. 
+    A general purpose wrapper for sampling via diskin opcode.
 */
 
 connect "generalSamplerDiskin", "generalSamplerOutL", "generalSamplerMixerChannel", "generalSamplerInL"
@@ -23,7 +23,7 @@ instr generalSamplerDiskin
     SsampleFilename = p4
     kpitch = p5
     iSkipTime = p6
-    
+
     SsampleFilePath strcat "samples/", SsampleFilename
     iFileNumChannels filenchnls SsampleFilePath
 
@@ -39,7 +39,7 @@ instr generalSamplerDiskin
         ageneralSamplerL diskin SsampleFilePath, kpitch, iSkipTime, iwraparound, iformat, iskipinit
         ageneralSamplerR = ageneralSamplerL
     endif
-    
+
     outleta "generalSamplerOutL", ageneralSamplerL
     outleta "generalSamplerOutR", ageneralSamplerR
 endin
@@ -81,17 +81,17 @@ instr generalSamplerSndwarp
     ibeginningTime =  p8
     ioverlap = p9
     iwindowSize = 10
-    
+
     SsampleFilePath strcat "samples/", SsampleFilename
     iFileNumChannels filenchnls SsampleFilePath
     igeneralSamplerFileSampleRate filesr SsampleFilePath
     igeneralSamplerTableLength getTableSizeFromSample SsampleFilePath
     ;iTable ftgenonce 0, 0, 8192, 20, 2, 1
     iTable ftgenonce 2, 0, 16384, 9, 0.5, 1, 0
-    
+
     igeneralSamplerTable ftgenonce 0, 0, igeneralSamplerTableLength, 1, SsampleFilePath, 0, 0, 0
     isampleTable = igeneralSamplerTable
-    
+
     irandw = 0
     ienvelopeTable = iTable
     itimemode = 0
@@ -117,7 +117,7 @@ instr generalSamplerMidKnob
 endin
 
 instr generalSamplerHighKnob
-    gkgeneralSamplerEqHigh linseg p4, p3, p5  
+    gkgeneralSamplerEqHigh linseg p4, p3, p5
 endin
 
 instr generalSamplerFader
@@ -131,8 +131,6 @@ endin
 instr generalSamplerMixerChannel
     ageneralSamplerL inleta "generalSamplerInL"
     ageneralSamplerR inleta "generalSamplerInR"
-
-    out ageneralSamplerL, ageneralSamplerR
 
     kgeneralSamplerFader = gkgeneralSamplerFader
     kgeneralSamplerPan = gkgeneralSamplerPan

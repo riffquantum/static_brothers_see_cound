@@ -1,5 +1,5 @@
 /* TR808
-    Sampler using samples from the Roland TR-808 drum machine. 
+    Sampler using samples from the Roland TR-808 drum machine.
 
     p4 - Drum Name - String - valid values:
     p5 - coresponds to kpitch on diskin opcode
@@ -47,7 +47,7 @@ instr TR808MidKnob
 endin
 
 instr TR808HighKnob
-    gkTR808EqHigh linseg p4, p3, p5  
+    gkTR808EqHigh linseg p4, p3, p5
 endin
 
 instr TR808Fader
@@ -82,5 +82,4 @@ instr TR808MixerChannel
     outleta "TR808OutL", aTR808L
     outleta "TR808OutR", aTR808R
 
-    out aTR808L, aTR808R
 endin

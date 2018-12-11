@@ -17,7 +17,7 @@ instr Sample
     iDur      = ftlen(iSample) / sr
 
     aSample poscil3 p4, p5/iDur, iSample
-            out aSample
+            outleta "SampleOut", aSample
 endin
 
 instr SampleBassKnob
@@ -29,7 +29,7 @@ instr SampleMidKnob
 endin
 
 instr SampleHighKnob
-    gkSampleEqHigh linseg p4, p3, p5  
+    gkSampleEqHigh linseg p4, p3, p5
 endin
 
 instr SampleFader

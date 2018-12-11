@@ -113,7 +113,7 @@ instr LinnDrum
     iTom13L ftgenonce 0, 0, 0, 1, "instruments/LinnDrumLM-2/Normalized/Tom13.aif", 0, 0, 1
     iTom13R ftgenonce 0, 0, 0, 1, "instruments/LinnDrumLM-2/Normalized/Tom13.aif", 0, 0, 2
 
-    
+
     ; ares grain xamp, xpitch, xdens, kampoff, kpitchoff, kgdur, igfn, iwfn, imgdur [, igrnd]
     ; ares grain2 kcps, kfmd, kgdur, iovrlp, kfn, iwfn [, irpow] [, iseed] [, imode]
     ; ares grain3 kcps, kphs, kfmd, kpmd, kgdur, kdens, imaxovr, kfn, iwfn, kfrpow, kprpow [, iseed] [, imode]
@@ -349,7 +349,6 @@ instr LinnDrum
         outleta "LinnDrumOutR", alinnR
     ; endif
 
-    ; out alinn3, alinn4
 endin
 
 instr LinnDrumFader
