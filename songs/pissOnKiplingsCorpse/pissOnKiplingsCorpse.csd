@@ -27,16 +27,16 @@
             scoreline_i beatScoreline( "TR808", 0, 2, {{ "KickDrum5" 1 1 0 0 0}} )
             scoreline_i beatScoreline( "TR808", 1.5, 1, {{ "KickDrum5" 1 1 0 0 0}} )
             scoreline_i beatScoreline( "TR808", 2, 2, {{ "KickDrum5" 1 1 0 0 0}} )
-            
+
 
             scoreline_i beatScoreline( "funkyDrummerBreakDiskin", 0, 2, {{ 4 }} )
             scoreline_i beatScoreline( "funkyDrummerBreakDiskin", 2, 2, {{ 10 }} )
             scoreline_i beatScoreline( "funkyDrummerBreakDiskin", 4, 3, {{ 4 }} )
             scoreline_i beatScoreline( "funkyDrummerBreakDiskin", 7, 1, {{ 11 }} )
-            
+
             scoreline_i beatScoreline( "AmenBreakDiskin", 0, 8, {{ 4 }} )
         endin
-        
+
         instr breakbeatPattern2
             scoreline_i beatScoreline( "TR808", 0, 2, {{ "KickDrum5" 1 1 0 0 0}} )
             scoreline_i beatScoreline( "TR808", 1.5, 1, {{ "KickDrum5" 1 1 0 0 0}} )
@@ -46,47 +46,47 @@
             scoreline_i beatScoreline( "funkyDrummerBreakDiskin", 2, 2, {{ 1 }} )
             scoreline_i beatScoreline( "funkyDrummerBreakDiskin", 4, 3, {{ 4 }} )
             scoreline_i beatScoreline( "funkyDrummerBreakDiskin", 7, 1, {{ 11 }} )
-            
 
-            scoreline_i beatScoreline( "AmenBreakDiskin", 0, 8, {{ 4 }} )
+
+            ;scoreline_i beatScoreline( "AmenBreakDiskin", 0, 8, {{ 4 }} )
         endin
 
         instr breakbeatPattern3
             scoreline_i beatScoreline( "TR808", 0, 2, {{ "KickDrum5" 1 1 0 0 0}} )
             scoreline_i beatScoreline( "TR808", 1.5, 1, {{ "KickDrum5" 1 1 0 0 0}} )
             scoreline_i beatScoreline( "TR808", 2, 2, {{ "KickDrum5" 1 1 0 0 0}} )
-            
+
 
             scoreline_i beatScoreline( "funkyDrummerBreakDiskin", 0, .25, {{ 4 }} )
             scoreline_i beatScoreline( "funkyDrummerBreakDiskin", .25, 1, {{ 4 }} )
 
             scoreline_i beatScoreline( "funkyDrummerBreakDiskin", .25, .25, {{ .5 }} )
-            scoreline_i beatScoreline( "funkyDrummerBreakDiskin", .5, 1.5, 
+            scoreline_i beatScoreline( "funkyDrummerBreakDiskin", .5, 1.5,
                 {{ .25 }} )
 
 
             scoreline_i beatScoreline( "funkyDrummerBreakDiskin", 2, 2, {{ 1 }} )
             scoreline_i beatScoreline( "funkyDrummerBreakDiskin", 4, 2, {{ .5 }} )
-            scoreline_i beatScoreline( "funkyDrummerBreakDiskin", 6, 2, {{ .5 }} )            
+            scoreline_i beatScoreline( "funkyDrummerBreakDiskin", 6, 2, {{ .5 }} )
 
-            scoreline_i beatScoreline( "AmenBreakDiskin", 0, 8, {{ 4 }} )
+            ;scoreline_i beatScoreline( "AmenBreakDiskin", 0, 8, {{ 4 }} )
         endin
 
         instr breakbeatPattern4
             scoreline_i beatScoreline( "TR808", 0, 2, {{ "KickDrum5" 1 1 0 0 0}} )
             ;scoreline_i beatScoreline( "TR808", 1.5, 1, {{ "KickDrum5" 1 2 0 0 0}} )
             scoreline_i beatScoreline( "TR808", 2.5, 2, {{ "KickDrum5" 1 1 0 0 0}} )
-            
+
             scoreline_i beatScoreline( "TR808", 4, 2, {{ "KickDrum5" 1 1 0 0 0}} )
             scoreline_i beatScoreline( "TR808", 6.5, 1.5, {{ "KickDrum5" 1.3 1 0 0 0}} )
             scoreline_i beatScoreline( "TR808", 6.75, 2, {{ "KickDrum5" 1.2 1.2 0 0 0}} )
 
             scoreline_i beatScoreline( "funkyDrummerBreakDiskin", 1, .55, {{ .5 }} )
             scoreline_i beatScoreline( "funkyDrummerBreakDiskin", 3, .55, {{ .5 }} )
-            
+
             scoreline_i beatScoreline( "funkyDrummerBreakDiskin", 5, .55, {{ .5 }} )
             scoreline_i beatScoreline( "funkyDrummerBreakDiskin", 7, .55, {{ .5 }} )
-            
+
 
             scoreline_i beatScoreline( "TR606", .5, .3, {{ "ClosedHat" 1 1 0 0 0 }})
             scoreline_i beatScoreline( "TR606", 1.5, .3, {{ "ClosedHat" 1 1 0 0 0 }})
@@ -128,31 +128,32 @@
             scoreline_i beatScoreline( "generalSamplerDiskin", 0, 8, SsampleString )
         endin
 
-        
+
     </CsInstruments>
 
     <CsScore>
         #define beatsPerMeasure # 4 #
 
         #define bpm # 170 #
-            m newDrumPatter
+
+
+
+
+            m intro
                 t 0 [$bpm]
                i "breakbeatPattern4" 0 8
                i "breakbeatPattern4" 8 8
                i "breakbeatPattern4" 16 8
                i "breakbeatPattern4" 24 8
+
+                i "pattern3" 28 8
+                i "breakbeatPattern" 28 8
+
+                i "AmenBreakFader" 28 8 0 1
+                i "funkyDrummerBreakFader" 28 8 0 1
             s
 
-            m intro
-                t 0 [$bpm]
-                i "pattern3" 0 8
-                i "breakbeatPattern" 0 8
 
-                i "AmenBreakFader" 0 8 0 1
-                i "funkyDrummerBreakFader" 0 8 0 1
-            s
-
-            
             m section1
                 t 0 [$bpm]
                 ;i "pattern3" 0 8
@@ -166,7 +167,7 @@
                 i "breakbeatPattern" + 8
                 i "breakbeatPattern" + 8
             s
-            
+
             m section0
                 t 0 [$bpm]
                 i "breakbeatPattern" 0 8
@@ -175,19 +176,19 @@
                 i "breakbeatPattern" + 8
                 i "breakbeatPattern" + 8
                 i "breakbeatPattern" + 8
-                
+
 
                 i "pattern1" 0 8
                 i "pattern1" + 8
                 i "pattern1" ^+24 8
                 i "pattern1" + 8
-                
+
                 i "pattern3" 8 8
                 i "pattern2" 16 16
             s
-            
-        
-            
+
+
+
             ; 1  2  3  4  5  6  7  8  9  10  11 12
             ; A  A# B  C  C# D  D# E  F  F#  G  G#
 
