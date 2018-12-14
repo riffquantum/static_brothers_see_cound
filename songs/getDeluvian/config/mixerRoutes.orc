@@ -63,17 +63,23 @@ connect "transformationDayBreakMixerChannel", "transformationDayBreakOutR", "Mix
 connect "trrSample1MixerChannel", "trrSample1OutL", "Mixer", "MixerInL"
 connect "trrSample1MixerChannel", "trrSample1OutR", "Mixer", "MixerInR"
 
-connect "trrSample1MixerChannel", "trrSample2OutL", "Mixer", "MixerInL"
-connect "trrSample1MixerChannel", "trrSample2OutR", "Mixer", "MixerInR"
+connect "trrSample2MixerChannel", "trrSample2OutL", "Mixer", "MixerInL"
+connect "trrSample2MixerChannel", "trrSample2OutR", "Mixer", "MixerInR"
 
-connect "trrSample1MixerChannel", "trrSample3OutL", "Mixer", "MixerInL"
-connect "trrSample1MixerChannel", "trrSample3OutR", "Mixer", "MixerInR"
+connect "trrSample3MixerChannel", "trrSample3OutL", "Mixer", "MixerInL"
+connect "trrSample3MixerChannel", "trrSample3OutR", "Mixer", "MixerInR"
 
-connect "trrSample1MixerChannel", "trrSample4OutL", "Mixer", "MixerInL"
-connect "trrSample1MixerChannel", "trrSample4OutR", "Mixer", "MixerInR"
+connect "trrSample4MixerChannel", "trrSample4OutL", "Mixer", "MixerInL"
+connect "trrSample4MixerChannel", "trrSample4OutR", "Mixer", "MixerInR"
 
 connect "santanaSample1MixerChannel", "santanaSample1OutL", "Mixer", "MixerInL"
 connect "santanaSample1MixerChannel", "santanaSample1OutR", "Mixer", "MixerInR"
 
 connect "santanaSample2MixerChannel", "santanaSample2OutL", "Mixer", "MixerInL"
 connect "santanaSample2MixerChannel", "santanaSample2OutR", "Mixer", "MixerInR"
+
+connect "santanaSample3MixerChannel", "santanaSample3OutL", "Mixer", "MixerInL"
+connect "santanaSample3MixerChannel", "santanaSample3OutR", "Mixer", "MixerInR"
+
+connect "santanaBell2MixerChannel", "santanaBell2OutL", "Mixer", "MixerInL"
+connect "santanaBell2MixerChannel", "santanaBell2OutR", "Mixer", "MixerInR"

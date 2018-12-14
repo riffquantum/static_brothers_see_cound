@@ -1,6 +1,4 @@
-/* santanaSample1
-    A general purpose wrapper for sampling via diskin opcode.
-*/
+/* santanaSample1 */
 
 
 connect "santanaSample1Sndwarp", "santanaSample1OutL", "santanaSample1Reverb", "santanaSample1InL"

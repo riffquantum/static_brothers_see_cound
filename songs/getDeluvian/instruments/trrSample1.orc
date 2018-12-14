@@ -1,6 +1,4 @@
-/* trrSample1
-    A general purpose wrapper for sampling via diskin opcode.
-*/
+/* trrSample1 */
 
 connect "trrSample1Diskin", "trrSample1OutL", "trrSample1MixerChannel", "trrSample1InL"
 connect "trrSample1Diskin", "trrSample1OutR", "trrSample1MixerChannel", "trrSample1InR"

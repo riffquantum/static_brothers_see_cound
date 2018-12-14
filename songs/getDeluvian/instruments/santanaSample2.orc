@@ -1,6 +1,4 @@
-/* santanaSample2
-    A general purpose wrapper for sampling via diskin opcode.
-*/
+/* santanaSample2 */
 
 
 connect "santanaSample2Sndwarp", "santanaSample2OutL", "santanaSample2MixerChannel", "santanaSample2InL"
@@ -16,14 +14,14 @@ gksantanaSample2Pan init 50
 
 instr santanaSample2Sndwarp
     kamplitude = p4
-    ktimewarp = giBPM/111.5 * 3.75
-    kresample = 0.005
-    ibeginningTime =  0
+    ktimewarp = (giBPM)/112 * 2
+    kresample = 1
+    ibeginningTime =  .41
     ioverlap = 20
     iwindowSize = 10
 
 
-    SsampleFilePath = "samples/santana-shreddy-bit.wav"
+    SsampleFilePath = "samples/santanaGuitarLick2.wav"
     iFileNumChannels filenchnls SsampleFilePath
     isantanaSample2FileSampleRate filesr SsampleFilePath
     isantanaSample2TableLength getTableSizeFromSample SsampleFilePath

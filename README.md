@@ -4,14 +4,13 @@
 ### CSound Project Take 1
 ### Joe Hughes and Quinn McCord
 
-This is the Static Brothers' CSound application for composition and performance. 
+This is the Static Brothers' CSound application for composition and performance.
 
 TO DO:
 * Write some kind of limiter that can clipping during many simulatenous events for the final output.
 -- The urgency of this has been mitigated. I changed the default value of 0dbsf by an order of magnitude thus giving every file a lot more head room.
-	
 
-* Find a solution for instrument interruption in realtime MIDI situations (IE hi hat closure)
+* Find a solution for instrument interruption in realtime MIDI situations (IE hi hat closure) - The right way to do this is to use MIDI note on/note off signals and to ditch this triggering of score events method I'm using.
 
 * Improve responsiveness of real time MIDI input
 
@@ -23,3 +22,8 @@ TO DO:
 	- echo
 	- chorus
 	- distortion
+    - ring mod
+
+* Cool Synths
+
+* Add some good envelopes to samplers
