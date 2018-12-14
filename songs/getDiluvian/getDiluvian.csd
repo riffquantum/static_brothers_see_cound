@@ -2,36 +2,36 @@
 
   <CsOptions>
       ;-odac -m0
-      -W -o "getDeluvian.wav" -m0
+      -W -o "getDiluvian.wav" -m0
   </CsOptions>
 
   <CsInstruments>
     #include "config/defaultConfig.orc"
-    #include "songs/getDeluvian/config/mixerRoutes.orc"
+    #include "songs/getDiluvian/config/mixerRoutes.orc"
 
     giBPM = 85
 
     #include "opcodes/opcode-manifest.orc"
     #include "instruments/orchestra-manifest.orc"
 
-    #include "songs/getDeluvian/instruments/trrSample1.orc"
-    #include "songs/getDeluvian/instruments/trrSample2.orc"
-    #include "songs/getDeluvian/instruments/trrSample3.orc"
-    #include "songs/getDeluvian/instruments/trrSample4.orc"
-    #include "songs/getDeluvian/instruments/santanaSample1.orc"
-    #include "songs/getDeluvian/instruments/santanaSample2.orc"
-    #include "songs/getDeluvian/instruments/santanaSample3.orc"
-    #include "songs/getDeluvian/instruments/santanaBell2.orc"
+    #include "songs/getDiluvian/instruments/trrSample1.orc"
+    #include "songs/getDiluvian/instruments/trrSample2.orc"
+    #include "songs/getDiluvian/instruments/trrSample3.orc"
+    #include "songs/getDiluvian/instruments/trrSample4.orc"
+    #include "songs/getDiluvian/instruments/santanaSample1.orc"
+    #include "songs/getDiluvian/instruments/santanaSample2.orc"
+    #include "songs/getDiluvian/instruments/santanaSample3.orc"
+    #include "songs/getDiluvian/instruments/santanaBell2.orc"
 
     gkloserInTheEndBreakFader init .75
     gkTR808Fader init .5
     gksantanaSample1Fader init .25
     gksantanaSample2Fader init .25
 
-    #include "songs/getDeluvian/patterns/drumPattern1.orc"
-    #include "songs/getDeluvian/patterns/drumPattern2.orc"
-    #include "songs/getDeluvian/patterns/choralPattern.orc"
-    #include "songs/getDeluvian/patterns/twistedTablas.orc"
+    #include "songs/getDiluvian/patterns/drumPattern1.orc"
+    #include "songs/getDiluvian/patterns/drumPattern2.orc"
+    #include "songs/getDiluvian/patterns/choralPattern.orc"
+    #include "songs/getDiluvian/patterns/twistedTablas.orc"
 
 
     instr Intro
