@@ -6,7 +6,7 @@
 
     <CsInstruments>
         #include "config/defaultConfig.orc"
-        #include "config/defaultMixerRouting.orc"
+        #include "config/defaultMixerRoutes.orc"
 
         giBPM = 90
 
