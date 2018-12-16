@@ -26,18 +26,17 @@ gSloserInTheEndFilePath init "instruments/loserInTheEndBreak/loserInTheEndbreak.
 
 giloserInTheEndBreakBPM init 72.5
 
-giloserInTheEndFactor = giBPM / giloserInTheEndBreakBPM
-
 giloserInTheEndFileLength filelen gSloserInTheEndFilePath
 giloserInTheEndLengthOfBeat = giloserInTheEndFileLength / 16
 
 
 instr loserInTheEndBreakDiskin
-    kpitch = giloserInTheEndFactor
-    
+iloserInTheEndFactor = giBPM / giloserInTheEndBreakBPM
+    kpitch = iloserInTheEndFactor
+
     iSkipTimeInBeats = p4
     iSkipTime = giloserInTheEndLengthOfBeat * iSkipTimeInBeats
-    
+
     iwraparound= 0
     iformat = 0
     iskipinit = 0
@@ -52,7 +51,8 @@ endin
 instr loserInTheEndBreakDiskgrain
     iTable ftgenonce 0, 0, 8192, 20, 2, 1
     kamplitude = p4
-    iTimeFactor = p5 * giloserInTheEndFactor
+    iloserInTheEndFactor = giBPM / giloserInTheEndBreakBPM
+    iTimeFactor = p5 * iloserInTheEndFactor
     kpitch = p6
     iskipTimeInBeats = p7
     kgrainsize = 0.004
@@ -75,10 +75,11 @@ instr loserInTheEndBreakSndwarp
     ;iTable ftgenonce 0, 0, 8192, 20, 2, 1
     iTable ftgenonce 2, 0, 16384, 9, 0.5, 1, 0
     iloserInTheEndTable ftgenonce 0, 0, iloserInTheEndTableLength, 1, gSloserInTheEndFilePath, 0, 0, 0
-    
+
     ;sndwarp arguments
     kamplitude = p4
-    ktimewarp = p5 * (1/giloserInTheEndFactor)
+    iloserInTheEndFactor = giBPM / giloserInTheEndBreakBPM
+    ktimewarp = p5 * (1/iloserInTheEndFactor)
     kresample = p6
     isampleTable = iloserInTheEndTable
     iskipTimeInBeats = p7
@@ -105,7 +106,7 @@ instr loserInTheEndBreakMidKnob
 endin
 
 instr loserInTheEndBreakHighKnob
-    gkloserInTheEndBreakEqHigh linseg p4, p3, p5  
+    gkloserInTheEndBreakEqHigh linseg p4, p3, p5
 endin
 
 instr loserInTheEndBreakFader

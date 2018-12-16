@@ -1,6 +1,6 @@
 /* funkyDrummerBreak
     A set of sampling instruments each using different opcodes for playing and manipulating the drum break from Funky Drummer by James Brown.
-    
+
     Sample Source: Funky Drummer - James Brown
     BPM: ~101
     Length: 16 beats
@@ -25,18 +25,18 @@ gkfunkyDrummerBreakPan init 50
 gSFunkyDrummerFilePath init "instruments/funkyDrummerBreak/funkydrummerbreak.wav"
 
 giFunkyDrummerBreakBPM init 101
-giFunkyDrummerFactor = giBPM / giFunkyDrummerBreakBPM
 
 giFunkyDrummerFileLength filelen gSFunkyDrummerFilePath
 giFunkyDrummerLengthOfBeat = giFunkyDrummerFileLength / 16
 
 
 instr funkyDrummerBreakDiskin
-    kpitch = giFunkyDrummerFactor
-    
+iFunkyDrummerFactor = giBPM / giFunkyDrummerBreakBPM
+    kpitch = iFunkyDrummerFactor
+
     iSkipTimeInBeats = p4
     iSkipTime = giFunkyDrummerLengthOfBeat * iSkipTimeInBeats
-    
+
     iwraparound= 1
     iformat = 0
     iskipinit = 0
@@ -51,7 +51,8 @@ endin
 instr funkyDrummerBreakDiskgrain
     iTable ftgenonce 0, 0, 8192, 20, 2, 1
     kamplitude = p4
-    iTimeFactor = p5 * giFunkyDrummerFactor
+    iFunkyDrummerFactor = giBPM / giFunkyDrummerBreakBPM
+    iTimeFactor = p5 * iFunkyDrummerFactor
     kpitch = p6
     iskipTimeInBeats = p7
     kgrainsize = 0.004
@@ -74,9 +75,10 @@ instr funkyDrummerBreakSndwarp
     ;iTable ftgenonce 0, 0, 8192, 20, 2, 1
     iTable ftgenonce 2, 0, 16384, 9, 0.5, 1, 0
     iFunkyDrummerTable ftgenonce 0, 0, iFunkyDrummerTableLength, 1, gSFunkyDrummerFilePath, 0, 0, 0
-    
+
     kamplitude = p4
-    ktimewarp = p5 * (1/giFunkyDrummerFactor)
+    iFunkyDrummerFactor = giBPM / giFunkyDrummerBreakBPM
+    ktimewarp = p5 * (1/iFunkyDrummerFactor)
     kresample = p6
     isampleTable = iFunkyDrummerTable
     iskipTimeInBeats = p7
@@ -103,7 +105,7 @@ instr funkyDrummerBreakMidKnob
 endin
 
 instr funkyDrummerBreakHighKnob
-    gkfunkyDrummerBreakEqHigh linseg p4, p3, p5  
+    gkfunkyDrummerBreakEqHigh linseg p4, p3, p5
 endin
 
 instr funkyDrummerBreakFader

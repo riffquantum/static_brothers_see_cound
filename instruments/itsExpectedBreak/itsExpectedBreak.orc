@@ -26,18 +26,18 @@ gSitsExpectedFilePath init "instruments/itsExpectedBreak/itsExpectedbreak.wav"
 
 giitsExpectedBreakBPM init 87.25
 
-giitsExpectedFactor = giBPM / giitsExpectedBreakBPM
-
 giitsExpectedFileLength filelen gSitsExpectedFilePath
 giitsExpectedLengthOfBeat = giitsExpectedFileLength / 16
 
 
 instr itsExpectedBreakDiskin
-    kpitch = giitsExpectedFactor
-    
+iitsExpectedFactor = giBPM / giitsExpectedBreakBPM
+    kpitch = iitsExpectedFactor
+
+
     iSkipTimeInBeats = p4
     iSkipTime = giitsExpectedLengthOfBeat * iSkipTimeInBeats
-    
+
     iwraparound= 1
     iformat = 0
     iskipinit = 0
@@ -52,7 +52,8 @@ endin
 instr itsExpectedBreakDiskgrain
     iTable ftgenonce 0, 0, 8192, 20, 2, 1
     kamplitude = p4
-    iTimeFactor = p5 * giitsExpectedFactor
+    iitsExpectedFactor = giBPM / giitsExpectedBreakBPM
+    iTimeFactor = p5 * iitsExpectedFactor
     kpitch = p6
     iskipTimeInBeats = p7
     kgrainsize = 0.004
@@ -75,10 +76,11 @@ instr itsExpectedBreakSndwarp
     ;iTable ftgenonce 0, 0, 8192, 20, 2, 1
     iTable ftgenonce 2, 0, 16384, 9, 0.5, 1, 0
     iitsExpectedTable ftgenonce 0, 0, iitsExpectedTableLength, 1, gSitsExpectedFilePath, 0, 0, 0
-    
+
     ;sndwarp arguments
     kamplitude = p4
-    ktimewarp = p5 * (1/giitsExpectedFactor)
+    iitsExpectedFactor = giBPM / giitsExpectedBreakBPM
+    ktimewarp = p5 * (1/iitsExpectedFactor)
     kresample = p6
     isampleTable = iitsExpectedTable
     iskipTimeInBeats = p7
@@ -105,7 +107,7 @@ instr itsExpectedBreakMidKnob
 endin
 
 instr itsExpectedBreakHighKnob
-    gkitsExpectedBreakEqHigh linseg p4, p3, p5  
+    gkitsExpectedBreakEqHigh linseg p4, p3, p5
 endin
 
 instr itsExpectedBreakFader
