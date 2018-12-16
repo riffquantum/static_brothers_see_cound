@@ -19,17 +19,17 @@ gkAmenBreakPan init 50
 gSAmenFilePath init "instruments/amenBreak/amen-break.wav"
 
 giAmenBreakBPM init 137
-giAmenFactor = giBPM / giAmenBreakBPM
 
 giAmenFileLength filelen gSAmenFilePath
 giAmenLengthOfBeat = giAmenFileLength / 16
 
 instr AmenBreakDiskin
-    kpitch = giAmenFactor
-    
+    iAmenFactor = giBPM / giAmenBreakBPM
+    kpitch = iAmenFactor
+
     iSkipTimeInBeats = p4
     iSkipTime = giAmenLengthOfBeat * iSkipTimeInBeats
-    
+
     iwraparound= 1
     iformat = 0
     iskipinit = 0
@@ -41,9 +41,10 @@ instr AmenBreakDiskin
 endin
 
 instr AmenBreakDiskgrain
+    iAmenFactor = giBPM / giAmenBreakBPM
     iTable ftgenonce 0, 0, 8192, 20, 2, 1
     kamplitude = p4
-    iTimeFactor = p5 * giAmenFactor
+    iTimeFactor = p5 * iAmenFactor
     kpitch = p6
     iskipTimeInBeats = p7
     kgrainsize = 0.004
@@ -52,7 +53,7 @@ instr AmenBreakDiskgrain
     kfreq = ioverlaps/kgrainsize
     imaxgrainsize = 1
     iskipTime = giAmenLengthOfBeat * iskipTimeInBeats
-    
+
     aAmen diskgrain gSAmenFilePath, kamplitude,    kfreq,     kpitch, kgrainsize ,     kpointerRate, iTable,  ioverlaps, imaxgrainsize, iskipTime
 
     outleta "AmenBreakOut", aAmen
@@ -60,14 +61,15 @@ instr AmenBreakDiskgrain
 endin
 
 instr AmenBreakSndwarp
+    iAmenFactor = giBPM / giAmenBreakBPM
     iAmenFileSampleRate filesr gSAmenFilePath
     iAmenTableLength getTableSizeFromSample gSAmenFilePath
     ;iTable ftgenonce 0, 0, 8192, 20, 2, 1
     iTable ftgenonce 2, 0, 16384, 9, 0.5, 1, 0
     iAmenTable ftgenonce 0, 0, iAmenTableLength, 1, gSAmenFilePath, 0, 0, 0
-    
+
     kamplitude = p4
-    ktimewarp = p5 * (1/giAmenFactor)
+    ktimewarp = p5 * (1/iAmenFactor)
     kresample = p6
     isampleTable = iAmenTable
     iskipTimeInBeats = p7
@@ -77,7 +79,7 @@ instr AmenBreakSndwarp
     irandw = 0
     ienvelopeTable = iTable
     itimemode = 0
-    
+
     aAmen sndwarp kamplitude, ktimewarp, kresample, isampleTable, ibeginningTime, iwindowSize, irandw, ioverlap, ienvelopeTable, itimemode
 
     outleta "AmenBreakOut", aAmen
@@ -93,7 +95,7 @@ instr AmenBreakMidKnob
 endin
 
 instr AmenBreakHighKnob
-    gkAmenBreakEqHigh linseg p4, p3, p5  
+    gkAmenBreakEqHigh linseg p4, p3, p5
 endin
 
 instr AmenBreakFader
