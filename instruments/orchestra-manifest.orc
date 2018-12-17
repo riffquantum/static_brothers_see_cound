@@ -40,5 +40,7 @@
 
 #include "masterMidiInterface/masterMidiInterface.orc"
 
+#include "TB303/TB303.orc"
+
 #include "mixer/mixer.orc"
 
