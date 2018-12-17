@@ -16,7 +16,7 @@ TO DO:
 
 * Write a BPM setter instrument that can change the global BPM variable at different points in the score. This might mean changing the BPM variable to k rate.
 
-* Effects
+* Effects - I think our approach to effects should be to write them as opCodes and then wrap them in instruments on a song by song basis for manipulating their parameters in the score.
 	- reverb
 	- delay
 	- echo
