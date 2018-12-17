@@ -6,3 +6,7 @@
 
 #include "threeBandEq.orc"
 
+#include "pitchShifter.orc"
+
+#include "delayBuffer.orc"
+
