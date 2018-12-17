@@ -62,3 +62,6 @@ connect "TR808MixerChannel", "TR808OutR", "Mixer", "MixerInR"
 connect "transformationDayBreakMixerChannel", "transformationDayBreakOutL", "Mixer", "MixerInL"
 connect "transformationDayBreakMixerChannel", "transformationDayBreakOutR", "Mixer", "MixerInR"
 
+connect "TB303MixerChannel", "TB303OutL", "Mixer", "MixerInL"
+connect "TB303MixerChannel", "TB303OutR", "Mixer", "MixerInR"
+
