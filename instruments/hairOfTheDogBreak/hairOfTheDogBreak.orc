@@ -2,7 +2,7 @@
     A set of sampling instruments each using different opcodes for playing and manipulating the intro drum break from Hair Of The Dog by Nazareth.
 
     Sample Source: Hair Of The Dog - Nazareth
-    BPM: ~126.5
+    BPM: ~125
     Length: 16 beats
 */
 
@@ -24,7 +24,7 @@ gkhairOfTheDogBreakFader init 1
 gkhairOfTheDogBreakPan init 50
 gShairOfTheDogFilePath init "instruments/hairOfTheDogBreak/hairOfTheDogBreak.wav"
 
-gihairOfTheDogBreakBPM init 126.5
+gihairOfTheDogBreakBPM init 125
 
 gihairOfTheDogFileLength filelen gShairOfTheDogFilePath
 gihairOfTheDogLengthOfBeat = gihairOfTheDogFileLength / 16
