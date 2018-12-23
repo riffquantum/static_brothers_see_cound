@@ -32,6 +32,20 @@
 
 #include "transformationDayBreak/transformationDayBreak.orc"
 
+#include "hairOfTheDogBreak/hairOfTheDogBreak.orc"
+
+#include "closeToMeBreak/closeToMeBreak.orc"
+
+#include "dopesmokerBreak/dopesmokerBreak.orc"
+
+#include "handInTheHandBreak/handInTheHandBreak.orc"
+
+#include "tenThousandYearsBreak/tenThousandYearsBreak.orc"
+
+#include "tastyCakesBreak/tastyCakesBreak.orc"
+
+#include "sinkingBreak/sinkingBreak.orc"
+
 #include "signal/signal.orc"
 
 #include "sample/sample.orc"
