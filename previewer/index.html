@@ -1,0 +1,50 @@
+<html>
+    <head>
+
+        <script src="js/wavesurfer.min.js"></script>
+        <script src="js/wavesurfer.timeline.min.js"></script>
+
+    </head>
+    <body style="background: #7e7e7e;">
+        <div id="waveform"></div>
+        <div id="waveform-timeline"></div>
+
+        <p align="center">
+          <button style="width:200px; border: 0; background: #2d2d2d; color: #ddd; font-weight: bold; font-size: 24px;" onclick="wavesurfer.playPause()">
+            Play / Pause
+          </button>
+        </p>
+        <script>
+
+            var wavesurfer = Object.create(WaveSurfer);
+
+            wavesurfer.init({
+                container: document.querySelector('#waveform'),
+                waveColor: 'violet',
+                progressColor: 'purple',
+                height: 100
+            });
+
+            wavesurfer.on('ready', function () {
+                wavesurfer.play();
+            });
+
+            wavesurfer.load('preview.wav');
+
+
+            wavesurfer.on('ready', function () {
+              var timeline = Object.create(WaveSurfer.Timeline);
+              wavesurfer.pause() //Prevents weird autoplay glitch on auto reload
+
+              timeline.init({
+                wavesurfer: wavesurfer,
+                container: '#waveform-timeline'
+              });
+            });
+        </script>
+        <script type="text/javascript" src="js/live.js"></script>
+    </body>
+
+</html>
+
+
