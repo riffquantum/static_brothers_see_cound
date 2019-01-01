@@ -71,6 +71,13 @@
 
               });
             });
+
+            document.body.onkeyup = function(e){
+                if(e.keyCode == 32){
+                    e.preventDefault();
+                    wavesurfer.playPause();
+                }
+            }
         </script>
         <script type="text/javascript" src="js/live.js"></script>
     </body>
