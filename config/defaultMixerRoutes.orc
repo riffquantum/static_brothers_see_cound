@@ -20,6 +20,9 @@ connect "funkyDrummerBreakMixerChannel", "funkyDrummerBreakOutR", "Mixer", "Mixe
 connect "generalSamplerMixerChannel", "generalSamplerOutL", "Mixer", "MixerInL"
 connect "generalSamplerMixerChannel", "generalSamplerOutR", "Mixer", "MixerInR"
 
+connect "fruityGranulizerMixerChannel", "fruityGranulizerOutL", "Mixer", "MixerInL"
+connect "fruityGranulizerMixerChannel", "fruityGranulizerOutR", "Mixer", "MixerInR"
+
 connect "gettinHappyBreakMixerChannel", "gettinHappyBreakOutL", "Mixer", "MixerInL"
 connect "gettinHappyBreakMixerChannel", "gettinHappyBreakOutR", "Mixer", "MixerInR"
 

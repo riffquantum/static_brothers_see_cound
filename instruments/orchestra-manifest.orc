@@ -52,6 +52,8 @@
 
 #include "generalSampler/generalSampler.orc"
 
+#include "fruityGranulizer/fruityGranulizer.orc"
+
 #include "masterMidiInterface/masterMidiInterface.orc"
 
 #include "mixer/mixer.orc"
