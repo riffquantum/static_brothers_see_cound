@@ -17,21 +17,22 @@
 
 
         instr breaks
-            scoreline_i beatScoreline( "thinkBreakDiskin", 0, 4, {{ 0 0 }} )
-            scoreline_i beatScoreline( "thinkBreakDiskin", 4, 4, {{ 0 0 }} )
-            scoreline_i beatScoreline( "sinkingBreakDiskin", 0, 8, {{ 0 0 }} )
-            scoreline_i beatScoreline( "AmenBreakDiskin", 0, 8, {{ 4 }} )
-            scoreline_i beatScoreline( "funkyDrummerBreakDiskin", 0, 8, {{ 4 }} )
-            scoreline_i beatScoreline( "gettinHappyBreakDiskin", 0, 8, {{ 4 }} )
-            scoreline_i beatScoreline( "itsExpectedBreakDiskin", 0, 8, {{ 0 }} )
-            scoreline_i beatScoreline( "hairOfTheDogBreakDiskin", 0, 8, {{ 0 }} )
-            scoreline_i beatScoreline( "handInTheHandBreakDiskin", 0, 8, {{ 0 1 }} )
-            scoreline_i beatScoreline( "gumboBreakDiskin", 0, 8, {{ 0 }} )
             scoreline_i beatScoreline( "closeToMeBreakDiskin", 0, 8, {{ 0 }} )
-            scoreline_i beatScoreline( "loserInTheEndBreakDiskin", 0, 8, {{ 0 }} )
-            scoreline_i beatScoreline( "tastyCakesBreakDiskin", 0, 8, {{ 0 }} )
-            scoreline_i beatScoreline( "tenThousandYearsBreakDiskin", 0, 8, {{ 0 }} )
-            scoreline_i beatScoreline( "transformationDayBreakDiskin", 0, 8, {{ 0 }} )
+            scoreline_i beatScoreline( "tenThousandYearsBreakDiskin", 8, 8, {{ 2 }} )
+            scoreline_i beatScoreline( "sinkingBreakDiskin", 16, 8, {{ 0 0 }} )
+            scoreline_i beatScoreline( "gumboBreakDiskin", 24, 8, {{ 10 }} )
+            scoreline_i beatScoreline( "hairOfTheDogBreakDiskin", 32, 8, {{ 0 }} )
+            scoreline_i beatScoreline( "gettinHappyBreakDiskin", 40, 8, {{ 0 }} )
+            scoreline_i beatScoreline( "AmenBreakDiskin", 48, 8, {{ 4 }} )
+            scoreline_i beatScoreline( "itsExpectedBreakDiskin", 56, 8, {{ 2 }} )
+            scoreline_i beatScoreline( "funkyDrummerBreakDiskin", 64, 8, {{ 4 }} )
+            scoreline_i beatScoreline( "loserInTheEndBreakDiskin", 72, 8, {{ 2 }} )
+            scoreline_i beatScoreline( "transformationDayBreakDiskin", 80, 8, {{ 0 1 }} )
+            scoreline_i beatScoreline( "thinkBreakDiskin", 88, 8, {{ 2 0 }} )
+            scoreline_i beatScoreline( "tastyCakesBreakDiskin", 96, 8, {{ 0 }} )
+            scoreline_i beatScoreline( "handInTheHandBreakDiskin", 104, 8, {{ 6 1 }} )
+
+
         endin
 
 
@@ -45,11 +46,8 @@
             m section0
                 t 0 [$bpm]
 
-                i "breaks" + 8
-                i "breaks" + 8
-
-                i "breaks" + 8
-                i "breaks" + 8
+                i "breaks" + 112
+                i "breaks" + 112
 
             s
             ; 1  2  3  4  5  6  7  8  9  10  11 12

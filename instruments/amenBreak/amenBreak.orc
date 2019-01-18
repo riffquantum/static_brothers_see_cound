@@ -42,11 +42,13 @@ endin
 
 instr AmenBreakDiskgrain
     iAmenFactor = giBPM / giAmenBreakBPM
-    iTable ftgenonce 0, 0, 8192, 20, 2, 1
+
     kamplitude = p4
     iTimeFactor = p5 * iAmenFactor
     kpitch = p6
     iskipTimeInBeats = p7
+
+    iTable ftgenonce 0, 0, 8192, 20, 2, 1
     kgrainsize = 0.004
     ioverlaps = 2
     kpointerRate = 1/ioverlaps * iTimeFactor
@@ -57,7 +59,6 @@ instr AmenBreakDiskgrain
     aAmen diskgrain gSAmenFilePath, kamplitude,    kfreq,     kpitch, kgrainsize ,     kpointerRate, iTable,  ioverlaps, imaxgrainsize, iskipTime
 
     outleta "AmenBreakOut", aAmen
-
 endin
 
 instr AmenBreakSndwarp

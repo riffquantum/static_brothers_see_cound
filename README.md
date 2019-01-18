@@ -27,3 +27,10 @@ TO DO:
 * Cool Synths
 
 * Add some good envelopes to samplers
+
+* Finish 303 conversion
+
+Handy Notes:
+Conversion Specifiers for string interpolation:
+* d, i, o, u, x, X, e, E, f, F, g, G, c, s
+* http://www.cplusplus.com/reference/cstdio/printf/

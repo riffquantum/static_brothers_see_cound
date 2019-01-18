@@ -149,7 +149,6 @@ instr generalSamplerMixerChannel
     ageneralSamplerL = (ageneralSamplerL * ((100 - kgeneralSamplerPan) * 2 / 100)) * kgeneralSamplerFader
     ageneralSamplerR = (ageneralSamplerR * (kgeneralSamplerPan * 2 / 100)) * kgeneralSamplerFader
 
-
     outleta "generalSamplerOutL", ageneralSamplerL
     outleta "generalSamplerOutR", ageneralSamplerR
 endin
