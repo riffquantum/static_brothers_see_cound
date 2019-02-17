@@ -1,3 +1,20 @@
+; giTestNotes maps a set of adjacent, low numbered, unassigned keys to other notes for convenience in testing notes on a virtual midi keyboard.
+giTestNotes[12] = 82
+giTestNotes[13] = 56
+giTestNotes[14] = 55
+giTestNotes[15] = 56
+giTestNotes[16] = 36
+giTestNotes[17] = 45
+giTestNotes[18] = 46
+giTestNotes[19] = 73
+giTestNotes[20] = 49
+giTestNotes[21] = 88
+giTestNotes[22] = 51
+giTestNotes[23] = 43
+giTestNotes[24] = 38
+giTestNotes[25] = 54
+giTestNotes[26] = 44
+
 giRideNote = 49
 giRideRimNote = 48
 giHatOpenNote = 55
