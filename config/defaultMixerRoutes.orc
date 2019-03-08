@@ -82,3 +82,6 @@ connect "tastyCakesBreakMixerChannel", "tastyCakesBreakOutR", "Mixer", "MixerInR
 
 connect "sinkingBreakMixerChannel", "sinkingBreakOutL", "Mixer", "MixerInL"
 connect "sinkingBreakMixerChannel", "sinkingBreakOutR", "Mixer", "MixerInR"
+
+connect "KeyGateBreakMixerChannel", "KeyGateBreakOutL", "Mixer", "MixerInL"
+connect "KeyGateBreakMixerChannel", "KeyGateBreakOutR", "Mixer", "MixerInR"

@@ -16,7 +16,7 @@ massign 1, "MasterMidiInterface"
 alwayson "MasterMidiInterface"
 
 instr MasterMidiInterface
-	kstatus, kchan, kdata1, kdata2  midiin 
+	kstatus, kchan, kdata1, kdata2  midiin
 	ktrigger  changed  kstatus, kchan, kdata1, kdata2
 
 	if kchan != 1 then
@@ -33,14 +33,15 @@ instr MasterMidiInterface
 	 printks "status:%d%tchannel:%d%tdata1:%d%tdata2:%d%n"\
 	                                    ,0,kstatus,kchan,kdata1,kdata2
 	endif
-	
+
 	if  kdata2 != 0 && kstatus == 144 then
 		kvelocity = (kdata2 / 127) ;TO DO: Get this into p6 of the scoreline statementes below
 
 		/****************************
 		 Drum Kit Notes
 		 ****************************/
-		; Ride
+
+    ; Ride
 		if kdata1 == 49  then
 			scoreline {{i "LinnDrum" 0 1 "Ride" 1 .5 0}}, ktrigger
 			kgoto end
