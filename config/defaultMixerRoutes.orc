@@ -65,3 +65,26 @@ connect "transformationDayBreakMixerChannel", "transformationDayBreakOutR", "Mix
 connect "TB303MixerChannel", "TB303OutL", "Mixer", "MixerInL"
 connect "TB303MixerChannel", "TB303OutR", "Mixer", "MixerInR"
 
+connect "hairOfTheDogBreakMixerChannel", "hairOfTheDogBreakOutL", "Mixer", "MixerInL"
+connect "hairOfTheDogBreakMixerChannel", "hairOfTheDogBreakOutR", "Mixer", "MixerInR"
+
+connect "closeToMeBreakMixerChannel", "closeToMeBreakOutL", "Mixer", "MixerInL"
+connect "closeToMeBreakMixerChannel", "closeToMeBreakOutR", "Mixer", "MixerInR"
+
+connect "dopesmokerBreakMixerChannel", "dopesmokerBreakOutL", "Mixer", "MixerInL"
+connect "dopesmokerBreakMixerChannel", "dopesmokerBreakOutR", "Mixer", "MixerInR"
+
+connect "handInTheHandBreakMixerChannel", "handInTheHandBreakOutL", "Mixer", "MixerInL"
+connect "handInTheHandBreakMixerChannel", "handInTheHandBreakOutR", "Mixer", "MixerInR"
+
+connect "tenThousandYearsBreakMixerChannel", "tenThousandYearsBreakOutL", "Mixer", "MixerInL"
+connect "tenThousandYearsBreakMixerChannel", "tenThousandYearsBreakOutR", "Mixer", "MixerInR"
+
+connect "tastyCakesBreakMixerChannel", "tastyCakesBreakOutL", "Mixer", "MixerInL"
+connect "tastyCakesBreakMixerChannel", "tastyCakesBreakOutR", "Mixer", "MixerInR"
+
+connect "sinkingBreakMixerChannel", "sinkingBreakOutL", "Mixer", "MixerInL"
+connect "sinkingBreakMixerChannel", "sinkingBreakOutR", "Mixer", "MixerInR"
+
+connect "KeyGateBreakMixerChannel", "KeyGateBreakOutL", "Mixer", "MixerInL"
+connect "KeyGateBreakMixerChannel", "KeyGateBreakOutR", "Mixer", "MixerInR"

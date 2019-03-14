@@ -1,0 +1,87 @@
+<html>
+    <head>
+
+        <script src="js/wavesurfer.min.js"></script>
+        <script src="js/wavesurfer.timeline.min.js"></script>
+
+        <style>
+            button {
+                width:10vw;
+                height:180px;
+                border: 0;
+                color: #F8F8F2;
+                background-color: #8E908A;
+                font-weight: bold;
+                font-size: 24px;
+                float: left;
+            }
+
+            .wave-wrapper {
+                margin-left: calc(10vw + 10px);
+            }
+
+            timeline {
+                margin-top: 10px;
+            }
+
+        </style>
+
+    </head>
+    <body style="background: #272822;">
+        <p align="center">
+          <button style="" onclick="wavesurfer.playPause()">
+            Play / Pause
+          </button>
+        </p>
+        <div class="wave-wrapper">
+            <div id="waveform"></div>
+            <div id="waveform-timeline"></div>
+        </div>
+
+        <script>
+
+            var wavesurfer = Object.create(WaveSurfer);
+
+            wavesurfer.init({
+                container: document.querySelector('#waveform'),
+                waveColor: '#54B4C4',
+                progressColor: '#AF7DFF',
+                height: 140
+            });
+
+            wavesurfer.on('ready', function () {
+                wavesurfer.play();
+            });
+
+            wavesurfer.load('preview.wav');
+
+
+            wavesurfer.on('ready', function () {
+              var timeline = Object.create(WaveSurfer.Timeline);
+              wavesurfer.pause() //Prevents weird autoplay glitch on auto reload
+
+              timeline.init({
+                wavesurfer: wavesurfer,
+                container: '#waveform-timeline',
+                height: 40,
+                primaryColor: '#FC1E70',
+                secondaryColor: '#A4E405',
+                primaryFontColor: '#F8F8F2',
+                secondaryFontColor: '#F8F8F2'
+
+              });
+            });
+
+            document.body.onkeyup = function(e){
+                if(e.keyCode == 32){
+                    e.preventDefault();
+                    wavesurfer.playPause();
+                }
+            }
+        </script>
+        <script type="text/javascript" src="js/live.js"></script>
+    </body>
+
+</html>
+
+

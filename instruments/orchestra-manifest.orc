@@ -16,22 +16,6 @@
 
 #include "simpleOscillator/simpleOscillator.orc"
 
-#include "amenBreak/amenBreak.orc"
-
-#include "funkyDrummerBreak/funkyDrummerBreak.orc"
-
-#include "itsExpectedBreak/itsExpectedBreak.orc"
-
-#include "gumboBreak/gumboBreak.orc"
-
-#include "thinkBreak/thinkBreak.orc"
-
-#include "loserInTheEndBreak/loserInTheEndBreak.orc"
-
-#include "gettinHappyBreak/gettinHappyBreak.orc"
-
-#include "transformationDayBreak/transformationDayBreak.orc"
-
 #include "signal/signal.orc"
 
 #include "sample/sample.orc"
@@ -44,3 +28,38 @@
 
 #include "mixer/mixer.orc"
 
+/*
+Break Beat Instruments
+*/
+
+#include "breakBeatInstruments/amenBreak/amenBreak.orc"
+
+#include "breakBeatInstruments/funkyDrummerBreak/funkyDrummerBreak.orc"
+
+#include "breakBeatInstruments/itsExpectedBreak/itsExpectedBreak.orc"
+
+#include "breakBeatInstruments/gumboBreak/gumboBreak.orc"
+
+#include "breakBeatInstruments/thinkBreak/thinkBreak.orc"
+
+#include "breakBeatInstruments/loserInTheEndBreak/loserInTheEndBreak.orc"
+
+#include "breakBeatInstruments/gettinHappyBreak/gettinHappyBreak.orc"
+
+#include "breakBeatInstruments/transformationDayBreak/transformationDayBreak.orc"
+
+#include "breakBeatInstruments/hairOfTheDogBreak/hairOfTheDogBreak.orc"
+
+#include "breakBeatInstruments/closeToMeBreak/closeToMeBreak.orc"
+
+#include "breakBeatInstruments/dopesmokerBreak/dopesmokerBreak.orc"
+
+#include "breakBeatInstruments/handInTheHandBreak/handInTheHandBreak.orc"
+
+#include "breakBeatInstruments/tenThousandYearsBreak/tenThousandYearsBreak.orc"
+
+#include "breakBeatInstruments/tastyCakesBreak/tastyCakesBreak.orc"
+
+#include "breakBeatInstruments/sinkingBreak/sinkingBreak.orc"
+
+#include "breakBeatInstruments/keyGateBreak/keyGateBreak.orc"
