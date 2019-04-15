@@ -12,3 +12,6 @@
 
 #include "breakSamplerDiskin.orc"
 
+#include "sliceTable.orc"
+
+#include "printTable.orc"
