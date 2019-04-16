@@ -34,7 +34,7 @@ instr funkyDrummerBreakDiskin
     iSkipTimeInBeats = p4
     kpitchFactor = p5
 
-    afunkyDrummerL, afunkyDrummerR breakSamplerDiskin gSfunkyDrummerFilePath, 16, iSkipTimeInBeats, kpitchFactor
+    afunkyDrummerL, afunkyDrummerR breakSamplerDiskin gSfunkyDrummerFilePath, 32, iSkipTimeInBeats, kpitchFactor
 
     outleta "funkyDrummerBreakOutL", afunkyDrummerL
     outleta "funkyDrummerBreakOutR", afunkyDrummerR
