@@ -16,15 +16,11 @@ MIDI Stuff
         this will involve sitting down at the drum kit and feeling out the pads
 
     - try writing an instrument that could be triggered by different note instruments and making sure they are included in the turnoff scheme
-    - Work control knobs into this setup
+    - Work controller knobs into this setup
     - Trying routing some note instruments through effects
 
-* Change break beat instruments to calculate BPM from length and number of beats and add a time factor pfield
-
-* Write some kind of limiter that can clipping during many simulatenous events for the final output.
+* Write some kind of limiter that can prevent clipping during many simulatenous events for the final output.
 -- The urgency of this has been mitigated. I changed the default value of 0dbsf by an order of magnitude thus giving every file a lot more head room.
-
-
 
 * Write a BPM setter instrument that can change the global BPM variable at different points in the score. This might mean changing the BPM variable to k rate.
 
@@ -41,6 +37,7 @@ MIDI Stuff
 * Add some good envelopes to samplers
 
 * Finish 303 conversion
+* A JS 303 example: https://github.com/errozero/js-303-instrument/blob/master/acid_synth.instrument.js
 
 Handy Notes:
 Conversion Specifiers for string interpolation:
