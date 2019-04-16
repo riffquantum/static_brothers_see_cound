@@ -15,8 +15,14 @@ instr Signal
     iFreq = (p5 < 15 ? cpspch(p5) : p5)
     iWave ftgenonce 0, 0, 2^10, 10, 1, 0.5, 2
 
-    aSignal oscil iKamp, iFreq, iWave
+    timout (p3/2), (p3/2), branch
+
+    aSignal oscil iKamp/2, iFreq, iWave
             outleta "SignalOut", aSignal
+
+    branch:
+      aSignal2 oscil iKamp/2, iFreq*1.5, iWave
+      aSignal = aSignal + aSignal2
 endin
 
 instr SignalBassKnob
@@ -28,7 +34,7 @@ instr SignalMidKnob
 endin
 
 instr SignalHighKnob
-    gkSignalEqHigh linseg p4, p3, p5  
+    gkSignalEqHigh linseg p4, p3, p5
 endin
 
 instr SignalFader

@@ -10,17 +10,17 @@ instr ChorusedSynthQuarterTone
     ;CONTROL SIGNALS
     ;output action  args
 
-    ;kEnvelope madsr .1, .5, .1, 0.01
-    
+    kEnvelope madsr .1, .5, .1, .1
 
 
-    kEnvelope linenr .1, .2, .5, 0.001
+
+    ;kEnvelope linenr .1, .2, .5, 0.001
 
     iMidiNote notnum
-    
+
     iFrequency = midiNoteQuarterToneKeyboardLayout(iMidiNote, 7)
-    
-    kFrequency   linseg    iFrequency*1.2, 0.1, iFrequency
+
+    kFrequency   linseg    iFrequency*1.5, 0.1, iFrequency
 
     iTable ftgenonce 100, 0, 16384, 20, 1
 
