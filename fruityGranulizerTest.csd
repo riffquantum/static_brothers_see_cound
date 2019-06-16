@@ -14,11 +14,15 @@
         #include "instruments/orchestra-manifest.orc"
 
         instr pattern1
-            scoreline_i beatScoreline( "fruityGranulizer", 0, 8, {{ "robSmithDooDoo.wav" 5 1 }} )
-            ;scoreline_i beatScoreline( "fruityGranulizer", 0, 8, {{ "../instruments/TR808/RolandTR-808/KickDrum5.aif" 5 1 }} )
+            SsamplePath = "localSamples/bellMono.wav"
+            iamplitude = 5
+            iPitch = 1
+            iStartTime = 0
+            iEndTime = 0
 
+            SparamString sprintfk {{ "%s" %f %f %f %f }}, SsamplePath, iamplitude, iPitch, iStartTime, iEndTime
 
-            ;scoreline_i beatScoreline( "AmenBreakDiskgrain", 0, 8, {{ 10 1 .8 0 }} )
+            scoreline_i beatScoreline( "fruityGranulizer", 0, 16, SparamString )
         endin
 
 
@@ -32,7 +36,7 @@
             m section0
                 t 0 [$bpm]
 
-                i "pattern1" + 8
+                i "pattern1" + 15
 
 
             s

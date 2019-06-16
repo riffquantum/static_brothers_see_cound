@@ -7,15 +7,12 @@ connect "fruityGranulizer", "fruityGranulizerOutR", "fruityGranulizerMixerChanne
 
 alwayson "fruityGranulizerMixerChannel"
 
-gkfruityGranulizerAttack init 0
-gkfruityGranulizerHold init 10
-gkfruityGranulizerGrainSpacing init 1
-gkfruityGranulizerWaveSpacing init 1
-gkfruityGranulizerPan init 0
-gkfruityGranulizerFxDepth init 0
-gkfruityGranulizerFxSpeed init 0
+gkfruityGranulizerHold init 10 ;12.8
+gkfruityGranulizerGrainSpacing init 54 ;54 - default setting for normal playback
+gkfruityGranulizerWaveSpacing init 84 ;84 - default setting for normal playback
+gkfruityGranulizerFxDepth init 0 ;0
+gkfruityGranulizerFxSpeed init .8
 gkfruityGranulizerRandomize init 0
-gifruityGranulizerTime init 0
 
 gkfruityGranulizerEqBass init 1
 gkfruityGranulizerEqMid init 1
@@ -23,122 +20,82 @@ gkfruityGranulizerEqHigh init 1
 gkfruityGranulizerFader init 1
 gkfruityGranulizerPan init 50
 
-instr fruityGranulizerAttackKnob
-    gkfruityGranulizerAttack linseg p4, p3, p5
-endin
-
 instr fruityGranulizerHoldKnob
+    ;Length each grain is held before moving onto the next.
     gkfruityGranulizerHold linseg p4, p3, p5
 endin
 
 instr fruityGranulizerGrainSpacingKnob
+    ;Grain spacing in playback. Turn to right for greater spacing between played grains (slower playback). Turn left for smaller spacing (faster playback).
     gkfruityGranulizerGrainSpacing linseg p4, p3, p5
 endin
 
 instr fruityGranulizerWaveSpacingKnob
+    ;This basically controls the number of grains generated from the wave sample. This value ranges from -300% to 300%. For normal playback, set both Grain Spacing and Wave Spacing to 100%. Small values mean more grains are used for the wave (smaller wave spacing). Using negative values results in reversed playback of the grains. NOTES: Grain playback order is reversed, not the sound contained in each grain.
     gkfruityGranulizerWaveSpacing linseg p4, p3, p5
 endin
 
-instr fruityGranulizerPanKnob
-    gkfruityGranulizerPan linseg p4, p3, p5
-endin
-
 instr fruityGranulizerFxDepthKnob
+    ;Amplitude of the LFO applied to the wave spacing value. Turn to right to increase the amplitude. To turn the LFO off, turn the knob maximum to left.
     gkfruityGranulizerFxDepth linseg p4, p3, p5
 endin
 
 instr fruityGranulizerFxSpeedKnob
+    ;Speed of the LFO applied to the wave spacing value. Turning to right makes the LFO faster, turning left, slower.
     gkfruityGranulizerFxSpeed linseg p4, p3, p5
 endin
 
-instr fruityGranulizerRandomizeKnob
-    gkfruityGranulizerRandomize linseg p4, p3, p5
-endin
-
-instr fruityGranulizerTimeKnob
-    gkfruityGranulizerTime linseg p4, p3, p5
-endin
-
 instr fruityGranulizer
-
-    /* P FIELDS */
-    SsampleFilename = p4
+    SsampleFilePath = p4
     kamplitude = p5
-    kpitch = p6
+    kPitch = p6
+    iStartTime = p7
+    iEndTime = p8
 
-    /* SAMPLE DATA */
-    SsampleFilePath strcat "samples/", SsampleFilename
+    /* Sound File Data */
     iFileNumChannels filenchnls SsampleFilePath
     iFileLength filelen SsampleFilePath
     iFileSampleRate filesr SsampleFilePath
-    iSampleTableLength getTableSizeFromSample SsampleFilePath
-    ;ienvelopeTable ftgenonce 0, 0, 8192, 20, 2, 1
+
+    if iFileNumChannels == 2 then
+        iSampleTableL ftgenonce 0, 0, 0, 1, SsampleFilePath, iStartTime, 0, 1
+        iSampleTableR ftgenonce 0, 0, 0, 1, SsampleFilePath, iStartTime, 0, 2
+    else
+        iSampleTable ftgenonce 0, 0, 0, 1, SsampleFilePath, iStartTime, 0, 0
+    endif
+
+    if iEndTime == 0 then
+        iEndTime = iFileLength
+    endif
+
+    /* Syncloop Params */
     ienvelopeTable ftgenonce 2, 0, 16384, 9, 0.5, 1, 0 ; HALF A SINE WAVE
-    iSampleTable ftgenonce 0, 0, iSampleTableLength, 1, SsampleFilePath, 0, 0, 0
+    iMaxOverlaps = 5
+    kGrainSizeInMiliseconds = 40
+    kGrainSize = kGrainSizeInMiliseconds/1000
+    kWaveSpacingOscillator oscil (gkfruityGranulizerFxDepth)/100*3, gkfruityGranulizerFxSpeed
+    kGrainFrequency = iMaxOverlaps/kGrainSize * 1/((gkfruityGranulizerGrainSpacing*1.852/100)^2)
 
-    /* GRAIN3 */
-    kGrainFrequency = 1500
-    kGrainPhase = 0
-    kRandomFrequencyVariation = 0
-    kRandomPhaseVariation = 0
-    kGrainDuration = .1
-    kGrainsPerSecond = 100
-    iMaxOverlaps = 10
-    kFrequencyRandomnessDistribution = 0
-    kPhaseRandomnessDistribution = 0
-    iRandomnessSeed = 0
-    iMode = 10
-
-    if iFileNumChannels == 2 then
-        afruityGranulizerL grain3 kGrainFrequency, kGrainPhase, kRandomFrequencyVariation, kRandomPhaseVariation, kGrainDuration, kGrainsPerSecond, iMaxOverlaps, iSampleTable, ienvelopeTable, kFrequencyRandomnessDistribution, kPhaseRandomnessDistribution, iRandomnessSeed, iMode
-        afruityGranulizerR = afruityGranulizerL
-
-    elseif iFileNumChannels == 1 then
-        afruityGranulizerL grain3 kGrainFrequency, kGrainPhase, kRandomFrequencyVariation, kRandomPhaseVariation, kGrainDuration, kGrainsPerSecond, iMaxOverlaps, iSampleTable, ienvelopeTable, kFrequencyRandomnessDistribution, kPhaseRandomnessDistribution, iRandomnessSeed, iMode
-
-        afruityGranulizerR = afruityGranulizerL
+    /* Wavespacing Factor */
+    kfruityGranulizerWaveSpacing = gkfruityGranulizerWaveSpacing - 50
+    if kfruityGranulizerWaveSpacing == 0 then
+      kfruityGranulizerWaveSpacing = 1
     endif
 
+    kfruityGranulizerWaveSpacing = (kfruityGranulizerWaveSpacing / 34)^3 + kWaveSpacingOscillator
+    kPointerRate = (1/iMaxOverlaps) * kfruityGranulizerWaveSpacing
 
-    /* SNDWARP */
-    /*
-    ktimewarp = 1
-    kresample = 2
-    ibeginningTime =  0
-    irandw = 0
-    ioverlap = 3
-    iwindowSize = 4410
-    itimemode = 1
-
+    /* Synthesis and Output */
     if iFileNumChannels == 2 then
-        afruityGranulizerL, afruityGranulizerR sndwarpst kamplitude, ktimewarp, kresample, iSampleTable, ibeginningTime, iwindowSize, irandw, ioverlap, ienvelopeTable, itimemode
-    elseif iFileNumChannels == 1 then
-        afruityGranulizerL sndwarp kamplitude, ktimewarp, kresample, iSampleTable, ibeginningTime, iwindowSize, irandw, ioverlap, ienvelopeTable, itimemode
+        afruityGranulizerL syncloop kamplitude, kGrainFrequency, kPitch, kGrainSize, kPointerRate, iStartTime, iEndTime, iSampleTableL, ienvelopeTable, iMaxOverlaps
+        afruityGranulizerR syncloop kamplitude, kGrainFrequency, kPitch, kGrainSize, kPointerRate, iStartTime, iEndTime, iSampleTableR, ienvelopeTable, iMaxOverlaps
+    else
+        afruityGranulizerL syncloop kamplitude, kGrainFrequency, kPitch, kGrainSize, kPointerRate, iStartTime, iEndTime, iSampleTable, ienvelopeTable, iMaxOverlaps
         afruityGranulizerR = afruityGranulizerL
     endif
-    */
-
-
-
-    /* DISKGRAIN */
-    /*
-    ioverlaps = 4
-    kGrainSize = (1/iFileSampleRate) * ioverlaps * 1
-    kpointerRate = 1/ioverlaps * 1
-    kGrainDensity = ioverlaps/kGrainSize * 1
-    imaxgrainsize = 1
-
-    if iFileNumChannels == 2 then
-        afruityGranulizerL, afruityGranulizerR diskgrain SsampleFilePath, kamplitude, kGrainDensity, kpitch, kGrainSize, kpointerRate, ienvelopeTable, ioverlaps, imaxgrainsize, gifruityGranulizerTime
-    elseif iFileNumChannels == 1 then
-        afruityGranulizerL diskgrain SsampleFilePath, kamplitude, kGrainDensity, kpitch, kGrainSize, kpointerRate, ienvelopeTable, ioverlaps, imaxgrainsize, gifruityGranulizerTime
-        afruityGranulizerR = afruityGranulizerL
-    endif
-    */
 
     outleta "fruityGranulizerOutL", afruityGranulizerL
     outleta "fruityGranulizerOutR", afruityGranulizerR
-
 endin
 
 instr fruityGranulizerBassKnob
