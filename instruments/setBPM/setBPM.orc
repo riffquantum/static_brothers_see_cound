@@ -1,4 +1,4 @@
-;This doesn't work at all. Maybe giBPM needs to be giBPM
+;This doesn't work at all. Maybe giBPM needs to be gkBPM
 
 instr setBPM
 	giBPM = p4

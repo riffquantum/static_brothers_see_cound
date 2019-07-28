@@ -1,7 +1,5 @@
 #include "Ride/Ride.orc"
 
-#include "RideRim/RideRim.orc"
-
 #include "HatOpen/HatOpen.orc"
 
 #include "HatClosed/HatClosed.orc"
@@ -10,7 +8,7 @@
 
 #include "HatSplash/HatSplash.orc"
 
-#include "YellowPad/YellowPad.orc"
+#include "Crash/Crash.orc"
 
 #include "OrangePad/OrangePad.orc"
 
@@ -28,7 +26,9 @@
 
 #include "Tom2/Tom2.orc"
 
-#include "Tom3/Tom3.orc"
+#include "TomPad1/TomPad1.orc"
+
+#include "TomPad2/TomPad2.orc"
 
 #include "PadA1/PadA1.orc"
 
@@ -59,8 +59,6 @@
 #include "PadA14/PadA14.orc"
 
 #include "PadA15/PadA15.orc"
-
-#include "PadA16/PadA16.orc"
 
 #include "PadB1/PadB1.orc"
 

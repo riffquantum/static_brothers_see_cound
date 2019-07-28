@@ -4,6 +4,8 @@
 
 #include "beatScoreline.orc"
 
+#include "distortion.orc"
+
 #include "threeBandEq.orc"
 
 #include "pitchShifter.orc"
@@ -12,3 +14,18 @@
 
 #include "breakSamplerDiskin.orc"
 
+#include "sineWave.orc"
+
+#include "triangleWave.orc"
+
+#include "sawtoothWaveDown.orc"
+
+#include "sawtoothWaveUpAndDown.orc"
+
+#include "squareWave.orc"
+
+#include "flexiblePitchInput.orc"
+
+#include "flexibleAmplitudeInput.orc"
+
+#include "midiMonitor.orc"

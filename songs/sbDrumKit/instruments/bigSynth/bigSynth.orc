@@ -13,43 +13,52 @@ gkBigSynthPan init 50
 massign 2, "BigSynth"
 instr BigSynth
     if p4 != 0 then
-      iNoteVelocity = p4
+      iAmplitude = p4
     else
       iNoteVelocity veloc
+      iAmplitude = iNoteVelocity/127 * 0dbfs/10
     endif
 
-
-
-    iAmplitude = iNoteVelocity/127 * 0dbfs/10
-
-    print iAmplitude
-
-    kAmplitudeEnvelope madsr .05, .01, iAmplitude, .5, 0
+    kAmplitudeEnvelope madsr .005, .01, iAmplitude, .05, 0
 
     if p5 != 0 then
-      ifreq = p4
+      ifreq = p5
+      ifreq = (p5 < 15 ? cpspch(p5) : p5)
     else
       ifreq   cpsmidi
     endif
     print ifreq
 
-    kfreq   linseg    ifreq*1.2, 0.1, ifreq
+    kfreq   linseg    ifreq*1.02, 0.3, ifreq
 
-    iTable ftgenonce 0, 0, 16384, 20, 1
+    ;sine waves
+    iSineTable sineWave
+
+    ;sawtooth
+    iSawTable sawtoothWaveUpAndDown
+
+    ; triangle
+    iTriangleTable triangleWave
+
+    ;square
+    iSquareTable squareWave
 
 
-    aChorusedSynthMidiIn1      oscil   kAmplitudeEnvelope,    ifreq,          iTable ; main oscillator
+    aChorusedSynthMidiIn1      oscil   kAmplitudeEnvelope,    kfreq,          iSineTable ; main oscillator
 
-    aChorusedSynthMidiIn2      oscil   kAmplitudeEnvelope/2,   (ifreq * 2),  iTable ; chorus oscillator
+    aChorusedSynthMidiIn2      oscil   kAmplitudeEnvelope/2,   (kfreq * 18),  iSawTable ; chorus oscillator
 
-    aChorusedSynthMidiIn3      oscil   kAmplitudeEnvelope/3,   (ifreq * 3),  iTable
-    aChorusedSynthMidiIn4      oscil   kAmplitudeEnvelope/4,   (ifreq * 4),  iTable
-    aChorusedSynthMidiIn5      oscil   kAmplitudeEnvelope/5,   (ifreq * 5),  iTable
-    aChorusedSynthMidiIn6      oscil   kAmplitudeEnvelope/6,   (ifreq * 6),  iTable
-    aChorusedSynthMidiIn7      oscil   kAmplitudeEnvelope/7,   (ifreq * 7),  iTable
-    aChorusedSynthMidiIn8      oscil   kAmplitudeEnvelope/8,   (ifreq * 8),  iTable
+    aChorusedSynthMidiIn3      oscil   kAmplitudeEnvelope/3,   (kfreq * 3),  iTriangleTable
+    aChorusedSynthMidiIn4      oscil   kAmplitudeEnvelope/4,   (kfreq * 4),  iSawTable
+    aChorusedSynthMidiIn5      oscil   kAmplitudeEnvelope/5,   (kfreq * 5),  iSineTable
+    aChorusedSynthMidiIn6      oscil   kAmplitudeEnvelope/6,   (kfreq * 6),  iSquareTable
+    aChorusedSynthMidiIn7      oscil   kAmplitudeEnvelope/7,   (kfreq * .3),  iSquareTable
+    aChorusedSynthMidiIn8      oscil   kAmplitudeEnvelope/8,   (kfreq * .9),  iTriangleTable
 
     aOut = aChorusedSynthMidiIn1 + aChorusedSynthMidiIn2 + aChorusedSynthMidiIn3 + aChorusedSynthMidiIn4 + aChorusedSynthMidiIn5 + aChorusedSynthMidiIn6 + aChorusedSynthMidiIn7 + aChorusedSynthMidiIn8
+
+    kcf line 1000, 1, 0
+    aOut reson aOut, kcf, 1/kcf
 
     outleta "BigSynthOutL", aOut
     outleta "BigSynthOutR", aOut

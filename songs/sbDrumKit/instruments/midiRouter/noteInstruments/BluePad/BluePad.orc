@@ -2,8 +2,8 @@ gSMidiNoteSampleList[giBluePadNote] = "localSamples/chorusedGuitarStab.wav"
 giMidiNoteDurationList[giBluePadNote] filelen gSMidiNoteSampleList[giBluePadNote]
 giMidiNoteInterruptList[giBluePadNote] = 0
 
-connect "2054", "BluePadOutL", "BluePadMixerChannel", "BluePadInL"
-connect "2054", "BluePadOutR", "BluePadMixerChannel", "BluePadInR"
+connect "2045", "BluePadOutL", "BluePadMixerChannel", "BluePadInL"
+connect "2045", "BluePadOutR", "BluePadMixerChannel", "BluePadInR"
 
 alwayson "BluePadMixerChannel"
 
@@ -17,7 +17,7 @@ gSBluePadSample1Path = gSMidiNoteSampleList[giBluePadNote]
 giBluePadSample1TableLength getTableSizeFromSample gSBluePadSample1Path
 giBluePadSample1 ftgen 0, 0, giBluePadSample1TableLength, 1, gSBluePadSample1Path, 0, 0, 0
 
-instr 2054 ;BluePad, PadB1,
+instr 2045 ;BluePad, PadB1,
   iNoteVelocity = p4
   iAmplitude = iNoteVelocity/127 * 0dbfs
   kPitch =1

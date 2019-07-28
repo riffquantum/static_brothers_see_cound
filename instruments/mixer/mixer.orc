@@ -9,8 +9,8 @@ instr Mixer
     kmin init (0dbfs * -1)
     kmax init 0dbfs
 
-    aOutR limit aOutR, kmin, kmax
-    aOutL limit aOutL, kmin, kmax
+    ;aOutR limit aOutR, kmin, kmax
+    ;aOutL limit aOutL, kmin, kmax
     ; aOutR wrap aOutR, kmin, kmax
     ; aOutL wrap aOutL, kmin, kmax
     ; aOutR mirror aOutR, kmin, kmax

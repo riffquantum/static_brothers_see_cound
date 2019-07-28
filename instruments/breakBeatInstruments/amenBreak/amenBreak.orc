@@ -18,7 +18,6 @@ gkAmenBreakFader init 1
 gkAmenBreakPan init 50
 gSAmenFilePath init "instruments/breakBeatInstruments/amenBreak/amen-break.wav"
 
-
 giAmenFileLength filelen gSAmenFilePath
 giAmenLengthOfBeat = giAmenFileLength / 16
 

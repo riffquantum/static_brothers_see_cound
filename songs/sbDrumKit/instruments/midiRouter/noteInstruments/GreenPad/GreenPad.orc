@@ -1,6 +1,6 @@
 gSMidiNoteSampleList[giGreenPadNote] = "localSamples/sinkingPianoStab.wav"
 giMidiNoteDurationList[giGreenPadNote] = filelen(gSMidiNoteSampleList[giGreenPadNote]) - .75
-giMidiNoteInterruptList[giGreenPadNote] = 0
+giMidiNoteInterruptList[giGreenPadNote] ftgen 0, 0, 0, -2, giGreenPadNote
 
 connect "2044", "GreenPadOutL", "GreenPadMixerChannel", "GreenPadInL"
 connect "2044", "GreenPadOutR", "GreenPadMixerChannel", "GreenPadInR"

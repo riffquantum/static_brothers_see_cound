@@ -7,7 +7,7 @@
 <CsInstruments>
     #include "config/defaultConfig.orc"
     #include "config/defaultMixerRoutes.orc"
-    
+
     giBPM = 120
 
     #include "opcodes/opcode-manifest.orc"

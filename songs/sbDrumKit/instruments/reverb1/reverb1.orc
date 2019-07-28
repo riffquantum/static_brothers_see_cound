@@ -10,15 +10,16 @@ gkReverb1EqHigh init 1
 gkReverb1Fader init 1
 gkReverb1Pan init 50
 
-gkReverb1Wet init 1
+gkReverb1Wet init .3
 gkReverb1Dry init 1
 
-gkReverb1Delay init .9
-gkReverb1Cutoff init 12000
+gkReverb1Delay init .8
+gkReverb1Cutoff init sr/2-1
 
 instr Reverb1
   aReverb1InL inleta "Reverb1InL"
   aReverb1InR inleta "Reverb1InR"
+
   aReverb1WetL, aReverb1WetR reverbsc aReverb1InL, aReverb1InR, gkReverb1Delay, gkReverb1Cutoff
 
   aReverb1L = (aReverb1WetL * gkReverb1Wet) + (aReverb1InL * gkReverb1Dry)
@@ -26,7 +27,6 @@ instr Reverb1
 
   outleta "Reverb1OutL", aReverb1L
   outleta "Reverb1OutR", aReverb1R
-
 endin
 
 instr Reverb1Wet

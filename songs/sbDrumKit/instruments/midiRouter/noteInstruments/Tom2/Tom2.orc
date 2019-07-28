@@ -2,8 +2,8 @@ gSMidiNoteSampleList[giTom2Note] = "songs/sbDrumKit/samples/EA7619_R8_Tom.wav"
 giMidiNoteDurationList[giTom2Note] filelen gSMidiNoteSampleList[giTom2Note]
 giMidiNoteInterruptList[giTom2Note] = 0
 
-connect "2046", "Tom2OutL", "Tom2MixerChannel", "Tom2InL"
-connect "2046", "Tom2OutR", "Tom2MixerChannel", "Tom2InR"
+connect "2051", "Tom2OutL", "Tom2MixerChannel", "Tom2InL"
+connect "2051", "Tom2OutR", "Tom2MixerChannel", "Tom2InR"
 
 alwayson "Tom2MixerChannel"
 
@@ -17,7 +17,7 @@ gSTom2Sample1Path = gSMidiNoteSampleList[giTom2Note]
 giTom2Sample1TableLength getTableSizeFromSample gSTom2Sample1Path
 giTom2Sample1 ftgen 0, 0, giTom2Sample1TableLength, 1, gSTom2Sample1Path, 0, 0, 0
 
-instr 2046 ;Tom2, PadA7,
+instr 2051 ;Tom2, PadA7,
   iNoteVelocity = p4
   iAmplitude = iNoteVelocity/127 * 0dbfs
   kPitch =1

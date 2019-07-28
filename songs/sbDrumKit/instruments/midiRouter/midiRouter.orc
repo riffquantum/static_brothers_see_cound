@@ -31,8 +31,7 @@ instr MidiRouter
     interruptLoop:
       iInstrumentToInterruptNoteNumber table iInterruptCounter, iInterruptList
       iInstrumentToInterrupt = 2000 + iInstrumentToInterruptNoteNumber
-      print iInterruptList
-      print iInstrumentToInterrupt
+
       if iInstrumentToInterruptNoteNumber == iNoteNumber then
         if giMidiNoteLastUsedFractionalModifierList[iNoteNumber] == 0 then
           giMidiNoteLastUsedFractionalModifierList[iNoteNumber] = 1

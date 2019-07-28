@@ -16,14 +16,22 @@
         #include "songs/sbDrumKit/instruments/midiRouter/noteInstruments/note-instrument-manifest.orc"
 
       instr Dummy
+        midiMonitor
       endin
-
 
 
     </CsInstruments>
 
     <CsScore>
         i "Dummy" 0 3600 .100 300
+
+        /*i "BigSynth" 0 4 .559 164
+        i "BigSynth" 2 2 .559 148
+
+        i "BigSynth" 5 15 .559 164
+        i "BigSynth" 5 15 .559 100
+        i "BigSynth" 5 15 .559 144
+        i "BigSynth" 5 15 .5 800*/
 
     </CsScore>
 </CsoundSynthesizer>

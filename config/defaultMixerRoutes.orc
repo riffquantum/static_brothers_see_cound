@@ -17,12 +17,6 @@ connect "ChorusedSynthMixerChannel", "ChorusedSynthOutR", "Mixer", "MixerInR"
 connect "funkyDrummerBreakMixerChannel", "funkyDrummerBreakOutL", "Mixer", "MixerInL"
 connect "funkyDrummerBreakMixerChannel", "funkyDrummerBreakOutR", "Mixer", "MixerInR"
 
-connect "generalSamplerMixerChannel", "generalSamplerOutL", "Mixer", "MixerInL"
-connect "generalSamplerMixerChannel", "generalSamplerOutR", "Mixer", "MixerInR"
-
-connect "fruityGranulizerMixerChannel", "fruityGranulizerOutL", "Mixer", "MixerInL"
-connect "fruityGranulizerMixerChannel", "fruityGranulizerOutR", "Mixer", "MixerInR"
-
 connect "gettinHappyBreakMixerChannel", "gettinHappyBreakOutL", "Mixer", "MixerInL"
 connect "gettinHappyBreakMixerChannel", "gettinHappyBreakOutR", "Mixer", "MixerInR"
 
@@ -43,15 +37,6 @@ connect "loserInTheEndBreakMixerChannel", "loserInTheEndBreakOutR", "Mixer", "Mi
 
 connect "Reverb1", "Reverb1OutL", "Mixer", "MixerInL"
 connect "Reverb1", "Reverb1OutR", "Mixer", "MixerInR"
-
-connect "SampleMixerChannel", "SampleOutL", "Mixer", "MixerInL"
-connect "SampleMixerChannel", "SampleOutR", "Mixer", "MixerInR"
-
-connect "SignalMixerChannel", "SignalOutL", "Mixer", "MixerInL"
-connect "SignalMixerChannel", "SignalOutR", "Mixer", "MixerInR"
-
-connect "SimpleOscillatorMixerChannel", "SimpleOscillatorOutL", "Mixer", "MixerInL"
-connect "SimpleOscillatorMixerChannel", "SimpleOscillatorOutR", "Mixer", "MixerInR"
 
 connect "thinkBreakMixerChannel", "thinkBreakOutL", "Mixer", "MixerInL"
 connect "thinkBreakMixerChannel", "thinkBreakOutR", "Mixer", "MixerInR"
@@ -88,3 +73,18 @@ connect "sinkingBreakMixerChannel", "sinkingBreakOutR", "Mixer", "MixerInR"
 
 connect "KeyGateBreakMixerChannel", "KeyGateBreakOutL", "Mixer", "MixerInL"
 connect "KeyGateBreakMixerChannel", "KeyGateBreakOutR", "Mixer", "MixerInR"
+
+connect "BigRichSynthMixerChannel", "BigRichSynthOutL", "Mixer", "MixerInL"
+connect "BigRichSynthMixerChannel", "BigRichSynthOutR", "Mixer", "MixerInR"
+
+connect "BigCrunchySynthMixerChannel", "BigCrunchySynthOutL", "Mixer", "MixerInL"
+connect "BigCrunchySynthMixerChannel", "BigCrunchySynthOutR", "Mixer", "MixerInR"
+
+connect "BasicSamplerTemplateMixerChannel", "BasicSamplerTemplateOutL", "Mixer", "MixerInL"
+connect "BasicSamplerTemplateMixerChannel", "BasicSamplerTemplateOutR", "Mixer", "MixerInR"
+
+connect "SyncloopSamplerTemplateMixerChannel", "SyncloopSamplerTemplateOutL", "Mixer", "MixerInL"
+connect "SyncloopSamplerTemplateMixerChannel", "SyncloopSamplerTemplateOutR", "Mixer", "MixerInR"
+
+connect "InTimeDiskgrainSamplerTemplateMixerChannel", "InTimeDiskgrainSamplerTemplateOutL", "Mixer", "MixerInL"
+connect "InTimeDiskgrainSamplerTemplateMixerChannel", "InTimeDiskgrainSamplerTemplateOutR", "Mixer", "MixerInR"

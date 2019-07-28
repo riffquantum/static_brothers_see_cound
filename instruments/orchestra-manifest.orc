@@ -14,17 +14,17 @@
 
 #include "TR606/TR606.orc"
 
-#include "simpleOscillator/simpleOscillator.orc"
+#include "BigRichSynth/BigRichSynth.orc"
 
-#include "signal/signal.orc"
+#include "BigCrunchySynth/BigCrunchySynth.orc"
 
-#include "sample/sample.orc"
+#include "BasicSamplerTemplate/BasicSamplerTemplate.orc"
 
-#include "generalSampler/generalSampler.orc"
+#include "SyncloopSamplerTemplate/SyncloopSamplerTemplate.orc"
 
-#include "fruityGranulizer/fruityGranulizer.orc"
+#include "InTimeDiskgrainSamplerTemplate/InTimeDiskgrainSamplerTemplate.orc"
 
-#include "masterMidiInterface/masterMidiInterface.orc"
+;#include "masterMidiInterface/masterMidiInterface.orc"
 
 #include "mixer/mixer.orc"
 
