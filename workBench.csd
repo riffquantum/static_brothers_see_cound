@@ -1,12 +1,17 @@
 <CsoundSynthesizer>
     <CsOptions>
         -odac -Ma  -m0
+        -iadc
+        -B512 -b128
+        ;--midioutfile=midiout.mid
+        ;-F midiout.mid
         ;-+rtmidi=virtual
     </CsOptions>
 
     <CsInstruments>
       #include "config/defaultConfig.orc"
       #include "config/defaultMixerRoutes.orc"
+      #include "config/defaultMidiAssignments.orc"
 
       giBPM = 100
 
@@ -38,15 +43,15 @@
       gknewInstrumentPan init 50
 
       /* MIDI Config Values */
-      ;ginewInstrumentMidiChannel = 1
       ;massign ginewInstrumentMidiChannel, "newInstrument"
-
+      ;alwayson "newInstrument"
 
       instr newInstrument
 
           anewInstrumentL = 0
           anewInstrumentR = 0
 
+          midiMonitor
 
           outleta "newInstrumentOutL", anewInstrumentL
           outleta "newInstrumentOutR", anewInstrumentR
@@ -97,6 +102,7 @@
           outleta "newInstrumentOutR", anewInstrumentR
       endin
 
+
       connect "newInstrumentMixerChannel", "newInstrumentOutL", "Mixer", "MixerInL"
       connect "newInstrumentMixerChannel", "newInstrumentOutR", "Mixer", "MixerInR"
     </CsInstruments>
@@ -104,7 +110,7 @@
     <CsScore>
         #define bpm # 100 #
         t 0 [$bpm]
-        i "Dummy" 0 3600 .100 300
+        i "Metronome" 0 3600
 
     </CsScore>
 </CsoundSynthesizer>

@@ -10,7 +10,6 @@ gkBigRichSynthFader init 1
 gkBigRichSynthPan init 50
 
 /* MIDI Config Values */
-giBigRichSynthMidiChannel = 1
 massign giBigRichSynthMidiChannel, "BigRichSynth"
 
 
@@ -34,8 +33,6 @@ instr BigRichSynth
     kPitchBend = 0
 
     midipitchbend kPitchBend, 0, 15
-
-    printk2 kPitchBend
 
     kfreq   linseg    ifreq*1.02, 0.3, ifreq
     kfreq = kfreq * (1+kPitchBend)

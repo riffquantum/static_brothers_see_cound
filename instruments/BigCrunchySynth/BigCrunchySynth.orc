@@ -10,8 +10,7 @@ gkBigCrunchySynthFader init 1
 gkBigCrunchySynthPan init 50
 
 /* MIDI Config Values */
-giBigCrunchySynthMidiChannel = 4
-;massign giBigCrunchySynthMidiChannel, "BigCrunchySynth"
+massign giBigCrunchySynthMidiChannel, "BigCrunchySynth"
 
 instr BigCrunchySynth
     iAmplitude flexibleAmplitudeInput p4

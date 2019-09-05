@@ -1,56 +1,51 @@
-connect "HatOpenMixerChannel", "HatOpenOutL", "Mixer", "MixerInL"
-connect "HatOpenMixerChannel", "HatOpenOutR", "Mixer", "MixerInR"
 
-connect "HatPedalMixerChannel", "HatPedalOutL", "Mixer", "MixerInL"
-connect "HatPedalMixerChannel", "HatPedalOutR", "Mixer", "MixerInR"
+connect "BigSynthMixerChannel", "BigSynthOutL", "Reverb1", "Reverb1InL"
+connect "BigSynthMixerChannel", "BigSynthOutR", "Reverb1", "Reverb1InR"
 
-connect "HatClosedMixerChannel", "HatClosedOutL", "Mixer", "MixerInL"
-connect "HatClosedMixerChannel", "HatClosedOutR", "Mixer", "MixerInR"
+connect "CbKickMixerChannel", "CbKickOutL", "Mixer", "MixerInL"
+connect "CbKickMixerChannel", "CbKickOutR", "Mixer", "MixerInR"
 
-connect "KickMixerChannel", "KickOutL", "Mixer", "MixerInL"
-connect "KickMixerChannel", "KickOutR", "Mixer", "MixerInR"
+connect "ClosedHatMixerChannel", "ClosedHatOutL", "Mixer", "MixerInL"
+connect "ClosedHatMixerChannel", "ClosedHatOutR", "Mixer", "MixerInR"
 
-;connect "KickMixerChannel", "KickOutL", "Reverb1", "Reverb1InL"
-;connect "KickMixerChannel", "KickOutR", "Reverb1", "Reverb1InR"
+connect "CrashMixerChannel", "CrashOutL", "Mixer", "MixerInL"
+connect "CrashMixerChannel", "CrashOutR", "Mixer", "MixerInR"
 
-connect "SnareMixerChannel", "SnareOutL", "Mixer", "MixerInL"
-connect "SnareMixerChannel", "SnareOutR", "Mixer", "MixerInR"
+connect "FatTomLowMixerChannel", "FatTomLowOutL", "Mixer", "MixerInL"
+connect "FatTomLowMixerChannel", "FatTomLowOutR", "Mixer", "MixerInR"
 
-connect "SnareMixerChannel", "SnareOutL", "Reverb1", "Reverb1InL"
-connect "SnareMixerChannel", "SnareOutR", "Reverb1", "Reverb1InR"
+connect "FatTomMiddleMixerChannel", "FatTomMiddleOutL", "Mixer", "MixerInL"
+connect "FatTomMiddleMixerChannel", "FatTomMiddleOutR", "Mixer", "MixerInR"
+
+connect "LongDeepKickMixerChannel", "LongDeepKickOutL", "Mixer", "MixerInL"
+connect "LongDeepKickMixerChannel", "LongDeepKickOutR", "Mixer", "MixerInR"
+
+connect "OpenHatMixerChannel", "OpenHatOutL", "Mixer", "MixerInL"
+connect "OpenHatMixerChannel", "OpenHatOutR", "Mixer", "MixerInR"
+
+connect "PhotoshopMixerChannel", "PhotoshopOutL", "Mixer", "MixerInL"
+connect "PhotoshopMixerChannel", "PhotoshopOutR", "Mixer", "MixerInR"
+
+connect "PitchedDownCrashMixerChannel", "PitchedDownCrashOutL", "Mixer", "MixerInL"
+connect "PitchedDownCrashMixerChannel", "PitchedDownCrashOutR", "Mixer", "MixerInR"
+
+connect "PunishmentAwaitsMixerChannel", "PunishmentAwaitsOutL", "Mixer", "MixerInL"
+connect "PunishmentAwaitsMixerChannel", "PunishmentAwaitsOutR", "Mixer", "MixerInR"
+
+connect "PunishYouMixerChannel", "PunishYouOutL", "Mixer", "MixerInL"
+connect "PunishYouMixerChannel", "PunishYouOutR", "Mixer", "MixerInR"
 
 connect "RideMixerChannel", "RideOutL", "Mixer", "MixerInL"
 connect "RideMixerChannel", "RideOutR", "Mixer", "MixerInR"
 
-connect "YellowPadMixerChannel", "YellowPadOutL", "Mixer", "MixerInL"
-connect "YellowPadMixerChannel", "YellowPadOutR", "Mixer", "MixerInR"
+connect "SharpKickMixerChannel", "SharpKickOutL", "Mixer", "MixerInL"
+connect "SharpKickMixerChannel", "SharpKickOutR", "Mixer", "MixerInR"
 
-connect "Tom1MixerChannel", "Tom1OutL", "Mixer", "MixerInL"
-connect "Tom1MixerChannel", "Tom1OutR", "Mixer", "MixerInR"
+connect "SharpSnareMixerChannel", "SharpSnareOutL", "Mixer", "MixerInL"
+connect "SharpSnareMixerChannel", "SharpSnareOutR", "Mixer", "MixerInR"
 
-connect "Tom2MixerChannel", "Tom2OutL", "Mixer", "MixerInL"
-connect "Tom2MixerChannel", "Tom2OutR", "Mixer", "MixerInR"
-
-connect "TomPad1MixerChannel", "Tom3OutL", "Mixer", "MixerInL"
-connect "TomPad1MixerChannel", "Tom3OutR", "Mixer", "MixerInR"
-
-connect "TomPad2MixerChannel", "Tom3OutL", "Mixer", "MixerInL"
-connect "TomPad2MixerChannel", "Tom3OutR", "Mixer", "MixerInR"
-
-connect "RedPadMixerChannel", "RedPadOutL", "Mixer", "MixerInL"
-connect "RedPadMixerChannel", "RedPadOutR", "Mixer", "MixerInR"
-
-connect "BluePadMixerChannel", "BluePadOutL", "Mixer", "MixerInL"
-connect "BluePadMixerChannel", "BluePadOutR", "Mixer", "MixerInR"
-
-connect "GreenPadMixerChannel", "GreenPadOutL", "Mixer", "MixerInL"
-connect "GreenPadMixerChannel", "GreenPadOutR", "Mixer", "MixerInR"
-
-;connect "BigSynthMixerChannel", "BigSynthOutL", "Mixer", "MixerInL"
-;connect "BigSynthMixerChannel", "BigSynthOutR", "Mixer", "MixerInR"
-
-connect "BigSynthMixerChannel", "BigSynthOutL", "Reverb1", "Reverb1InL"
-connect "BigSynthMixerChannel", "BigSynthOutR", "Reverb1", "Reverb1InR"
+connect "SnareMixerChannel", "SnareOutL", "Mixer", "MixerInL"
+connect "SnareMixerChannel", "SnareOutR", "Mixer", "MixerInR"
 
 connect "Reverb1MixerChannel", "Reverb1OutL", "Mixer", "MixerInL"
 connect "Reverb1MixerChannel", "Reverb1OutR", "Mixer", "MixerInR"

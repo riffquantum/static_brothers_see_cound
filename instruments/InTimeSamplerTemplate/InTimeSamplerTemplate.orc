@@ -7,6 +7,8 @@ gkInTimeSamplerTemplateEqHigh init 1
 gkInTimeSamplerTemplateFader init 1
 gkInTimeSamplerTemplatePan init 50
 
+/* MIDI Config Values */
+massign giInTimeSamplerTemplateMidiChannel, "InTimeSamplerTemplate"
 
 instr InTimeSamplerTemplate
     SInTimeSamplerTemplateFilePath init "instruments/breakBeatInstruments/amenBreak/amen-break.wav"

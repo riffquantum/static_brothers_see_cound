@@ -22,7 +22,11 @@
 
 #include "SyncloopSamplerTemplate/SyncloopSamplerTemplate.orc"
 
+#include "InTimeSyncloopSamplerTemplate/InTimeSyncloopSamplerTemplate.orc"
+
 #include "InTimeDiskgrainSamplerTemplate/InTimeDiskgrainSamplerTemplate.orc"
+
+#include "Metronome/Metronome.orc"
 
 ;#include "masterMidiInterface/masterMidiInterface.orc"
 

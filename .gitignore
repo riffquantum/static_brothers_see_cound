@@ -5,3 +5,6 @@ localSamples/
 songs/test.csd
 
 examples
+
+audioOut.wav
+midiout.mid

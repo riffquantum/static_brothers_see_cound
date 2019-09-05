@@ -17,13 +17,12 @@ gkSyncloopSamplerTemplateFader init 1
 gkSyncloopSamplerTemplatePan init 50
 
 /* MIDI Config Values */
-giSyncloopSamplerTemplateMidiChannel = 2
 giSyncloopSamplerTemplateHoldAdjustmentControl = 1
 giSyncloopSamplerTemplateGrainSpacingAdjustmentControl = 2
 giSyncloopSamplerTemplateWaveSpacingAdjustmentControl = 7
 giSyncloopSamplerTemplateFxDepthAdjustmentControl = 4
 giSyncloopSamplerTemplateFxSpeedAdjustmentControl = 5
-;massign giSyncloopSamplerTemplateMidiChannel, "SyncloopSamplerTemplate"
+massign giSyncloopSamplerTemplateMidiChannel, "SyncloopSamplerTemplate"
 
 /* Sound File Data */
 gSSyncloopSamplerTemplatesampleFilePath = "localSamples/o marro loop.wav"

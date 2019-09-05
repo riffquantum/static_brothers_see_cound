@@ -19,19 +19,19 @@
 
 
         instr breaks
-            scoreline_i beatScoreline( "closeToMeBreakDiskin", 0, 8, {{ 0 }} )
-            scoreline_i beatScoreline( "tenThousandYearsBreakDiskin", 8, 8, {{ 2 }} )
-            scoreline_i beatScoreline( "sinkingBreakDiskin", 16, 8, {{ 0 0 }} )
-            scoreline_i beatScoreline( "gumboBreakDiskin", 24, 8, {{ 10 }} )
-            scoreline_i beatScoreline( "hairOfTheDogBreakDiskin", 32, 8, {{ 0 }} )
-            scoreline_i beatScoreline( "gettinHappyBreakDiskin", 40, 8, {{ 0 }} )
-            scoreline_i beatScoreline( "AmenBreakDiskin", 48, 8, {{ 4 }} )
-            scoreline_i beatScoreline( "itsExpectedBreakDiskin", 56, 8, {{ 0 }} )
-            scoreline_i beatScoreline( "funkyDrummerBreakDiskin", 64, 8, {{ 4 }} )
-            scoreline_i beatScoreline( "loserInTheEndBreakDiskin", 72, 8, {{ 2 }} )
-            scoreline_i beatScoreline( "transformationDayBreakDiskin", 80, 8, {{ 0 1 }} )
-            scoreline_i beatScoreline( "thinkBreakDiskin", 88, 8, {{ 2 0 }} )
-            scoreline_i beatScoreline( "tastyCakesBreakDiskin", 96, 8, {{ 0 }} )
+            scoreline_i beatScoreline( "closeToMeBreakDiskgrain", 0, 8, {{ 0 }} )
+            scoreline_i beatScoreline( "tenThousandYearsBreakDiskgrain", 8, 8, {{ 2 }} )
+            scoreline_i beatScoreline( "sinkingBreakDiskgrain", 16, 8, {{ 0 0 }} )
+            scoreline_i beatScoreline( "gumboBreakDiskgrain", 24, 8, {{ 10 }} )
+            scoreline_i beatScoreline( "hairOfTheDogBreakDiskgrain", 32, 8, {{ 0 }} )
+            scoreline_i beatScoreline( "gettinHappyBreakDiskgrain", 40, 8, {{ 0 }} )
+            scoreline_i beatScoreline( "AmenBreakDiskgrain", 48, 8, {{ 4 }} )
+            scoreline_i beatScoreline( "itsExpectedBreakDiskgrain", 56, 8, {{ 0 }} )
+            scoreline_i beatScoreline( "funkyDrummerBreakDiskgrain", 64, 8, {{ 4 }} )
+            scoreline_i beatScoreline( "loserInTheEndBreakDiskgrain", 72, 8, {{ 2 }} )
+            scoreline_i beatScoreline( "transformationDayBreakDiskgrain", 80, 8, {{ 0 1 }} )
+            scoreline_i beatScoreline( "thinkBreakDiskgrain", 88, 8, {{ 2 0 }} )
+            scoreline_i beatScoreline( "tastyCakesBreakDiskgrain", 96, 8, {{ 0 }} )
 
 
           /*

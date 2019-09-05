@@ -10,8 +10,7 @@ gkBasicSamplerTemplateFader init 1
 gkBasicSamplerTemplatePan init 50
 
 /* MIDI Config Values */
-giBasicSamplerTemplateMidiChannel = 1
-;massign giBasicSamplerTemplateMidiChannel, "BasicSamplerTemplate"
+massign giBasicSamplerTemplateMidiChannel, "BasicSamplerTemplate"
 
 instr BasicSamplerTemplate
     SFilePath = "localSamples/bell.wav"

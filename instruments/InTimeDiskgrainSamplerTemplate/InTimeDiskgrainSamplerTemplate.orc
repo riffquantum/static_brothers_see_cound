@@ -16,8 +16,7 @@ gkInTimeDiskgrainSamplerTemplateFader init 1
 gkInTimeDiskgrainSamplerTemplatePan init 50
 
 /* MIDI Config Values */
-giInTimeDiskgrainSamplerMidiChannel = 4
-;massign giInTimeDiskgrainSamplerMidiChannel, "InTimeDiskgrainSamplerTemplate"
+massign giInTimeDiskgrainSamplerMidiChannel, "InTimeDiskgrainSamplerTemplate"
 
 instr InTimeDiskgrainSamplerTemplate
     SInTimeDiskgrainSamplerTemplateFilePath init "instruments/breakBeatInstruments/amenBreak/amen-break.wav"
@@ -25,11 +24,11 @@ instr InTimeDiskgrainSamplerTemplate
     iInTimeDiskgrainSamplerTemplateFileLength filelen SInTimeDiskgrainSamplerTemplateFilePath
     iInTimeDiskgrainSamplerTemplateLengthOfOneBeat = iInTimeDiskgrainSamplerTemplateFileLength / 16
 
-    iInTimeDiskgrainSamplerTemplateBPM init 60 / iInTimeDiskgrainSamplerTemplateLengthOfOneBeat
+    iInTimeDiskgrainSamplerTemplateBPM = 60 / iInTimeDiskgrainSamplerTemplateLengthOfOneBeat
     iInTimeDiskgrainSamplerTemplateFactor = giBPM / iInTimeDiskgrainSamplerTemplateBPM
 
     iAmplitude flexibleAmplitudeInput p4
-    kAmplitudeEnvelope madsr .005, .01, iAmplitude, .5, 0, .01
+    kAmplitudeEnvelope madsr .005, .01, iAmplitude, .05, 0, .01
 
     iPitch flexiblePitchInput p5
 
@@ -38,9 +37,9 @@ instr InTimeDiskgrainSamplerTemplate
     if kPitchFactor==0 then
       kPitchFactor = 1
     endif
-    kTimeFactor = kPitchFactor * iInTimeDiskgrainSamplerTemplateFactor
-    kpitch = p6
-    iskipTimeInBeats = p7
+    kTimeFactor = iInTimeDiskgrainSamplerTemplateFactor
+    kpitch = kPitchFactor
+    iskipTimeInBeats = 0
 
     iTable ftgenonce 0, 0, 8192, 20, 2, 1
     kgrainsize = 0.004

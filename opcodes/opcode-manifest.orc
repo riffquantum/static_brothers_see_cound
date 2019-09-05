@@ -29,3 +29,5 @@
 #include "flexibleAmplitudeInput.orc"
 
 #include "midiMonitor.orc"
+
+#include "interruptThenTrigger.orc"

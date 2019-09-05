@@ -86,5 +86,8 @@ connect "BasicSamplerTemplateMixerChannel", "BasicSamplerTemplateOutR", "Mixer",
 connect "SyncloopSamplerTemplateMixerChannel", "SyncloopSamplerTemplateOutL", "Mixer", "MixerInL"
 connect "SyncloopSamplerTemplateMixerChannel", "SyncloopSamplerTemplateOutR", "Mixer", "MixerInR"
 
+connect "InTimeSyncloopSamplerTemplateMixerChannel", "InTimeSyncloopSamplerTemplateOutL", "Mixer", "MixerInL"
+connect "InTimeSyncloopSamplerTemplateMixerChannel", "InTimeSyncloopSamplerTemplateOutR", "Mixer", "MixerInR"
+
 connect "InTimeDiskgrainSamplerTemplateMixerChannel", "InTimeDiskgrainSamplerTemplateOutL", "Mixer", "MixerInL"
 connect "InTimeDiskgrainSamplerTemplateMixerChannel", "InTimeDiskgrainSamplerTemplateOutR", "Mixer", "MixerInR"

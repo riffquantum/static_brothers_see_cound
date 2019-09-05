@@ -1,12 +1,15 @@
 opcode midiMonitor, 0, 0
   kStatusCode, kChannel, kData1, kData2 midiin
+  kTime times
 
   ktrigger  changed  kStatusCode, kChannel, kData1, kData2
 
   if ktrigger=1 && kStatusCode!=0 then
-    SStatusCodeString = ""
 
-    printks "-- MIDI Input -- %n", 0
+    midiout kStatusCode, kChannel, kData1, kData2
+
+
+    printks "-- MIDI Input -- %n%t Time: %f %n", 0, kTime
 
     if kStatusCode == 144 then
       printks "%t Note On (%d)%n %t Channel: %d %n %t Note Number: %d %n %t Velocity: %d %n", 0, kStatusCode,  kChannel, kData1, kData2
