@@ -1,6 +1,9 @@
 connect "3009", "ClosedHatOutL", "ClosedHatMixerChannel", "ClosedHatInL"
 connect "3009", "ClosedHatOutR", "ClosedHatMixerChannel", "ClosedHatInR"
 
+connect "ClosedHatMixerChannel", "ClosedHatOutL", "Mixer", "MixerInL"
+connect "ClosedHatMixerChannel", "ClosedHatOutR", "Mixer", "MixerInR"
+
 alwayson "ClosedHatMixerChannel"
 
 gkClosedHatEqBass init 1.3

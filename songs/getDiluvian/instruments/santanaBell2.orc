@@ -3,6 +3,9 @@
 connect "santanaBell2Sndwarp", "santanaBell2OutL", "santanaBell2MixerChannel", "santanaBell2InL"
 connect "santanaBell2Sndwarp", "santanaBell2OutR", "santanaBell2MixerChannel", "santanaBell2InR"
 
+connect "santanaBell2SndwarpMixerChannel", "santanaBell2SndwarpOutL", "Mixer", "MixerInL"
+connect "santanaBell2SndwarpMixerChannel", "santanaBell2SndwarpOutR", "Mixer", "MixerInR"
+
 alwayson "santanaBell2MixerChannel"
 
 gksantanaBell2EqBass init 1

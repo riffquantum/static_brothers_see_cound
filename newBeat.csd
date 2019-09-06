@@ -6,7 +6,6 @@
 
     <CsInstruments>
         #include "config/defaultConfig.orc"
-        #include "config/defaultMixerRoutes.orc"
 
         giBPM = 100
 
@@ -47,7 +46,7 @@
 
             scoreline_i beatScoreline( "LinnDrum", 2.5, 1, {{ "kick" 1 1 0 }} )
             scoreline_i beatScoreline( "LinnDrum", 3.5, .5, {{ "kick" 1 1 0 }} )
-            
+
 
             scoreline_i beatScoreline( "LinnDrum", 0, 2, {{ "crash" 1 .1 0 }} )
             scoreline_i beatScoreline( "LinnDrum", 2, 2, {{ "ride" 1 .1 0 }} )
@@ -67,7 +66,7 @@
 
             scoreline_i beatScoreline( "LinnDrum", 2.5, 1, {{ "kick" 1 1 0 }} )
             scoreline_i beatScoreline( "LinnDrum", 3.5, .5, {{ "kick" 1 1 0 }} )
-            
+
 
             scoreline_i beatScoreline( "LinnDrum", 0, 2, {{ "crash" 1 .1 0 }} )
             ;scoreline_i beatScoreline( "LinnDrum", 2, 2, {{ "ride" 1 .1 0 }} )
@@ -80,8 +79,8 @@
         #define beatsPerMeasure # 4 #
 
         #define bpm # 100 #
-            
-            
+
+
             m section0
                 t 0 [$bpm]
                 i "breakTesting" 0 4
@@ -90,25 +89,25 @@
                 i "breakTesting2" + 4
 
             s
-        
+
             m section1
                 t 0 [$bpm]
                 { 2 loopCount
                     i "breaks" + 4
                     i "breaks" + 4
                     i "breaks" + 8
-                    
+
                 }
-                
+
                 { 2 loopCount
                     i "sixteenthHats606" + 4 .25 10 3 .0
                     i "sixteenthHats606" + 4 .25 0 0 0
                     i "sixteenthHats606" + 4 .25 0 0 .05
                     i "sixteenthHats606" + 4 .25 50 3 .03
-                    
+
                 }
-                
-                
+
+
                 i "kickSnare1" 16 4
                 i "kickSnare1" + 4
                 i "kickSnare1" + 4

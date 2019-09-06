@@ -1,6 +1,9 @@
 connect "BasicSamplerTemplate", "BasicSamplerTemplateOutL", "BasicSamplerTemplateMixerChannel", "BasicSamplerTemplateInL"
 connect "BasicSamplerTemplate", "BasicSamplerTemplateOutR", "BasicSamplerTemplateMixerChannel", "BasicSamplerTemplateInR"
 
+connect "BasicSamplerTemplateMixerChannel", "BasicSamplerTemplateOutL", "Mixer", "MixerInL"
+connect "BasicSamplerTemplateMixerChannel", "BasicSamplerTemplateOutR", "Mixer", "MixerInR"
+
 alwayson "BasicSamplerTemplateMixerChannel"
 
 gkBasicSamplerTemplateEqBass init 1

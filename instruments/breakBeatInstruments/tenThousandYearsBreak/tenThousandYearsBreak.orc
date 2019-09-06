@@ -15,6 +15,9 @@ connect "tenThousandYearsBreakDiskgrain", "tenThousandYearsBreakOutR", "tenThous
 connect "tenThousandYearsBreakSndwarp", "tenThousandYearsBreakOutL", "tenThousandYearsBreakMixerChannel", "tenThousandYearsBreakInL"
 connect "tenThousandYearsBreakSndwarp", "tenThousandYearsBreakOutR", "tenThousandYearsBreakMixerChannel", "tenThousandYearsBreakInR"
 
+connect "tenThousandYearsBreakMixerChannel", "tenThousandYearsBreakOutL", "Mixer", "MixerInL"
+connect "tenThousandYearsBreakMixerChannel", "tenThousandYearsBreakOutR", "Mixer", "MixerInR"
+
 alwayson "tenThousandYearsBreakMixerChannel"
 
 gktenThousandYearsBreakEqBass init 1

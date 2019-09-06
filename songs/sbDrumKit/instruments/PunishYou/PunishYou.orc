@@ -1,6 +1,9 @@
 connect "3007", "PunishYouOutL", "PunishYouMixerChannel", "PunishYouInL"
 connect "3007", "PunishYouOutR", "PunishYouMixerChannel", "PunishYouInR"
 
+connect "PunishYouMixerChannel", "PunishYouOutL", "Mixer", "MixerInL"
+connect "PunishYouMixerChannel", "PunishYouOutR", "Mixer", "MixerInR"
+
 alwayson "PunishYouMixerChannel"
 
 gkPunishYouEqBass init 1.3

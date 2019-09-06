@@ -15,6 +15,9 @@ connect "KeyGateBreakDiskgrain", "KeyGateBreakOutR", "KeyGateBreakMixerChannel",
 connect "KeyGateBreakSndwarp", "KeyGateBreakOutL", "KeyGateBreakMixerChannel", "KeyGateBreakInL"
 connect "KeyGateBreakSndwarp", "KeyGateBreakOutR", "KeyGateBreakMixerChannel", "KeyGateBreakInR"
 
+connect "KeyGateBreakMixerChannel", "KeyGateBreakOutL", "Mixer", "MixerInL"
+connect "KeyGateBreakMixerChannel", "KeyGateBreakOutR", "Mixer", "MixerInR"
+
 alwayson "KeyGateBreakMixerChannel"
 
 gkKeyGateBreakEqBass init 1

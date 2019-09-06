@@ -1,6 +1,9 @@
 connect "3013", "CrashOutL", "CrashMixerChannel", "CrashInL"
 connect "3013", "CrashOutR", "CrashMixerChannel", "CrashInR"
 
+connect "CrashOutMixerChannel", "CrashOutOutL", "Mixer", "MixerInL"
+connect "CrashOutMixerChannel", "CrashOutOutR", "Mixer", "MixerInR"
+
 alwayson "CrashMixerChannel"
 
 gkCrashEqBass init 1.3

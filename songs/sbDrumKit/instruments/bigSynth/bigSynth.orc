@@ -1,6 +1,9 @@
 connect "BigSynth", "BigSynthOutL", "BigSynthMixerChannel", "BigSynthInL"
 connect "BigSynth", "BigSynthOutR", "BigSynthMixerChannel", "BigSynthInR"
 
+connect "BigSynthMixerChannel", "BigSynthOutL", "Mixer", "MixerInL"
+connect "BigSynthMixerChannel", "BigSynthOutR", "Mixer", "MixerInR"
+
 alwayson "BigSynthMixerChannel"
 
 gkBigSynthEqBass init 1

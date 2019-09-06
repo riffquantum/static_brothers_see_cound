@@ -6,7 +6,6 @@
 
     <CsInstruments>
         #include "config/defaultConfig.orc"
-        #include "songs/sbDrumKit/config/mixerRoutes.orc"
 
         giBPM = 120
 

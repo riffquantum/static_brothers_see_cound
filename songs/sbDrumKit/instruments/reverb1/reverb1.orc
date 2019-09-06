@@ -4,6 +4,10 @@ alwayson "Reverb1MixerChannel"
 connect "Reverb1", "Reverb1OutL", "Reverb1MixerChannel", "Reverb1InL"
 connect "Reverb1", "Reverb1OutR", "Reverb1MixerChannel", "Reverb1InR"
 
+connect "Reverb1MixerChannel", "Reverb1OutL", "Mixer", "MixerInL"
+connect "Reverb1MixerChannel", "Reverb1OutR", "Mixer", "MixerInR"
+
+
 gkReverb1EqBass init 1
 gkReverb1EqMid init 1
 gkReverb1EqHigh init 1

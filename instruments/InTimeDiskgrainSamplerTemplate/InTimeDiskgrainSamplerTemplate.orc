@@ -7,6 +7,10 @@
 */
 
 connect "InTimeDiskgrainSamplerTemplate", "InTimeDiskgrainSamplerTemplateOut", "InTimeDiskgrainSamplerTemplateMixerChannel", "InTimeDiskgrainSamplerTemplateIn"
+
+connect "InTimeDiskgrainSamplerTemplateMixerChannel", "InTimeDiskgrainSamplerTemplateOutL", "Mixer", "MixerInL"
+connect "InTimeDiskgrainSamplerTemplateMixerChannel", "InTimeDiskgrainSamplerTemplateOutR", "Mixer", "MixerInR"
+
 alwayson "InTimeDiskgrainSamplerTemplateMixerChannel"
 
 gkInTimeDiskgrainSamplerTemplateEqBass init 1

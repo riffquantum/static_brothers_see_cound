@@ -1,5 +1,5 @@
 /* LinnDrum LM2
-    Sampler using samples from the LinnDrum LM2 drum machine. 
+    Sampler using samples from the LinnDrum LM2 drum machine.
 
     p4 - Drum Name - String - valid values:
     p5 - coresponds to kpitch on diskin opcode
@@ -14,6 +14,12 @@
 
 connect "LinnDrum", "LinnDrumOutL", "LinnDrumMixerChannel", "LinnDrumInL"
 connect "LinnDrum", "LinnDrumOutR", "LinnDrumMixerChannel", "LinnDrumInR"
+
+connect "LinnDrumMixerChannel", "LinnDrumOutL", "Mixer", "MixerInL"
+connect "LinnDrumMixerChannel", "LinnDrumOutR", "Mixer", "MixerInR"
+
+connect "LinnDrumMixerChannel", "LinnDrumOutL", "Mixer", "MixerInL"
+connect "LinnDrumMixerChannel", "LinnDrumOutR", "sMixer", "MixerInR"
 
 alwayson "LinnDrumMixerChannel"
 
@@ -33,19 +39,19 @@ instr LinnDrum
     if (kKillswitch != 0) then
         kgoto end
     endif
-    
+
 
     if (strcmp(SModifier, "HatOpen") == 0) then
         gaInterrupt1L, gaInterrupt1R  diskin SFullPath, p5
-        
+
         kres1           rms (gaInterrupt1L * p6)
         kres2           rms (gaInterrupt1R * p6)
-        
+
         gaInterrupt1L          gain gaInterrupt1L, kres1
         gaInterrupt1R          gain gaInterrupt1R, kres2
     else
         alinn1, alinn2  diskin SFullPath, p5
-        
+
         kres1           rms (alinn1 * p6)
         kres2           rms (alinn2 * p6)
 
@@ -68,7 +74,7 @@ instr LinnDrumMidKnob
 endin
 
 instr LinnDrumHighKnob
-    gkLinnDrumEqHigh linseg p4, p3, p5  
+    gkLinnDrumEqHigh linseg p4, p3, p5
 endin
 
 instr LinnDrumFader
@@ -106,7 +112,7 @@ instr LinnDrumMixerChannel
     outleta "LinnDrumOutL", aLinnDrumL
     outleta "LinnDrumOutR", aLinnDrumR
 endin
-    
+
 instr LinnDrumSequencer
     ; sequence = [
     ;    "kick",

@@ -15,6 +15,9 @@ connect "dopesmokerBreakDiskgrain", "dopesmokerBreakOutR", "dopesmokerBreakMixer
 connect "dopesmokerBreakSndwarp", "dopesmokerBreakOutL", "dopesmokerBreakMixerChannel", "dopesmokerBreakInL"
 connect "dopesmokerBreakSndwarp", "dopesmokerBreakOutR", "dopesmokerBreakMixerChannel", "dopesmokerBreakInR"
 
+connect "dopesmokerBreakMixerChannel", "dopesmokerBreakOutL", "Mixer", "MixerInL"
+connect "dopesmokerBreakMixerChannel", "dopesmokerBreakOutR", "Mixer", "MixerInR"
+
 alwayson "dopesmokerBreakMixerChannel"
 
 gkdopesmokerBreakEqBass init 1

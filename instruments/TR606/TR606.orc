@@ -23,6 +23,9 @@
 connect "TR606", "TR606OutL", "TR606MixerChannel", "TR606InL"
 connect "TR606", "TR606OutR", "TR606MixerChannel", "TR606InR"
 
+connect "TR606MixerChannel", "TR606OutL", "Mixer", "MixerInL"
+connect "TR606MixerChannel", "TR606OutR", "Mixer", "MixerInR"
+
 alwayson "TR606MixerChannel"
 
 gkTR606EqBass init 1

@@ -9,6 +9,10 @@
 connect "AmenBreakDiskin", "AmenBreakOut", "AmenBreakMixerChannel", "AmenBreakIn"
 connect "AmenBreakDiskgrain", "AmenBreakOut", "AmenBreakMixerChannel", "AmenBreakIn"
 connect "AmenBreakSndwarp", "AmenBreakOut", "AmenBreakMixerChannel", "AmenBreakIn"
+
+connect "AmenBreakMixerChannel", "AmenBreakOutL", "Mixer", "MixerInL"
+connect "AmenBreakMixerChannel", "AmenBreakOutR", "Mixer", "MixerInR"
+
 alwayson "AmenBreakMixerChannel"
 
 gkAmenBreakEqBass init 1

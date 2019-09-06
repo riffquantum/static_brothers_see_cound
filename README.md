@@ -13,7 +13,7 @@ This is the Static Brothers' Csound application for composition and performance.
 
 #### Directory Structure:
 - My approach breaks files up into reusable partials as much as possible. I'll describe some important aspects of this.
-- The config directory contains a few default config files. One contains the set of values that csound needs to operate (sr, ksmps, kr, nchnls, 0dbfs) as well as the giBPM variable (more on that later). There is also a file for setting MidiChannel assignments with namespaced global variables and file where all mixer routes between Mixer Channels and the Mixer are defined. I'm considering moving those route definitions into individual mixer files.
+- The config directory contains a few default config files. One contains the set of values that csound needs to operate (sr, ksmps, kr, nchnls, 0dbfs) as well as the giBPM variable (more on that later). There is also a file for setting MidiChannel assignments with namespaced global variables.
 - Instruments are kept in their own directories as described above. There are all included in a file called orchestra-manifest.orc.
 - There is a localSamples directory which is not included in the repository. This is just a big collection WAV file samples that is too big to host on GitHub.
 - User Defined Opcodes, like instruments, each get their own file within the opcodes directory and they are gather for inclusion in opcode-manifest.orc. I have a bunch of utility opcodes in here, a couple that set up specific keyboard layouts for midi input, common function table generators (Sine, Saw, Square, etc), and others. I have not developed a thorough approach to effects yet but for now I'm trying to write the basic signal processors as opcodes which will then be wrapped in effects instruments.

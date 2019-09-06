@@ -15,6 +15,9 @@ connect "tastyCakesBreakDiskgrain", "tastyCakesBreakOutR", "tastyCakesBreakMixer
 connect "tastyCakesBreakSndwarp", "tastyCakesBreakOutL", "tastyCakesBreakMixerChannel", "tastyCakesBreakInL"
 connect "tastyCakesBreakSndwarp", "tastyCakesBreakOutR", "tastyCakesBreakMixerChannel", "tastyCakesBreakInR"
 
+connect "tastyCakesBreakMixerChannel", "tastyCakesBreakOutL", "Mixer", "MixerInL"
+connect "tastyCakesBreakMixerChannel", "tastyCakesBreakOutR", "Mixer", "MixerInR"
+
 alwayson "tastyCakesBreakMixerChannel"
 
 gktastyCakesBreakEqBass init 1

@@ -15,6 +15,9 @@ connect "hairOfTheDogBreakDiskgrain", "hairOfTheDogBreakOutR", "hairOfTheDogBrea
 connect "hairOfTheDogBreakSndwarp", "hairOfTheDogBreakOutL", "hairOfTheDogBreakMixerChannel", "hairOfTheDogBreakInL"
 connect "hairOfTheDogBreakSndwarp", "hairOfTheDogBreakOutR", "hairOfTheDogBreakMixerChannel", "hairOfTheDogBreakInR"
 
+connect "hairOfTheDogBreakMixerChannel", "hairOfTheDogBreakOutL", "Mixer", "MixerInL"
+connect "hairOfTheDogBreakMixerChannel", "hairOfTheDogBreakOutR", "Mixer", "MixerInR"
+
 alwayson "hairOfTheDogBreakMixerChannel"
 
 gkhairOfTheDogBreakEqBass init 1

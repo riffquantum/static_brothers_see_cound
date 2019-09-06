@@ -1,6 +1,9 @@
 connect "3003", "LongDeepKickOutL", "LongDeepKickMixerChannel", "LongDeepKickInL"
 connect "3003", "LongDeepKickOutR", "LongDeepKickMixerChannel", "LongDeepKickInR"
 
+connect "LongDeepKickMixerChannel", "LongDeepKickOutL", "Mixer", "MixerInL"
+connect "LongDeepKickMixerChannel", "LongDeepKickOutR", "Mixer", "MixerInR"
+
 alwayson "LongDeepKickMixerChannel"
 
 gkLongDeepKickEqBass init 1.3

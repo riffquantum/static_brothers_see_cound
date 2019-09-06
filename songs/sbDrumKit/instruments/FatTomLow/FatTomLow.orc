@@ -1,6 +1,9 @@
 connect "3014", "FatTomLowOutL", "FatTomLowMixerChannel", "FatTomLowInL"
 connect "3014", "FatTomLowOutR", "FatTomLowMixerChannel", "FatTomLowInR"
 
+connect "FatTomLowMixerChannel", "FatTomLowOutL", "Mixer", "MixerInL"
+connect "FatTomLowMixerChannel", "FatTomLowOutR", "Mixer", "MixerInR"
+
 alwayson "FatTomLowMixerChannel"
 
 gkFatTomLowEqBass init 1.3

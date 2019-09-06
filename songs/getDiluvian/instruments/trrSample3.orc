@@ -9,6 +9,9 @@ connect "trrSample3Diskgrain", "trrSample3OutR", "trrSample3MixerChannel", "trrS
 connect "trrSample3Sndwarp", "trrSample3OutL", "trrSample3MixerChannel", "trrSample3InL"
 connect "trrSample3Sndwarp", "trrSample3OutR", "trrSample3MixerChannel", "trrSample3InR"
 
+connect "trrSample3MixerChannel", "trrSample3OutL", "Mixer", "MixerInL"
+connect "trrSample3MixerChannel", "trrSample3OutR", "Mixer", "MixerInR"
+
 alwayson "trrSample3MixerChannel"
 
 gktrrSample3EqBass init 1

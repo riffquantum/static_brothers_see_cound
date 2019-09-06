@@ -1,6 +1,9 @@
 connect "BigCrunchySynth", "BigCrunchySynthOutL", "BigCrunchySynthMixerChannel", "BigCrunchySynthInL"
 connect "BigCrunchySynth", "BigCrunchySynthOutR", "BigCrunchySynthMixerChannel", "BigCrunchySynthInR"
 
+connect "BigCrunchySynthMixerChannel", "BigCrunchySynthOutL", "Mixer", "MixerInL"
+connect "BigCrunchySynthMixerChannel", "BigCrunchySynthOutR", "Mixer", "MixerInR"
+
 alwayson "BigCrunchySynthMixerChannel"
 
 gkBigCrunchySynthEqBass init 1
@@ -18,6 +21,9 @@ instr BigCrunchySynth
 
     ifreq flexiblePitchInput p5
     kfreq   linseg    ifreq*1.02, 0.3, ifreq
+    kPitchBend = 0
+    midipitchbend kPitchBend, 0, 15
+    kfreq = kfreq * (1+kPitchBend)
 
     iSineTable sineWave
     iSawTable sawtoothWaveUpAndDown
@@ -38,11 +44,14 @@ instr BigCrunchySynth
 
     aOut = aBigCrunchySynth1 + aBigCrunchySynth2 + aBigCrunchySynth3 + aBigCrunchySynth4 + aBigCrunchySynth5 + aBigCrunchySynth6 + aBigCrunchySynth7 + aBigCrunchySynth8
 
-    kcf line 1000, 1, 0
-    aOut reson aOut, kcf, 500
+    kCenterFrequency line 1000, 1, 0
+    kBandWidth = 700
+    aOutCrunch reson aOut, kCenterFrequency, kBandWidth
 
-    outleta "BigCrunchySynthOutL", aOut
-    outleta "BigCrunchySynthOutR", aOut
+    aOutBalanced balance aOutCrunch, aOut
+
+    outleta "BigCrunchySynthOutL", aOutBalanced
+    outleta "BigCrunchySynthOutR", aOutBalanced
 endin
 
 instr BigCrunchySynthBassKnob

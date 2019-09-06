@@ -10,7 +10,6 @@
 
     <CsInstruments>
       #include "config/defaultConfig.orc"
-      #include "config/defaultMixerRoutes.orc"
       #include "config/defaultMidiAssignments.orc"
 
       giBPM = 100

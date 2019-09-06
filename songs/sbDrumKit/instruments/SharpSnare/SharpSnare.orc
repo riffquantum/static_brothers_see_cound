@@ -1,6 +1,9 @@
 connect "3005", "SharpSnareOutL", "SharpSnareMixerChannel", "SharpSnareInL"
 connect "3005", "SharpSnareOutR", "SharpSnareMixerChannel", "SharpSnareInR"
 
+connect "SharpSnareMixerChannel", "SharpSnareOutL", "Mixer", "MixerInL"
+connect "SharpSnareMixerChannel", "SharpSnareOutR", "Mixer", "MixerInR"
+
 alwayson "SharpSnareMixerChannel"
 
 gkSharpSnareEqBass init 1.3

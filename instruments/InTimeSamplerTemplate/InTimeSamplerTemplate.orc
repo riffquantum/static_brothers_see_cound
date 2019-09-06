@@ -1,4 +1,8 @@
 connect "InTimeSamplerTemplate", "InTimeSamplerTemplateOut", "InTimeSamplerTemplateMixerChannel", "InTimeSamplerTemplateIn"
+
+connect "InTimeSyncloopSamplerTemplateMixerChannel", "InTimeSyncloopSamplerTemplateOutL", "Mixer", "MixerInL"
+connect "InTimeSyncloopSamplerTemplateMixerChannel", "InTimeSyncloopSamplerTemplateOutR", "Mixer", "MixerInR"
+
 alwayson "InTimeSamplerTemplateMixerChannel"
 
 gkInTimeSamplerTemplateEqBass init 1

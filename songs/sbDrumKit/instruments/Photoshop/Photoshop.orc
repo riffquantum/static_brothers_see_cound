@@ -1,6 +1,9 @@
 connect "Photoshop", "PhotoshopOutL", "PhotoshopMixerChannel", "PhotoshopInL"
 connect "Photoshop", "PhotoshopOutR", "PhotoshopMixerChannel", "PhotoshopInR"
 
+connect "PhotoshopMixerChannel", "PhotoshopOutL", "Mixer", "MixerInL"
+connect "PhotoshopMixerChannel", "PhotoshopOutR", "Mixer", "MixerInR"
+
 alwayson "PhotoshopMixerChannel"
 
 gkPhotoshopEqBass init 1

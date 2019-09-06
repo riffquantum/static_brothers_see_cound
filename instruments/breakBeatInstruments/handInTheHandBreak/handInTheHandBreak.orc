@@ -15,6 +15,9 @@ connect "handInTheHandBreakDiskgrain", "handInTheHandBreakOutR", "handInTheHandB
 connect "handInTheHandBreakSndwarp", "handInTheHandBreakOutL", "handInTheHandBreakMixerChannel", "handInTheHandBreakInL"
 connect "handInTheHandBreakSndwarp", "handInTheHandBreakOutR", "handInTheHandBreakMixerChannel", "handInTheHandBreakInR"
 
+connect "handInTheHandBreakMixerChannel", "handInTheHandBreakOutL", "Mixer", "MixerInL"
+connect "handInTheHandBreakMixerChannel", "handInTheHandBreakOutR", "Mixer", "MixerInR"
+
 alwayson "handInTheHandBreakMixerChannel"
 
 gkhandInTheHandBreakEqBass init 1

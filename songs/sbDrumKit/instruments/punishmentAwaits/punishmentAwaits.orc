@@ -1,6 +1,9 @@
 connect "3001", "PunishmentAwaitsOutL", "PunishmentAwaitsMixerChannel", "PunishmentAwaitsInL"
 connect "3001", "PunishmentAwaitsOutR", "PunishmentAwaitsMixerChannel", "PunishmentAwaitsInR"
 
+connect "PunishmentAwaitsMixerChannel", "PunishmentAwaitsOutL", "Mixer", "MixerInL"
+connect "PunishmentAwaitsMixerChannel", "PunishmentAwaitsOutR", "Mixer", "MixerInR"
+
 alwayson "PunishmentAwaitsMixerChannel"
 
 gkPunishmentAwaitsEqBass init 1.3

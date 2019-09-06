@@ -1,6 +1,9 @@
 connect "BigRichSynth", "BigRichSynthOutL", "BigRichSynthMixerChannel", "BigRichSynthInL"
 connect "BigRichSynth", "BigRichSynthOutR", "BigRichSynthMixerChannel", "BigRichSynthInR"
 
+connect "BigRichSynthMixerChannel", "BigRichSynthOutL", "Mixer", "MixerInL"
+connect "BigRichSynthMixerChannel", "BigRichSynthOutR", "Mixer", "MixerInR"
+
 alwayson "BigRichSynthMixerChannel"
 
 gkBigRichSynthEqBass init 1
@@ -31,7 +34,6 @@ instr BigRichSynth
     endif
 
     kPitchBend = 0
-
     midipitchbend kPitchBend, 0, 15
 
     kfreq   linseg    ifreq*1.02, 0.3, ifreq

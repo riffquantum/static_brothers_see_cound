@@ -1,6 +1,9 @@
 connect "3004", "SharpKickOutL", "SharpKickMixerChannel", "SharpKickInL"
 connect "3004", "SharpKickOutR", "SharpKickMixerChannel", "SharpKickInR"
 
+connect "SharpKickMixerChannel", "SharpKickOutL", "Mixer", "MixerInL"
+connect "SharpKickMixerChannel", "SharpKickOutR", "Mixer", "MixerInR"
+
 alwayson "SharpKickMixerChannel"
 
 gkSharpKickEqBass init 1.3

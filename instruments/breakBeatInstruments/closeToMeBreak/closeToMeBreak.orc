@@ -15,6 +15,9 @@ connect "closeToMeBreakDiskgrain", "closeToMeBreakOutR", "closeToMeBreakMixerCha
 connect "closeToMeBreakSndwarp", "closeToMeBreakOutL", "closeToMeBreakMixerChannel", "closeToMeBreakInL"
 connect "closeToMeBreakSndwarp", "closeToMeBreakOutR", "closeToMeBreakMixerChannel", "closeToMeBreakInR"
 
+connect "closeToMeBreakMixerChannel", "closeToMeBreakOutL", "Mixer", "MixerInL"
+connect "closeToMeBreakMixerChannel", "closeToMeBreakOutR", "Mixer", "MixerInR"
+
 alwayson "closeToMeBreakMixerChannel"
 
 gkcloseToMeBreakEqBass init 1

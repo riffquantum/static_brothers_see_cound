@@ -15,6 +15,9 @@ connect "itsExpectedBreakDiskgrain", "itsExpectedBreakOutR", "itsExpectedBreakMi
 connect "itsExpectedBreakSndwarp", "itsExpectedBreakOutL", "itsExpectedBreakMixerChannel", "itsExpectedBreakInL"
 connect "itsExpectedBreakSndwarp", "itsExpectedBreakOutR", "itsExpectedBreakMixerChannel", "itsExpectedBreakInR"
 
+connect "itsExpectedBreakMixerChannel", "itsExpectedBreakOutL", "Mixer", "MixerInL"
+connect "itsExpectedBreakMixerChannel", "itsExpectedBreakOutR", "Mixer", "MixerInR"
+
 alwayson "itsExpectedBreakMixerChannel"
 
 gkitsExpectedBreakEqBass init 1

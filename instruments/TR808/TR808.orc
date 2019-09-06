@@ -12,6 +12,9 @@
 connect "TR808", "TR808OutL", "TR808MixerChannel", "TR808InL"
 connect "TR808", "TR808OutR", "TR808MixerChannel", "TR808InR"
 
+connect "TR808MixerChannel", "TR808OutL", "Mixer", "MixerInL"
+connect "TR808MixerChannel", "TR808OutR", "Mixer", "MixerInR"
+
 alwayson "TR808MixerChannel"
 
 gkTR808EqBass init 1

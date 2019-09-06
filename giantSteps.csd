@@ -6,8 +6,8 @@
 
     <CsInstruments>
         #include "config/defaultConfig.orc"
-        #include "config/defaultMixerRoutes.orc"
-        
+        #include "config/defaultMidiAssignments.orc"
+
         giBPM = 200
 
         #include "opcodes/opcode-manifest.orc"
@@ -21,8 +21,8 @@
         t 0 200
         ;measure 0
             ; instrument             start    dur               amp      pitch
-        i "ChorusedSynth" 0 1 .5 8            
-        i "ChorusedSynth" 0    2     0.5        8.10 
+        i "ChorusedSynth" 0 1 .5 8
+        i "ChorusedSynth" 0    2     0.5        8.10
         i "ChorusedSynth"  +        2                  0.5    8.06 ;D
 
 

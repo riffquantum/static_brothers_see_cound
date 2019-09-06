@@ -15,6 +15,9 @@ connect "sinkingBreakDiskgrain", "sinkingBreakOutR", "sinkingBreakMixerChannel",
 connect "sinkingBreakSndwarp", "sinkingBreakOutL", "sinkingBreakMixerChannel", "sinkingBreakInL"
 connect "sinkingBreakSndwarp", "sinkingBreakOutR", "sinkingBreakMixerChannel", "sinkingBreakInR"
 
+connect "sinkingBreakMixerChannel", "sinkingBreakOutL", "Mixer", "MixerInL"
+connect "sinkingBreakMixerChannel", "sinkingBreakOutR", "Mixer", "MixerInR"
+
 alwayson "sinkingBreakMixerChannel"
 
 gksinkingBreakEqBass init 1

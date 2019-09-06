@@ -1,6 +1,9 @@
 connect "3011", "RideOutL", "RideMixerChannel", "RideInL"
 connect "3011", "RideOutR", "RideMixerChannel", "RideInR"
 
+connect "RideMixerChannel", "RideOutL", "Mixer", "MixerInL"
+connect "RideMixerChannel", "RideOutR", "Mixer", "MixerInR"
+
 alwayson "RideMixerChannel"
 
 gkRideEqBass init 1.3

@@ -1,6 +1,9 @@
 connect "SyncloopSamplerTemplate", "SyncloopSamplerTemplateOutL", "SyncloopSamplerTemplateMixerChannel", "SyncloopSamplerTemplateInL"
 connect "SyncloopSamplerTemplate", "SyncloopSamplerTemplateOutR", "SyncloopSamplerTemplateMixerChannel", "SyncloopSamplerTemplateInR"
 
+connect "SyncloopSamplerTemplateMixerChannel", "SyncloopSamplerTemplateOutL", "Mixer", "MixerInL"
+connect "SyncloopSamplerTemplateMixerChannel", "SyncloopSamplerTemplateOutR", "Mixer", "MixerInR"
+
 alwayson "SyncloopSamplerTemplateMixerChannel"
 
 gkSyncloopSamplerTemplateHold init 40 ;12.8

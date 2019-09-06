@@ -15,6 +15,9 @@ connect "thinkBreakDiskgrain", "thinkBreakOutR", "thinkBreakMixerChannel", "thin
 connect "thinkBreakSndwarp", "thinkBreakOutL", "thinkBreakMixerChannel", "thinkBreakInL"
 connect "thinkBreakSndwarp", "thinkBreakOutR", "thinkBreakMixerChannel", "thinkBreakInR"
 
+connect "thinkBreakMixerChannel", "thinkBreakOutL", "Mixer", "MixerInL"
+connect "thinkBreakMixerChannel", "thinkBreakOutR", "Mixer", "MixerInR"
+
 alwayson "thinkBreakMixerChannel"
 
 gkthinkBreakEqBass init 1

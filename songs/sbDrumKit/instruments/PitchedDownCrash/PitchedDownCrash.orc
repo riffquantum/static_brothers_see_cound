@@ -1,6 +1,9 @@
 connect "3012", "PitchedDownCrashOutL", "PitchedDownCrashMixerChannel", "PitchedDownCrashInL"
 connect "3012", "PitchedDownCrashOutR", "PitchedDownCrashMixerChannel", "PitchedDownCrashInR"
 
+connect "PitchedDownCrashMixerChannel", "PitchedDownCrashOutL", "Mixer", "MixerInL"
+connect "PitchedDownCrashMixerChannel", "PitchedDownCrashOutR", "Mixer", "MixerInR"
+
 alwayson "PitchedDownCrashMixerChannel"
 
 gkPitchedDownCrashEqBass init 1.3

@@ -4,6 +4,9 @@
 connect "santanaSample3Sndwarp", "santanaSample3OutL", "santanaSample3MixerChannel", "santanaSample3InL"
 connect "santanaSample3Sndwarp", "santanaSample3OutR", "santanaSample3MixerChannel", "santanaSample3InR"
 
+connect "santanaSample3MixerChannel", "santanaSample3OutL", "Mixer", "MixerInL"
+connect "santanaSample3MixerChannel", "santanaSample3OutR", "Mixer", "MixerInR"
+
 alwayson "santanaSample3MixerChannel"
 
 gksantanaSample3EqBass init 1

@@ -1,6 +1,9 @@
 connect "3002", "CbKickOutL", "CbKickMixerChannel", "CbKickInL"
 connect "3002", "CbKickOutR", "CbKickMixerChannel", "CbKickInR"
 
+connect "CbKickMixerChannel", "CbKickOutL", "Mixer", "MixerInL"
+connect "CbKickMixerChannel", "CbKickOutR", "Mixer", "MixerInR"
+
 alwayson "CbKickMixerChannel"
 
 gkCbKickEqBass init 1.3

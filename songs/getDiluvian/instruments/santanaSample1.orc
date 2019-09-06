@@ -7,6 +7,9 @@ connect "santanaSample1Sndwarp", "santanaSample1OutR", "santanaSample1Reverb", "
 connect "santanaSample1Reverb", "santanaSample1OutL", "santanaSample1MixerChannel", "santanaSample1InL"
 connect "santanaSample1Reverb", "santanaSample1OutR", "santanaSample1MixerChannel", "santanaSample1InR"
 
+connect "santanaSample1MixerChannel", "santanaSample1OutL", "Mixer", "MixerInL"
+connect "santanaSample1MixerChannel", "santanaSample1OutR", "Mixer", "MixerInR"
+
 alwayson "santanaSample1MixerChannel"
 alwayson "santanaSample1Reverb"
 

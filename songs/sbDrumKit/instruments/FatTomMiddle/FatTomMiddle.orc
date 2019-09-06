@@ -1,6 +1,9 @@
 connect "3015", "FatTomMiddleOutL", "FatTomMiddleMixerChannel", "FatTomMiddleInL"
 connect "3015", "FatTomMiddleOutR", "FatTomMiddleMixerChannel", "FatTomMiddleInR"
 
+connect "FatTomMiddleMixerChannel", "FatTomMiddleOutL", "Mixer", "MixerInL"
+connect "FatTomMiddleMixerChannel", "FatTomMiddleOutR", "Mixer", "MixerInR"
+
 alwayson "FatTomMiddleMixerChannel"
 
 gkFatTomMiddleEqBass init 1.3

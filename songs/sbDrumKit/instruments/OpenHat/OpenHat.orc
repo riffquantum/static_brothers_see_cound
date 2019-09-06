@@ -1,6 +1,9 @@
 connect "3010", "OpenHatOutL", "OpenHatMixerChannel", "OpenHatInL"
 connect "3010", "OpenHatOutR", "OpenHatMixerChannel", "OpenHatInR"
 
+connect "OpenHatMixerChannel", "OpenHatOutL", "Mixer", "MixerInL"
+connect "OpenHatMixerChannel", "OpenHatOutR", "Mixer", "MixerInR"
+
 alwayson "OpenHatMixerChannel"
 
 gkOpenHatEqBass init 1.3

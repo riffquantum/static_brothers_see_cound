@@ -1,6 +1,10 @@
 ; Chorused Synth
 
 connect "ChorusedSynth", "ChorusedSynthOut", "ChorusedSynthMixerChannel", "ChorusedSynthIn"
+
+connect "ChorusedSynthMixerChannel", "ChorusedSynthOutL", "Mixer", "MixerInL"
+connect "ChorusedSynthMixerChannel", "ChorusedSynthOutR", "Mixer", "MixerInR"
+
 alwayson "ChorusedSynthMixerChannel"
 
 gkChorusedSynthEqBass init 1
@@ -40,7 +44,7 @@ instr ChorusedSynthMidKnob
 endin
 
 instr ChorusedSynthHighKnob
-    gkChorusedSynthEqHigh linseg p4, p3, p5  
+    gkChorusedSynthEqHigh linseg p4, p3, p5
 endin
 
 instr ChorusedSynthFader
@@ -60,7 +64,7 @@ instr ChorusedSynthMixerChannel
     kChorusedSynthEqBass = gkChorusedSynthEqBass
     kChorusedSynthEqMid = gkChorusedSynthEqMid
     kChorusedSynthEqHigh = gkChorusedSynthEqHigh
-        
+
     aChorusedSynthL, aChorusedSynthR threeBandEqStereo aChorusedSynthL, aChorusedSynthR, kChorusedSynthEqBass, kChorusedSynthEqMid, kChorusedSynthEqHigh
 
     if kChorusedSynthPan > 100 then

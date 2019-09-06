@@ -15,6 +15,9 @@ connect "transformationDayBreakDiskgrain", "transformationDayBreakOutR", "transf
 connect "transformationDayBreakSndwarp", "transformationDayBreakOutL", "transformationDayBreakMixerChannel", "transformationDayBreakInL"
 connect "transformationDayBreakSndwarp", "transformationDayBreakOutR", "transformationDayBreakMixerChannel", "transformationDayBreakInR"
 
+connect "transformationDayBreakMixerChannel", "transformationDayBreakOutL", "Mixer", "MixerInL"
+connect "transformationDayBreakMixerChannel", "transformationDayBreakOutR", "Mixer", "MixerInR"
+
 alwayson "transformationDayBreakMixerChannel"
 
 gktransformationDayBreakEqBass init 1

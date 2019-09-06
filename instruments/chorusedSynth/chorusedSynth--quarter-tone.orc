@@ -1,6 +1,10 @@
 ; Chorused Synth
 
 connect "ChorusedSynthQuarterTone", "ChorusedSynthQuarterToneOut", "ChorusedSynthQuarterToneMixerChannel", "ChorusedSynthQuarterToneIn"
+
+connect "ChorusedSynthQuarterToneMixerChannel", "ChorusedSynthQuarterToneOutL", "Mixer", "MixerInL"
+connect "ChorusedSynthQuarterToneMixerChannel", "ChorusedSynthQuarterToneOutR", "Mixer", "MixerInR"
+
 alwayson "ChorusedSynthQuarterToneMixerChannel"
 
 gkChorusedSynthQuarterToneFader init 1
