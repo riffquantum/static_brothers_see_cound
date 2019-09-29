@@ -6,7 +6,9 @@
 
 #include "chorusedSynth/chorusedSynth--quarter-tone.orc"
 
-#include "reverb/reverb.orc"
+#include "ReverbExamples/ReverbExamples.orc"
+
+#include "LowPassFilterExamples/LowPassFilterExamples.orc"
 
 #include "linnDrum/linnDrum.orc"
 

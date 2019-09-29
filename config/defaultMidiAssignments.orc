@@ -1,4 +1,4 @@
-ginewInstrumentMidiChannel = 1
+giNewInstrumentMidiChannel = 1
 giBigRichSynthMidiChannel = 2
 giBasicSamplerTemplateMidiChannel = 3
 giBigCrunchySynthMidiChannel = 4

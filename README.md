@@ -50,7 +50,6 @@ In a song, I usually use the actual score only to trigger the broad sections of 
 * Turn giBPM into gkBPM.
 * Write a BPM setter instrument that can change the global BPM variable at different points in the score
 * Write a good distortion
-* Write a few good reverbs
 * Write a chorus
 * Write a flanger
 * Write a better delay
