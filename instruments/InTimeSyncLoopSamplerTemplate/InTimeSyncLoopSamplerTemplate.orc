@@ -1,5 +1,6 @@
-connect "InTimeSyncloopSamplerTemplate", "InTimeSyncloopSamplerTemplateOutL", "InTimeSyncloopSamplerTemplateMixerChannel", "InTimeSyncloopSamplerTemplateInL"
-connect "InTimeSyncloopSamplerTemplate", "InTimeSyncloopSamplerTemplateOutR", "InTimeSyncloopSamplerTemplateMixerChannel", "InTimeSyncloopSamplerTemplateInR"
+gSInTimeSyncloopSamplerTemplateName = "InTimeSyncloopSamplerTemplate"
+gSInTimeSyncloopSamplerTemplateRoute = "Mixer"
+instrumentRoute gSInTimeSyncloopSamplerTemplateName, gSInTimeSyncloopSamplerTemplateRoute
 
 alwayson "InTimeSyncloopSamplerTemplateMixerChannel"
 

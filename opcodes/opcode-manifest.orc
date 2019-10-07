@@ -31,3 +31,5 @@
 #include "midiMonitor.orc"
 
 #include "interruptThenTrigger.orc"
+
+#include "instrumentRoute.orc"

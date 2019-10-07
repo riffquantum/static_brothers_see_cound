@@ -22,8 +22,10 @@
       midiMonitor
     endin
 
+    giMetronomeIsOn = 0
 
     alwayson "NewEffect"
+    alwayson "NewEffectMixerChannel"
     alwayson "NewInstrumentMixerChannel"
 
     gkNewInstrumentEqBass init 1
@@ -31,14 +33,21 @@
     gkNewInstrumentEqHigh init 1
     gkNewInstrumentFader init 1
     gkNewInstrumentPan init 50
+    gSNewInstrumentName = "NewInstrument"
+    gSNewInstrumentRoute = "NewEffect"
+    instrumentRoute gSNewInstrumentName, gSNewInstrumentRoute
+
+    gkNewEffectEqBass init 1
+    gkNewEffectEqMid init 1
+    gkNewEffectEqHigh init 1
+    gkNewEffectFader init 1
+    gkNewEffectPan init 50
+    gSNewEffectName = "NewEffect"
+    gSNewEffectRoute = "Mixer"
+    instrumentRoute gSNewEffectName, gSNewEffectRoute
 
     /* MIDI Config Values */
     massign giNewInstrumentMidiChannel, "NewInstrument"
-    connect "NewInstrument", "NewInstrumentOutL", "NewEffect", "NewEffectInL"
-    connect "NewInstrument", "NewInstrumentOutR", "NewEffect", "NewEffectInR"
-
-    connect "NewEffect", "NewEffectOutL", "NewInstrumentMixerChannel", "NewInstrumentInL"
-    connect "NewEffect", "NewEffectOutR", "NewInstrumentMixerChannel", "NewInstrumentInR"
 
     instr NewInstrument
       iAmplitude flexibleAmplitudeInput p4
@@ -107,9 +116,50 @@
       outleta "NewInstrumentOutR", aNewInstrumentR
     endin
 
+    instr NewEffectBassKnob
+      gkNewEffectEqBass linseg p4, p3, p5
+    endin
 
-    connect "NewInstrumentMixerChannel", "NewInstrumentOutL", "Mixer", "MixerInL"
-    connect "NewInstrumentMixerChannel", "NewInstrumentOutR", "Mixer", "MixerInR"
+    instr NewEffectMidKnob
+      gkNewEffectEqMid linseg p4, p3, p5
+    endin
+
+    instr NewEffectHighKnob
+      gkNewEffectEqHigh linseg p4, p3, p5
+    endin
+
+    instr NewEffectFader
+      gkNewEffectFader linseg p4, p3, p5
+    endin
+
+    instr NewEffectPan
+      gkNewEffectPan linseg p4, p3, p5
+    endin
+
+    instr NewEffectMixerChannel
+      aNewEffectL inleta "NewEffectInL"
+      aNewEffectR inleta "NewEffectInR"
+
+      kNewEffectFader = gkNewEffectFader
+      kNewEffectPan = gkNewEffectPan
+      kNewEffectEqBass = gkNewEffectEqBass
+      kNewEffectEqMid = gkNewEffectEqMid
+      kNewEffectEqHigh = gkNewEffectEqHigh
+
+      aNewEffectL, aNewEffectR threeBandEqStereo aNewEffectL, aNewEffectR, kNewEffectEqBass, kNewEffectEqMid, kNewEffectEqHigh
+
+      if kNewEffectPan > 100 then
+          kNewEffectPan = 100
+      elseif kNewEffectPan < 0 then
+          kNewEffectPan = 0
+      endif
+
+      aNewEffectL = (aNewEffectL * ((100 - kNewEffectPan) * 2 / 100)) * kNewEffectFader
+      aNewEffectR = (aNewEffectR * (kNewEffectPan * 2 / 100)) * kNewEffectFader
+
+      outleta "NewEffectOutL", aNewEffectL
+      outleta "NewEffectOutR", aNewEffectR
+    endin
   </CsInstruments>
 
   <CsScore>

@@ -10,6 +10,8 @@
 
 #include "LowPassFilterExamples/LowPassFilterExamples.orc"
 
+#include "DistortionExamples/DistortionExamples.orc"
+
 #include "linnDrum/linnDrum.orc"
 
 #include "TR808/TR808.orc"

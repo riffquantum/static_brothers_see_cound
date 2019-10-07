@@ -1,8 +1,9 @@
 alwayson "LowPassFilterExamples"
 alwayson "LowPassFilterExamplesMixerChannel"
 
-connect "LowPassFilterExamples", "LowPassFilterExamplesOutL", "LowPassFilterExamplesMixerChannel", "LowPassFilterExamplesInL"
-connect "LowPassFilterExamples", "LowPassFilterExamplesOutR", "LowPassFilterExamplesMixerChannel", "LowPassFilterExamplesInR"
+gSLowPassFilterExamplesName = "LowPassFilterExamples"
+gSLowPassFilterExamplesRoute = "Mixer"
+instrumentRoute gSLowPassFilterExamplesName, gSLowPassFilterExamplesRoute
 
 gkLowPassFilterExamplesEqBass init 1
 gkLowPassFilterExamplesEqMid init 1
@@ -10,8 +11,7 @@ gkLowPassFilterExamplesEqHigh init 1
 gkLowPassFilterExamplesFader init 1
 gkLowPassFilterExamplesPan init 50
 
-gkLowPassFilterExamplesWet init .1
-gkLowPassFilterExamplesDry init 1
+gkLowPassFilterExamplesAmount init .1
 
 giLowPassFilterExamplesMode init 5
 
@@ -77,7 +77,9 @@ instr LowPassFilterExamples
     aLowPassFilterExamplesOutR clfilt aLowPassFilterExamplesInR, kCornerFrequency, iLowPassOrHighPass, iNumberOfPoles, iFilterType, iPassBandRipple, iStopBandAttentuation, iSkip
   endif
 
-  if iBalanceSignal = 1 then
+  aLowPassFilterExamplesOutL = (aLowPassFilterExamplesOutL * gkLowPassFilterExamplesAmount) + (1 - gkLowPassFilterExamplesAmount) * aLowPassFilterExamplesInL
+
+  if iBalanceSignal == 1 then
     aLowPassFilterExamplesOutL balance aLowPassFilterExamplesOutL, aLowPassFilterExamplesInL
     aLowPassFilterExamplesOutR balance aLowPassFilterExamplesOutR, aLowPassFilterExamplesInR
   endif
@@ -86,12 +88,8 @@ instr LowPassFilterExamples
   outleta "LowPassFilterExamplesOutR", aLowPassFilterExamplesOutR
 endin
 
-instr LowPassFilterExamplesWetKnob
-    gkLowPassFilterExamplesDry linseg p4, p3, p5
-endin
-
-instr LowPassFilterExamplesDryKnob
-    gkLowPassFilterExamplesWet linseg p4, p3, p5
+instr LowPassFilterExamplesAmountKnob
+    gkLowPassFilterExamplesAmount linseg p4, p3, p5
 endin
 
 instr LowPassFilterExamplesBassKnob
@@ -138,6 +136,3 @@ instr LowPassFilterExamplesMixerChannel
     outleta "LowPassFilterExamplesOutL", aLowPassFilterExamplesL
     outleta "LowPassFilterExamplesOutR", aLowPassFilterExamplesR
 endin
-
-connect "LowPassFilterExamplesMixerChannel", "LowPassFilterExamplesOutL", "Mixer", "MixerInL"
-connect "LowPassFilterExamplesMixerChannel", "LowPassFilterExamplesOutR", "Mixer", "MixerInR"

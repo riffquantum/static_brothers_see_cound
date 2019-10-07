@@ -1,8 +1,6 @@
-connect "BigCrunchySynth", "BigCrunchySynthOutL", "BigCrunchySynthMixerChannel", "BigCrunchySynthInL"
-connect "BigCrunchySynth", "BigCrunchySynthOutR", "BigCrunchySynthMixerChannel", "BigCrunchySynthInR"
-
-connect "BigCrunchySynthMixerChannel", "BigCrunchySynthOutL", "Mixer", "MixerInL"
-connect "BigCrunchySynthMixerChannel", "BigCrunchySynthOutR", "Mixer", "MixerInR"
+gSBigCrunchySynthName = "BigCrunchySynth"
+gSBigCrunchySynthRoute = "Mixer"
+instrumentRoute gSBigCrunchySynthName, gSBigCrunchySynthRoute
 
 alwayson "BigCrunchySynthMixerChannel"
 

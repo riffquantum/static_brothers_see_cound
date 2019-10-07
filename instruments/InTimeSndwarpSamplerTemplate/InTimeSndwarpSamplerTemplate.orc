@@ -1,12 +1,7 @@
-/* amenBreak
-    A set of sampling instruments each using different opcodes for playing and manipulating the drum break from InTimeSndwarpSamplerTemplate, Brother by The Winstons.
+gSInTimeSndwarpSamplerTemplateName = "InTimeSndwarpSamplerTemplate"
+gSInTimeSndwarpSamplerTemplateRoute = "Mixer"
+instrumentRoute gSInTimeSndwarpSamplerTemplateName, gSInTimeSndwarpSamplerTemplateRoute
 
-    Sample Source: InTimeSndwarpSamplerTemplate, Brother - The Winstons
-    BPM: ~137
-    Length: 16 beats
-*/
-
-connect "InTimeSndwarpSamplerTemplate", "InTimeSndwarpSamplerTemplatekOut", "InTimeSndwarpSamplerTemplatekMixerChannel", "InTimeSndwarpSamplerTemplatekIn"
 alwayson "InTimeSndwarpSamplerTemplatekMixerChannel"
 
 gkInTimeSndwarpSamplerTemplatekEqBass init 1
@@ -50,8 +45,8 @@ instr InTimeSndwarpSamplerTemplate
 
     aInTimeSndwarpSamplerTemplate sndwarp kamplitude, ktimewarp, kresample, isampleTable, ibeginningTime, iwindowSize, irandw, ioverlap, ienvelopeTable, itimemode
 
-    outleta "InTimeSndwarpSamplerTemplatekOut", aInTimeSndwarpSamplerTemplate
-
+    outleta "InTimeSndwarpSamplerTemplatekOutL", aInTimeSndwarpSamplerTemplate
+    outleta "InTimeSndwarpSamplerTemplatekOutR", aInTimeSndwarpSamplerTemplate
 endin
 
 instr InTimeSndwarpSamplerTemplatekBassKnob
@@ -75,8 +70,8 @@ instr InTimeSndwarpSamplerTemplatekPan
 endin
 
 instr InTimeSndwarpSamplerTemplatekMixerChannel
-    aInTimeSndwarpSamplerTemplatekL inleta "InTimeSndwarpSamplerTemplatekIn"
-    aInTimeSndwarpSamplerTemplatekR inleta "InTimeSndwarpSamplerTemplatekIn"
+    aInTimeSndwarpSamplerTemplatekL inleta "InTimeSndwarpSamplerTemplatekInL"
+    aInTimeSndwarpSamplerTemplatekR inleta "InTimeSndwarpSamplerTemplatekInR"
 
     kInTimeSndwarpSamplerTemplatekFader = gkInTimeSndwarpSamplerTemplatekFader
     kInTimeSndwarpSamplerTemplatekPan = gkInTimeSndwarpSamplerTemplatekPan

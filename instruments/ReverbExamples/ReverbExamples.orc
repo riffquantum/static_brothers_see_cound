@@ -10,7 +10,7 @@ gkReverbExamplesEqHigh init 1
 gkReverbExamplesFader init 1
 gkReverbExamplesPan init 50
 
-gkReverbExamplesWet init .1
+gkReverbExamplesWet init 1
 gkReverbExamplesDry init 1
 
 giReverbExamplesMode init 9
@@ -18,6 +18,10 @@ giReverbExamplesMode init 9
 instr ReverbExamples
   aReverbExamplesInL inleta "ReverbExamplesInL"
   aReverbExamplesInR inleta "ReverbExamplesInR"
+
+  aReverbExamplesWetL = aReverbExamplesInL
+  aReverbExamplesWetR = aReverbExamplesInR
+
   /* ********
       homemade schroeder
      ********
@@ -58,7 +62,7 @@ instr ReverbExamples
     kFeedbackLevel = 0.9
     iSampleRate = sr
     kCutoffFrequency = iSampleRate/4 - 1
-    iPitchVariation = 2
+    iPitchVariation = 1
     iSkip = 0
     aReverbExamplesWetL, aReverbExamplesWetR reverbsc aReverbExamplesInL, aReverbExamplesInR, kFeedbackLevel, kCutoffFrequency, iSampleRate, iPitchVariation, iSkip
   endif
@@ -68,7 +72,7 @@ instr ReverbExamples
      ********
   */
   if giReverbExamplesMode == 4 then
-    kRoomSize = 0.6
+    kRoomSize = 0.9
     kHighFrequencyDampening = 1
     iSampleRate = sr
     iSkip = 0
@@ -108,8 +112,8 @@ instr ReverbExamples
      ********
   */
   if giReverbExamplesMode == 7 then
-    iImpulseTable ftgen 0, 0, 0, 1, "./localSamples/IMreverbs/Five Columns.wav", 0, 0, 0
-    iPartitionSize = 1024
+    iImpulseTable ftgen 0, 0, 0, 1, "./localSamples/IMreverbs/Small Prehistoric Cave.wav", 0, 0, 0
+    iPartitionSize = 64
     iSkipSamples = 0
     iImpulseResponseLength = 0
     iSkipInit = 0
@@ -148,29 +152,29 @@ instr ReverbExamples
      ********
   */
   if giReverbExamplesMode == 9 then
-    iXLength = 10
-    iYLength = 10
+    iXLength = 14.39
+    iYLength = 11.86
     iZLength = 10
-    kXSourcePosition = 0
-    kYSourcePosition = 0
-    kZSourcePosition = 0
+    kXSourcePosition = 4
+    kYSourcePosition = 6
+    kZSourcePosition = 4
 
     iDiffusion = 1
 
     iDecay = .99
-    iHighFrequencyDecay = 0.5
-    iXReceiverPosition = 0.1
-    iYReceiverPosition = 5
-    iZReceiverPosition = 0.1
+    iHighFrequencyDecay = 0.95
+    iXReceiverPosition = 0
+    iYReceiverPosition = 0
+    iZReceiverPosition = 0
     iReceiverStereoDistance = 0.3
-    iDirectSignalAttenuation = 0
+    iDirectSignalAttenuation = 0.9
     iEarlyAttenuation = 0.9
 
     iReverbParams ftgenonce 1001, 0, 0, -2, iDecay, iHighFrequencyDecay, iXReceiverPosition, iYReceiverPosition, iZReceiverPosition, iReceiverStereoDistance, iDirectSignalAttenuation, iEarlyAttenuation
 
     aReverbExamplesWetLL, aReverbExamplesWetLR babo aReverbExamplesInL, kXSourcePosition, kYSourcePosition, kZSourcePosition, iXLength, iYLength, iZLength, iDiffusion, iReverbParams
 
-    aReverbExamplesWetRL, aReverbExamplesWetRR babo aReverbExamplesInR, kXSourcePosition, kYSourcePosition, kZSourcePosition, iXReceiverPosition, iYReceiverPosition, iZReceiverPosition, iDiffusion, iReverbParams
+    aReverbExamplesWetRL, aReverbExamplesWetRR babo aReverbExamplesInR, kXSourcePosition, kYSourcePosition, kZSourcePosition, iXLength, iYLength, iZLength, iDiffusion, iReverbParams
 
     aReverbExamplesWetL = aReverbExamplesWetLL + aReverbExamplesWetRL
     aReverbExamplesWetR = aReverbExamplesWetLR + aReverbExamplesWetRR
@@ -184,7 +188,7 @@ instr ReverbExamples
 endin
 
 instr ReverbExamplesWetKnob
-    gkReverbExamplesDry linseg p4, p3, p5
+    gkReverbExamplesWet linseg p4, p3, p5
 endin
 
 instr ReverbExamplesDryKnob

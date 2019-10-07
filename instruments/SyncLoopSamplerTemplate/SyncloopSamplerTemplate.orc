@@ -1,8 +1,6 @@
-connect "SyncloopSamplerTemplate", "SyncloopSamplerTemplateOutL", "SyncloopSamplerTemplateMixerChannel", "SyncloopSamplerTemplateInL"
-connect "SyncloopSamplerTemplate", "SyncloopSamplerTemplateOutR", "SyncloopSamplerTemplateMixerChannel", "SyncloopSamplerTemplateInR"
-
-connect "SyncloopSamplerTemplateMixerChannel", "SyncloopSamplerTemplateOutL", "Mixer", "MixerInL"
-connect "SyncloopSamplerTemplateMixerChannel", "SyncloopSamplerTemplateOutR", "Mixer", "MixerInR"
+gSSyncloopSamplerTemplateName = "SyncloopSamplerTemplate"
+gSSyncloopSamplerTemplateRoute = "Mixer"
+instrumentRoute gSSyncloopSamplerTemplateName, gSSyncloopSamplerTemplateRoute
 
 alwayson "SyncloopSamplerTemplateMixerChannel"
 

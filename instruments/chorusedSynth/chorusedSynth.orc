@@ -1,9 +1,6 @@
-; Chorused Synth
-
-connect "ChorusedSynth", "ChorusedSynthOut", "ChorusedSynthMixerChannel", "ChorusedSynthIn"
-
-connect "ChorusedSynthMixerChannel", "ChorusedSynthOutL", "Mixer", "MixerInL"
-connect "ChorusedSynthMixerChannel", "ChorusedSynthOutR", "Mixer", "MixerInR"
+gSChorusedSynthName = "ChorusedSynth"
+gSChorusedSynthRoute = "Mixer"
+instrumentRoute gSChorusedSynthName, gSChorusedSynthRoute
 
 alwayson "ChorusedSynthMixerChannel"
 

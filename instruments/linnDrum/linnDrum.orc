@@ -7,19 +7,11 @@
     p7 - kill switch - Note will only output audio when this
         equals 0. Use it with a loop count and some arithmetic
         to turn notes on and off per measure.
-
-
-    Thughts on hi hat interuption for midi kit: We can probably interrupt in real time if we break the hat signal out into its own variable. We may need to go as far as to break it out into its own instrument
 */
 
-connect "LinnDrum", "LinnDrumOutL", "LinnDrumMixerChannel", "LinnDrumInL"
-connect "LinnDrum", "LinnDrumOutR", "LinnDrumMixerChannel", "LinnDrumInR"
-
-connect "LinnDrumMixerChannel", "LinnDrumOutL", "Mixer", "MixerInL"
-connect "LinnDrumMixerChannel", "LinnDrumOutR", "Mixer", "MixerInR"
-
-connect "LinnDrumMixerChannel", "LinnDrumOutL", "Mixer", "MixerInL"
-connect "LinnDrumMixerChannel", "LinnDrumOutR", "sMixer", "MixerInR"
+gSLinnDrumName = "LinnDrum"
+gSLinnDrumRoute = "Mixer"
+instrumentRoute gSLinnDrumName, gSLinnDrumRoute
 
 alwayson "LinnDrumMixerChannel"
 

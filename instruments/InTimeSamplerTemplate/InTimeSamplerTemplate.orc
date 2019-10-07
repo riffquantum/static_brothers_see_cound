@@ -1,7 +1,6 @@
-connect "InTimeSamplerTemplate", "InTimeSamplerTemplateOut", "InTimeSamplerTemplateMixerChannel", "InTimeSamplerTemplateIn"
-
-connect "InTimeSyncloopSamplerTemplateMixerChannel", "InTimeSyncloopSamplerTemplateOutL", "Mixer", "MixerInL"
-connect "InTimeSyncloopSamplerTemplateMixerChannel", "InTimeSyncloopSamplerTemplateOutR", "Mixer", "MixerInR"
+gSInTimeSamplerTemplateName = "InTimeSamplerTemplate"
+gSInTimeSamplerTemplateRoute = "Mixer"
+instrumentRoute gSInTimeSamplerTemplateName, gSInTimeSamplerTemplateRoute
 
 alwayson "InTimeSamplerTemplateMixerChannel"
 
@@ -28,9 +27,8 @@ instr InTimeSamplerTemplate
 
     aInTimeSamplerTemplateL, aInTimeSamplerTemplateR breakSamplerDiskin SInTimeSamplerTemplateFilePath, 16, iSkipTimeInBeats, kpitchFactor
 
-    aInTimeSamplerTemplate = aInTimeSamplerTemplateL
-
-    outleta "InTimeSamplerTemplateOut", aInTimeSamplerTemplate
+    outleta "InTimeSamplerTemplateOutL", aInTimeSamplerTemplateL
+    outleta "InTimeSamplerTemplateOutR", aInTimeSamplerTemplateR
 endin
 
 instr InTimeSamplerTemplateBassKnob
@@ -54,8 +52,8 @@ instr InTimeSamplerTemplatePan
 endin
 
 instr InTimeSamplerTemplateMixerChannel
-    aInTimeSamplerTemplateL inleta "InTimeSamplerTemplateIn"
-    aInTimeSamplerTemplateR inleta "InTimeSamplerTemplateIn"
+    aInTimeSamplerTemplateL inleta "InTimeSamplerTemplateInL"
+    aInTimeSamplerTemplateR inleta "InTimeSamplerTemplateInR"
 
     kInTimeSamplerTemplateFader = gkInTimeSamplerTemplateFader
     kInTimeSamplerTemplatePan = gkInTimeSamplerTemplatePan

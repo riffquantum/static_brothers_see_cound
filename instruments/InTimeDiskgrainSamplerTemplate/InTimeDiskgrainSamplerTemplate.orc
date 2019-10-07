@@ -6,10 +6,9 @@
     Length: 16 beats
 */
 
-connect "InTimeDiskgrainSamplerTemplate", "InTimeDiskgrainSamplerTemplateOut", "InTimeDiskgrainSamplerTemplateMixerChannel", "InTimeDiskgrainSamplerTemplateIn"
-
-connect "InTimeDiskgrainSamplerTemplateMixerChannel", "InTimeDiskgrainSamplerTemplateOutL", "Mixer", "MixerInL"
-connect "InTimeDiskgrainSamplerTemplateMixerChannel", "InTimeDiskgrainSamplerTemplateOutR", "Mixer", "MixerInR"
+gSInTimeDiskgrainSamplerTemplateName = "InTimeDiskgrainSamplerTemplate"
+gSInTimeDiskgrainSamplerTemplateRoute = "Mixer"
+instrumentRoute gSInTimeDiskgrainSamplerTemplateName, gSInTimeDiskgrainSamplerTemplateRoute
 
 alwayson "InTimeDiskgrainSamplerTemplateMixerChannel"
 

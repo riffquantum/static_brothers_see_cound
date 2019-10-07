@@ -9,11 +9,9 @@
         to turn notes on and off per measure.
 */
 
-connect "TR808", "TR808OutL", "TR808MixerChannel", "TR808InL"
-connect "TR808", "TR808OutR", "TR808MixerChannel", "TR808InR"
-
-connect "TR808MixerChannel", "TR808OutL", "Mixer", "MixerInL"
-connect "TR808MixerChannel", "TR808OutR", "Mixer", "MixerInR"
+gSTR808Name = "TR808"
+gSTR808Route = "Mixer"
+instrumentRoute gSTR808Name, gSTR808Route
 
 alwayson "TR808MixerChannel"
 

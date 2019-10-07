@@ -18,12 +18,12 @@
           iStartTime = 0
 
           until iStartTime == 4 do
-              scoreline_i beatScoreline( "LinnDrum", iStartTime, 1, {{ "kick" 1 1 0}} )
-              scoreline_i beatScoreline( "LinnDrum", iStartTime, .5, {{ "HatClosed2" 1 .5 0}} )
-              scoreline_i beatScoreline( "LinnDrum", iStartTime + .5, .5, {{ "HatClosed2" 1 .5 0}} )
+              beatScoreline( "LinnDrum", iStartTime, 1, {{ "kick" 1 1 0}} )
+              beatScoreline( "LinnDrum", iStartTime, .5, {{ "HatClosed2" 1 .5 0}} )
+              beatScoreline( "LinnDrum", iStartTime + .5, .5, {{ "HatClosed2" 1 .5 0}} )
 
               if(iStartTime % 2 == 1) then
-                  scoreline_i beatScoreline( "LinnDrum", iStartTime, .5, {{ "Snare5" 1 .5 0}} )
+                  beatScoreline( "LinnDrum", iStartTime, .5, {{ "Snare5" 1 .5 0}} )
               endif
               iStartTime = iStartTime + 1
           od
@@ -32,16 +32,16 @@
 
       instr pattern2
           iStartTime = 0
-              scoreline_i beatScoreline( "LinnDrum", .5, 1, {{ "kick" 1 1 0}} )
-              scoreline_i beatScoreline( "LinnDrum", .75, 1, {{ "kick" 1 1 0}} )
+              beatScoreline( "LinnDrum", .5, 1, {{ "kick" 1 1 0}} )
+              beatScoreline( "LinnDrum", .75, 1, {{ "kick" 1 1 0}} )
 
           until iStartTime == 4 do
-              scoreline_i beatScoreline( "LinnDrum", iStartTime, 1, {{ "kick" 1 1 0}} )
-              scoreline_i beatScoreline( "LinnDrum", iStartTime, .5, {{ "HatClosed2" 1 .5 0}} )
-              scoreline_i beatScoreline( "LinnDrum", iStartTime + .5, .5, {{ "HatClosed2" 1 .5 0}} )
+              beatScoreline( "LinnDrum", iStartTime, 1, {{ "kick" 1 1 0}} )
+              beatScoreline( "LinnDrum", iStartTime, .5, {{ "HatClosed2" 1 .5 0}} )
+              beatScoreline( "LinnDrum", iStartTime + .5, .5, {{ "HatClosed2" 1 .5 0}} )
 
               if(iStartTime % 2 == 1) then
-                  scoreline_i beatScoreline( "LinnDrum", iStartTime, .5, {{ "Snare5" 1 .5 0}} )
+                  beatScoreline( "LinnDrum", iStartTime, .5, {{ "Snare5" 1 .5 0}} )
               endif
               iStartTime = iStartTime + 1
           od
@@ -49,15 +49,15 @@
       endin
 
       instr breaks
-          scoreline_i beatScoreline( "funkyDrummerBreakDiskin", 0, 1.5, {{ 4.9 }} )
-              scoreline_i beatScoreline( "funkyDrummerBreakDiskin", 1.5,  1.5, {{ 4.9 }} )
-              scoreline_i beatScoreline( "funkyDrummerBreakDiskin", 3,  1, {{ 4.9 }} )
+          beatScoreline( "funkyDrummerBreakDiskin", 0, 1.5, {{ 4.9 }} )
+              beatScoreline( "funkyDrummerBreakDiskin", 1.5,  1.5, {{ 4.9 }} )
+              beatScoreline( "funkyDrummerBreakDiskin", 3,  1, {{ 4.9 }} )
 
-          scoreline_i beatScoreline( "itsExpectedBreakDiskin", 1, 1, {{ 1.5 }})
-          scoreline_i beatScoreline( "itsExpectedBreakDiskin", 2.5, 1, {{ 1.5}})
+          beatScoreline( "itsExpectedBreakDiskin", 1, 1, {{ 1.5 }})
+          beatScoreline( "itsExpectedBreakDiskin", 2.5, 1, {{ 1.5}})
 
-          scoreline_i beatScoreline( "thinkBreakDiskin", 0, 2, {{ 2 0 }})
-          scoreline_i beatScoreline( "thinkBreakDiskin", 2, 2, {{ 0 0 }})
+          beatScoreline( "thinkBreakDiskin", 0, 2, {{ 2 0 }})
+          beatScoreline( "thinkBreakDiskin", 2, 2, {{ 0 0 }})
       endin
   </CsInstruments>
 

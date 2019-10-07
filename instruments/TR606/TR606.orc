@@ -20,11 +20,9 @@
     p9 - if 1 then it will play the "accent" version of the sample
 */
 
-connect "TR606", "TR606OutL", "TR606MixerChannel", "TR606InL"
-connect "TR606", "TR606OutR", "TR606MixerChannel", "TR606InR"
-
-connect "TR606MixerChannel", "TR606OutL", "Mixer", "MixerInL"
-connect "TR606MixerChannel", "TR606OutR", "Mixer", "MixerInR"
+gSCTR606Name = "CTR606"
+gSCTR606Route = "Mixer"
+instrumentRoute gSCTR606Name, gSCTR606Route
 
 alwayson "TR606MixerChannel"
 

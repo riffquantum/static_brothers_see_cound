@@ -13,12 +13,12 @@
         #include "instruments/orchestra-manifest.orc"
 
         instr breaks
-            scoreline_i beatScoreline( "AmenBreakDiskin", 0, 8, {{ 4 }} )
+            beatScoreline( "AmenBreakDiskin", 0, 8, {{ 4 }} )
 
         endin
 
         instr breaks2
-            scoreline_i beatScoreline( "funkyDrummerBreakDiskin", 0, 8, {{ 4 }} )
+            beatScoreline( "funkyDrummerBreakDiskin", 0, 8, {{ 4 }} )
 
         endin
     </CsInstruments>

@@ -1,8 +1,6 @@
-connect "BigRichSynth", "BigRichSynthOutL", "BigRichSynthMixerChannel", "BigRichSynthInL"
-connect "BigRichSynth", "BigRichSynthOutR", "BigRichSynthMixerChannel", "BigRichSynthInR"
-
-connect "BigRichSynthMixerChannel", "BigRichSynthOutL", "Mixer", "MixerInL"
-connect "BigRichSynthMixerChannel", "BigRichSynthOutR", "Mixer", "MixerInR"
+gSBigRichSynthName = "BigRichSynth"
+gSBigRichSynthRoute = "Mixer"
+instrumentRoute gSBigRichSynthName, gSBigRichSynthRoute
 
 alwayson "BigRichSynthMixerChannel"
 

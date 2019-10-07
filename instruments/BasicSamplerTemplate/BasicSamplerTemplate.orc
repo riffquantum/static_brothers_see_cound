@@ -1,8 +1,6 @@
-connect "BasicSamplerTemplate", "BasicSamplerTemplateOutL", "BasicSamplerTemplateMixerChannel", "BasicSamplerTemplateInL"
-connect "BasicSamplerTemplate", "BasicSamplerTemplateOutR", "BasicSamplerTemplateMixerChannel", "BasicSamplerTemplateInR"
-
-connect "BasicSamplerTemplateMixerChannel", "BasicSamplerTemplateOutL", "Mixer", "MixerInL"
-connect "BasicSamplerTemplateMixerChannel", "BasicSamplerTemplateOutR", "Mixer", "MixerInR"
+gSBasicSamplerTemplateName = "BasicSamplerTemplate"
+gSBasicSamplerTemplateRoute = "Mixer"
+instrumentRoute gSBasicSamplerTemplateName, gSBasicSamplerTemplateRoute
 
 alwayson "BasicSamplerTemplateMixerChannel"
 
