@@ -1,8 +1,6 @@
-connect "3010", "OpenHatOutL", "OpenHatMixerChannel", "OpenHatInL"
-connect "3010", "OpenHatOutR", "OpenHatMixerChannel", "OpenHatInR"
-
-connect "OpenHatMixerChannel", "OpenHatOutL", "Mixer", "MixerInL"
-connect "OpenHatMixerChannel", "OpenHatOutR", "Mixer", "MixerInR"
+gSOpenHatName = "OpenHat"
+gSOpenHatRoute = "Mixer"
+instrumentRoute gSOpenHatName, gSOpenHatRoute
 
 alwayson "OpenHatMixerChannel"
 
@@ -16,11 +14,9 @@ gSOpenHatSamplePath ="songs/sbDrumKit/samples/EA7804_R8_Oh.wav"
 giOpenHatSampleTableLength getTableSizeFromSample gSOpenHatSamplePath
 giOpenHatSample ftgen 0, 0, giOpenHatSampleTableLength, 1, gSOpenHatSamplePath, 0, 0, 0
 
-giOpenHatInstrumentNumber = 3010
-
-instr 3010 ;OpenHat
+instr OpenHat
   iNoteVelocity = p4
-  iAmplitude = iNoteVelocity/127 ;* 0dbfs
+  iAmplitude velocityToAmplitude iNoteVelocity
   kPitch linseg (iNoteVelocity/127/2 + 1), .5, 1, .1, 1
 
   kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0

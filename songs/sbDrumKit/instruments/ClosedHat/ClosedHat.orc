@@ -1,8 +1,6 @@
-connect "3009", "ClosedHatOutL", "ClosedHatMixerChannel", "ClosedHatInL"
-connect "3009", "ClosedHatOutR", "ClosedHatMixerChannel", "ClosedHatInR"
-
-connect "ClosedHatMixerChannel", "ClosedHatOutL", "Mixer", "MixerInL"
-connect "ClosedHatMixerChannel", "ClosedHatOutR", "Mixer", "MixerInR"
+gSClosedHatName = "ClosedHat"
+gSClosedHatRoute = "Mixer"
+instrumentRoute gSClosedHatName, gSClosedHatRoute
 
 alwayson "ClosedHatMixerChannel"
 
@@ -16,11 +14,9 @@ gSClosedHatSamplePath ="songs/sbDrumKit/samples/EA7803_R8_Hh.wav"
 giClosedHatSampleTableLength getTableSizeFromSample gSClosedHatSamplePath
 giClosedHatSample ftgen 0, 0, giClosedHatSampleTableLength, 1, gSClosedHatSamplePath, 0, 0, 0
 
-giClosedHatInstrumentNumber = 3009
-
-instr 3009 ;ClosedHat
+instr ClosedHat
   iNoteVelocity = p4
-  iAmplitude = iNoteVelocity/127 ;* 0dbfs
+  iAmplitude velocityToAmplitude iNoteVelocity
   kPitch linseg (iNoteVelocity/127/2 + 1), .5, 1, .1, 1
 
   kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0

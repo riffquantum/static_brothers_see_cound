@@ -1,8 +1,6 @@
-connect "3001", "PunishmentAwaitsOutL", "PunishmentAwaitsMixerChannel", "PunishmentAwaitsInL"
-connect "3001", "PunishmentAwaitsOutR", "PunishmentAwaitsMixerChannel", "PunishmentAwaitsInR"
-
-connect "PunishmentAwaitsMixerChannel", "PunishmentAwaitsOutL", "Mixer", "MixerInL"
-connect "PunishmentAwaitsMixerChannel", "PunishmentAwaitsOutR", "Mixer", "MixerInR"
+gSPunishmentAwaitsName = "PunishmentAwaits"
+gSPunishmentAwaitsRoute = "Mixer"
+instrumentRoute gSPunishmentAwaitsName, gSPunishmentAwaitsRoute
 
 alwayson "PunishmentAwaitsMixerChannel"
 
@@ -16,11 +14,9 @@ gSPunishmentAwaitsSample1Path = "songs/sbDrumKit/samples/punishmentAwaits.wav"
 giPunishmentAwaitsSample1TableLength getTableSizeFromSample gSPunishmentAwaitsSample1Path
 giPunishmentAwaitsSample1 ftgen 0, 0, giPunishmentAwaitsSample1TableLength, 1, gSPunishmentAwaitsSample1Path, 0, 0, 0
 
-giPunishmentAwaitsInstrumentNumber = 3001
-
-instr 3001 ;PunishmentAwaits, PadB9,
+instr PunishmentAwaits
   iNoteVelocity = p4
-  iAmplitude = iNoteVelocity/127 ;* 0dbfs
+  iAmplitude velocityToAmplitude iNoteVelocity
   kPitch linseg (iNoteVelocity/127/2 + 1), .5, 1, .1, 1
 
   kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0

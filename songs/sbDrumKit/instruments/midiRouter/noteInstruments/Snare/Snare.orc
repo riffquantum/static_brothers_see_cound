@@ -9,9 +9,9 @@ instr 2036 ;Snare, PadA2,
 
   kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0
 
-  event_i "i", 3006, 0, giMidiNoteDurationList[giSnareNote], iNoteVelocity*2, 4.07
+  event_i "i", "Snare", 0, giMidiNoteDurationList[giSnareNote], iNoteVelocity, 4.07
 
   if iNoteVelocity > 100 then
-    event_i "i", 3005, 0, giMidiNoteDurationList[giSnareNote], iNoteVelocity*4, 4.07
+    event_i "i", "SharpSnare", 0, giMidiNoteDurationList[giSnareNote], iNoteVelocity*4, 4.07
   endif
 endin

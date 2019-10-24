@@ -4,10 +4,6 @@ giMidiNoteInterruptList[giCrashNote] = 0
 
 instr 2073 ;Crash, Crash, PadA145,
   iNoteVelocity = p4
-  iAmplitude = iNoteVelocity/127 ;* 0dbfs
-  kPitch =.6
 
-  kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0
-
-  event_i "i", 3012, 0, giMidiNoteDurationList[giCrashNote], iNoteVelocity*2, 4.07
+  event_i "i", "Crash", 0, giMidiNoteDurationList[giCrashNote], iNoteVelocity, 4.07
 endin

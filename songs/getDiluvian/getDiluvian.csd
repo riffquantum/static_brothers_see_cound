@@ -8,7 +8,6 @@
   <CsInstruments>
     #include "config/defaultConfig.orc"
     #include "config/defaultMidiAssignments.orc"
-    #include "songs/getDiluvian/config/mixerRoutes.orc"
 
     giBPM = 85
 

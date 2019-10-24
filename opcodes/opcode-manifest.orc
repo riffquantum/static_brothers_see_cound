@@ -26,6 +26,8 @@
 
 #include "flexiblePitchInput.orc"
 
+#include "velocityToAmplitude.orc"
+
 #include "flexibleAmplitudeInput.orc"
 
 #include "midiMonitor.orc"
@@ -33,3 +35,6 @@
 #include "interruptThenTrigger.orc"
 
 #include "instrumentRoute.orc"
+
+#include "triggerBuffer.orc"
+

@@ -9,5 +9,5 @@ instr 2043 ;, OrangePad, PadA12
 
   kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0
 
-  event_i "i", 3013, 0, giMidiNoteDurationList[giOrangePadNote], iNoteVelocity*2, 4.07
+  event_i "i", "PitchedDownCrash", 0, giMidiNoteDurationList[giCrashNote], iNoteVelocity, 4.07
 endin

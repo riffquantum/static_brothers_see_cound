@@ -52,20 +52,43 @@
     instr NewInstrument
       iAmplitude flexibleAmplitudeInput p4
       iPitch flexiblePitchInput p5
+      iSineTable sineWave
 
-      aNewInstrumentL pluck iAmplitude, iPitch, iPitch, 0, 1
-      aNewInstrumentR = aNewInstrumentL
+      kTremolo = .75 + oscil(.25, 1.5, iSineTable)
+      kAmplitudeEnvelope = madsr(.005, .01, iAmplitude, .5, 0)
+      kAmplitudeEnvelope = kAmplitudeEnvelope * kTremolo
+
+
+      aNewInstrumentL = oscil(kAmplitudeEnvelope*0.5, iPitch*1.1, iSineTable)
+      aNewInstrumentL += oscil(kAmplitudeEnvelope, iPitch*1.1*.5, iSineTable)
+      aNewInstrumentL += oscil(kAmplitudeEnvelope*0.25, iPitch*1.1*.9, iSineTable)
+
+      aNewInstrumentR = oscil(kAmplitudeEnvelope*0.5, iPitch*.9, iSineTable)
+      aNewInstrumentR += oscil(kAmplitudeEnvelope, iPitch*.9*.5, iSineTable)
+      aNewInstrumentR += oscil(kAmplitudeEnvelope*0.25, iPitch*.9*.9, iSineTable)
+
+      ;aNewInstrumentR = aNewInstrumentL
 
       outleta "NewInstrumentOutL", aNewInstrumentL
       outleta "NewInstrumentOutR", aNewInstrumentR
     endin
 
     instr NewEffect
+      midiMonitor
       aNewEffectInL inleta "NewEffectInL"
       aNewEffectInR inleta "NewEffectInR"
 
       aNewEffectOutL = aNewEffectInL
       aNewEffectOutR = aNewEffectInR
+
+      aNewEffectOutL += distortion(aNewEffectOutL, 1.3, .7, .1, .1)
+      aNewEffectOutR += distortion(aNewEffectOutR, 1.3, .7, .1, .1)
+
+      aNewEffectOutL = clip(aNewEffectOutL * 1.3, 1, 1, 0)
+      aNewEffectOutR = clip(aNewEffectOutL * 1.3, 1, 1, 0)
+
+      aNewEffectOutL = butterlp(aNewEffectOutL, 5000)
+      aNewEffectOutR = butterlp(aNewEffectOutR, 5000)
 
       outleta "NewEffectOutL", aNewEffectOutL
       outleta "NewEffectOutR", aNewEffectOutR

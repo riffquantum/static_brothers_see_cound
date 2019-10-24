@@ -8,4 +8,6 @@ instr 2051 ;Tom2, PadA7,
   kPitch =1
 
   kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0
+
+  event_i "i", "FatTomLow", 0, giMidiNoteDurationList[giTom1Note], iNoteVelocity, 4.07
 endin

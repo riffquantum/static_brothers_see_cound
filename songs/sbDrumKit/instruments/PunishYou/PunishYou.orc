@@ -1,8 +1,6 @@
-connect "3007", "PunishYouOutL", "PunishYouMixerChannel", "PunishYouInL"
-connect "3007", "PunishYouOutR", "PunishYouMixerChannel", "PunishYouInR"
-
-connect "PunishYouMixerChannel", "PunishYouOutL", "Mixer", "MixerInL"
-connect "PunishYouMixerChannel", "PunishYouOutR", "Mixer", "MixerInR"
+gSPunishYouName = "PunishYou"
+gSPunishYouRoute = "Mixer"
+instrumentRoute gSPunishYouName, gSPunishYouRoute
 
 alwayson "PunishYouMixerChannel"
 
@@ -16,11 +14,9 @@ gSPunishYouSample1Path = "songs/sbDrumKit/samples/punishYou.wav"
 giPunishYouSample1TableLength getTableSizeFromSample gSPunishYouSample1Path
 giPunishYouSample1 ftgen 0, 0, giPunishYouSample1TableLength, 1, gSPunishYouSample1Path, 0, 0, 0
 
-giPunishYouInstrumentNumber = 3007
-
-instr 3007 ;PunishYou, PadB9,
+instr PunishYou
   iNoteVelocity = p4
-  iAmplitude = iNoteVelocity/127 ;* 0dbfs
+  iAmplitude velocityToAmplitude iNoteVelocity
   kPitch linseg (iNoteVelocity/127/2 + 1), .5, 1, .1, 1
 
   kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0

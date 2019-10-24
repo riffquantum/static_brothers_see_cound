@@ -1,8 +1,7 @@
-connect "3012", "PitchedDownCrashOutL", "PitchedDownCrashMixerChannel", "PitchedDownCrashInL"
-connect "3012", "PitchedDownCrashOutR", "PitchedDownCrashMixerChannel", "PitchedDownCrashInR"
+gSPitchedDownCrashName = "PitchedDownCrash"
+gSPitchedDownCrashRoute = "Mixer"
+instrumentRoute gSPitchedDownCrashName, gSPitchedDownCrashRoute
 
-connect "PitchedDownCrashMixerChannel", "PitchedDownCrashOutL", "Mixer", "MixerInL"
-connect "PitchedDownCrashMixerChannel", "PitchedDownCrashOutR", "Mixer", "MixerInR"
 
 alwayson "PitchedDownCrashMixerChannel"
 
@@ -16,16 +15,14 @@ gSPitchedDownCrashSamplePath ="songs/sbDrumKit/samples/EA7847_R8_Crsh.wav"
 giPitchedDownCrashSampleTableLength getTableSizeFromSample gSPitchedDownCrashSamplePath
 giPitchedDownCrashSample ftgen 0, 0, giPitchedDownCrashSampleTableLength, 1, gSPitchedDownCrashSamplePath, 0, 0, 0
 
-giPitchedDownCrashInstrumentNumber = 3012
-
-instr 3012 ;PitchedDownCrash
+instr PitchedDownCrash
   iNoteVelocity = p4
-  iAmplitude = iNoteVelocity/127 ;* 0dbfs
+  iAmplitude velocityToAmplitude iNoteVelocity
   kPitch linseg (iNoteVelocity/127/2 + 1), .5, 1, .1, 1
 
   kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0
 
-  aPitchedDownCrashSample loscil kAmplitudeEnvelope, 1, giPitchedDownCrashSample, 1
+  aPitchedDownCrashSample loscil kAmplitudeEnvelope, .5, giPitchedDownCrashSample, 1
 
 
   aPitchedDownCrash = aPitchedDownCrashSample

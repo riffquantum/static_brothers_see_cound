@@ -9,5 +9,5 @@ instr 2049 ;Ride, PadA13,
 
   kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0
 
-  event_i "i", 3011, 0, giMidiNoteDurationList[giRideNote], iNoteVelocity*2, 4.07
+  event_i "i", "Ride", 0, giMidiNoteDurationList[giRideNote], iNoteVelocity, 4.07
 endin

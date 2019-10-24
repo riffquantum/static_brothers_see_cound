@@ -1,8 +1,6 @@
-connect "3004", "SharpKickOutL", "SharpKickMixerChannel", "SharpKickInL"
-connect "3004", "SharpKickOutR", "SharpKickMixerChannel", "SharpKickInR"
-
-connect "SharpKickMixerChannel", "SharpKickOutL", "Mixer", "MixerInL"
-connect "SharpKickMixerChannel", "SharpKickOutR", "Mixer", "MixerInR"
+gSSharpKickName = "SharpKick"
+gSSharpKickRoute = "Mixer"
+instrumentRoute gSSharpKickName, gSSharpKickRoute
 
 alwayson "SharpKickMixerChannel"
 
@@ -16,17 +14,14 @@ gSSharpKickSamplePath ="songs/sbDrumKit/samples/EA7604_R8_Bd.wav"
 giSharpKickSampleTableLength getTableSizeFromSample gSSharpKickSamplePath
 giSharpKickSample ftgen 0, 0, giSharpKickSampleTableLength, 1, gSSharpKickSamplePath, 0, 0, 0
 
-giSharpKickInstrumentNumber = 3004
-
-instr 3004 ;SharpKick
+instr SharpKick
   iNoteVelocity = p4
-  iAmplitude = iNoteVelocity/127 ;* 0dbfs
+  iAmplitude velocityToAmplitude iNoteVelocity
   kPitch linseg (iNoteVelocity/127/2 + 1), .5, 1, .1, 1
 
   kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0
 
   aSharpKickSample loscil kAmplitudeEnvelope, 1, giSharpKickSample, 1
-
 
   aSharpKick = aSharpKickSample
 

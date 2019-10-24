@@ -9,9 +9,9 @@ instr 2082 ;Kick, PadB9,
 
   kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0
 
-  event_i "i", 3002, 0, giMidiNoteDurationList[giKickNote], iNoteVelocity*2, 4.07
+  event_i "i", "CbKick", 0, giMidiNoteDurationList[giKickNote], iNoteVelocity, 4.07
 
-  event_i "i", 3003, 0, giMidiNoteDurationList[giKickNote], iNoteVelocity*2, 4.07
+  event_i "i", "LongDeepKick", 0, giMidiNoteDurationList[giKickNote], iNoteVelocity, 4.07
 
-  event_i "i", 3004, 0, giMidiNoteDurationList[giKickNote], iNoteVelocity*2, 4.07
+  event_i "i", "SharpKick", 0, giMidiNoteDurationList[giKickNote], iNoteVelocity, 4.07
 endin

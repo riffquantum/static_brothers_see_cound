@@ -9,7 +9,7 @@ This is the Static Brothers' Csound application for composition and performance.
 ### Some Notes on my approach:
 
 #### Instrument Definition:
-- I write my instruments with a specific format. Each sound generating instrument gets its own .orc file in its own directory within the instruments directory. Most instruments will also have a set of supporting instruments that include a Mixer Channel Instrument, which accepts sound from the primary instrument and applies amplitude, panning, and EQ changes before passing it out with the outleta opcode. There are also control instruments for each channel's volume and eq values. These instrument groups relate to one another with global variables that should always be namespaced with the primary instrument (e.g. gkBigRichSynthFader, gkBigRichSynthPan). These instruments typically will not ever have a direct out. Instead they route the signal through any number of supporting effects instruments or busses before the mixer instrument outputs the final mix in two channels. There are deliberate exceptions such as the Metronome Instrument
+- I write my instruments with a specific format. Each sound generating instrument gets its own .orc file in its own directory within the instruments directory. Most instruments will also have a set of supporting instruments that include a Mixer Channel Instrument, which accepts sound from the primary instrument and applies amplitude, panning, and EQ changes before passing it out with the outleta opcode. There are also control instruments for each channel's volume and eq values. These instrument groups relate to one another with global variables that should always be namespaced with the primary instrument (e.g. gkBigRichSynthFader, gkBigRichSynthPan). These instruments typically will not ever have a direct out. Instead they route the signal through any number of supporting effects instruments or busses before the mixer instrument outputs the final mix in two channels. There are deliberate exceptions such as the Metronome Instrument. This approach was largely inspired by Stephen Yi's "Emulating MIDI-based Studio Setups with Csound" (http://www.csounds.com/journal/issue13/emulatingMidiBasedStudios.html).
 
 #### Directory Structure:
 - My approach breaks files up into reusable partials as much as possible. I'll describe some important aspects of this.
@@ -75,4 +75,4 @@ Conversion Specifiers for string interpolation:
 
 ### Possible Csound Bugs I've found
 * turnoff2 does not work within while loops
-* connect does not work if instrument is declared with multiple names (integer and string names)
+* connect does not work if instrument is declared with multiple names (integer and string names). Wrong, it actually works but it seems like you need to use the last declared name

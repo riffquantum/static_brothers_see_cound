@@ -1,8 +1,6 @@
-connect "3002", "CbKickOutL", "CbKickMixerChannel", "CbKickInL"
-connect "3002", "CbKickOutR", "CbKickMixerChannel", "CbKickInR"
-
-connect "CbKickMixerChannel", "CbKickOutL", "Mixer", "MixerInL"
-connect "CbKickMixerChannel", "CbKickOutR", "Mixer", "MixerInR"
+gSCbKickName = "CbKick"
+gSCbKickRoute = "Mixer"
+instrumentRoute gSCbKickName, gSCbKickRoute
 
 alwayson "CbKickMixerChannel"
 
@@ -16,13 +14,10 @@ gSCbKickSamplePath ="songs/sbDrumKit/samples/CB_Kick.wav"
 giCbKickSampleTableLength getTableSizeFromSample gSCbKickSamplePath
 giCbKickSample ftgen 0, 0, giCbKickSampleTableLength, 1, gSCbKickSamplePath, 0, 0, 0
 
-giCbKickInstrumentNumber = 3002
-
-instr 3002 ;CbKick
+instr CbKick
   iNoteVelocity = p4
-  iAmplitude = iNoteVelocity/127 ;* 0dbfs
+  iAmplitude velocityToAmplitude iNoteVelocity
   kPitch linseg (iNoteVelocity/127/2 + 1), .5, 1, .1, 1
-
   kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0
 
   aCbKickSample loscil kAmplitudeEnvelope, 1, giCbKickSample, 1
@@ -37,8 +32,8 @@ endin
 instr CbKickBassKnob
   gkCbKickEqBass linseg p4, p3, p5
 endin
-
 instr CbKickMidKnob
+
   gkCbKickEqMid linseg p4, p3, p5
 endin
 

@@ -1,8 +1,6 @@
-connect "BigSynth", "BigSynthOutL", "BigSynthMixerChannel", "BigSynthInL"
-connect "BigSynth", "BigSynthOutR", "BigSynthMixerChannel", "BigSynthInR"
-
-connect "BigSynthMixerChannel", "BigSynthOutL", "Mixer", "MixerInL"
-connect "BigSynthMixerChannel", "BigSynthOutR", "Mixer", "MixerInR"
+gSBigSynthName = "BigSynth"
+gSBigSynthRoute = "Mixer"
+instrumentRoute gSBigSynthName, gSBigSynthRoute
 
 alwayson "BigSynthMixerChannel"
 
@@ -11,7 +9,6 @@ gkBigSynthEqMid init 1
 gkBigSynthEqHigh init 1
 gkBigSynthFader init 1
 gkBigSynthPan init 50
-
 
 massign 2, "BigSynth"
 instr BigSynth

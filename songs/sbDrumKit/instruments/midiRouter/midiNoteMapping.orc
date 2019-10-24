@@ -83,21 +83,21 @@ giPadD15Note = 97
 giPadD16Note = 98
 
 /* giTestNotes maps a set of adjacent, low numbered, unassigned keys to other notes for convenience in testing notes on a virtual midi keyboard. */
-giTestNotes[12] = giKickNote
-giTestNotes[13] = giHatPedalNote
-giTestNotes[14] = giHatOpenNote
-giTestNotes[15] = giHatClosedNote
-giTestNotes[16] = giSnareNote
-giTestNotes[17] = giTomPad1Note
-giTestNotes[18] = giTomPad2Note
-giTestNotes[19] = giTom1Note
-giTestNotes[20] = giTom2Note
-giTestNotes[21] = giRideNote
-giTestNotes[22] = giCrashNote
-giTestNotes[23] = giOrangePadNote
-giTestNotes[24] = giRedPadNote
-giTestNotes[25] = giBluePadNote
-giTestNotes[26] = giGreenPadNote
+giTestNotes[12] = giKickNote ;z
+giTestNotes[13] = giHatPedalNote ;s
+giTestNotes[14] = giHatOpenNote ;x
+giTestNotes[15] = giHatClosedNote ;d
+giTestNotes[16] = giSnareNote ;c
+giTestNotes[17] = giTomPad1Note ;v
+giTestNotes[18] = giTomPad2Note ;g
+giTestNotes[19] = giTom1Note ;b
+giTestNotes[20] = giTom2Note ;h
+giTestNotes[21] = giRideNote ;n
+giTestNotes[22] = giCrashNote ;j
+giTestNotes[23] = giOrangePadNote ;m
+giTestNotes[24] = giRedPadNote ;q
+giTestNotes[25] = giBluePadNote ;2
+giTestNotes[26] = giGreenPadNote ;w
 
 
 /* Controller Notes

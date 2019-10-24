@@ -5,7 +5,7 @@ opcode flexibleAmplitudeInput, i, i
 
   if iAmplitude == 0 then
     iNoteVelocity veloc
-    iAmplitude = iNoteVelocity/127 * 0dbfs/10
+    iAmplitude = velocityToAmplitude(iNoteVelocity)
   endif
 
   xout iAmplitude

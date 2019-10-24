@@ -43,6 +43,7 @@ instr BigCrunchySynth
     aOut = aBigCrunchySynth1 + aBigCrunchySynth2 + aBigCrunchySynth3 + aBigCrunchySynth4 + aBigCrunchySynth5 + aBigCrunchySynth6 + aBigCrunchySynth7 + aBigCrunchySynth8
 
     kCenterFrequency line 1000, 1, 0
+    kCenterFrequency = kCenterFrequency * ( 1 + oscil(.25, .25, iSineTable))
     kBandWidth = 700
     aOutCrunch reson aOut, kCenterFrequency, kBandWidth
 

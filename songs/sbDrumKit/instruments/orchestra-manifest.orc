@@ -1,4 +1,10 @@
+#include "../../../instruments/Metronome/Metronome.orc"
+
+#include "../../../instruments/ReverbExamples/ReverbExamples.orc"
+
 #include "bigSynth/bigSynth.orc"
+
+#include "BirdShitSynth/BirdShitSynth.orc"
 
 #include "CbKick/CbKick.orc"
 
@@ -26,7 +32,7 @@
 
 #include "PunishYou/PunishYou.orc"
 
-#include "reverb1/reverb1.orc"
+#include "ReverbForKick/ReverbForKick.orc"
 
 #include "Ride/Ride.orc"
 

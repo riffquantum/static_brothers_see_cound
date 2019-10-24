@@ -12,7 +12,7 @@ opcode distortion, a, akkkk
 
   aDistortedSignal = kPreGain*aDistortionIn/((60000/iDefault0dbfs)*0dbfs)     ; Normalize the signal
 
-  aClip tablei aDistortedSignal, iTableHeavy, 1, .5 ; Read the waveshaping table
+  aClip tablei aDistortedSignal, iTableLight, 1, .5 ; Read the waveshaping table
 
   aClip = kPostGain * aClip * ((15000/iDefault0dbfs)*0dbfs)    ; Re-amplify the signal
 

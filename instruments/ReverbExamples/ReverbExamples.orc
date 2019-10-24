@@ -10,10 +10,10 @@ gkReverbExamplesEqHigh init 1
 gkReverbExamplesFader init 1
 gkReverbExamplesPan init 50
 
-gkReverbExamplesWet init 1
+gkReverbExamplesWet init .3
 gkReverbExamplesDry init 1
 
-giReverbExamplesMode init 9
+giReverbExamplesMode init 3
 
 instr ReverbExamples
   aReverbExamplesInL inleta "ReverbExamplesInL"
@@ -59,7 +59,7 @@ instr ReverbExamples
      ********
   */
   if giReverbExamplesMode == 3 then
-    kFeedbackLevel = 0.9
+    kFeedbackLevel = 0.95
     iSampleRate = sr
     kCutoffFrequency = iSampleRate/4 - 1
     iPitchVariation = 1

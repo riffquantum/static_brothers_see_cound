@@ -15,7 +15,7 @@ gkPreGain init 1
 gkPostGain init 1
 gkDutyCycleOffset init .1
 gkSlopeOffset init .1
-giDistortionExamplesMode init 3
+giDistortionExamplesMode init 5
 
 instr DistortionExamples
   aDistortionExamplesInL inleta "DistortionExamplesInL"

@@ -9,5 +9,5 @@ instr 2047 ;HatClosed, PadA10,
 
   kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0
 
-  event_i "i", 3009, 0, giMidiNoteDurationList[giHatClosedNote], iNoteVelocity*2, 4.07
+  event_i "i", "ClosedHat", 0, giMidiNoteDurationList[giHatClosedNote], iNoteVelocity, 4.07
 endin

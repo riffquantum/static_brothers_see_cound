@@ -1,4 +1,4 @@
-;interruptThenTrigger -- Accepts an instrument number. Tracks fractional modifiers, interrupts the last instance trigger this way and then returns an updated instrument number.
+;interruptThenTrigger -- Accepts an instrument number. Tracks fractional modifiers, interrupts the last instance triggered this way and then returns an updated instrument number.
 
 giLastUsedFractionalModifierList[] init 9999
 

@@ -1,8 +1,6 @@
-connect "3014", "FatTomLowOutL", "FatTomLowMixerChannel", "FatTomLowInL"
-connect "3014", "FatTomLowOutR", "FatTomLowMixerChannel", "FatTomLowInR"
-
-connect "FatTomLowMixerChannel", "FatTomLowOutL", "Mixer", "MixerInL"
-connect "FatTomLowMixerChannel", "FatTomLowOutR", "Mixer", "MixerInR"
+gSFatTomLowName = "FatTomLow"
+gSFatTomLowRoute = "Mixer"
+instrumentRoute gSFatTomLowName, gSFatTomLowRoute
 
 alwayson "FatTomLowMixerChannel"
 
@@ -12,15 +10,13 @@ gkFatTomLowEqHigh init 1
 gkFatTomLowFader init 1
 gkFatTomLowPan init 50
 
-gSFatTomLowSamplePath ="songs/sbDrumKit/samples/EA7847_R8_Crsh.wav"
+gSFatTomLowSamplePath ="songs/sbDrumKit/samples/EA7629_R8_Tom.wav"
 giFatTomLowSampleTableLength getTableSizeFromSample gSFatTomLowSamplePath
 giFatTomLowSample ftgen 0, 0, giFatTomLowSampleTableLength, 1, gSFatTomLowSamplePath, 0, 0, 0
 
-giFatTomLowInstrumentNumber = 3014
-
-instr 3014 ;FatTomLow
+instr FatTomLow
   iNoteVelocity = p4
-  iAmplitude = iNoteVelocity/127 ;* 0dbfs
+  iAmplitude velocityToAmplitude iNoteVelocity
   kPitch linseg (iNoteVelocity/127/2 + 1), .5, 1, .1, 1
 
   kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0

@@ -1,8 +1,7 @@
-connect "3003", "LongDeepKickOutL", "LongDeepKickMixerChannel", "LongDeepKickInL"
-connect "3003", "LongDeepKickOutR", "LongDeepKickMixerChannel", "LongDeepKickInR"
+gSLongDeepKickName = "LongDeepKick"
+gSLongDeepKickRoute = "Mixer"
+instrumentRoute gSLongDeepKickName, gSLongDeepKickRoute
 
-connect "LongDeepKickMixerChannel", "LongDeepKickOutL", "Mixer", "MixerInL"
-connect "LongDeepKickMixerChannel", "LongDeepKickOutR", "Mixer", "MixerInR"
 
 alwayson "LongDeepKickMixerChannel"
 
@@ -16,11 +15,9 @@ gSLongDeepKickSamplePath ="songs/sbDrumKit/samples/EA7614_R8_Bd.wav"
 giLongDeepKickSampleTableLength getTableSizeFromSample gSLongDeepKickSamplePath
 giLongDeepKickSample ftgen 0, 0, giLongDeepKickSampleTableLength, 1, gSLongDeepKickSamplePath, 0, 0, 0
 
-giLongDeepKickInstrumentNumber = 3003
-
-instr 3003 ;LongDeepKick
+instr LongDeepKick
   iNoteVelocity = p4
-  iAmplitude = iNoteVelocity/127 ;* 0dbfs
+  iAmplitude velocityToAmplitude iNoteVelocity
   kPitch linseg (iNoteVelocity/127/2 + 1), .5, 1, .1, 1
 
   kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0

@@ -9,6 +9,5 @@ instr 2053 ;Tom1, PadA16,
 
   kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0
 
-  event_i "i", 3015, 0, giMidiNoteDurationList[giTom1Note], iNoteVelocity*2, 4.07
-
+  event_i "i", "FatTomMiddle", 0, giMidiNoteDurationList[giTom1Note], iNoteVelocity, 4.07
 endin

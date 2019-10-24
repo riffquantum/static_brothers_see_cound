@@ -1,8 +1,6 @@
-connect "3015", "FatTomMiddleOutL", "FatTomMiddleMixerChannel", "FatTomMiddleInL"
-connect "3015", "FatTomMiddleOutR", "FatTomMiddleMixerChannel", "FatTomMiddleInR"
-
-connect "FatTomMiddleMixerChannel", "FatTomMiddleOutL", "Mixer", "MixerInL"
-connect "FatTomMiddleMixerChannel", "FatTomMiddleOutR", "Mixer", "MixerInR"
+gSFatTomMiddleName = "FatTomMiddle"
+gSFatTomMiddleRoute = "Mixer"
+instrumentRoute gSFatTomMiddleName, gSFatTomMiddleRoute
 
 alwayson "FatTomMiddleMixerChannel"
 
@@ -12,15 +10,13 @@ gkFatTomMiddleEqHigh init 1
 gkFatTomMiddleFader init 1
 gkFatTomMiddlePan init 50
 
-gSFatTomMiddleSamplePath ="songs/sbDrumKit/samples/EA7847_R8_Crsh.wav"
+gSFatTomMiddleSamplePath ="songs/sbDrumKit/samples/EA7650_R8_Tom.wav"
 giFatTomMiddleSampleTableLength getTableSizeFromSample gSFatTomMiddleSamplePath
 giFatTomMiddleSample ftgen 0, 0, giFatTomMiddleSampleTableLength, 1, gSFatTomMiddleSamplePath, 0, 0, 0
 
-giFatTomMiddleInstrumentNumber = 3015
-
-instr 3015 ;FatTomMiddle
+instr FatTomMiddle
   iNoteVelocity = p4
-  iAmplitude = iNoteVelocity/127 ;* 0dbfs
+  iAmplitude velocityToAmplitude iNoteVelocity
   kPitch linseg (iNoteVelocity/127/2 + 1), .5, 1, .1, 1
 
   kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0

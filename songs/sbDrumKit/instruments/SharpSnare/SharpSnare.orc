@@ -1,8 +1,6 @@
-connect "3005", "SharpSnareOutL", "SharpSnareMixerChannel", "SharpSnareInL"
-connect "3005", "SharpSnareOutR", "SharpSnareMixerChannel", "SharpSnareInR"
-
-connect "SharpSnareMixerChannel", "SharpSnareOutL", "Mixer", "MixerInL"
-connect "SharpSnareMixerChannel", "SharpSnareOutR", "Mixer", "MixerInR"
+gSSharpSnareName = "SharpSnare"
+gSSharpSnareRoute = "Mixer"
+instrumentRoute gSSharpSnareName, gSSharpSnareRoute
 
 alwayson "SharpSnareMixerChannel"
 
@@ -16,17 +14,14 @@ gSSharpSnareSamplePath ="songs/sbDrumKit/samples/EA7739_R8_Sd.wav"
 giSharpSnareSampleTableLength getTableSizeFromSample gSSharpSnareSamplePath
 giSharpSnareSample ftgen 0, 0, giSharpSnareSampleTableLength, 1, gSSharpSnareSamplePath, 0, 0, 0
 
-giSharpSnareInstrumentNumber = 3005
-
-instr 3005 ;SharpSnare
+instr SharpSnare
   iNoteVelocity = p4
-  iAmplitude = iNoteVelocity/127 ;* 0dbfs
+  iAmplitude velocityToAmplitude iNoteVelocity
   kPitch linseg (iNoteVelocity/127/2 + 1), .5, 1, .1, 1
 
   kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0
 
   aSharpSnareSample loscil kAmplitudeEnvelope, 1, giSharpSnareSample, 1
-
 
   aSharpSnare = aSharpSnareSample
 

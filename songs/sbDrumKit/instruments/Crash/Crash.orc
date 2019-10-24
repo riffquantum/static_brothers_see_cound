@@ -1,8 +1,7 @@
-connect "3013", "CrashOutL", "CrashMixerChannel", "CrashInL"
-connect "3013", "CrashOutR", "CrashMixerChannel", "CrashInR"
+gSCrashName = "Crash"
+gSCrashRoute = "Mixer"
+instrumentRoute gSCrashName, gSCrashRoute
 
-connect "CrashOutMixerChannel", "CrashOutOutL", "Mixer", "MixerInL"
-connect "CrashOutMixerChannel", "CrashOutOutR", "Mixer", "MixerInR"
 
 alwayson "CrashMixerChannel"
 
@@ -16,11 +15,9 @@ gSCrashSamplePath ="songs/sbDrumKit/samples/EA7847_R8_Crsh.wav"
 giCrashSampleTableLength getTableSizeFromSample gSCrashSamplePath
 giCrashSample ftgen 0, 0, giCrashSampleTableLength, 1, gSCrashSamplePath, 0, 0, 0
 
-giCrashInstrumentNumber = 3013
-
-instr 3013 ;Crash
+instr Crash
   iNoteVelocity = p4
-  iAmplitude = iNoteVelocity/127 ;* 0dbfs
+  iAmplitude velocityToAmplitude iNoteVelocity
   kPitch linseg (iNoteVelocity/127/2 + 1), .5, 1, .1, 1
 
   kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0

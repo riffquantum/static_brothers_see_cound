@@ -1,8 +1,6 @@
-connect "Photoshop", "PhotoshopOutL", "PhotoshopMixerChannel", "PhotoshopInL"
-connect "Photoshop", "PhotoshopOutR", "PhotoshopMixerChannel", "PhotoshopInR"
-
-connect "PhotoshopMixerChannel", "PhotoshopOutL", "Mixer", "MixerInL"
-connect "PhotoshopMixerChannel", "PhotoshopOutR", "Mixer", "MixerInR"
+gSPhotoshopName = "Photoshop"
+gSPhotoshopRoute = "Mixer"
+instrumentRoute gSPhotoshopName, gSPhotoshopRoute
 
 alwayson "PhotoshopMixerChannel"
 
@@ -13,39 +11,31 @@ gkPhotoshopFader init 1
 gkPhotoshopPan init 50
 
 /* MIDI Config Values */
-;massign giPhotoshopMidiChannel, "Photoshop"
+giPhotoshopMidiChannel = 10
+massign giPhotoshopMidiChannel, "Photoshop"
+
+gSPhotoshopFilePath = "localSamples/photoshop.wav"
+giPhotoshopLengthOfSample filelen gSPhotoshopFilePath
+giPhotoshopSampleStartTime = giPhotoshopLengthOfSample * .0435
+giPhotoshopSampleLength = sr*1
+giPhotoshopSampleTable ftgenonce 0, 0, giPhotoshopSampleLength, 1, gSPhotoshopFilePath, giPhotoshopSampleStartTime, 0, 0
+giPhotoshopEnvelopeTable ftgenonce 2, 0, 16384, 9, 0.5, 1, 0
 
 instr Photoshop
-    SFilePath = "localSamples/glitch2.wav"
-    iLengthOfSample filelen SFilePath
-    iNumberOfChannels filenchnls SFilePath
+    iFrequency = flexiblePitchInput(p5) / 261.6 ; Ratio of frequency to Middle C
+    kAmplitudeEnvelope madsr .005, .01, flexibleAmplitudeInput(p4), 1.7
+    iGrainAmplitude = 1
+    iTimeStretch = 1
+    iStartTime = 0
+    iWindowSize = 3000
+    iWindowRandomization = iWindowSize
+    iOverlaps = 50
+    iTimeMode = 0
 
+    aOutL, aOutR sndwarp iGrainAmplitude, iTimeStretch, iFrequency, giPhotoshopSampleTable, iStartTime, iWindowSize, iWindowRandomization, iOverlaps, giPhotoshopEnvelopeTable, iTimeMode
 
-    ifreq flexiblePitchInput p5
-
-    ifreq = ifreq / 261.6 ; Ratio of frequency to Middle C
-    kPitchBend = 0
-    midipitchbend kPitchBend
-
-    kfreq = ifreq + kPitchBend
-
-    iAmplitude flexibleAmplitudeInput p4
-
-    kAmplitudeEnvelope madsr .005, .01, iAmplitude, .05, 0, (iLengthOfSample) ;Sample plays for note duration
-    ;kAmplitudeEnvelope linenr iAmplitude, .05, (iLengthOfSample * 1/ifreq), 1 ; Sample plays through entirely
-
-    if iNumberOfChannels == 2 then
-      aOutL, aOutR diskin SFilePath, kfreq, 0, 0
-
-      aOutL = kAmplitudeEnvelope * aOutL
-      aOutR = kAmplitudeEnvelope * aOutR
-
-    elseif iNumberOfChannels == 1 then
-      aOut diskin SFilePath, kfreq, 0, 0
-
-      aOutL = kAmplitudeEnvelope * aOut
-      aOutR = kAmplitudeEnvelope * aOut
-    endif
+    aOutL = kAmplitudeEnvelope * aOutL
+    aOutR = kAmplitudeEnvelope * aOutR
 
     outleta "PhotoshopOutL", aOutL
     outleta "PhotoshopOutR", aOutR
