@@ -6,8 +6,9 @@
 
     <CsInstruments>
         #include "config/defaultConfig.orc"
+        #include "config/defaultMidiAssignments.orc"
 
-        giBPM = 100
+        gkBPM init 100
 
         #include "opcodes/opcode-manifest.orc"
         #include "instruments/orchestra-manifest.orc"
@@ -18,37 +19,46 @@
 
 
         instr breaks
-            beatScoreline( "closeToMeBreakDiskgrain", 0, 8, {{ 0 }} )
-            beatScoreline( "tenThousandYearsBreakDiskgrain", 8, 8, {{ 2 }} )
-            beatScoreline( "sinkingBreakDiskgrain", 16, 8, {{ 0 0 }} )
-            beatScoreline( "gumboBreakDiskgrain", 24, 8, {{ 10 }} )
-            beatScoreline( "hairOfTheDogBreakDiskgrain", 32, 8, {{ 0 }} )
-            beatScoreline( "gettinHappyBreakDiskgrain", 40, 8, {{ 0 }} )
-            beatScoreline( "AmenBreakDiskgrain", 48, 8, {{ 4 }} )
-            beatScoreline( "itsExpectedBreakDiskgrain", 56, 8, {{ 0 }} )
-            beatScoreline( "funkyDrummerBreakDiskgrain", 64, 8, {{ 4 }} )
-            beatScoreline( "loserInTheEndBreakDiskgrain", 72, 8, {{ 2 }} )
-            beatScoreline( "transformationDayBreakDiskgrain", 80, 8, {{ 0 1 }} )
-            beatScoreline( "thinkBreakDiskgrain", 88, 8, {{ 2 0 }} )
-            beatScoreline( "tastyCakesBreakDiskgrain", 96, 8, {{ 0 }} )
+            ;beatScorelineS( "TempoChanger", 0, 4, {{ 100 }} )
+            beatScorelineS( "CloseToMeBreakDiskin", 0, 8, {{ 0 }} )
+            beatScorelineS( "CloseToMeBreakDiskgrain", 8, 8, {{ 0 }} )
+            beatScorelineS( "CloseToMeBreakDiskin", 16, 8, {{ 0 }} )
+
+            ;beatScorelineS( "CloseToMeBreakDiskgrain", 0, 8, {{ 0 }} )
+            ;beatScorelineS( "CloseToMeBreakDiskgrain", 8, 8, {{ 0 }} )
+            ;beatScorelineS( "CloseToMeBreakDiskgrain", 16, 8, {{ 0 }} )
+
+
+            beatScorelineS( "tenThousandYearsBreakDiskin", 8, 8, {{ 2 }} )
+            beatScorelineS( "sinkingBreakDiskin", 16, 8, {{ 0 0 }} )
+            beatScorelineS( "gumboBreakDiskin", 24, 8, {{ 10 }} )
+            beatScorelineS( "hairOfTheDogBreakDiskin", 32, 8, {{ 0 }} )
+            beatScorelineS( "gettinHappyBreakDiskin", 40, 8, {{ 0 }} )
+            beatScorelineS( "AmenBreakDiskin", 48, 8, {{ 4 }} )
+            beatScorelineS( "itsExpectedBreakDiskin", 56, 8, {{ 0 }} )
+            beatScorelineS( "funkyDrummerBreakDiskin", 64, 8, {{ 4 }} )
+            beatScorelineS( "loserInTheEndBreakDiskin", 72, 8, {{ 2 }} )
+            beatScorelineS( "transformationDayBreakDiskin", 80, 8, {{ 0 1 }} )
+            beatScorelineS( "thinkBreakDiskin", 88, 8, {{ 2 0 }} )
+            beatScorelineS( "tastyCakesBreakDiskin", 96, 8, {{ 0 }} )
 
 
           /*
-            beatScoreline( "transformationDayBreakDiskin", 4, 4, {{ 0 0 }} )
+            beatScorelineS( "transformationDayBreakDiskin", 4, 4, {{ 0 0 }} )
         */
-        ;beatScoreline( "handInTheHandBreakDiskin", 0, 4, {{ 2 2 }} )
+        ;beatScorelineS( "handInTheHandBreakDiskin", 0, 4, {{ 2 2 }} )
 
-        ;beatScoreline( "KeyGateBreakDiskin", 0, 4, {{ 0 .5 0 }} )
-        ;beatScoreline( "KeyGateBreakDiskin", 4, 4, {{ 0 .5 0 }} )
-        ;beatScoreline( "funkyDrummerBreakDiskin", 0, 2, {{ 4 0 }})
-        ;beatScoreline( "funkyDrummerBreakDiskin", 2, .5, {{ 5 0 }})
-        ;beatScoreline( "funkyDrummerBreakDiskin", 2.5, .5, {{ 5 0 }})
-        ;beatScoreline( "funkyDrummerBreakDiskin", 3, 1, {{ 1.5 0 }})
-        ;beatScoreline( "funkyDrummerBreakDiskin", 3, 1, {{ 5 0 }})
-        ;beatScoreline( "funkyDrummerBreakDiskgrain", 0, 3.5, {{ 10 1 1 4 }} )
+        ;beatScorelineS( "KeyGateBreakDiskin", 0, 4, {{ 0 .5 0 }} )
+        ;beatScorelineS( "KeyGateBreakDiskin", 4, 4, {{ 0 .5 0 }} )
+        ;beatScorelineS( "funkyDrummerBreakDiskin", 0, 2, {{ 4 0 }})
+        ;beatScorelineS( "funkyDrummerBreakDiskin", 2, .5, {{ 5 0 }})
+        ;beatScorelineS( "funkyDrummerBreakDiskin", 2.5, .5, {{ 5 0 }})
+        ;beatScorelineS( "funkyDrummerBreakDiskin", 3, 1, {{ 1.5 0 }})
+        ;beatScorelineS( "funkyDrummerBreakDiskin", 3, 1, {{ 5 0 }})
+        ;beatScorelineS( "funkyDrummerBreakDiskgrain", 0, 3.5, {{ 10 1 1 4 }} )
 
-        ;beatScoreline( "hardAmenPattern", 0, 4, {{ }} )
-        ;beatScoreline( "snareShuffle", 0, 4, {{ }} )
+        ;beatScorelineS( "hardAmenPattern", 0, 4, {{ }} )
+        ;beatScorelineS( "snareShuffle", 0, 4, {{ }} )
 
         endin
 

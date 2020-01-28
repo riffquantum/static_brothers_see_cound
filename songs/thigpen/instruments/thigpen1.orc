@@ -1,53 +1,54 @@
-/* thigpen1
+/* Thigpen1
     An Attempt to copy the fruity granulizer VST.
 */
 
-connect "thigpen1", "thigpen1OutL", "thigpen1MixerChannel", "thigpen1InL"
-connect "thigpen1", "thigpen1OutR", "thigpen1MixerChannel", "thigpen1InR"
+gSThigpen1Name = "Thigpen1"
+gSThigpen1Route = "Mixer"
+instrumentRoute gSThigpen1Name, gSThigpen1Route
 
-alwayson "thigpen1MixerChannel"
+alwayson "Thigpen1MixerChannel"
 
-gkthigpen1Hold init 10 ;12.8
-gkthigpen1GrainSpacing init 54 ;54 - default setting for normal playback
-gkthigpen1WaveSpacing init 84 ;84 - default setting for normal playback
-gkthigpen1FxDepth init 0 ;0
-gkthigpen1FxSpeed init .8
-gkthigpen1Randomize init 0
+gkThigpen1Hold init 10 ;12.8
+gkThigpen1GrainSpacing init 54 ;54 - default setting for normal playback
+gkThigpen1WaveSpacing init 84 ;84 - default setting for normal playback
+gkThigpen1FxDepth init 0 ;0
+gkThigpen1FxSpeed init .8
+gkThigpen1Randomize init 0
 
-gkthigpen1EqBass init 1
-gkthigpen1EqMid init 1
-gkthigpen1EqHigh init 1
-gkthigpen1Fader init 1
-gkthigpen1Pan init 50
+gkThigpen1EqBass init 1
+gkThigpen1EqMid init 1
+gkThigpen1EqHigh init 1
+gkThigpen1Fader init 1
+gkThigpen1Pan init 50
 
-instr thigpen1HoldKnob
+instr Thigpen1HoldKnob
     ;Length each grain is held before moving onto the next.
-    gkthigpen1Hold linseg p4, p3, p5
+    gkThigpen1Hold linseg p4, p3, p5
 endin
 
-instr thigpen1GrainSpacingKnob
+instr Thigpen1GrainSpacingKnob
     ;Grain spacing in playback. Turn to right for greater spacing between played grains (slower playback). Turn left for smaller spacing (faster playback).
-    gkthigpen1GrainSpacing linseg p4, p3, p5
+    gkThigpen1GrainSpacing linseg p4, p3, p5
 endin
 
-instr thigpen1WaveSpacingKnob
+instr Thigpen1WaveSpacingKnob
     ;This basically controls the number of grains generated from the wave sample. This value ranges from -300% to 300%. For normal playback, set both Grain Spacing and Wave Spacing to 100%. Small values mean more grains are used for the wave (smaller wave spacing). Using negative values results in reversed playback of the grains. NOTES: Grain playback order is reversed, not the sound contained in each grain.
-    gkthigpen1WaveSpacing linseg p4, p3, p5
+    gkThigpen1WaveSpacing linseg p4, p3, p5
 endin
 
-instr thigpen1FxDepthKnob
+instr Thigpen1FxDepthKnob
     ;Amplitude of the LFO applied to the wave spacing value. Turn to right to increase the amplitude. To turn the LFO off, turn the knob maximum to left.
-    gkthigpen1FxDepth linseg p4, p3, p5
+    gkThigpen1FxDepth linseg p4, p3, p5
 endin
 
-instr thigpen1FxSpeedKnob
+instr Thigpen1FxSpeedKnob
     ;Speed of the LFO applied to the wave spacing value. Turning to right makes the LFO faster, turning left, slower.
-    gkthigpen1FxSpeed linseg p4, p3, p5
+    gkThigpen1FxSpeed linseg p4, p3, p5
 endin
 
-instr thigpen1
+instr Thigpen1
     ; faves: 7, 8, 9, 10, 11, 26, 27, 28
-    SsampleFilePath = "localSamples/thigpen/thigpen9.wav"
+    SsampleFilePath = "localSamples/thigpen/thigpen7.wav"
     kamplitude = p4
     kPitch = p5
     iStartTime = p6
@@ -74,72 +75,72 @@ instr thigpen1
     iMaxOverlaps = 5
     kGrainSizeInMiliseconds = 40
     kGrainSize = kGrainSizeInMiliseconds/1000
-    kWaveSpacingOscillator oscil (gkthigpen1FxDepth)/100*3, gkthigpen1FxSpeed
-    kGrainFrequency = iMaxOverlaps/kGrainSize * 1/((gkthigpen1GrainSpacing*1.852/100)^2)
+    kWaveSpacingOscillator oscil (gkThigpen1FxDepth)/100*3, gkThigpen1FxSpeed
+    kGrainFrequency = iMaxOverlaps/kGrainSize * 1/((gkThigpen1GrainSpacing*1.852/100)^2)
 
     /* Wavespacing Factor */
-    kthigpen1WaveSpacing = gkthigpen1WaveSpacing - 50
-    if kthigpen1WaveSpacing == 0 then
-      kthigpen1WaveSpacing = 1
+    kThigpen1WaveSpacing = gkThigpen1WaveSpacing - 50
+    if kThigpen1WaveSpacing == 0 then
+      kThigpen1WaveSpacing = 1
     endif
 
-    kthigpen1WaveSpacing = (kthigpen1WaveSpacing / 34)^3 + kWaveSpacingOscillator
-    kPointerRate = (1/iMaxOverlaps) * kthigpen1WaveSpacing
+    kThigpen1WaveSpacing = (kThigpen1WaveSpacing / 34)^3 + kWaveSpacingOscillator
+    kPointerRate = (1/iMaxOverlaps) * kThigpen1WaveSpacing
 
     /* Synthesis and Output */
     if iFileNumChannels == 2 then
-        athigpen1L syncloop kamplitude, kGrainFrequency, kPitch, kGrainSize, kPointerRate, iStartTime, iEndTime, iSampleTableL, ienvelopeTable, iMaxOverlaps
-        athigpen1R syncloop kamplitude, kGrainFrequency, kPitch, kGrainSize, kPointerRate, iStartTime, iEndTime, iSampleTableR, ienvelopeTable, iMaxOverlaps
+        aThigpen1L syncloop kamplitude, kGrainFrequency, kPitch, kGrainSize, kPointerRate, iStartTime, iEndTime, iSampleTableL, ienvelopeTable, iMaxOverlaps
+        aThigpen1R syncloop kamplitude, kGrainFrequency, kPitch, kGrainSize, kPointerRate, iStartTime, iEndTime, iSampleTableR, ienvelopeTable, iMaxOverlaps
     else
-        athigpen1L syncloop kamplitude, kGrainFrequency, kPitch, kGrainSize, kPointerRate, iStartTime, iEndTime, iSampleTable, ienvelopeTable, iMaxOverlaps
-        athigpen1R = athigpen1L
+        aThigpen1L syncloop kamplitude, kGrainFrequency, kPitch, kGrainSize, kPointerRate, iStartTime, iEndTime, iSampleTable, ienvelopeTable, iMaxOverlaps
+        aThigpen1R = aThigpen1L
     endif
 
-    outleta "thigpen1OutL", athigpen1L
-    outleta "thigpen1OutR", athigpen1R
+    outleta "Thigpen1OutL", aThigpen1L
+    outleta "Thigpen1OutR", aThigpen1R
 endin
 
-instr thigpen1BassKnob
-    gkthigpen1EqBass linseg p4, p3, p5
+instr Thigpen1BassKnob
+    gkThigpen1EqBass linseg p4, p3, p5
 endin
 
-instr thigpen1MidKnob
-    gkthigpen1EqMid linseg p4, p3, p5
+instr Thigpen1MidKnob
+    gkThigpen1EqMid linseg p4, p3, p5
 endin
 
-instr thigpen1HighKnob
-    gkthigpen1EqHigh linseg p4, p3, p5
+instr Thigpen1HighKnob
+    gkThigpen1EqHigh linseg p4, p3, p5
 endin
 
-instr thigpen1Fader
-    gkthigpen1Fader linseg p4, p3, p5
+instr Thigpen1Fader
+    gkThigpen1Fader linseg p4, p3, p5
 endin
 
-instr thigpen1Pan
-    gkthigpen1Pan linseg p4, p3, p5
+instr Thigpen1Pan
+    gkThigpen1Pan linseg p4, p3, p5
 endin
 
-instr thigpen1MixerChannel
-    athigpen1L inleta "thigpen1InL"
-    athigpen1R inleta "thigpen1InR"
+instr Thigpen1MixerChannel
+    aThigpen1L inleta "Thigpen1InL"
+    aThigpen1R inleta "Thigpen1InR"
 
-    kthigpen1Fader = gkthigpen1Fader
-    kthigpen1Pan = gkthigpen1Pan
-    kthigpen1EqBass = gkthigpen1EqBass
-    kthigpen1EqMid = gkthigpen1EqMid
-    kthigpen1EqHigh = gkthigpen1EqHigh
+    kThigpen1Fader = gkThigpen1Fader
+    kThigpen1Pan = gkThigpen1Pan
+    kThigpen1EqBass = gkThigpen1EqBass
+    kThigpen1EqMid = gkThigpen1EqMid
+    kThigpen1EqHigh = gkThigpen1EqHigh
 
-    athigpen1L, athigpen1R threeBandEqStereo athigpen1L, athigpen1R, kthigpen1EqBass, kthigpen1EqMid, kthigpen1EqHigh
+    aThigpen1L, aThigpen1R threeBandEqStereo aThigpen1L, aThigpen1R, kThigpen1EqBass, kThigpen1EqMid, kThigpen1EqHigh
 
-    if kthigpen1Pan > 100 then
-        kthigpen1Pan = 100
-    elseif kthigpen1Pan < 0 then
-        kthigpen1Pan = 0
+    if kThigpen1Pan > 100 then
+        kThigpen1Pan = 100
+    elseif kThigpen1Pan < 0 then
+        kThigpen1Pan = 0
     endif
 
-    athigpen1L = (athigpen1L * ((100 - kthigpen1Pan) * 2 / 100)) * kthigpen1Fader
-    athigpen1R = (athigpen1R * (kthigpen1Pan * 2 / 100)) * kthigpen1Fader
+    aThigpen1L = (aThigpen1L * ((100 - kThigpen1Pan) * 2 / 100)) * kThigpen1Fader
+    aThigpen1R = (aThigpen1R * (kThigpen1Pan * 2 / 100)) * kThigpen1Fader
 
-    outleta "thigpen1OutL", athigpen1L
-    outleta "thigpen1OutR", athigpen1R
+    outleta "Thigpen1OutL", aThigpen1L
+    outleta "Thigpen1OutR", aThigpen1R
 endin

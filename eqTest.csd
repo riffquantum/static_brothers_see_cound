@@ -7,18 +7,18 @@
     <CsInstruments>
         #include "config/defaultConfig.orc"
 
-        giBPM = 90
+        gkBPM init 90
 
         #include "opcodes/opcode-manifest.orc"
         #include "instruments/orchestra-manifest.orc"
 
         instr breaks
-            beatScoreline( "AmenBreakDiskin", 0, 8, {{ 4 }} )
+            beatScorelineS( "AmenBreakDiskin", 0, 8, {{ 4 }} )
 
         endin
 
         instr breaks2
-            beatScoreline( "funkyDrummerBreakDiskin", 0, 8, {{ 4 }} )
+            beatScorelineS( "funkyDrummerBreakDiskin", 0, 8, {{ 4 }} )
 
         endin
     </CsInstruments>

@@ -2,95 +2,94 @@ gSInTimeSndwarpSamplerTemplateName = "InTimeSndwarpSamplerTemplate"
 gSInTimeSndwarpSamplerTemplateRoute = "Mixer"
 instrumentRoute gSInTimeSndwarpSamplerTemplateName, gSInTimeSndwarpSamplerTemplateRoute
 
-alwayson "InTimeSndwarpSamplerTemplatekMixerChannel"
+alwayson "InTimeSndwarpSamplerTemplateMixerChannel"
 
-gkInTimeSndwarpSamplerTemplatekEqBass init 1
-gkInTimeSndwarpSamplerTemplatekEqMid init 1
-gkInTimeSndwarpSamplerTemplatekEqHigh init 1
-gkInTimeSndwarpSamplerTemplatekFader init 1
-gkInTimeSndwarpSamplerTemplatekPan init 50
+gkInTimeSndwarpSamplerTemplateEqBass init 1
+gkInTimeSndwarpSamplerTemplateEqMid init 1
+gkInTimeSndwarpSamplerTemplateEqHigh init 1
+gkInTimeSndwarpSamplerTemplateFader init 1
+gkInTimeSndwarpSamplerTemplatePan init 50
 
+/* MIDI Config Values */
+massign giInTimeSndwarpSamplerTemplateMidiChannel, "InTimeSndwarpSamplerTemplate"
+
+gSInTimeSndwarpSamplerTemplateSamplePath = "instruments/breakBeatInstruments/amen-break.wav"
+giInTimeSndwarpSamplerTemplateChannels filenchnls gSInTimeSndwarpSamplerTemplateSamplePath
+giInTimeSndwarpSamplerTemplateSampleLength filelen gSInTimeSndwarpSamplerTemplateSamplePath
+giInTimeSndwarpSamplerTemplateSampleLengthInBeats = 16
+giInTimeSndwarpSamplerTemplateSLengthOfBeat = giInTimeSndwarpSamplerTemplateSampleLength / giInTimeSndwarpSamplerTemplateSampleLengthInBeats
+giInTimeSndwarpSamplerTemplateBPM init 60 /giInTimeSndwarpSamplerTemplateSLengthOfBeat
+giInTimeSndwarpSamplerTemplateFactor = i(gkBPM) / giInTimeSndwarpSamplerTemplateBPM
+giInTimeSndwarpSamplerTemplateSample ftgen 0, 0, 0, 1, gSInTimeSndwarpSamplerTemplateSamplePath, 0, 0, 0
+giInTimeSndwarpSamplerTemplateEnvelopeTable ftgenonce 2, 0, 16384, 9, 0.5, 1, 0
 
 instr InTimeSndwarpSamplerTemplate
-    SInTimeSndwarpSamplerTemplateFilePath init "instruments/breakBeatInstruments/amenBreak/amen-break.wav"
+  kAmplitudeEnvelope madsr .005, .01, flexibleAmplitudeInput(p4), .01
+  iFrequency = flexiblePitchInput(p5) / 261.6 ; Ratio of frequency to Middle C
+  iGrainAmplitude = 1
+  iStartTime = p6
+  iTimeStretch = p7
+  iTimeStretch = iTimeStretch == 0 ? 1/giInTimeSndwarpSamplerTemplateFactor : 1/giInTimeSndwarpSamplerTemplateFactor * iTimeStretch
+  iWindowSize = 3000
+  iWindowRandomization = iWindowSize * 2
+  iOverlaps = 50
+  iTimeMode = 0
 
-    iInTimeSndwarpSamplerTemplateFileLength filelen SInTimeSndwarpSamplerTemplateFilePath
-    iInTimeSndwarpSamplerTemplateLengthOfOneBeat = iInTimeSndwarpSamplerTemplateFileLength / 16
+  if giInTimeSndwarpSamplerTemplateChannels == 2 then
+    aInTimeSndwarpSamplerTemplateL, aInTimeSndwarpSamplerTemplateR sndwarpst iGrainAmplitude, iTimeStretch, iFrequency, giInTimeSndwarpSamplerTemplateSample, iStartTime, iWindowSize, iWindowRandomization, iOverlaps, giInTimeSndwarpSamplerTemplateEnvelopeTable, iTimeMode
+  else
+    aInTimeSndwarpSamplerTemplateL sndwarp iGrainAmplitude, iTimeStretch, iFrequency, giInTimeSndwarpSamplerTemplateSample, iStartTime, iWindowSize, iWindowRandomization, iOverlaps, giInTimeSndwarpSamplerTemplateEnvelopeTable, iTimeMode
+    aInTimeSndwarpSamplerTemplateR = aInTimeSndwarpSamplerTemplateL
+  endif
 
-    iInTimeSndwarpSamplerTemplatekBPM init 60 / iInTimeSndwarpSamplerTemplateLengthOfOneBeat
-    iInTimeSndwarpSamplerTemplateFactor = giBPM / iInTimeSndwarpSamplerTemplatekBPM
+  aInTimeSndwarpSamplerTemplateL = kAmplitudeEnvelope * aInTimeSndwarpSamplerTemplateL
+  aInTimeSndwarpSamplerTemplateR = kAmplitudeEnvelope * aInTimeSndwarpSamplerTemplateR
 
-    iInTimeSndwarpSamplerTemplateFileSampleRate filesr SInTimeSndwarpSamplerTemplateFilePath
-    iInTimeSndwarpSamplerTemplateTableLength getTableSizeFromSample SInTimeSndwarpSamplerTemplateFilePath
-    ;iTable ftgenonce 0, 0, 8192, 20, 2, 1
-    iTable ftgenonce 2, 0, 16384, 9, 0.5, 1, 0
-    iInTimeSndwarpSamplerTemplateTable ftgenonce 0, 0, iInTimeSndwarpSamplerTemplateTableLength, 1, SInTimeSndwarpSamplerTemplateFilePath, 0, 0, 0
-
-    kamplitude = p4
-    kpitchFactor = p5
-
-    if kpitchFactor==0 then
-      kpitchFactor = 1
-    endif
-    ktimewarp = kpitchFactor * (1/iInTimeSndwarpSamplerTemplateFactor)
-    kresample = p6
-    isampleTable = iInTimeSndwarpSamplerTemplateTable
-    iskipTimeInBeats = p7
-    ioverlap = p8
-    ibeginningTime =  iInTimeSndwarpSamplerTemplateLengthOfOneBeat * iskipTimeInBeats
-    iwindowSize = 10
-    irandw = 0
-    ienvelopeTable = iTable
-    itimemode = 0
-
-    aInTimeSndwarpSamplerTemplate sndwarp kamplitude, ktimewarp, kresample, isampleTable, ibeginningTime, iwindowSize, irandw, ioverlap, ienvelopeTable, itimemode
-
-    outleta "InTimeSndwarpSamplerTemplatekOutL", aInTimeSndwarpSamplerTemplate
-    outleta "InTimeSndwarpSamplerTemplatekOutR", aInTimeSndwarpSamplerTemplate
+  outleta "InTimeSndwarpSamplerTemplateOutL", aInTimeSndwarpSamplerTemplateL
+  outleta "InTimeSndwarpSamplerTemplateOutR", aInTimeSndwarpSamplerTemplateR
 endin
 
-instr InTimeSndwarpSamplerTemplatekBassKnob
-    gkInTimeSndwarpSamplerTemplatekEqBass linseg p4, p3, p5
+instr InTimeSndwarpSamplerTemplateBassKnob
+  gkInTimeSndwarpSamplerTemplateEqBass linseg p4, p3, p5
 endin
 
-instr InTimeSndwarpSamplerTemplatekMidKnob
-    gkInTimeSndwarpSamplerTemplatekEqMid linseg p4, p3, p5
+instr InTimeSndwarpSamplerTemplateMidKnob
+  gkInTimeSndwarpSamplerTemplateEqMid linseg p4, p3, p5
 endin
 
-instr InTimeSndwarpSamplerTemplatekHighKnob
-    gkInTimeSndwarpSamplerTemplatekEqHigh linseg p4, p3, p5
+instr InTimeSndwarpSamplerTemplateHighKnob
+  gkInTimeSndwarpSamplerTemplateEqHigh linseg p4, p3, p5
 endin
 
-instr InTimeSndwarpSamplerTemplatekFader
-    gkInTimeSndwarpSamplerTemplatekFader linseg p4, p3, p5
+instr InTimeSndwarpSamplerTemplateFader
+  gkInTimeSndwarpSamplerTemplateFader linseg p4, p3, p5
 endin
 
-instr InTimeSndwarpSamplerTemplatekPan
-    gkInTimeSndwarpSamplerTemplatekPan linseg p4, p3, p5
+instr InTimeSndwarpSamplerTemplatePan
+  gkInTimeSndwarpSamplerTemplatePan linseg p4, p3, p5
 endin
 
-instr InTimeSndwarpSamplerTemplatekMixerChannel
-    aInTimeSndwarpSamplerTemplatekL inleta "InTimeSndwarpSamplerTemplatekInL"
-    aInTimeSndwarpSamplerTemplatekR inleta "InTimeSndwarpSamplerTemplatekInR"
+instr InTimeSndwarpSamplerTemplateMixerChannel
+  aInTimeSndwarpSamplerTemplateL inleta "InTimeSndwarpSamplerTemplateInL"
+  aInTimeSndwarpSamplerTemplateR inleta "InTimeSndwarpSamplerTemplateInR"
 
-    kInTimeSndwarpSamplerTemplatekFader = gkInTimeSndwarpSamplerTemplatekFader
-    kInTimeSndwarpSamplerTemplatekPan = gkInTimeSndwarpSamplerTemplatekPan
-    kInTimeSndwarpSamplerTemplatekEqBass = gkInTimeSndwarpSamplerTemplatekEqBass
-    kInTimeSndwarpSamplerTemplatekEqMid = gkInTimeSndwarpSamplerTemplatekEqMid
-    kInTimeSndwarpSamplerTemplatekEqHigh = gkInTimeSndwarpSamplerTemplatekEqHigh
+  kInTimeSndwarpSamplerTemplateFader = gkInTimeSndwarpSamplerTemplateFader
+  kInTimeSndwarpSamplerTemplatePan = gkInTimeSndwarpSamplerTemplatePan
+  kInTimeSndwarpSamplerTemplateEqBass = gkInTimeSndwarpSamplerTemplateEqBass
+  kInTimeSndwarpSamplerTemplateEqMid = gkInTimeSndwarpSamplerTemplateEqMid
+  kInTimeSndwarpSamplerTemplateEqHigh = gkInTimeSndwarpSamplerTemplateEqHigh
 
-    aInTimeSndwarpSamplerTemplatekL, aInTimeSndwarpSamplerTemplatekR threeBandEqStereo aInTimeSndwarpSamplerTemplatekL, aInTimeSndwarpSamplerTemplatekR, kInTimeSndwarpSamplerTemplatekEqBass, kInTimeSndwarpSamplerTemplatekEqMid, kInTimeSndwarpSamplerTemplatekEqHigh
+  aInTimeSndwarpSamplerTemplateL, aInTimeSndwarpSamplerTemplateR threeBandEqStereo aInTimeSndwarpSamplerTemplateL, aInTimeSndwarpSamplerTemplateR, kInTimeSndwarpSamplerTemplateEqBass, kInTimeSndwarpSamplerTemplateEqMid, kInTimeSndwarpSamplerTemplateEqHigh
 
-    if kInTimeSndwarpSamplerTemplatekPan > 100 then
-        kInTimeSndwarpSamplerTemplatekPan = 100
-    elseif kInTimeSndwarpSamplerTemplatekPan < 0 then
-        kInTimeSndwarpSamplerTemplatekPan = 0
-    endif
+  if kInTimeSndwarpSamplerTemplatePan > 100 then
+      kInTimeSndwarpSamplerTemplatePan = 100
+  elseif kInTimeSndwarpSamplerTemplatePan < 0 then
+      kInTimeSndwarpSamplerTemplatePan = 0
+  endif
 
-    aInTimeSndwarpSamplerTemplatekL = (aInTimeSndwarpSamplerTemplatekL * ((100 - kInTimeSndwarpSamplerTemplatekPan) * 2 / 100)) * kInTimeSndwarpSamplerTemplatekFader
-    aInTimeSndwarpSamplerTemplatekR = (aInTimeSndwarpSamplerTemplatekR * (kInTimeSndwarpSamplerTemplatekPan * 2 / 100)) * kInTimeSndwarpSamplerTemplatekFader
+  aInTimeSndwarpSamplerTemplateL = (aInTimeSndwarpSamplerTemplateL * ((100 - kInTimeSndwarpSamplerTemplatePan) * 2 / 100)) * kInTimeSndwarpSamplerTemplateFader
+  aInTimeSndwarpSamplerTemplateR = (aInTimeSndwarpSamplerTemplateR * (kInTimeSndwarpSamplerTemplatePan * 2 / 100)) * kInTimeSndwarpSamplerTemplateFader
 
-    outleta "InTimeSndwarpSamplerTemplatekOutL", aInTimeSndwarpSamplerTemplatekL
-    outleta "InTimeSndwarpSamplerTemplatekOutR", aInTimeSndwarpSamplerTemplatekR
+  outleta "InTimeSndwarpSamplerTemplateOutL", aInTimeSndwarpSamplerTemplateL
+  outleta "InTimeSndwarpSamplerTemplateOutR", aInTimeSndwarpSamplerTemplateR
 endin
-

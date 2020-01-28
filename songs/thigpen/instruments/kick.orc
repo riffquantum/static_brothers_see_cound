@@ -1,16 +1,18 @@
-; kick
+; Kick
 
-connect "kick", "kickOut", "kickMixerChannel", "kickIn"
+gSKickName = "Kick"
+gSKickRoute = "Mixer"
+instrumentRoute gSKickName, gSKickRoute
 
-alwayson "kickMixerChannel"
+alwayson "KickMixerChannel"
 
-gkkickEqBass init 1
-gkkickEqMid init 1
-gkkickEqHigh init 1
-gkkickFader init 1
-gkkickPan init 50
+gkKickEqBass init 1
+gkKickEqMid init 1
+gkKickEqHigh init 1
+gkKickFader init 1
+gkKickPan init 50
 
-instr kick
+instr Kick
     kAmp = p4
     kpitch init 1
     iSkipTime init 0
@@ -22,64 +24,64 @@ instr kick
     SsampleFilePath2 = "songs/basketballBeatsEnnui/samples/EA7606_R8_Bd.wav"
 
 
-    akick diskin SsampleFilePath, kpitch, iSkipTime, iwraparound, iformat, iskipinit
-    akick2 diskin SsampleFilePath2, kpitch, iSkipTime, iwraparound, iformat, iskipinit
+    aKick diskin SsampleFilePath, kpitch, iSkipTime, iwraparound, iformat, iskipinit
+    aKick2 diskin SsampleFilePath2, kpitch, iSkipTime, iwraparound, iformat, iskipinit
 
-    akick = akick + akick2
+    aKick = aKick + aKick2
 
-    kres   rms (akick * kAmp)
-    akick gain akick, kres
+    kres   rms (aKick * kAmp)
+    aKick gain aKick, kres
 
-    outleta "kickOut", akick
+    outleta "KickOut", aKick
 endin
 
-instr kickBassKnob
-    gkkickEqBass linseg p4, p3, p5
+instr KickBassKnob
+    gkKickEqBass linseg p4, p3, p5
 endin
 
-instr kickMidKnob
-    gkkickEqMid linseg p4, p3, p5
+instr KickMidKnob
+    gkKickEqMid linseg p4, p3, p5
 endin
 
-instr kickHighKnob
-    gkkickEqHigh linseg p4, p3, p5
+instr KickHighKnob
+    gkKickEqHigh linseg p4, p3, p5
 endin
 
-instr kickFader
-    gkkickFader linseg p4, p3, p5
+instr KickFader
+    gkKickFader linseg p4, p3, p5
 endin
 
-instr kickPan
-    gkkickPan linseg p4, p3, p5
+instr KickPan
+    gkKickPan linseg p4, p3, p5
 endin
 
-instr kickMixerChannel
-    akickL inleta "kickIn"
-    akickR inleta "kickIn"
+instr KickMixerChannel
+    aKickL inleta "KickIn"
+    aKickR inleta "KickIn"
 
     kpanvalue linseg 0, 1, 100
 
-    kkickFader = gkkickFader
-    kkickPan = gkkickPan
-    kkickEqBass = gkkickEqBass
-    kkickEqMid = gkkickEqMid
-    kkickEqHigh = gkkickEqHigh
+    kKickFader = gkKickFader
+    kKickPan = gkKickPan
+    kKickEqBass = gkKickEqBass
+    kKickEqMid = gkKickEqMid
+    kKickEqHigh = gkKickEqHigh
 
-    akickL, akickR threeBandEqStereo akickL, akickR, kkickEqBass, kkickEqMid, kkickEqHigh
+    aKickL, aKickR threeBandEqStereo aKickL, aKickR, kKickEqBass, kKickEqMid, kKickEqHigh
 
-    if kkickPan > 100 then
-        kkickPan = 100
-    elseif kkickPan < 0 then
-        kkickPan = 0
+    if kKickPan > 100 then
+        kKickPan = 100
+    elseif kKickPan < 0 then
+        kKickPan = 0
     endif
 
-    ;akickL distort1 akickL, 2, 1, .01, .01
-    ;akickR distort1 akickR, 2, 1, .01, .01
+    ;aKickL distort1 aKickL, 2, 1, .01, .01
+    ;aKickR distort1 aKickR, 2, 1, .01, .01
 
-    akickL = (akickL * ((100 - kkickPan) * 2 / 100)) * kkickFader
-    akickR = (akickR * (kkickPan * 2 / 100)) * kkickFader
+    aKickL = (aKickL * ((100 - kKickPan) * 2 / 100)) * kKickFader
+    aKickR = (aKickR * (kKickPan * 2 / 100)) * kKickFader
 
-    outleta "kickOutL", akickL
-    outleta "kickOutR", akickR
+    outleta "KickOutL", aKickL
+    outleta "KickOutR", aKickR
 
 endin

@@ -1,81 +1,79 @@
-; snare
+; Snare
+gSSnareName = "Snare"
+gSSnareRoute = "Mixer"
+instrumentRoute gSSnareName, gSSnareRoute
 
-connect "snare", "snareOut", "snareMixerChannel", "snareIn"
+alwayson "SnareMixerChannel"
 
-connect "snareMixerChannel", "snareOutL", "Mixer", "MixerInL"
-connect "snareMixerChannel", "snareOutR", "Mixer", "MixerInR"
+gkSnareEqBass init 1
+gkSnareEqMid init 1
+gkSnareEqHigh init 1
+gkSnareFader init 1
+gkSnarePan init 50
 
-alwayson "snareMixerChannel"
+gSSnareSamplePath = "songs/basketballBeatsEnnui/samples/VA1108_sd.wav"
 
-gksnareEqBass init 1
-gksnareEqMid init 1
-gksnareEqHigh init 1
-gksnareFader init 1
-gksnarePan init 50
-
-instr snare
-    kAmp = p4
-    kpitch init 1
-    iSkipTime init 0
-    iwraparound init 0
-    iformat init 0
-    iskipinit init 0
-
-    SsampleFilePath = "songs/basketballBeatsEnnui/samples/VA1108_sd.wav"
+giSnareSample ftgen 0, 0, 0, 1, gSSnareSamplePath, 0, 0, 0
 
 
-    asnare diskin SsampleFilePath, kpitch, iSkipTime, iwraparound, iformat, iskipinit
+instr Snare
+  iAmplitude = p4
+  kPitch = p5 == 0 ? 1 : p5
+  kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0
 
-    kres   rms (asnare * kAmp)
-    asnare gain asnare, kres
+  aSnareOut loscil kAmplitudeEnvelope, 1, giSnareSample, 1
 
-    outleta "snareOut", asnare
+  outleta "SnareOutL", aSnareOut
+  outleta "SnareOutR", aSnareOut
 endin
 
-instr snareBassKnob
-    gksnareEqBass linseg p4, p3, p5
+instr SnareBassKnob
+    gkSnareEqBass linseg p4, p3, p5
 endin
 
-instr snareMidKnob
-    gksnareEqMid linseg p4, p3, p5
+instr SnareMidKnob
+    gkSnareEqMid linseg p4, p3, p5
 endin
 
-instr snareHighKnob
-    gksnareEqHigh linseg p4, p3, p5
+instr SnareHighKnob
+    gkSnareEqHigh linseg p4, p3, p5
 endin
 
-instr snareFader
-    gksnareFader linseg p4, p3, p5
+instr SnareFader
+    gkSnareFader linseg p4, p3, p5
 endin
 
-instr snarePan
-    gksnarePan linseg p4, p3, p5
+instr SnarePan
+    gkSnarePan linseg p4, p3, p5
 endin
 
-instr snareMixerChannel
-    asnareL inleta "snareIn"
-    asnareR inleta "snareIn"
+instr SnareMixerChannel
+    aSnareL inleta "SnareInL"
+    aSnareR inleta "SnareInR"
 
     kpanvalue linseg 0, 1, 100
 
-    ksnareFader = gksnareFader
-    ksnarePan = gksnarePan
-    ksnareEqBass = gksnareEqBass
-    ksnareEqMid = gksnareEqMid
-    ksnareEqHigh = gksnareEqHigh
+    kSnareFader = gkSnareFader
+    kSnarePan = gkSnarePan
+    kSnareEqBass = gkSnareEqBass
+    kSnareEqMid = gkSnareEqMid
+    kSnareEqHigh = gkSnareEqHigh
 
-    asnareL, asnareR threeBandEqStereo asnareL, asnareR, ksnareEqBass, ksnareEqMid, ksnareEqHigh
+    aSnareL, aSnareR threeBandEqStereo aSnareL, aSnareR, kSnareEqBass, kSnareEqMid, kSnareEqHigh
 
-    if ksnarePan > 100 then
-        ksnarePan = 100
-    elseif ksnarePan < 0 then
-        ksnarePan = 0
+    if kSnarePan > 100 then
+        kSnarePan = 100
+    elseif kSnarePan < 0 then
+        kSnarePan = 0
     endif
 
-    asnareL = (asnareL * ((100 - ksnarePan) * 2 / 100)) * ksnareFader
-    asnareR = (asnareR * (ksnarePan * 2 / 100)) * ksnareFader
+    ;aSnareL distort1 aSnareL, 2, 1, .01, .01
+    ;aSnareR distort1 aSnareR, 2, 1, .01, .01
 
-    outleta "snareOutL", asnareL
-    outleta "snareOutR", asnareR
+    aSnareL = (aSnareL * ((100 - kSnarePan) * 2 / 100)) * kSnareFader
+    aSnareR = (aSnareR * (kSnarePan * 2 / 100)) * kSnareFader
+
+    outleta "SnareOutL", aSnareL
+    outleta "SnareOutR", aSnareR
 
 endin

@@ -20,9 +20,9 @@
     p9 - if 1 then it will play the "accent" version of the sample
 */
 
-gSCTR606Name = "CTR606"
-gSCTR606Route = "Mixer"
-instrumentRoute gSCTR606Name, gSCTR606Route
+gSTR606Name = "TR606"
+gSTR606Route = "Mixer"
+instrumentRoute gSTR606Name, gSTR606Route
 
 alwayson "TR606MixerChannel"
 

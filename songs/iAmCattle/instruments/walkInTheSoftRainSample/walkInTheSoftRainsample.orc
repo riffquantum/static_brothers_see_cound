@@ -43,7 +43,7 @@ instr walkInTheSoftRainSampleDiskin
     iwalkInTheSoftRainLengthofBeat = iFileLength / iSampleLengthInBeats
     iwalkInTheSoftRainSampleBPM = 60 / iwalkInTheSoftRainLengthofBeat
 
-    iwalkInTheSoftRainFactor = giBPM / iwalkInTheSoftRainSampleBPM
+    iwalkInTheSoftRainFactor = i(gkBPM) / iwalkInTheSoftRainSampleBPM
     kpitch = iwalkInTheSoftRainFactor
 
     iSkipTime = iFileLength / iSampleLengthInBeats * iSkipTimeInBeats
@@ -66,7 +66,7 @@ instr walkInTheSoftRainSampleDiskgrain
     iFileLength filelen SwalkInTheSoftRainFilePath
     iwalkInTheSoftRainSampleBPM = giwalkInTheSoftRainSampleSegmentBPMs[iSampleSegment]
     iSampleLength = giwalkInTheSoftRainSampleSegmentLengths[iSampleSegment]
-    iwalkInTheSoftRainFactor = giBPM / iwalkInTheSoftRainSampleBPM
+    iwalkInTheSoftRainFactor = i(gkBPM) / iwalkInTheSoftRainSampleBPM
 
     iTable ftgenonce 0, 0, 8192, 20, 2, 1
     kamplitude = p4
@@ -95,7 +95,7 @@ instr walkInTheSoftRainSampleSndwarp
     iFileLength filelen SwalkInTheSoftRainFilePath
     iwalkInTheSoftRainSampleBPM = giwalkInTheSoftRainSampleSegmentBPMs[iSampleSegment]
     iSampleLength = giwalkInTheSoftRainSampleSegmentLengths[iSampleSegment]
-    iwalkInTheSoftRainFactor = giBPM / iwalkInTheSoftRainSampleBPM
+    iwalkInTheSoftRainFactor = i(gkBPM) / iwalkInTheSoftRainSampleBPM
 
     kamplitude = p4
     ktimewarp = p5 * (1/iwalkInTheSoftRainFactor)

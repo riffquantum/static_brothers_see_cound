@@ -26,7 +26,7 @@ giSyncloopSamplerTemplateFxSpeedAdjustmentControl = 5
 massign giSyncloopSamplerTemplateMidiChannel, "SyncloopSamplerTemplate"
 
 /* Sound File Data */
-gSSyncloopSamplerTemplatesampleFilePath = "localSamples/o marro loop.wav"
+gSSyncloopSamplerTemplatesampleFilePath = "instruments/breakBeatInstruments/amen-break.wav"
 giSyncloopSamplerTemplateFileNumChannels filenchnls gSSyncloopSamplerTemplatesampleFilePath
 giSyncloopSamplerTemplateFileLength filelen gSSyncloopSamplerTemplatesampleFilePath
 giSyncloopSamplerTemplateFileSampleRate filesr gSSyncloopSamplerTemplatesampleFilePath
@@ -67,14 +67,8 @@ endin
 
 instr SyncloopSamplerTemplate
     iAmplitude flexibleAmplitudeInput p4
-
-    iPitch flexiblePitchInput p5
-
-    iPitch = iPitch / 261.6 ; Ratio of frequency to Middle C
-
-    /* Below are two options for amplitude envelope. */
-    kAmplitudeEnvelope madsr .005, .01, iAmplitude, .01, 0, (giSyncloopSamplerTemplateFileLength) ;Sample plays for note duration
-    ;kAmplitudeEnvelope linenr iAmplitude, .05, (giSyncloopSamplerTemplateFileLength * 1/iPitch), 1 ; Sample plays through entirely
+    iPitch = flexiblePitchInput(p5) / 261.6 ; Ratio of frequency to Middle C
+    kAmplitudeEnvelope madsr .005, .01, iAmplitude, .01, 0, (giSyncloopSamplerTemplateFileLength)
 
     /* MIDI Pitchbend */
     kPitchBend = 0
@@ -138,6 +132,19 @@ instr SyncloopSamplerTemplate
         aSyncloopSamplerTemplateR = aSyncloopSamplerTemplateR * kAmplitudeEnvelope
         aSyncloopSamplerTemplateR = aSyncloopSamplerTemplateL
     endif
+
+    print i(kGrainFrequency)
+    print i(kPitch)
+    print i(kGrainSize)
+    print i(kPointerRate)
+    print giSyncloopSamplerTemplateEndTime
+    print giSyncloopSamplerTemplateSampleTableL
+    print ienvelopeTable
+    print iMaxOverlaps
+
+    /*
+
+    */
 
     outleta "SyncloopSamplerTemplateOutL", aSyncloopSamplerTemplateL
     outleta "SyncloopSamplerTemplateOutR", aSyncloopSamplerTemplateR

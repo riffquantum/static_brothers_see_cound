@@ -1,6 +1,7 @@
 <CsoundSynthesizer>
     <CsOptions>
         -odac -m0
+        -B512 -b128
         ;-+rtmidi=virtual
     </CsOptions>
 
@@ -8,7 +9,7 @@
         #include "config/defaultConfig.orc"
         #include "config/defaultMidiAssignments.orc"
 
-        giBPM = 120
+        gkBPM init 100
 
         #include "opcodes/opcode-manifest.orc"
         #include "songs/thigpen/instruments/orchestra-manifest.orc"
@@ -24,10 +25,10 @@
 
               SparamString sprintfk {{ %f %f %f %f }}, iamplitude, iPitch, iStartTime, iEndTime
 
-              beatScoreline( "thigpen1", 0, 4, SparamString )
+              beatScorelineS( "Thigpen1", 0, 4, SparamString )
 
-              beatScoreline("TR606", 0, 1, {{ "kick" 1 1 0 }})
-              ;beatScoreline("kick", 0, 1, ".9")
+              beatScorelineS("TR606", 0, 1, {{ "kick" 1 1 0 }})
+              beatScorelineS("Kick", 0, 1, ".9")
 
             ;od
 

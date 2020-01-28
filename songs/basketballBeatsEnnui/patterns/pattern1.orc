@@ -1,67 +1,50 @@
+opcode randomVariation, i, 0
+  iVariation random -0.1, 0.1
+  xout iVariation
+endop
+
 instr pattern1
-  iPatternLength = p3 * giBPM/60
+  iPatternLength = p3 * i(gkBPM)/60
 
   iBeatsPerMeasure = 4
-  iMeasureCount = 0
-  until iMeasureCount * iBeatsPerMeasure >= iPatternLength do
-    iBaseTime = iMeasureCount*iBeatsPerMeasure
+  iMeasureIndex = 0
 
-    ;hats
-    beatScoreline("hiHat", iBaseTime, 1, ".75")
-    beatScoreline("hiHat", iBaseTime+0.5, 1, ".5")
-    beatScoreline("hiHat", iBaseTime+1, 1, ".75")
-    beatScoreline("hiHat", iBaseTime+1.5, 1, ".5")
-    beatScoreline("hiHat", iBaseTime+2, 1, ".75")
-    beatScoreline("hiHat", iBaseTime+2.5, 1, ".5")
-    beatScoreline("hiHat", iBaseTime+3, 1, ".75")
-    beatScoreline("hiHat", iBaseTime+3.5, 1, ".5")
+  until iMeasureIndex * iBeatsPerMeasure >= iPatternLength do
+    iBaseTime = iMeasureIndex*iBeatsPerMeasure
+    iMeasureCount = iMeasureIndex + 1
 
-    if (iMeasureCount + 1) % 4 == 0 then
-      beatScoreline("hiHat", iBaseTime+2.625, 1, ".25")
-      beatScoreline("hiHat", iBaseTime+2.75, 1, ".35")
-      beatScoreline("hiHat", iBaseTime+2.875, 1, ".45")
-    endif
-
-
-
-    ;kicks
-    beatScoreline("kick", iBaseTime, 1, ".5")
-    beatScoreline("kick", iBaseTime+0.25, 1, ".5")
-    beatScoreline("kick", iBaseTime+0.375, 1, ".15")
-
-    if (iMeasureCount + 1) % 4 != 3 then
-      beatScoreline("kick", iBaseTime+2.5, 1, ".5")
-    endif
-
-
-
-    ;snares
-    beatScoreline("snare", iBaseTime + 1, 1, "1")
-    beatScoreline("snare", iBaseTime + 3, 1, "1")
-    if (iMeasureCount + 1) % 4 == 0 then
-      beatScoreline("snare", iBaseTime + 1.75, 1, ".5")
-    endif
-
-    if (iMeasureCount + 1) % 4 == 2 then
-      beatScoreline("snare", iBaseTime + 2.25, 1, ".25")
-    endif
-
-    ;synth
-    if (iMeasureCount + 1) % 4 != 0 then
-      beatScoreline("BigRichSynth", iBaseTime, .75, "1 70")
-      beatScoreline("BigRichSynth", iBaseTime+1, 1, "1 80")
-      beatScoreline("BigRichSynth", iBaseTime+2, 2, "1 65")
+    beatScoreline "Kick", iBaseTime+0.0, 4, 4, .9
+    if iMeasureCount % 2 == 1 then
+      beatScoreline "Kick", iBaseTime+0.25, 4, 4, .9
+      beatScoreline "Kick", iBaseTime+1.5, 4, 5, .9
     else
-      beatScoreline("BigRichSynth", iBaseTime, 4, "1 60")
+      beatScoreline "Kick", iBaseTime+0.5, 4, 4, .9
+      beatScoreline "Kick", iBaseTime+1.75, 4, 5, .9
     endif
+    
 
-    if (iMeasureCount + 1) % 8 == 0 then
-      beatScoreline("BigRichSynth", iBaseTime, .25, "1 160")
-      beatScoreline("BigRichSynth", iBaseTime+.5, .25, "1 160")
-      beatScoreline("BigRichSynth", iBaseTime+1, .25, "1 165")
-      beatScoreline("BigRichSynth", iBaseTime+1.333, .75, "1 154")
+    beatScoreline "Kick", iBaseTime+2.5, 4, 5, .9
+
+    beatScoreline "Snare", iBaseTime+1, 4, 4, .09
+    beatScoreline "Snare", iBaseTime+3, 4, 4, 1.1
+    
+    if iMeasureCount % 4 != 0 then
+      if iMeasureCount % 2 == 1 then
+        beatScoreline "OpenHat", iBaseTime+0, 0.5, 2.3, 1
+      else
+        beatScoreline "HiHat", iBaseTime+0, 4, 2.3, 1
+      endif
+      beatScoreline "HiHat", iBaseTime+0.5, 3.5, 2.3, 1
+      beatScoreline "HiHat", iBaseTime+1, 4, 2.3, 1
+      beatScoreline "HiHat", iBaseTime+1.5, 3.5, 2.3, 1
+      beatScoreline "HiHat", iBaseTime+2, 4, 2.3, 1
+      beatScoreline "HiHat", iBaseTime+2.5, 3.5, 2.3, 1
+      beatScoreline "HiHat", iBaseTime+3, 4, 2.3, 1
+      beatScoreline "HiHat", iBaseTime+3.5, 3.5, 2.3, 1
+    else
+      beatScoreline "OpenHat", iBaseTime+0, 4, 2.3, 1
+      beatScoreline "Crash", iBaseTime+2, 4, 2.3, 0.8
     endif
-
-    iMeasureCount += 1
+    iMeasureIndex += 1
   od
 endin

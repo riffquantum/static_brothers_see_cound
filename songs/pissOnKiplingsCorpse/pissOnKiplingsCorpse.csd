@@ -8,7 +8,7 @@
         #include "config/defaultConfig.orc"
         #include "config/defaultMidiAssignments.orc"
 
-        giBPM = 170
+        gkBPM init 170
 
         #include "opcodes/opcode-manifest.orc"
         #include "instruments/orchestra-manifest.orc"
@@ -16,116 +16,116 @@
         #include "patterns/sixteenthHats606.orc"
 
         instr pattern1
-            itablaFactor = giBPM / 149.5
+            itablaFactor = i(gkBPM) / 149.5
 
             SsampleString sprintfk {{ "tablasitarloop1.wav" %f 0}}, itablaFactor
 
-            beatScoreline( "generalSamplerDiskin", 0, 8, SsampleString )
+            beatScorelineS( "generalSamplerDiskin", 0, 8, SsampleString )
         endin
 
         instr breakbeatPattern
-            beatScoreline( "TR808", 0, 2, {{ "KickDrum5" 1 1 0 0 0}} )
-            beatScoreline( "TR808", 1.5, 1, {{ "KickDrum5" 1 1 0 0 0}} )
-            beatScoreline( "TR808", 2, 2, {{ "KickDrum5" 1 1 0 0 0}} )
+            beatScorelineS( "TR808", 0, 2, {{ "KickDrum5" 1 1 0 0 0}} )
+            beatScorelineS( "TR808", 1.5, 1, {{ "KickDrum5" 1 1 0 0 0}} )
+            beatScorelineS( "TR808", 2, 2, {{ "KickDrum5" 1 1 0 0 0}} )
 
 
-            beatScoreline( "funkyDrummerBreakDiskin", 0, 2, {{ 4 }} )
-            beatScoreline( "funkyDrummerBreakDiskin", 2, 2, {{ 10 }} )
-            beatScoreline( "funkyDrummerBreakDiskin", 4, 3, {{ 4 }} )
-            beatScoreline( "funkyDrummerBreakDiskin", 7, 1, {{ 11 }} )
+            beatScorelineS( "funkyDrummerBreakDiskin", 0, 2, {{ 4 }} )
+            beatScorelineS( "funkyDrummerBreakDiskin", 2, 2, {{ 10 }} )
+            beatScorelineS( "funkyDrummerBreakDiskin", 4, 3, {{ 4 }} )
+            beatScorelineS( "funkyDrummerBreakDiskin", 7, 1, {{ 11 }} )
 
-            beatScoreline( "AmenBreakDiskin", 0, 8, {{ 4 }} )
+            beatScorelineS( "AmenBreakDiskin", 0, 8, {{ 4 }} )
         endin
 
         instr breakbeatPattern2
-            beatScoreline( "TR808", 0, 2, {{ "KickDrum5" 1 1 0 0 0}} )
-            beatScoreline( "TR808", 1.5, 1, {{ "KickDrum5" 1 1 0 0 0}} )
-            beatScoreline( "TR808", 2, 2, {{ "KickDrum5" 1 1 0 0 0}} )
-            beatScoreline( "TR808", 6.5, 2, {{ "KickDrum5" 1 1 0 0 0}} )
-            beatScoreline( "funkyDrummerBreakDiskin", 0, 2, {{ 4 }} )
-            beatScoreline( "funkyDrummerBreakDiskin", 2, 2, {{ 1 }} )
-            beatScoreline( "funkyDrummerBreakDiskin", 4, 3, {{ 4 }} )
-            beatScoreline( "funkyDrummerBreakDiskin", 7, 1, {{ 11 }} )
+            beatScorelineS( "TR808", 0, 2, {{ "KickDrum5" 1 1 0 0 0}} )
+            beatScorelineS( "TR808", 1.5, 1, {{ "KickDrum5" 1 1 0 0 0}} )
+            beatScorelineS( "TR808", 2, 2, {{ "KickDrum5" 1 1 0 0 0}} )
+            beatScorelineS( "TR808", 6.5, 2, {{ "KickDrum5" 1 1 0 0 0}} )
+            beatScorelineS( "funkyDrummerBreakDiskin", 0, 2, {{ 4 }} )
+            beatScorelineS( "funkyDrummerBreakDiskin", 2, 2, {{ 1 }} )
+            beatScorelineS( "funkyDrummerBreakDiskin", 4, 3, {{ 4 }} )
+            beatScorelineS( "funkyDrummerBreakDiskin", 7, 1, {{ 11 }} )
 
 
-            ;beatScoreline( "AmenBreakDiskin", 0, 8, {{ 4 }} )
+            ;beatScorelineS( "AmenBreakDiskin", 0, 8, {{ 4 }} )
         endin
 
         instr breakbeatPattern3
-            beatScoreline( "TR808", 0, 2, {{ "KickDrum5" 1 1 0 0 0}} )
-            beatScoreline( "TR808", 1.5, 1, {{ "KickDrum5" 1 1 0 0 0}} )
-            beatScoreline( "TR808", 2, 2, {{ "KickDrum5" 1 1 0 0 0}} )
+            beatScorelineS( "TR808", 0, 2, {{ "KickDrum5" 1 1 0 0 0}} )
+            beatScorelineS( "TR808", 1.5, 1, {{ "KickDrum5" 1 1 0 0 0}} )
+            beatScorelineS( "TR808", 2, 2, {{ "KickDrum5" 1 1 0 0 0}} )
 
 
-            beatScoreline( "funkyDrummerBreakDiskin", 0, .25, {{ 4 }} )
-            beatScoreline( "funkyDrummerBreakDiskin", .25, 1, {{ 4 }} )
+            beatScorelineS( "funkyDrummerBreakDiskin", 0, .25, {{ 4 }} )
+            beatScorelineS( "funkyDrummerBreakDiskin", .25, 1, {{ 4 }} )
 
-            beatScoreline( "funkyDrummerBreakDiskin", .25, .25, {{ .5 }} )
-            beatScoreline( "funkyDrummerBreakDiskin", .5, 1.5,
+            beatScorelineS( "funkyDrummerBreakDiskin", .25, .25, {{ .5 }} )
+            beatScorelineS( "funkyDrummerBreakDiskin", .5, 1.5,
                 {{ .25 }} )
 
 
-            beatScoreline( "funkyDrummerBreakDiskin", 2, 2, {{ 1 }} )
-            beatScoreline( "funkyDrummerBreakDiskin", 4, 2, {{ .5 }} )
-            beatScoreline( "funkyDrummerBreakDiskin", 6, 2, {{ .5 }} )
+            beatScorelineS( "funkyDrummerBreakDiskin", 2, 2, {{ 1 }} )
+            beatScorelineS( "funkyDrummerBreakDiskin", 4, 2, {{ .5 }} )
+            beatScorelineS( "funkyDrummerBreakDiskin", 6, 2, {{ .5 }} )
 
-            ;beatScoreline( "AmenBreakDiskin", 0, 8, {{ 4 }} )
+            ;beatScorelineS( "AmenBreakDiskin", 0, 8, {{ 4 }} )
         endin
 
         instr breakbeatPattern4
-            beatScoreline( "TR808", 0, 2, {{ "KickDrum5" 1 1 0 0 0}} )
-            ;beatScoreline( "TR808", 1.5, 1, {{ "KickDrum5" 1 2 0 0 0}} )
-            beatScoreline( "TR808", 2.5, 2, {{ "KickDrum5" 1 1 0 0 0}} )
+            beatScorelineS( "TR808", 0, 2, {{ "KickDrum5" 1 1 0 0 0}} )
+            ;beatScorelineS( "TR808", 1.5, 1, {{ "KickDrum5" 1 2 0 0 0}} )
+            beatScorelineS( "TR808", 2.5, 2, {{ "KickDrum5" 1 1 0 0 0}} )
 
-            beatScoreline( "TR808", 4, 2, {{ "KickDrum5" 1 1 0 0 0}} )
-            beatScoreline( "TR808", 6.5, 1.5, {{ "KickDrum5" 1.3 1 0 0 0}} )
-            beatScoreline( "TR808", 6.75, 2, {{ "KickDrum5" 1.2 1.2 0 0 0}} )
+            beatScorelineS( "TR808", 4, 2, {{ "KickDrum5" 1 1 0 0 0}} )
+            beatScorelineS( "TR808", 6.5, 1.5, {{ "KickDrum5" 1.3 1 0 0 0}} )
+            beatScorelineS( "TR808", 6.75, 2, {{ "KickDrum5" 1.2 1.2 0 0 0}} )
 
-            beatScoreline( "funkyDrummerBreakDiskin", 1, .55, {{ .5 }} )
-            beatScoreline( "funkyDrummerBreakDiskin", 3, .55, {{ .5 }} )
+            beatScorelineS( "funkyDrummerBreakDiskin", 1, .55, {{ .5 }} )
+            beatScorelineS( "funkyDrummerBreakDiskin", 3, .55, {{ .5 }} )
 
-            beatScoreline( "funkyDrummerBreakDiskin", 5, .55, {{ .5 }} )
-            beatScoreline( "funkyDrummerBreakDiskin", 7, .55, {{ .5 }} )
+            beatScorelineS( "funkyDrummerBreakDiskin", 5, .55, {{ .5 }} )
+            beatScorelineS( "funkyDrummerBreakDiskin", 7, .55, {{ .5 }} )
 
 
-            beatScoreline( "TR606", .5, .3, {{ "ClosedHat" 1 1 0 0 0 }})
-            beatScoreline( "TR606", 1.5, .3, {{ "ClosedHat" 1 1 0 0 0 }})
-            beatScoreline( "TR606", 2.5, .3, {{ "ClosedHat" 1 1 0 0 0 }})
-            beatScoreline( "TR606", 3.5, .3, {{ "ClosedHat" 1 1 0 0 0 }})
-            beatScoreline( "TR606", 4.5, .3, {{ "ClosedHat" 1 1 0 0 0 }})
-            beatScoreline( "TR606", 5.5, .3, {{ "ClosedHat" 1 1 0 0 0 }})
-            beatScoreline( "TR606", 6, .3, {{ "ClosedHat" 1 1 0 0 0 }})
-            beatScoreline( "TR606", 6.5, .3, {{ "ClosedHat" 1 1 0 0 0 }})
-            ;beatScoreline( "TR606", 7, .3, {{ "ClosedHat" 1 1 0 0 0 }})
-            ;beatScoreline( "TR606", 7.25, .3, {{ "ClosedHat" 1 1 0 0 0 }})
-            beatScoreline( "TR606", 7.5, .3, {{ "ClosedHat" 1 1 0 0 0 }})
+            beatScorelineS( "TR606", .5, .3, {{ "ClosedHat" 1 1 0 0 0 }})
+            beatScorelineS( "TR606", 1.5, .3, {{ "ClosedHat" 1 1 0 0 0 }})
+            beatScorelineS( "TR606", 2.5, .3, {{ "ClosedHat" 1 1 0 0 0 }})
+            beatScorelineS( "TR606", 3.5, .3, {{ "ClosedHat" 1 1 0 0 0 }})
+            beatScorelineS( "TR606", 4.5, .3, {{ "ClosedHat" 1 1 0 0 0 }})
+            beatScorelineS( "TR606", 5.5, .3, {{ "ClosedHat" 1 1 0 0 0 }})
+            beatScorelineS( "TR606", 6, .3, {{ "ClosedHat" 1 1 0 0 0 }})
+            beatScorelineS( "TR606", 6.5, .3, {{ "ClosedHat" 1 1 0 0 0 }})
+            ;beatScorelineS( "TR606", 7, .3, {{ "ClosedHat" 1 1 0 0 0 }})
+            ;beatScorelineS( "TR606", 7.25, .3, {{ "ClosedHat" 1 1 0 0 0 }})
+            beatScorelineS( "TR606", 7.5, .3, {{ "ClosedHat" 1 1 0 0 0 }})
 
 
         endin
 
         instr pattern2
-            itablaFactor = giBPM / 146
+            itablaFactor = i(gkBPM) / 146
 
             SsampleString sprintfk {{ "tablaloop2.wav" %f 0}}, itablaFactor
 
-            beatScoreline( "generalSamplerDiskin", 0, 16, SsampleString )
+            beatScorelineS( "generalSamplerDiskin", 0, 16, SsampleString )
         endin
 
         instr pattern3
-            itablaFactor = giBPM / 146
+            itablaFactor = i(gkBPM) / 146
 
             SsampleString sprintfk {{ "tablarasaranga2.wav" %f 0}}, itablaFactor
 
-            beatScoreline( "generalSamplerDiskin", 0, 8, SsampleString )
+            beatScorelineS( "generalSamplerDiskin", 0, 8, SsampleString )
         endin
 
         instr pattern4
-            itablaFactor = giBPM / 153
+            itablaFactor = i(gkBPM) / 153
             itablaSkipTime = p4
 
             SsampleString sprintfk {{ "tablabreakdown.wav" %f %f}}, itablaFactor, itablaSkipTime
 
-            beatScoreline( "generalSamplerDiskin", 0, 8, SsampleString )
+            beatScorelineS( "generalSamplerDiskin", 0, 8, SsampleString )
         endin
 
 

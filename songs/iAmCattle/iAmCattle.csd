@@ -9,55 +9,55 @@
     #include "config/defaultConfig.orc"
     #include "config/defaultMidiAssignments.orc"
 
-    giBPM = 100
+    gkBPM init 100
 
     #include "opcodes/opcode-manifest.orc"
     #include "songs/iAmCattle/instruments/orchestra-manifest.orc"
 
     instr pattern1
       /*
-      beatScoreline( "walkInTheSoftRainSampleDiskin", 0, 3.3, {{ 8.2 1 }} )
-      beatScoreline( "funkyDrummerBreakDiskin", 0, 2, {{ 4 0 }})
-        beatScoreline( "funkyDrummerBreakDiskin", 2, .5, {{ 5 0 }})
-        beatScoreline( "funkyDrummerBreakDiskin", 2.5, .5, {{ 5 0 }})
-      beatScoreline( "TR808", 1, 2, {{ "KickDrum5" 1 1 0 0 0 }})
-      beatScoreline( "TR808", 2, 2, {{ "KickDrum5" 1 1 0 0 0 }})
-      beatScoreline( "TR808", 3, 2, {{ "KickDrum5" 1 1 0 0 0 }})
-      beatScoreline( "TR808", 0, 2, {{ "KickDrum5" 1 1 0 0 0 }})
+      beatScorelineS( "walkInTheSoftRainSampleDiskin", 0, 3.3, {{ 8.2 1 }} )
+      beatScorelineS( "funkyDrummerBreakDiskin", 0, 2, {{ 4 0 }})
+        beatScorelineS( "funkyDrummerBreakDiskin", 2, .5, {{ 5 0 }})
+        beatScorelineS( "funkyDrummerBreakDiskin", 2.5, .5, {{ 5 0 }})
+      beatScorelineS( "TR808", 1, 2, {{ "KickDrum5" 1 1 0 0 0 }})
+      beatScorelineS( "TR808", 2, 2, {{ "KickDrum5" 1 1 0 0 0 }})
+      beatScorelineS( "TR808", 3, 2, {{ "KickDrum5" 1 1 0 0 0 }})
+      beatScorelineS( "TR808", 0, 2, {{ "KickDrum5" 1 1 0 0 0 }})
       */
-        beatScoreline( "funkyDrummerBreakDiskin", 0, 1, {{ .5 0 }})
-        beatScoreline( "funkyDrummerBreakDiskin", 0, .75, {{ 4 0 }})
+        beatScorelineS( "funkyDrummerBreakDiskin", 0, 1, {{ .5 0 }})
+        beatScorelineS( "funkyDrummerBreakDiskin", 0, .75, {{ 4 0 }})
 
-        beatScoreline( "funkyDrummerBreakDiskin", 1, 1, {{ 2 0 }})
-        beatScoreline( "funkyDrummerBreakDiskin", 1, .75, {{ 5 0 }})
+        beatScorelineS( "funkyDrummerBreakDiskin", 1, 1, {{ 2 0 }})
+        beatScorelineS( "funkyDrummerBreakDiskin", 1, .75, {{ 5 0 }})
 
-        beatScoreline( "funkyDrummerBreakDiskin", 2, 1, {{ 3 0 }})
-        beatScoreline( "funkyDrummerBreakDiskin", 2, .75, {{ 5 0 }})
+        beatScorelineS( "funkyDrummerBreakDiskin", 2, 1, {{ 3 0 }})
+        beatScorelineS( "funkyDrummerBreakDiskin", 2, .75, {{ 5 0 }})
 
-        beatScoreline( "funkyDrummerBreakDiskin", 3, 1, {{ 1.5 0 }})
-        beatScoreline( "funkyDrummerBreakDiskin", 3, .75, {{ 4 0 }})
-      beatScoreline( "walkInTheSoftRainSampleDiskin", 0, 3, {{ 32 1 }} )
-      ;beatScoreline( "handInTheHandBreakDiskin", 0, 1, {{ 2 1 }} )
-      ;beatScoreline( "handInTheHandBreakDiskin", 1, 2, {{ 0 0 }} )
+        beatScorelineS( "funkyDrummerBreakDiskin", 3, 1, {{ 1.5 0 }})
+        beatScorelineS( "funkyDrummerBreakDiskin", 3, .75, {{ 4 0 }})
+      beatScorelineS( "walkInTheSoftRainSampleDiskin", 0, 3, {{ 32 1 }} )
+      ;beatScorelineS( "handInTheHandBreakDiskin", 0, 1, {{ 2 1 }} )
+      ;beatScorelineS( "handInTheHandBreakDiskin", 1, 2, {{ 0 0 }} )
     endin
 
     instr pattern2
-      beatScoreline( "walkInTheSoftRainSampleDiskin", 0, 4, {{ 4.2 0 }} )
-      beatScoreline( "TR808", 0, 2, {{ "KickDrum5" 1 1 0 0 0 }})
-      beatScoreline( "TR808", 1, 2, {{ "KickDrum5" 1 1 0 0 0 }})
-      beatScoreline( "TR808", 2, 2, {{ "KickDrum5" 1 1 0 0 0 }})
-      beatScoreline( "TR808", 3, 2, {{ "KickDrum5" 1 1 0 0 0 }})
+      beatScorelineS( "walkInTheSoftRainSampleDiskin", 0, 4, {{ 4.2 0 }} )
+      beatScorelineS( "TR808", 0, 2, {{ "KickDrum5" 1 1 0 0 0 }})
+      beatScorelineS( "TR808", 1, 2, {{ "KickDrum5" 1 1 0 0 0 }})
+      beatScorelineS( "TR808", 2, 2, {{ "KickDrum5" 1 1 0 0 0 }})
+      beatScorelineS( "TR808", 3, 2, {{ "KickDrum5" 1 1 0 0 0 }})
       /*
-      beatScoreline( "funkyDrummerBreakDiskin", 0, 2, {{ 4 0 }})
-        beatScoreline( "funkyDrummerBreakDiskin", 2, .5, {{ 5 0 }})
+      beatScorelineS( "funkyDrummerBreakDiskin", 0, 2, {{ 4 0 }})
+        beatScorelineS( "funkyDrummerBreakDiskin", 2, .5, {{ 5 0 }})
       */
-        beatScoreline( "funkyDrummerBreakDiskin", 2.5, .5, {{ 5 0 }})
-        beatScoreline( "funkyDrummerBreakDiskin", 3, 1, {{ 1.5 0 }})
-        beatScoreline( "funkyDrummerBreakDiskin", 3, 1, {{ 5 0 }})
-      ;beatScoreline( "walkInTheSoftRainSampleDiskin", 0, 3, {{ 32 1 }} )
-      beatScoreline( "handInTheHandBreakDiskin", 0, 1, {{ 2 1 }} )
-      beatScoreline( "handInTheHandBreakDiskin", 1, 2, {{ 0 0 }} )
-      ;beatScoreline( "handInTheHandBreakDiskin", 0, 8, {{ 0 0 }} )
+        beatScorelineS( "funkyDrummerBreakDiskin", 2.5, .5, {{ 5 0 }})
+        beatScorelineS( "funkyDrummerBreakDiskin", 3, 1, {{ 1.5 0 }})
+        beatScorelineS( "funkyDrummerBreakDiskin", 3, 1, {{ 5 0 }})
+      ;beatScorelineS( "walkInTheSoftRainSampleDiskin", 0, 3, {{ 32 1 }} )
+      beatScorelineS( "handInTheHandBreakDiskin", 0, 1, {{ 2 1 }} )
+      beatScorelineS( "handInTheHandBreakDiskin", 1, 2, {{ 0 0 }} )
+      ;beatScorelineS( "handInTheHandBreakDiskin", 0, 8, {{ 0 0 }} )
     endin
 
   </CsInstruments>

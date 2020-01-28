@@ -26,7 +26,7 @@ giInTimeSyncloopSamplerTemplateFxSpeedAdjustmentControl = 5
 massign giInTimeSyncloopSamplerTemplateMidiChannel, "InTimeSyncloopSamplerTemplate"
 
 /* Sound File Data */
-gSInTimeSyncloopSamplerTemplatesampleFilePath = "instruments/breakBeatInstruments/amenBreak/amen-break.wav"
+gSInTimeSyncloopSamplerTemplatesampleFilePath = "instruments/breakBeatInstruments/amen-break.wav"
 giInTimeSyncloopSamplerTemplateSampleNumberOfBeats = 16
 giInTimeSyncloopSamplerTemplateFileNumChannels filenchnls gSInTimeSyncloopSamplerTemplatesampleFilePath
 giInTimeSyncloopSamplerTemplateFileLength filelen gSInTimeSyncloopSamplerTemplatesampleFilePath
@@ -35,7 +35,7 @@ giInTimeSyncloopSamplerTemplateStartTime = 0
 giInTimeSyncloopSamplerTemplateEndTime = giInTimeSyncloopSamplerTemplateFileLength
 giInTimeSyncloopSamplerTemplateLengthOfOneBeat = giInTimeSyncloopSamplerTemplateFileLength / giInTimeSyncloopSamplerTemplateSampleNumberOfBeats
 giInTimeSyncloopSamplerTemplateBPM = 60 / giInTimeSyncloopSamplerTemplateLengthOfOneBeat
-giInTimeSyncloopSamplerTemplateFactor = giBPM / giInTimeSyncloopSamplerTemplateBPM
+giInTimeSyncloopSamplerTemplateFactor = i(gkBPM) / giInTimeSyncloopSamplerTemplateBPM
 
 if giInTimeSyncloopSamplerTemplateFileNumChannels == 2 then
     giInTimeSyncloopSamplerTemplateSampleTableL ftgenonce 0, 0, 0, 1, gSInTimeSyncloopSamplerTemplatesampleFilePath, giInTimeSyncloopSamplerTemplateStartTime, 0, 1
@@ -71,11 +71,8 @@ endin
 
 instr InTimeSyncloopSamplerTemplate
     iAmplitude flexibleAmplitudeInput p4
-
     iPitch flexiblePitchInput p5
-
     iPitch = iPitch / 261.6 ; Ratio of frequency to Middle C
-
     /* Below are two options for amplitude envelope. */
     kAmplitudeEnvelope madsr .005, .01, iAmplitude, .01, 0, (giInTimeSyncloopSamplerTemplateFileLength) ;Sample plays for note duration
     ;kAmplitudeEnvelope linenr iAmplitude, .05, (giInTimeSyncloopSamplerTemplateFileLength * 1/iPitch), 1 ; Sample plays through entirely
@@ -114,7 +111,7 @@ instr InTimeSyncloopSamplerTemplate
 
     /* Syncloop Params */
     ienvelopeTable ftgenonce 2, 0, 16384, 9, 0.5, 1, 0 ; HALF A SINE WAVE
-    iMaxOverlaps = 50
+    iMaxOverlaps = 5
     kGrainSizeInMiliseconds = kInTimeSyncloopSamplerTemplateHold
     kGrainSize = kGrainSizeInMiliseconds/1000
     kWaveSpacingOscillator oscil (kInTimeSyncloopSamplerTemplateFxDepth)/100*3, kInTimeSyncloopSamplerTemplateFxSpeed
@@ -128,20 +125,31 @@ instr InTimeSyncloopSamplerTemplate
     endif
 
     kInTimeSyncloopSamplerTemplateWaveSpacing = (kInTimeSyncloopSamplerTemplateWaveSpacing / 34)^3 + kWaveSpacingOscillator
-    kPointerRate = (1/iMaxOverlaps) * kInTimeSyncloopSamplerTemplateWaveSpacing
+    kPointerRate = (1/iMaxOverlaps) * kInTimeSyncloopSamplerTemplateWaveSpacing * giInTimeSyncloopSamplerTemplateFactor
 
     /* Synthesis and Output */
     if giInTimeSyncloopSamplerTemplateFileNumChannels == 2 then
-        aInTimeSyncloopSamplerTemplateL syncloop 1, kGrainFrequency, kPitch, kGrainSize, kPointerRate * giInTimeSyncloopSamplerTemplateFactor, 0, giInTimeSyncloopSamplerTemplateEndTime, giInTimeSyncloopSamplerTemplateSampleTableL, ienvelopeTable, iMaxOverlaps
-        aInTimeSyncloopSamplerTemplateR syncloop 1, kGrainFrequency, kPitch, kGrainSize, kPointerRate * giInTimeSyncloopSamplerTemplateFactor, 0, giInTimeSyncloopSamplerTemplateEndTime, giInTimeSyncloopSamplerTemplateSampleTableR, ienvelopeTable, iMaxOverlaps
+        aInTimeSyncloopSamplerTemplateL syncloop 1, kGrainFrequency, kPitch, kGrainSize, kPointerRate, 0, giInTimeSyncloopSamplerTemplateEndTime, giInTimeSyncloopSamplerTemplateSampleTableL, ienvelopeTable, iMaxOverlaps
+        aInTimeSyncloopSamplerTemplateR syncloop 1, kGrainFrequency, kPitch, kGrainSize, kPointerRate, 0, giInTimeSyncloopSamplerTemplateEndTime, giInTimeSyncloopSamplerTemplateSampleTableR, ienvelopeTable, iMaxOverlaps
 
-        aInTimeSyncloopSamplerTemplateL = aInTimeSyncloopSamplerTemplateL * kAmplitudeEnvelope
-        aInTimeSyncloopSamplerTemplateR = aInTimeSyncloopSamplerTemplateR * kAmplitudeEnvelope
     else
-        aInTimeSyncloopSamplerTemplateL syncloop 1, kGrainFrequency, kPitch, kGrainSize, kPointerRate * giInTimeSyncloopSamplerTemplateFactor, 0, giInTimeSyncloopSamplerTemplateEndTime, giInTimeSyncloopSamplerTemplateSampleTable, ienvelopeTable, iMaxOverlaps
-        aInTimeSyncloopSamplerTemplateR = aInTimeSyncloopSamplerTemplateR * kAmplitudeEnvelope
+        aInTimeSyncloopSamplerTemplateL syncloop 1, kGrainFrequency, kPitch, kGrainSize, kPointerRate, 0, giInTimeSyncloopSamplerTemplateEndTime, giInTimeSyncloopSamplerTemplateSampleTable, ienvelopeTable, iMaxOverlaps
+
         aInTimeSyncloopSamplerTemplateR = aInTimeSyncloopSamplerTemplateL
     endif
+
+    aInTimeSyncloopSamplerTemplateL = aInTimeSyncloopSamplerTemplateL * kAmplitudeEnvelope
+    aInTimeSyncloopSamplerTemplateR = aInTimeSyncloopSamplerTemplateR * kAmplitudeEnvelope
+
+    print i(kGrainFrequency)
+    print i(kPitch)
+      print i(kGrainSize)
+      print i(kPointerRate)
+    print giInTimeSyncloopSamplerTemplateEndTime
+    print giInTimeSyncloopSamplerTemplateSampleTable
+    print ienvelopeTable
+    print iMaxOverlaps
+
 
     outleta "InTimeSyncloopSamplerTemplateOutL", aInTimeSyncloopSamplerTemplateL
     outleta "InTimeSyncloopSamplerTemplateOutR", aInTimeSyncloopSamplerTemplateR

@@ -1,80 +1,79 @@
-; hiHat
+; HiHat
+gSHiHatName = "HiHat"
+gSHiHatRoute = "Mixer"
+instrumentRoute gSHiHatName, gSHiHatRoute
 
-gShiHatSynthName = "hiHatSynth"
-gShiHatSynthRoute = "Mixer"
-instrumentRoute gShiHatSynthName, gShiHatSynthRoute
+alwayson "HiHatMixerChannel"
 
-alwayson "hiHatMixerChannel"
+gkHiHatEqBass init 1
+gkHiHatEqMid init 1
+gkHiHatEqHigh init 1
+gkHiHatFader init 1
+gkHiHatPan init 50
 
-gkhiHatEqBass init 1
-gkhiHatEqMid init 1
-gkhiHatEqHigh init 1
-gkhiHatFader init 1
-gkhiHatPan init 50
+gSHiHatSamplePath = "songs/basketballBeatsEnnui/samples/VA2105_hh.wav"
 
-instr hiHat
-    kAmp = p4
-    kpitch init 1
-    iSkipTime init 0
-    iwraparound init 0
-    iformat init 0
-    iskipinit init 0
+giHiHatSample ftgen 0, 0, 0, 1, gSHiHatSamplePath, 0, 0, 0
 
-    SsampleFilePath = "songs/basketballBeatsEnnui/samples/VA2105_hh.wav"
 
-    ahiHat diskin SsampleFilePath, kpitch, iSkipTime, iwraparound, iformat, iskipinit
+instr HiHat
+  iAmplitude = p4
+  kPitch = p5 == 0 ? 1 : p5
+  kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0
 
-    kres   rms (ahiHat * kAmp)
-    ahiHat gain ahiHat, kres
+  aHiHatOut loscil kAmplitudeEnvelope, kPitch, giHiHatSample, 1
 
-    outleta "hiHatOutL", ahiHat
-    outleta "hiHatOutR", ahiHat
+  outleta "HiHatOutL", aHiHatOut
+  outleta "HiHatOutR", aHiHatOut
 endin
 
-instr hiHatBassKnob
-    gkhiHatEqBass linseg p4, p3, p5
+instr HiHatBassKnob
+    gkHiHatEqBass linseg p4, p3, p5
 endin
 
-instr hiHatMidKnob
-    gkhiHatEqMid linseg p4, p3, p5
+instr HiHatMidKnob
+    gkHiHatEqMid linseg p4, p3, p5
 endin
 
-instr hiHatHighKnob
-    gkhiHatEqHigh linseg p4, p3, p5
+instr HiHatHighKnob
+    gkHiHatEqHigh linseg p4, p3, p5
 endin
 
-instr hiHatFader
-    gkhiHatFader linseg p4, p3, p5
+instr HiHatFader
+    gkHiHatFader linseg p4, p3, p5
 endin
 
-instr hiHatPan
-    gkhiHatPan linseg p4, p3, p5
+instr HiHatPan
+    gkHiHatPan linseg p4, p3, p5
 endin
 
-instr hiHatMixerChannel
-    ahiHatL inleta "hiHatInL"
-    ahiHatR inleta "hiHatInR"
+instr HiHatMixerChannel
+    aHiHatL inleta "HiHatInL"
+    aHiHatR inleta "HiHatInR"
 
     kpanvalue linseg 0, 1, 100
 
-    khiHatFader = gkhiHatFader
-    khiHatPan = gkhiHatPan
-    khiHatEqBass = gkhiHatEqBass
-    khiHatEqMid = gkhiHatEqMid
-    khiHatEqHigh = gkhiHatEqHigh
+    kHiHatFader = gkHiHatFader
+    kHiHatPan = gkHiHatPan
+    kHiHatEqBass = gkHiHatEqBass
+    kHiHatEqMid = gkHiHatEqMid
+    kHiHatEqHigh = gkHiHatEqHigh
 
-    ahiHatL, ahiHatR threeBandEqStereo ahiHatL, ahiHatR, khiHatEqBass, khiHatEqMid, khiHatEqHigh
+    aHiHatL, aHiHatR threeBandEqStereo aHiHatL, aHiHatR, kHiHatEqBass, kHiHatEqMid, kHiHatEqHigh
 
-    if khiHatPan > 100 then
-        khiHatPan = 100
-    elseif khiHatPan < 0 then
-        khiHatPan = 0
+    if kHiHatPan > 100 then
+        kHiHatPan = 100
+    elseif kHiHatPan < 0 then
+        kHiHatPan = 0
     endif
 
-    ahiHatL = (ahiHatL * ((100 - khiHatPan) * 2 / 100)) * khiHatFader
-    ahiHatR = (ahiHatR * (khiHatPan * 2 / 100)) * khiHatFader
+    ;aHiHatL distort1 aHiHatL, 2, 1, .01, .01
+    ;aHiHatR distort1 aHiHatR, 2, 1, .01, .01
 
-    outleta "hiHatOutL", ahiHatL
-    outleta "hiHatOutR", ahiHatR
+    aHiHatL = (aHiHatL * ((100 - kHiHatPan) * 2 / 100)) * kHiHatFader
+    aHiHatR = (aHiHatR * (kHiHatPan * 2 / 100)) * kHiHatFader
+
+    outleta "HiHatOutL", aHiHatL
+    outleta "HiHatOutR", aHiHatR
 
 endin

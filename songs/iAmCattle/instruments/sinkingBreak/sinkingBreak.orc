@@ -39,7 +39,7 @@ instr sinkingBreakDiskin
     iBreakLength = gisinkingBreakSegmentLengths[iBreakSegment]
 
 
-    isinkingFactor = giBPM / isinkingBreakBPM
+    isinkingFactor = i(gkBPM) / isinkingBreakBPM
     kpitch = isinkingFactor
 
     iSkipTime = iFileLength / iBreakLength * iSkipTimeInBeats
@@ -62,7 +62,7 @@ instr sinkingBreakDiskgrain
     iFileLength filelen SsinkingFilePath
     isinkingBreakBPM = gisinkingBreakSegmentBPMs[iBreakSegment]
     iBreakLength = gisinkingBreakSegmentLengths[iBreakSegment]
-    isinkingFactor = giBPM / isinkingBreakBPM
+    isinkingFactor = i(gkBPM) / isinkingBreakBPM
 
     iTable ftgenonce 0, 0, 8192, 20, 2, 1
     kamplitude = p4
@@ -91,7 +91,7 @@ instr sinkingBreakSndwarp
     iFileLength filelen SsinkingFilePath
     isinkingBreakBPM = gisinkingBreakSegmentBPMs[iBreakSegment]
     iBreakLength = gisinkingBreakSegmentLengths[iBreakSegment]
-    isinkingFactor = giBPM / isinkingBreakBPM
+    isinkingFactor = i(gkBPM) / isinkingBreakBPM
 
     kamplitude = p4
     ktimewarp = p5 * (1/isinkingFactor)

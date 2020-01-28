@@ -4,7 +4,7 @@ giMidiNoteInterruptList[] init 128
 giTestNotes[] init 30
 giTriggerDecayTimes[] init 128
 
-giCurrentSong = 0
+giCurrentSong = 1
 giDoubleKickOn = 1
 giHatClutchIsOpen = 1
 
@@ -19,8 +19,16 @@ instr MidiRouter
     iNoteNumber = giTestNotes[iNoteNumber]
   endif
 
+  if kstatus == 144 && iNoteVelocity == 0 then
+    kstatus = 128
+  endif
+
   ; Check trigger buffer to prevent extra notes from acoustic drum triggers
   iTriggerBuffer triggerBuffer iNoteNumber, iNoteVelocity, giTriggerDecayTimes[iNoteNumber]
+
+  ;print giTriggerDecayTimes[iNoteNumber]
+  ;print iTriggerBuffer
+
   if iTriggerBuffer == 0 then
     goto skipNote
   endif

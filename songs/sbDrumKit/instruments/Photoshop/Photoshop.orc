@@ -22,8 +22,8 @@ giPhotoshopSampleTable ftgenonce 0, 0, giPhotoshopSampleLength, 1, gSPhotoshopFi
 giPhotoshopEnvelopeTable ftgenonce 2, 0, 16384, 9, 0.5, 1, 0
 
 instr Photoshop
-    iFrequency = flexiblePitchInput(p5) / 261.6 ; Ratio of frequency to Middle C
     kAmplitudeEnvelope madsr .005, .01, flexibleAmplitudeInput(p4), 1.7
+    iFrequency = flexiblePitchInput(p5) / 261.6 ; Ratio of frequency to Middle C
     iGrainAmplitude = 1
     iTimeStretch = 1
     iStartTime = 0

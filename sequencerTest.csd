@@ -8,7 +8,7 @@
       #include "config/defaultConfig.orc"
       #include "config/defaultMidiAssignments.orc"
 
-      giBPM = 80
+      gkBPM init 80
 
       #include "opcodes/opcode-manifest.orc"
       #include "instruments/orchestra-manifest.orc"
@@ -18,12 +18,12 @@
           iStartTime = 0
 
           until iStartTime == 4 do
-              beatScoreline( "LinnDrum", iStartTime, 1, {{ "kick" 1 1 0}} )
-              beatScoreline( "LinnDrum", iStartTime, .5, {{ "HatClosed2" 1 .5 0}} )
-              beatScoreline( "LinnDrum", iStartTime + .5, .5, {{ "HatClosed2" 1 .5 0}} )
+              beatScorelineS( "LinnDrum", iStartTime, 1, {{ "kick" 1 1 0}} )
+              beatScorelineS( "LinnDrum", iStartTime, .5, {{ "HatClosed2" 1 .5 0}} )
+              beatScorelineS( "LinnDrum", iStartTime + .5, .5, {{ "HatClosed2" 1 .5 0}} )
 
               if(iStartTime % 2 == 1) then
-                  beatScoreline( "LinnDrum", iStartTime, .5, {{ "Snare5" 1 .5 0}} )
+                  beatScorelineS( "LinnDrum", iStartTime, .5, {{ "Snare5" 1 .5 0}} )
               endif
               iStartTime = iStartTime + 1
           od
@@ -32,16 +32,16 @@
 
       instr pattern2
           iStartTime = 0
-              beatScoreline( "LinnDrum", .5, 1, {{ "kick" 1 1 0}} )
-              beatScoreline( "LinnDrum", .75, 1, {{ "kick" 1 1 0}} )
+              beatScorelineS( "LinnDrum", .5, 1, {{ "kick" 1 1 0}} )
+              beatScorelineS( "LinnDrum", .75, 1, {{ "kick" 1 1 0}} )
 
           until iStartTime == 4 do
-              beatScoreline( "LinnDrum", iStartTime, 1, {{ "kick" 1 1 0}} )
-              beatScoreline( "LinnDrum", iStartTime, .5, {{ "HatClosed2" 1 .5 0}} )
-              beatScoreline( "LinnDrum", iStartTime + .5, .5, {{ "HatClosed2" 1 .5 0}} )
+              beatScorelineS( "LinnDrum", iStartTime, 1, {{ "kick" 1 1 0}} )
+              beatScorelineS( "LinnDrum", iStartTime, .5, {{ "HatClosed2" 1 .5 0}} )
+              beatScorelineS( "LinnDrum", iStartTime + .5, .5, {{ "HatClosed2" 1 .5 0}} )
 
               if(iStartTime % 2 == 1) then
-                  beatScoreline( "LinnDrum", iStartTime, .5, {{ "Snare5" 1 .5 0}} )
+                  beatScorelineS( "LinnDrum", iStartTime, .5, {{ "Snare5" 1 .5 0}} )
               endif
               iStartTime = iStartTime + 1
           od
@@ -49,15 +49,15 @@
       endin
 
       instr breaks
-          beatScoreline( "funkyDrummerBreakDiskin", 0, 1.5, {{ 4.9 }} )
-              beatScoreline( "funkyDrummerBreakDiskin", 1.5,  1.5, {{ 4.9 }} )
-              beatScoreline( "funkyDrummerBreakDiskin", 3,  1, {{ 4.9 }} )
+          beatScorelineS( "funkyDrummerBreakDiskin", 0, 1.5, {{ 4.9 }} )
+              beatScorelineS( "funkyDrummerBreakDiskin", 1.5,  1.5, {{ 4.9 }} )
+              beatScorelineS( "funkyDrummerBreakDiskin", 3,  1, {{ 4.9 }} )
 
-          beatScoreline( "itsExpectedBreakDiskin", 1, 1, {{ 1.5 }})
-          beatScoreline( "itsExpectedBreakDiskin", 2.5, 1, {{ 1.5}})
+          beatScorelineS( "itsExpectedBreakDiskin", 1, 1, {{ 1.5 }})
+          beatScorelineS( "itsExpectedBreakDiskin", 2.5, 1, {{ 1.5}})
 
-          beatScoreline( "thinkBreakDiskin", 0, 2, {{ 2 0 }})
-          beatScoreline( "thinkBreakDiskin", 2, 2, {{ 0 0 }})
+          beatScorelineS( "thinkBreakDiskin", 0, 2, {{ 2 0 }})
+          beatScorelineS( "thinkBreakDiskin", 2, 2, {{ 0 0 }})
       endin
   </CsInstruments>
 

@@ -16,7 +16,7 @@ gkReverbForKickPan init 50
 gkReverbForKickWet init .9
 gkReverbForKickDry init 1
 
-gkReverbForKickDelay init .8
+gkReverbForKickDelay init .99
 gkReverbForKickCutoff init sr/2-100
 
 instr ReverbForKick

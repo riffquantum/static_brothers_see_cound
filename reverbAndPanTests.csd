@@ -8,7 +8,7 @@
     #include "config/defaultConfig.orc"
     #include "config/defaultMidiAssignments.orc"
 
-    giBPM = 120
+    gkBPM init 120
 
     #include "opcodes/opcode-manifest.orc"
     #include "instruments/orchestra-manifest.orc"

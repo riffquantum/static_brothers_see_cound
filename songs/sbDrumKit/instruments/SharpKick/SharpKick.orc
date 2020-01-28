@@ -1,5 +1,5 @@
 gSSharpKickName = "SharpKick"
-gSSharpKickRoute = "Mixer"
+gSSharpKickRoute = "ReverbForKick"
 instrumentRoute gSSharpKickName, gSSharpKickRoute
 
 alwayson "SharpKickMixerChannel"
@@ -10,11 +10,12 @@ gkSharpKickEqHigh init 1
 gkSharpKickFader init 1
 gkSharpKickPan init 50
 
-gSSharpKickSamplePath ="songs/sbDrumKit/samples/EA7604_R8_Bd.wav"
+gSSharpKickSamplePath ="songs/sbDrumKit/samples/EA7614_R8_Bd.wav"
 giSharpKickSampleTableLength getTableSizeFromSample gSSharpKickSamplePath
 giSharpKickSample ftgen 0, 0, giSharpKickSampleTableLength, 1, gSSharpKickSamplePath, 0, 0, 0
 
 instr SharpKick
+
   iNoteVelocity = p4
   iAmplitude velocityToAmplitude iNoteVelocity
   kPitch linseg (iNoteVelocity/127/2 + 1), .5, 1, .1, 1

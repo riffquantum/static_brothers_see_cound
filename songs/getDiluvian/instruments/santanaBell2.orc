@@ -16,7 +16,7 @@ gksantanaBell2Pan init 50
 
 instr santanaBell2Sndwarp
     kamplitude = p4
-    ktimewarp = (giBPM)/112 * 2 * p6
+    ktimewarp = (gkBPM)/112 * 2 * p6
     kresample = 1
     ibeginningTime =  p5
     ioverlap = 20

@@ -5,13 +5,13 @@ instrumentRoute gSLongDeepKickName, gSLongDeepKickRoute
 
 alwayson "LongDeepKickMixerChannel"
 
-gkLongDeepKickEqBass init 1.3
+gkLongDeepKickEqBass init 3
 gkLongDeepKickEqMid init 1
 gkLongDeepKickEqHigh init 1
 gkLongDeepKickFader init 1
 gkLongDeepKickPan init 50
 
-gSLongDeepKickSamplePath ="songs/sbDrumKit/samples/EA7614_R8_Bd.wav"
+gSLongDeepKickSamplePath ="songs/sbDrumKit/samples/EA7604_R8_Bd.wav"
 giLongDeepKickSampleTableLength getTableSizeFromSample gSLongDeepKickSamplePath
 giLongDeepKickSample ftgen 0, 0, giLongDeepKickSampleTableLength, 1, gSLongDeepKickSamplePath, 0, 0, 0
 

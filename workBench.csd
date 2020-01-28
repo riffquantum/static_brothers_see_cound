@@ -12,7 +12,7 @@
     #include "config/defaultConfig.orc"
     #include "config/defaultMidiAssignments.orc"
 
-    giBPM = 100
+    gkBPM init 140
 
     #include "opcodes/opcode-manifest.orc"
     #include "instruments/orchestra-manifest.orc"
@@ -22,7 +22,7 @@
       midiMonitor
     endin
 
-    giMetronomeIsOn = 0
+    giMetronomeIsOn = 1
 
     alwayson "NewEffect"
     alwayson "NewEffectMixerChannel"

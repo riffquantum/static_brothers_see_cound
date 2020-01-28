@@ -20,7 +20,7 @@ instr CbKick
   kPitch linseg (iNoteVelocity/127/2 + 1), .5, 1, .1, 1
   kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0
 
-  aCbKickSample loscil kAmplitudeEnvelope, 1, giCbKickSample, 1
+  aCbKickSample loscil kAmplitudeEnvelope, kPitch, giCbKickSample, 1
 
 
   aCbKick = aCbKickSample

@@ -13,7 +13,7 @@ This is the Static Brothers' Csound application for composition and performance.
 
 #### Directory Structure:
 - My approach breaks files up into reusable partials as much as possible. I'll describe some important aspects of this.
-- The config directory contains a few default config files. One contains the set of values that csound needs to operate (sr, ksmps, kr, nchnls, 0dbfs) as well as the giBPM variable (more on that later). There is also a file for setting MidiChannel assignments with namespaced global variables.
+- The config directory contains a few default config files. One contains the set of values that csound needs to operate (sr, ksmps, kr, nchnls, 0dbfs) as well as the gkBPM variable (more on that later). There is also a file for setting MidiChannel assignments with namespaced global variables.
 - Instruments are kept in their own directories as described above. There are all included in a file called orchestra-manifest.orc.
 - There is a localSamples directory which is not included in the repository. This is just a big collection WAV file samples that is too big to host on GitHub.
 - User Defined Opcodes, like instruments, each get their own file within the opcodes directory and they are gather for inclusion in opcode-manifest.orc. I have a bunch of utility opcodes in here, a couple that set up specific keyboard layouts for midi input, common function table generators (Sine, Saw, Square, etc), and others. I have not developed a thorough approach to effects yet but for now I'm trying to write the basic signal processors as opcodes which will then be wrapped in effects instruments.
@@ -28,7 +28,7 @@ This is the Static Brothers' Csound application for composition and performance.
 
 #### Approach to the Score
 - Csound's operations are split into two areas: The Orchestra and The Score. The orchestra offers a lot of freedom to a developer for programmatic events, dynamic values and whatever other promises of computer music brought you here. The score, on the other hand, is extremely limited and frankly is a bummer to work with. With a lot of inspiration from Csound Journal articles I've developed an approach to writing my instrument events in the orchestra instead of the score. In some ways it's a little chunky and ugly but the advantages are all the freedom that working in the orchestra provides.
-- On a note by note level I use a custom opcode called beatScoreLine to trigger individual instrument instances. This opcode takes 4 arguments: instrument name, start time, duration, and a string of the instrument's other p-fields. The opcode uses the giBPM variable to schedule the event at the correct tempo. This extra layer around events is necessary because events in the orchestra space do not respect t statements in the score. giBPM should be defined in every song and a t statement needs to be included in the score with a matching value. I don't like the fact that the tempo needs to be defined in multiple places but I haven't found a way around it yet.
+- On a note by note level I use a custom opcode called beatScoreLine to trigger individual instrument instances. This opcode takes 4 arguments: instrument name, start time, duration, and a string of the instrument's other p-fields. The opcode uses the gkBPM variable to schedule the event at the correct tempo. This extra layer around events is necessary because events in the orchestra space do not respect t statements in the score. gkBPM should be defined in every song and a t statement needs to be included in the score with a matching value. I don't like the fact that the tempo needs to be defined in multiple places but I haven't found a way around it yet.
 - These events will mostly be triggered within patterns. I create instruments that I call patterns to trigger sets of events. So I might define a bassline as one pattern and drum track as another then trigger both of them in the score simultaneously. This approach to pattern layout allows for loops that change over time and can be a lot fun to work with.
 In a song, I usually use the actual score only to trigger the broad sections of a song. See getDiluvian.csd for an example of this type of layout.
 
@@ -47,7 +47,6 @@ In a song, I usually use the actual score only to trigger the broad sections of 
 
 
 ### TO DO's
-* Turn giBPM into gkBPM.
 * Write a BPM setter instrument that can change the global BPM variable at different points in the score
 * Write a good distortion
 * Write a chorus

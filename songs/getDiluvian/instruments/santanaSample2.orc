@@ -17,7 +17,7 @@ gksantanaSample2Pan init 50
 
 instr santanaSample2Sndwarp
     kamplitude = p4
-    ktimewarp = (giBPM)/112 * 2
+    ktimewarp = (gkBPM)/112 * 2
     kresample = 1
     ibeginningTime =  .41
     ioverlap = 20

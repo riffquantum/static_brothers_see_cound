@@ -97,11 +97,11 @@ instr santanaBellSndwarp
     elseif iGrainMode == 4 then
       ; ares [, ac] sndwarp xamp, xtimewarp, xresample, ifn1, ibeg, iwsize, irandw, ioverlap, ifn2, itimemode
 
-
+      iBPM = i(gkBPM)
       ibeginningTime =  p5
-      iWarpStart = (giBPM)/112 * 2 * p6
+      iWarpStart = (iBPM)/112 * 2 * p6
 
-      ktimewarp linseg ((giBPM)/112 * 2 * p6), p3/2, ((giBPM)/112 * 3 * p6), p3/2, ((giBPM)/112 * .2 * p6)
+      ktimewarp linseg ((iBPM)/112 * 2 * p6), p3/2, ((iBPM)/112 * 3 * p6), p3/2, ((iBPM)/112 * .2 * p6)
       kresample = 1
       ioverlap = 20
       iwindowSize = 10

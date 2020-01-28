@@ -7,7 +7,7 @@
     <CsInstruments>
         #include "config/defaultConfig.orc"
 
-        giBPM = 100
+        gkBPM init 100
 
         #include "opcodes/opcode-manifest.orc"
         #include "instruments/orchestra-manifest.orc"
@@ -15,63 +15,63 @@
         #include "patterns/sixteenthHats606.orc"
 
         instr kickSnare1
-            beatScoreline( "TR606", 0, 1, {{ "Kick" 1 1 0 0 0}} )
-            beatScoreline( "TR606", 1, 1, {{ "Kick" 1 1 0}} )
-            beatScoreline( "TR606", 2, 1, {{ "Kick" 1 1 0 1 1}} )
-            beatScoreline( "TR606", 3, 1, {{ "Kick" 1 1 0 1 1}} )
+            beatScorelineS( "TR606", 0, 1, {{ "Kick" 1 1 0 0 0}} )
+            beatScorelineS( "TR606", 1, 1, {{ "Kick" 1 1 0}} )
+            beatScorelineS( "TR606", 2, 1, {{ "Kick" 1 1 0 1 1}} )
+            beatScorelineS( "TR606", 3, 1, {{ "Kick" 1 1 0 1 1}} )
 
-            beatScoreline( "TR808", 0, 1, {{ "KickDrum5" 1 .5 0 0 0}} )
-            beatScoreline( "TR808", 1, 1, {{ "KickDrum5" 1 .5 0}} )
-            beatScoreline( "TR808", 2, 1, {{ "KickDrum5" 1 .5 0 1 1}} )
-            beatScoreline( "TR808", 3, 1, {{ "KickDrum5" 1 .5 0 1 1}} )
+            beatScorelineS( "TR808", 0, 1, {{ "KickDrum5" 1 .5 0 0 0}} )
+            beatScorelineS( "TR808", 1, 1, {{ "KickDrum5" 1 .5 0}} )
+            beatScorelineS( "TR808", 2, 1, {{ "KickDrum5" 1 .5 0 1 1}} )
+            beatScorelineS( "TR808", 3, 1, {{ "KickDrum5" 1 .5 0 1 1}} )
 
-            beatScoreline( "TR606", 1, 1, {{ "Snare" 1 1 0 0 0}} )
-            beatScoreline( "TR606", 3, 1, {{ "Snare" 1 1 0 1 1}} )
+            beatScorelineS( "TR606", 1, 1, {{ "Snare" 1 1 0 0 0}} )
+            beatScorelineS( "TR606", 3, 1, {{ "Snare" 1 1 0 1 1}} )
         endin
 
         instr breaks
-            beatScoreline( "thinkBreakDiskin", 0, 4, {{ 0 "1" }} )
-            beatScoreline( "AmenBreakDiskin", 0, 4, {{ 4 "1" }} )
+            beatScorelineS( "thinkBreakDiskin", 0, 4, {{ 0 "1" }} )
+            beatScorelineS( "AmenBreakDiskin", 0, 4, {{ 4 "1" }} )
         endin
 
         instr breakTesting
-            ;beatScoreline( "thinkBreakDiskin", 0, 4, {{ 0 "1" }} )
-            ;beatScoreline( "itsExpectedBreakDiskin", 0, 4, {{ 4 "1" }} )
-            beatScoreline( "funkyDrummerBreakDiskin", 0, 2, {{ 2 }} )
-            beatScoreline( "funkyDrummerBreakDiskin", 2, 2, {{ 1 }} )
+            ;beatScorelineS( "thinkBreakDiskin", 0, 4, {{ 0 "1" }} )
+            ;beatScorelineS( "itsExpectedBreakDiskin", 0, 4, {{ 4 "1" }} )
+            beatScorelineS( "funkyDrummerBreakDiskin", 0, 2, {{ 2 }} )
+            beatScorelineS( "funkyDrummerBreakDiskin", 2, 2, {{ 1 }} )
 
-            beatScoreline( "LinnDrum", 0, 1, {{ "kick" 1 1 0 }} )
+            beatScorelineS( "LinnDrum", 0, 1, {{ "kick" 1 1 0 }} )
 
-            beatScoreline( "LinnDrum", .5, 1, {{ "kick" 1 1 0 }} )
+            beatScorelineS( "LinnDrum", .5, 1, {{ "kick" 1 1 0 }} )
 
-            beatScoreline( "LinnDrum", 2.5, 1, {{ "kick" 1 1 0 }} )
-            beatScoreline( "LinnDrum", 3.5, .5, {{ "kick" 1 1 0 }} )
+            beatScorelineS( "LinnDrum", 2.5, 1, {{ "kick" 1 1 0 }} )
+            beatScorelineS( "LinnDrum", 3.5, .5, {{ "kick" 1 1 0 }} )
 
 
-            beatScoreline( "LinnDrum", 0, 2, {{ "crash" 1 .1 0 }} )
-            beatScoreline( "LinnDrum", 2, 2, {{ "ride" 1 .1 0 }} )
+            beatScorelineS( "LinnDrum", 0, 2, {{ "crash" 1 .1 0 }} )
+            beatScorelineS( "LinnDrum", 2, 2, {{ "ride" 1 .1 0 }} )
 
-            ;beatScoreline( "AmenBreakDiskin", 0, 4, {{ 4 "1" }} )
+            ;beatScorelineS( "AmenBreakDiskin", 0, 4, {{ 4 "1" }} )
         endin
 
         instr breakTesting2
-            ;beatScoreline( "thinkBreakDiskin", 0, 4, {{ 0 "1" }} )
-            ;beatScoreline( "itsExpectedBreakDiskin", 0, 4, {{ 4 "1" }} )
-            beatScoreline( "thinkBreakDiskin", 0, 2, {{ 2 "4" }} )
-            beatScoreline( "thinkBreakDiskin", 2, 2, {{ 0 "3" }} )
+            ;beatScorelineS( "thinkBreakDiskin", 0, 4, {{ 0 "1" }} )
+            ;beatScorelineS( "itsExpectedBreakDiskin", 0, 4, {{ 4 "1" }} )
+            beatScorelineS( "thinkBreakDiskin", 0, 2, {{ 2 "4" }} )
+            beatScorelineS( "thinkBreakDiskin", 2, 2, {{ 0 "3" }} )
 
-            beatScoreline( "LinnDrum", 0, 1, {{ "kick" 1 1 0 }} )
+            beatScorelineS( "LinnDrum", 0, 1, {{ "kick" 1 1 0 }} )
 
-            beatScoreline( "LinnDrum", .5, 1, {{ "kick" 1 1 0 }} )
+            beatScorelineS( "LinnDrum", .5, 1, {{ "kick" 1 1 0 }} )
 
-            beatScoreline( "LinnDrum", 2.5, 1, {{ "kick" 1 1 0 }} )
-            beatScoreline( "LinnDrum", 3.5, .5, {{ "kick" 1 1 0 }} )
+            beatScorelineS( "LinnDrum", 2.5, 1, {{ "kick" 1 1 0 }} )
+            beatScorelineS( "LinnDrum", 3.5, .5, {{ "kick" 1 1 0 }} )
 
 
-            beatScoreline( "LinnDrum", 0, 2, {{ "crash" 1 .1 0 }} )
-            ;beatScoreline( "LinnDrum", 2, 2, {{ "ride" 1 .1 0 }} )
+            beatScorelineS( "LinnDrum", 0, 2, {{ "crash" 1 .1 0 }} )
+            ;beatScorelineS( "LinnDrum", 2, 2, {{ "ride" 1 .1 0 }} )
 
-            ;beatScoreline( "AmenBreakDiskin", 0, 4, {{ 4 "1" }} )
+            ;beatScorelineS( "AmenBreakDiskin", 0, 4, {{ 4 "1" }} )
         endin
     </CsInstruments>
 

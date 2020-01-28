@@ -1,5 +1,7 @@
 giMetronomeIsOn = 1
-gkMetronomeCount = 0
+giMetronomeCount = 1
+giMetronomeBeatsPerMeasure = 4
+giMetronomeAccents[] fillarray 1
 
 instr MetronomeTone
   ilen init .01
@@ -14,23 +16,29 @@ instr MetronomeTone
   asigpre   butterhp  ahp1,3500
   asig      linen    (asigpre+arand/2),0,ilen, .05
 
-  if gkMetronomeCount % 4 == 0 then
-    asig = asig * 1.75
+  if arrayContains(giMetronomeAccents, giMetronomeCount) == 1 then
+    asig = asig * 3
   endif
 
-  if giMetronomeIsOn == 1 then
-    out asig, asig
-    gkMetronomeCount += 1
-  else
-      gkMetronomeCount = 0
-  endif
+  out asig, asig
 endin
 
 instr Metronome
-    kTrigger  metro  giBPM/60
-    schedkwhen    kTrigger, 0, 0, "MetronomeTone", 0, giBPM/60
+    kTrigger  metro  gkBPM/60
+    if giMetronomeIsOn == 1 then
+      schedkwhen    kTrigger, 0, 0, "MetronomeTone", 0, gkBPM/60
+      schedkwhen    kTrigger, 0, 0, "MetronomeCounter", 0, .1
+    endif
 endin
 
 instr MetronomeSwitch
   giMetronomeIsOn = p4
+endin
+
+instr MetronomeCounter
+  giMetronomeCount = giMetronomeCount + 1
+
+  if giMetronomeCount > giMetronomeBeatsPerMeasure then
+    giMetronomeCount = 1
+  endif
 endin

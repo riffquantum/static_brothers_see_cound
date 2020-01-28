@@ -7,13 +7,13 @@ opcode breakSamplerDiskin, aa, Siik
   iBreakFileLength filelen SBreakFilePath
   iBreakLengthOfBeat = iBreakFileLength / iSegmentLength
   iBreakBPM init 60 /iBreakLengthOfBeat
-  iBreakFactor = giBPM / iBreakBPM
+  kBreakFactor = gkBPM / iBreakBPM
 
   if kPitchFactor==0 then
     kPitchFactor = 1
   endif
 
-  kpitch = iBreakFactor * kPitchFactor
+  kpitch = kBreakFactor * kPitchFactor
 
   iSkipTime = iBreakLengthOfBeat * iSkipTimeInBeats
 

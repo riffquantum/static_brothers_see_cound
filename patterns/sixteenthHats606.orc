@@ -1,5 +1,5 @@
 instr sixteenthHats606
-    itotalNotes = p3 * giBPM/60 * 4
+    itotalNotes = p3 * i(gkBPM)/60 * 4
     iHatVelocity = p4
     iPitchQuotient = p5
     iHatAccent = p6
@@ -30,11 +30,12 @@ instr sixteenthHats606
         SHatParams sprintfk {{ "ClosedHat" %f %f 0 %f %f }}, iHatPitch, iHatVelocity, iSaturated, iAccented
 
         if (iHatCount % 2 == 0) then
-            beatScoreline( "TR606", iHatCount*.25, .25, SHatParams )
+            beatScorelineS( "TR606", iHatCount*.25, .25, SHatParams )
         else
-            beatScoreline( "TR606", iHatCount*.25 + iHatSwing, .25 - iHatSwing, SHatParams )
+            beatScorelineS( "TR606", iHatCount*.25 + iHatSwing, .25 - iHatSwing, SHatParams )
         endif
 
         iHatCount += 1
     od
 endin
+
