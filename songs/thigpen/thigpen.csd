@@ -25,7 +25,7 @@
 
               SparamString sprintfk {{ %f %f %f %f }}, iamplitude, iPitch, iStartTime, iEndTime
 
-              beatScorelineS( "Thigpen1", 0, 4, SparamString )
+              beatScorelineS( "Thigpen1", 0, 3, SparamString )
 
               beatScorelineS("TR606", 0, 1, {{ "kick" 1 1 0 }})
               beatScorelineS("Kick", 0, 1, ".9")
@@ -37,14 +37,14 @@
     </CsInstruments>
 
     <CsScore>
-        #define bpm # 120 #
+        #define bpm # 100 #
 
         m section1
           t 0 [$bpm]
 
           i "pattern1" 0 4
-          i "pattern1" 4 4
-          i "pattern1" 8 4
+          i "pattern1" + 4
+          i "pattern1" + 4
         s
 
     </CsScore>

@@ -8,9 +8,9 @@ instrumentRoute gSThigpen1Name, gSThigpen1Route
 
 alwayson "Thigpen1MixerChannel"
 
-gkThigpen1Hold init 10 ;12.8
-gkThigpen1GrainSpacing init 54 ;54 - default setting for normal playback
-gkThigpen1WaveSpacing init 84 ;84 - default setting for normal playback
+gkThigpen1Hold init 13 ;12.8
+gkThigpen1GrainSpacing init 51 ;54 - default setting for normal playback
+gkThigpen1WaveSpacing init 8 ;84 - default setting for normal playback
 gkThigpen1FxDepth init 0 ;0
 gkThigpen1FxSpeed init .8
 gkThigpen1Randomize init 0
@@ -48,7 +48,7 @@ endin
 
 instr Thigpen1
     ; faves: 7, 8, 9, 10, 11, 26, 27, 28
-    SsampleFilePath = "localSamples/thigpen/thigpen7.wav"
+    SsampleFilePath = "localSamples/thigpen/thigpen8.wav"
     kamplitude = p4
     kPitch = p5
     iStartTime = p6

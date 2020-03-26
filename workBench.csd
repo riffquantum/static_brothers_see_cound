@@ -22,7 +22,7 @@
       midiMonitor
     endin
 
-    giMetronomeIsOn = 1
+    giMetronomeIsOn = 0
 
     alwayson "NewEffect"
     alwayson "NewEffectMixerChannel"
@@ -53,21 +53,59 @@
       iAmplitude flexibleAmplitudeInput p4
       iPitch flexiblePitchInput p5
       iSineTable sineWave
+      iSawtooth sawtoothWaveDown
+      iSawtoothUp sawtoothWaveUpAndDown
+      iSquareWave squareWave
 
-      kTremolo = .75 + oscil(.25, 1.5, iSineTable)
-      kAmplitudeEnvelope = madsr(.005, .01, iAmplitude, .5, 0)
+
+      iAttack = 0.01
+      iDecay = 0.01
+      iSustain = iAmplitude
+      iRelease = 0.15
+      iEnvelopeDelay = 0
+      kAmplitudeEnvelope = madsr(iAttack, iDecay, iSustain, iRelease, iEnvelopeDelay)
+
+
+
+      kTremoloDepth = 0.1
+      kTremoloRate = 3
+      kTremolo = (1 - kTremoloDepth) + oscil(kTremoloDepth, kTremoloRate, iSineTable)
       kAmplitudeEnvelope = kAmplitudeEnvelope * kTremolo
 
+      ;Primary Oscillator
+      ; aPrimaryOscillator = oscil(iAmplitude*0.5, iPitch, iSineTable)
+      ; aOctaveDown = oscil(iAmplitude, cpspch(pchcps(iPitch) - 1), iSineTable)
+      ; aOctaveDownSquare = oscil(iAmplitude*0.25, cpspch(pchcps(iPitch) - 1), iSquareWave)
+      ; aTwoOctavesDownSaw = oscil(iAmplitude*0.5, cpspch(pchcps(iPitch) - 2), iSawtooth)
+      ; aThreeOctavesDownSaw = oscil(iAmplitude*0.5, cpspch(pchcps(iPitch) - 3), iSawtooth)
 
-      aNewInstrumentL = oscil(kAmplitudeEnvelope*0.5, iPitch*1.1, iSineTable)
-      aNewInstrumentL += oscil(kAmplitudeEnvelope, iPitch*1.1*.5, iSineTable)
-      aNewInstrumentL += oscil(kAmplitudeEnvelope*0.25, iPitch*1.1*.9, iSineTable)
+      aPrimaryOscillator = oscil(kAmplitudeEnvelope*0.5, iPitch, iSineTable)
+      aOctaveDown = oscil(kAmplitudeEnvelope, cpspch(pchcps(iPitch) - 1), iSineTable)
+      aOctaveDownSquare = oscil(kAmplitudeEnvelope*0.25, cpspch(pchcps(iPitch) - 1), iSquareWave)
+      aTwoOctavesDownSaw = oscil(kAmplitudeEnvelope*0.5, cpspch(pchcps(iPitch) - 2), iSawtooth)
+      aThreeOctavesDownSaw = oscil(kAmplitudeEnvelope*0.5, cpspch(pchcps(iPitch) - 3), iSawtooth)
 
-      aNewInstrumentR = oscil(kAmplitudeEnvelope*0.5, iPitch*.9, iSineTable)
-      aNewInstrumentR += oscil(kAmplitudeEnvelope, iPitch*.9*.5, iSineTable)
-      aNewInstrumentR += oscil(kAmplitudeEnvelope*0.25, iPitch*.9*.9, iSineTable)
 
-      ;aNewInstrumentR = aNewInstrumentL
+      aNewInstrumentL = aPrimaryOscillator
+      aNewInstrumentL += aOctaveDown
+      aNewInstrumentL += aOctaveDownSquare
+      aNewInstrumentL += aTwoOctavesDownSaw
+      aNewInstrumentL += aThreeOctavesDownSaw
+
+      aPrimaryOscillator *= kAmplitudeEnvelope
+
+      kHalfPowerPointValue linseg 500, .25, 150
+      kQ linsegr 0.0001, 1, 5.5, iRelease, 5.5
+      aNewInstrumentL lowpass2 aNewInstrumentL, kHalfPowerPointValue, kQ
+
+      ; aNewInstrumentL *= kAmplitudeEnvelope
+
+      ;Can I base the filter settings on the pitch to optimize sound at lower pitches?
+      ;Also base the amplitude of the partials based on pitch?
+
+      aNewInstrumentL balance aNewInstrumentL, aPrimaryOscillator
+
+      aNewInstrumentR = aNewInstrumentL
 
       outleta "NewInstrumentOutL", aNewInstrumentL
       outleta "NewInstrumentOutR", aNewInstrumentR
@@ -81,14 +119,7 @@
       aNewEffectOutL = aNewEffectInL
       aNewEffectOutR = aNewEffectInR
 
-      aNewEffectOutL += distortion(aNewEffectOutL, 1.3, .7, .1, .1)
-      aNewEffectOutR += distortion(aNewEffectOutR, 1.3, .7, .1, .1)
 
-      aNewEffectOutL = clip(aNewEffectOutL * 1.3, 1, 1, 0)
-      aNewEffectOutR = clip(aNewEffectOutL * 1.3, 1, 1, 0)
-
-      aNewEffectOutL = butterlp(aNewEffectOutL, 5000)
-      aNewEffectOutR = butterlp(aNewEffectOutR, 5000)
 
       outleta "NewEffectOutL", aNewEffectOutL
       outleta "NewEffectOutR", aNewEffectOutR

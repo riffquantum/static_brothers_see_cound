@@ -160,7 +160,7 @@
     <CsScore>
         ; 1  2  3  4  5  6  7  8  9  10  11 12
         ; A  A# B  C  C# D  D# E  F  F#  G  G#
-        
+
         i "MainRiff" 0 64
         i "ChordProgression" 0 64
         i "MainRiff" 64 64

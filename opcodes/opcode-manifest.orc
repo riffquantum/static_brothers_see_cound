@@ -1,5 +1,7 @@
 #include "arrayContains.orc"
 
+#include "pchcps.orc"
+
 #include "indexOf.orc"
 
 #include "printsBlock.orc"

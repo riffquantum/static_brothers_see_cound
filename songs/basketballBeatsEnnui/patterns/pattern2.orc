@@ -1,4 +1,4 @@
-instr pattern1
+instr pattern2
   iPatternLength = p3 * i(gkBPM)/60
 
   iBeatsPerMeasure = 4

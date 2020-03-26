@@ -6,15 +6,17 @@ instr Mixer
     aOutL inleta "MixerInL"
     aOutR inleta "MixerInR"
 
-    kmin init (0dbfs * 2 * -1)
-    kmax init 0dbfs * 2
+    iSafetyMaxAmplitude = 0dbfs * 3
 
-    aOutR limit aOutR, kmin, kmax
-    aOutL limit aOutL, kmin, kmax
-    ; aOutR wrap aOutR, kmin, kmax
-    ; aOutL wrap aOutL, kmin, kmax
-    ; aOutR mirror aOutR, kmin, kmax
-    ; aOutL mirror aOutL, kmin, kmax
+    kHardLimitMinimum = iSafetyMaxAmplitude * -2
+    kHardLimitMaximum = iSafetyMaxAmplitude * 2
+
+
+    aOutL clip aOutL, 1, iSafetyMaxAmplitude
+    aOutR clip aOutR, 1, iSafetyMaxAmplitude
+
+    aOutR limit aOutR, kHardLimitMinimum, kHardLimitMaximum
+    aOutL limit aOutL, kHardLimitMinimum, kHardLimitMaximum
 
     out aOutL, aOutR
 endin

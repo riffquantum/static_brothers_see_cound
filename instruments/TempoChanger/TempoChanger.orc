@@ -14,3 +14,12 @@ instr TempoChanger
     gkBPM linseg iCurrentBPM, p3-(p3*.01), iNewTempo, (p3*.01), iNewTempo
   endif
 endin
+
+massign giTempoKnobMidiChannel, "TempoKnob"
+instr TempoKnob
+  initc7 giTempoKnobMidiChannel, 1, .5
+
+  midicontrolchange 1, gkBPM, 1, 400
+
+  printk2 gkBPM
+endin

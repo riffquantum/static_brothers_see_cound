@@ -1,14 +1,14 @@
 <CsoundSynthesizer>
 
     <CsOptions>
-        -odac -m0 -t1200
+        -odac -m0 -t95
     </CsOptions>
 
     <CsInstruments>
         #include "config/defaultConfig.orc"
         #include "config/defaultMidiAssignments.orc"
 
-        gkBPM init 1200
+        gkBPM init 95
 
         #include "opcodes/opcode-manifest.orc"
         #include "instruments/orchestra-manifest.orc"
@@ -29,18 +29,16 @@
 
         #include "patterns/sixteenthHats606.orc"
         #include "songs/basketballBeatsEnnui/patterns/pattern1.orc"
+        #include "songs/basketballBeatsEnnui/patterns/pattern2.orc"
         #include "songs/basketballBeatsEnnui/patterns/dBeat.orc"
         #include "songs/basketballBeatsEnnui/patterns/dBeatFill1.orc"
         #include "songs/basketballBeatsEnnui/patterns/weirdBigCymbalPattern.orc"
-
-
-    
-
     </CsInstruments>
 
     <CsScore>
         m section1
-          i "dBeat" 0 128
+          i "pattern2" 0 128
+          ; i "weirdBigCymbalPattern" 0 128
         s
 
 

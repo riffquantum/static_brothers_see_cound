@@ -36,6 +36,10 @@
 
 #include "SimpleOscillator/SimpleOscillator.orc"
 
+#include "DisonantSynth/DisonantSynth.orc"
+
+#include "MultiStageDistortion/MultiStageDistortion.orc"
+
 ;#include "masterMidiInterface/masterMidiInterface.orc"
 
 #include "mixer/mixer.orc"
