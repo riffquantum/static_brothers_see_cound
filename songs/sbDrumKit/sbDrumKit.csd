@@ -1,11 +1,13 @@
 <CsoundSynthesizer>
     <CsOptions>
         -odac -Ma  -m0
+        -B512 -b128
+        -t120
         ;-+rtmidi=virtual
     </CsOptions>
 
     <CsInstruments>
-        #include "config/defaultConfig.orc"
+        ; #include "config/defaultConfig.orc"
 
         gkBPM init 120
 
