@@ -119,8 +119,6 @@
       aNewEffectOutL = aNewEffectInL
       aNewEffectOutR = aNewEffectInR
 
-
-
       outleta "NewEffectOutL", aNewEffectOutL
       outleta "NewEffectOutR", aNewEffectOutR
     endin
@@ -214,12 +212,30 @@
       outleta "NewEffectOutL", aNewEffectL
       outleta "NewEffectOutR", aNewEffectR
     endin
+
+    instr WorkingPattern
+      iPatternLength = p3 * i(gkBPM)/60
+
+      iBeatsPerMeasure = 4
+      iMeasureIndex = 0
+
+      until iMeasureIndex * iBeatsPerMeasure >= iPatternLength do
+        iBaseTime = iMeasureIndex*iBeatsPerMeasure
+        iMeasureCount = iMeasureIndex + 1
+
+        beatScoreline "Kick", iBaseTime+0.0, 4, 4, .9
+
+        iMeasureIndex += 1
+      od
+    endin
+
   </CsInstruments>
 
   <CsScore>
     #define bpm # 100 #
     t 0 [$bpm]
     i "Metronome" 0 3600
+    i "WorkingPattern" 0 3600
 
   </CsScore>
 </CsoundSynthesizer>

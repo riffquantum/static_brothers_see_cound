@@ -8,3 +8,4 @@ giInTimeSndwarpSamplerTemplateMidiChannel = 7
 giInTimeSyncloopSamplerTemplateMidiChannel = 8
 giDisonantSynthMidiChannel = 9
 giTempoKnobMidiChannel = 10
+giBassSynthMidiChannel = 11

@@ -1,5 +1,7 @@
 #include "TempoChanger/TempoChanger.orc"
 
+#include "BassSynth/BassSynth.orc"
+
 #include "chorusedSynth/chorusedSynth.orc"
 
 #include "chorusedSynth/chorusedSynth--midi-in.orc"
@@ -11,6 +13,8 @@
 #include "LowPassFilterExamples/LowPassFilterExamples.orc"
 
 #include "DistortionExamples/DistortionExamples.orc"
+
+#include "Delay/Delay.orc"
 
 #include "linnDrum/linnDrum.orc"
 

@@ -14,7 +14,7 @@
         #include "songs/sbDrumKit/instruments/midiRouter/midiNoteMapping.orc"
         #include "songs/sbDrumKit/instruments/midiRouter/noteInstruments/note-instrument-manifest.orc"
 
-      giMetronomeIsOn = 0
+      giMetronomeIsOn = 1
       giCurrentSong = 0
       giDoubleKickOn = 1
       giHatClutchIsOpen = 1

@@ -1,3 +1,8 @@
+
+/*
+  Utilities
+*/
+
 #include "arrayContains.orc"
 
 #include "pchcps.orc"
@@ -10,9 +15,12 @@
 
 #include "getTableSizeFromSample.orc"
 
-#include "midiNoteQuarterToneKeyboardLayout.orc"
+#include "randomVariation.orc"
 
-#include "beatScoreline.orc"
+/*
+  Audio Processors and Effects
+*/
+
 
 #include "distortion.orc"
 
@@ -24,6 +32,15 @@
 
 #include "breakSamplerDiskin.orc"
 
+#include "squareWave.orc"
+
+#include "instrumentRoute.orc"
+
+
+/*
+  Table Generators
+*/
+
 #include "sineWave.orc"
 
 #include "triangleWave.orc"
@@ -32,25 +49,36 @@
 
 #include "sawtoothWaveUpAndDown.orc"
 
-#include "squareWave.orc"
+/*
+  Note Scheduling
+*/
 
-#include "flexiblePitchInput.orc"
+#include "beatScoreline.orc"
+
+#include "repeatNotes.orc"
+
+/*
+  MIDI Input Helpers
+*/
+#include "midiMonitor.orc"
+
+#include "midiNoteQuarterToneKeyboardLayout.orc"
+
+#include "velocityCurve.orc"
+
+#include "triggerBuffer.orc"
+
+#include "interruptThenTrigger.orc"
 
 #include "velocityToAmplitude.orc"
 
 #include "flexibleAmplitudeInput.orc"
 
-#include "midiMonitor.orc"
+#include "flexiblePitchInput.orc"
 
-#include "interruptThenTrigger.orc"
-
-#include "instrumentRoute.orc"
-
-#include "triggerBuffer.orc"
-
-#include "repeatNotes.orc"
-
-#include "randomVariation.orc"
+/*
+  Intervals and Chords
+*/
 
 #include "flat.orc"
 

@@ -12,5 +12,4 @@ opcode instrumentRoute, 0, SS
 
   connect strcat(SInstrumentName, "MixerChannel"), strcat(SInstrumentName, "OutL"), SInstrumentRoute, strcat(SInstrumentRoute, "InL")
   connect strcat(SInstrumentName, "MixerChannel"), strcat(SInstrumentName, "OutR"), SInstrumentRoute, strcat(SInstrumentRoute, "InR")
-
 endop

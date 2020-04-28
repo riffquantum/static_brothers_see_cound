@@ -1,9 +1,11 @@
+opcode delayBuffer, a, akiak
+  aInput, kFeedbackLevel, iDelayBufferLength, aDelayTime, kDelayLevel xin
 
-opcode delayBuffer, a, akik
-  ain, kfeedbackLevel, idelayTime, kdelayLevel xin
+  aDelayTime limit aDelayTime, ksmps/sr, iDelayBufferLength
 
-  aBufferOut delayr idelayTime
-             delayw ain+(aBufferOut*kfeedbackLevel)
+  aDelayBufferOut delayr iDelayBufferLength
+  aDelayOut       deltapi aDelayTime
+                  delayw aInput+(aDelayOut*kFeedbackLevel)
 
-  xout (aBufferOut*kdelayLevel)
+  xout (aDelayOut*kDelayLevel)
 endop

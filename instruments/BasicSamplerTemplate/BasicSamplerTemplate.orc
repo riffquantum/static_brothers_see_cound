@@ -1,5 +1,5 @@
 gSBasicSamplerTemplateName = "BasicSamplerTemplate"
-gSBasicSamplerTemplateRoute = "Mixer"
+gSBasicSamplerTemplateRoute = "Delay"
 instrumentRoute gSBasicSamplerTemplateName, gSBasicSamplerTemplateRoute
 
 alwayson "BasicSamplerTemplateMixerChannel"
@@ -30,7 +30,7 @@ instr BasicSamplerTemplate
     iAmplitude flexibleAmplitudeInput p4
 
     kAmplitudeEnvelope madsr .005, .01, iAmplitude, .05, 0, (iLengthOfSample) ;Sample plays for note duration
-    kAmplitudeEnvelope linenr iAmplitude, .05, (iLengthOfSample * 1/ifreq), 1 ; Sample plays through entirely
+    ; kAmplitudeEnvelope linenr iAmplitude, .05, (iLengthOfSample * 1/ifreq), 1 ; Sample plays through entirely
 
     if iNumberOfChannels == 2 then
       aOutL, aOutR diskin SFilePath, kfreq, 0, 0
