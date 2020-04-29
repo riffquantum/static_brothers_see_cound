@@ -7,7 +7,6 @@ instr 2045 ;BluePad, PadB1,
   iAmplitude velocityToAmplitude iNoteVelocity
 
   if giCurrentSong == 1 then
-    iPunishYouInstrumentNumber interruptThenTrigger nstrnum("PunishYou")
-    event_i "i", iPunishYouInstrumentNumber, 0, giMidiNoteDurationList[giBluePadNote], iAmplitude
+    interruptThenTrigger nstrnum("PunishYou"), giMidiNoteDurationList[giBluePadNote], iAmplitude
   endif
 endin

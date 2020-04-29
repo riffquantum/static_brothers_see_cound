@@ -16,12 +16,14 @@ giCbKickSample ftgen 0, 0, giCbKickSampleTableLength, 1, gSCbKickSamplePath, 0, 
 
 instr CbKick
   iAmplitude = p4
-  kPitch linseg (iAmplitude/2 + 1), .5, 1, .1, 1
+  kPitch linseg (iAmplitude/0dbfs/2 + 1), .5, 1, .1, 1
   kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0
 
   aCbKickSample loscil kAmplitudeEnvelope, kPitch, giCbKickSample, 1
 
   aCbKick = aCbKickSample
+
+  printsBlockI iAmplitude
 
   outleta "CbKickOutL", aCbKick
   outleta "CbKickOutR", aCbKick

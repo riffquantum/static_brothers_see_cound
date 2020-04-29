@@ -7,7 +7,6 @@ instr 2038 ;RedPad, PadA6,
   iAmplitude velocityToAmplitude iNoteVelocity
 
   if giCurrentSong == 1 then
-    iPunishmentInstrumentNumber interruptThenTrigger nstrnum("PunishmentAwaits")
-    event_i "i", iPunishmentInstrumentNumber, 0, giMidiNoteDurationList[giRedPadNote], iAmplitude
+    interruptThenTrigger nstrnum("PunishmentAwaits"), giMidiNoteDurationList[giRedPadNote], iAmplitude
   endif
 endin

@@ -2,8 +2,8 @@
 
 giLastUsedFractionalModifierList[] init 9999
 
-opcode interruptThenTrigger, i, i
-	iInstrumentNumber xin
+opcode interruptThenTrigger, 0, iioooooo
+	iInstrumentNumber, iNewNoteDuration, iP4, iP5, iP6, iP7, iP8, iP9 xin
   iInstrumentNumberToInterrupt = iInstrumentNumber + (giLastUsedFractionalModifierList[iInstrumentNumber] - 1)/1000
   iInstrumentNumber = iInstrumentNumber + (giLastUsedFractionalModifierList[iInstrumentNumber] )/1000
 
@@ -14,5 +14,5 @@ opcode interruptThenTrigger, i, i
   endif
   turnoff2 iInstrumentNumberToInterrupt, 4, 1
 
-  xout iInstrumentNumber
+  event_i "i", iInstrumentNumber, 0, iNewNoteDuration, iP4, iP5, iP6, iP7, iP8, iP9
 endop

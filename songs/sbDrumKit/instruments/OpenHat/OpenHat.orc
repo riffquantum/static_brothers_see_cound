@@ -16,7 +16,7 @@ giOpenHatSample ftgen 0, 0, giOpenHatSampleTableLength, 1, gSOpenHatSamplePath, 
 
 instr OpenHat
   iAmplitude  = p4
-  kPitch linseg (iAmplitude/2 + 1), .5, 1, .1, 1
+  kPitch linseg (iAmplitude/0dbfs/2 + 1), .5, 1, .1, 1
 
   kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0
 

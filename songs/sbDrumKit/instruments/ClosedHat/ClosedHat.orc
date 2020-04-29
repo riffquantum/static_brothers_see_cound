@@ -16,12 +16,11 @@ giClosedHatSample ftgen 0, 0, giClosedHatSampleTableLength, 1, gSClosedHatSample
 
 instr ClosedHat
   iAmplitude  = p4
-  kPitch linseg (iAmplitude/2 + 1), .5, 1, .1, 1
+  kPitch linseg (iAmplitude/0dbfs/2 + 1), .5, 1, .1, 1
 
   kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0
 
   aClosedHatSample loscil kAmplitudeEnvelope, 1, giClosedHatSample, 1
-
 
   aClosedHat = aClosedHatSample
 

@@ -49,7 +49,7 @@ instr MidiRouter
       iInstrumentToInterrupt = 2000 + iInstrumentToInterruptNoteNumber
 
       if iInstrumentToInterruptNoteNumber == iNoteNumber then
-        iInstrumentNumber interruptThenTrigger iInstrumentNumber
+        interruptThenTrigger iInstrumentNumber, iLengthOfNote, iNoteVelocity
       elseif iInstrumentToInterruptNoteNumber < 2000 then
         turnoff2 iInstrumentToInterruptNoteNumber, 1, 1
       else
@@ -57,10 +57,10 @@ instr MidiRouter
       endif
 
     loop_lt iInterruptCounter, 1, iInterruptListLength, interruptLoop
+  else
+    ; Triggers note instrument
+    event_i   "i", iInstrumentNumber, 0, iLengthOfNote, iNoteVelocity
   endif
-
-  ; Triggers note instrument
-  event_i   "i", iInstrumentNumber, 0, iLengthOfNote, iNoteVelocity
 
   ; Global Instruments
   if giCurrentSong == 1 then
