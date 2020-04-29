@@ -3,6 +3,7 @@
         -odac -Ma  -m0
         -B512 -b128
         -t120
+
         ;-+rtmidi=virtual
     </CsOptions>
 
