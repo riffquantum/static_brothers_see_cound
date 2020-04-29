@@ -15,8 +15,8 @@ instr 2056 ;HatPedal, PadB9,
   if giDoubleKickOn == 1 then
     event_i "i", "CbKick", 0, giMidiNoteDurationList[giKickNote], iNoteVelocity, 4.07
 
-    ;event_i "i", "LongDeepKick", 0, giMidiNoteDurationList[giKickNote], iNoteVelocity, 4.07
+    event_i "i", "LongDeepKick", 0, giMidiNoteDurationList[giKickNote], iNoteVelocity, 4.07
 
-    ;event_i "i", "SharpKick", 0, giMidiNoteDurationList[giKickNote], iNoteVelocity, 4.07
+    event_i "i", "SharpKick", 0, giMidiNoteDurationList[giKickNote], iNoteVelocity, 4.07
   endif
 endin
