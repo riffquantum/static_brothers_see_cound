@@ -21,7 +21,9 @@ opcode velocityToAmplitude, i, ip
   iScaleValue = iScaleValue < 0 ? 0 : iScaleValue
 
   iScaledVelocity velocityCurve iNoteVelocity, iCurveDegree
-  iAmplitude = iScaledVelocity * iScaleValue
+
+
+  iAmplitude = iScaledVelocity/127 * iScaleValue
 
   xout iAmplitude
 endop
