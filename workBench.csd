@@ -3,6 +3,7 @@
       -odac -Ma  -m0
       -iadc
       -B512 -b128
+      
       ;--midioutfile=midiout.mid
       ;-F midiout.mid
       ;-+rtmidi=virtual
