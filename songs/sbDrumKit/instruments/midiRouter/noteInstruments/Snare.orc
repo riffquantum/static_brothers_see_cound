@@ -4,11 +4,11 @@ giMidiNoteInterruptList[giSnareNote] = 0
 
 instr 2036 ;Snare, PadA2,
   iNoteVelocity = p4
-  iAmplitude velocityToAmplitude iNoteVelocity
+  iAmplitude velocityToAmplitude iNoteVelocity, 3
 
   event_i "i", "Snare", 0, giMidiNoteDurationList[giSnareNote], iAmplitude
 
-  if iNoteVelocity > 100 then
+  if iAmplitude > 4 then
     event_i "i", "SharpSnare", 0, giMidiNoteDurationList[giSnareNote], iAmplitude
   endif
 endin
