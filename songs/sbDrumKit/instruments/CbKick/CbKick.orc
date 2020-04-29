@@ -23,8 +23,6 @@ instr CbKick
 
   aCbKick = aCbKickSample
 
-  printsBlockI iAmplitude
-
   outleta "CbKickOutL", aCbKick
   outleta "CbKickOutR", aCbKick
 endin
@@ -32,6 +30,7 @@ endin
 instr CbKickBassKnob
   gkCbKickEqBass linseg p4, p3, p5
 endin
+
 instr CbKickMidKnob
 
   gkCbKickEqMid linseg p4, p3, p5
