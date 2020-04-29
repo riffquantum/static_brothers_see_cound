@@ -4,10 +4,7 @@ giMidiNoteInterruptList[giOrangePadNote] = 0
 
 instr 2043 ;, OrangePad, PadA12
   iNoteVelocity = p4
-  iAmplitude = iNoteVelocity/127 ;* 0dbfs
-  kPitch =1
+  iAmplitude velocityToAmplitude iNoteVelocity
 
-  kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0
-
-  event_i "i", "PitchedDownCrash", 0, giMidiNoteDurationList[giCrashNote], iNoteVelocity, 4.07
+  event_i "i", "PitchedDownCrash", 0, giMidiNoteDurationList[giCrashNote], iAmplitude
 endin

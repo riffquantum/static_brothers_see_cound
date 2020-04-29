@@ -4,9 +4,10 @@ giMidiNoteInterruptList[giRedPadNote] ftgen 0, 0, 0, -2, giRedPadNote
 
 instr 2038 ;RedPad, PadA6,
   iNoteVelocity = p4
+  iAmplitude velocityToAmplitude iNoteVelocity
 
   if giCurrentSong == 1 then
     iPunishmentInstrumentNumber interruptThenTrigger nstrnum("PunishmentAwaits")
-    event_i "i", iPunishmentInstrumentNumber, 0, giMidiNoteDurationList[giRedPadNote], iNoteVelocity, 4.07
+    event_i "i", iPunishmentInstrumentNumber, 0, giMidiNoteDurationList[giRedPadNote], iAmplitude
   endif
 endin

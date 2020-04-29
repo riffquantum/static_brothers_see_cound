@@ -8,7 +8,7 @@
     </CsOptions>
 
     <CsInstruments>
-        ; #include "config/defaultConfig.orc"
+        #include "config/defaultConfig.orc"
 
         gkBPM init 120
 
@@ -17,7 +17,7 @@
         #include "songs/sbDrumKit/instruments/midiRouter/midiNoteMapping.orc"
         #include "songs/sbDrumKit/instruments/midiRouter/noteInstruments/note-instrument-manifest.orc"
 
-      giMetronomeIsOn = 1
+      giMetronomeIsOn = 0
       giCurrentSong = 0
       giDoubleKickOn = 1
       giHatClutchIsOpen = 1

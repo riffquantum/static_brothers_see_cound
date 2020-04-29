@@ -15,10 +15,8 @@ giSharpKickSampleTableLength getTableSizeFromSample gSSharpKickSamplePath
 giSharpKickSample ftgen 0, 0, giSharpKickSampleTableLength, 1, gSSharpKickSamplePath, 0, 0, 0
 
 instr SharpKick
-
-  iNoteVelocity = p4
-  iAmplitude velocityToAmplitude iNoteVelocity
-  kPitch linseg (iNoteVelocity/127/2 + 1), .5, 1, .1, 1
+  iAmplitude  = p4
+  kPitch linseg (iAmplitude/127/2 + 1), .5, 1, .1, 1
 
   kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0
 

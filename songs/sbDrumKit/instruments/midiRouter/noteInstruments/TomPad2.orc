@@ -4,14 +4,11 @@ giMidiNoteInterruptList[giTomPad2Note] = 0
 
 instr 2046 ;TomPad2, PadA11,
   iNoteVelocity = p4
-  iAmplitude = iNoteVelocity/127 ;* 0dbfs
-  kPitch =1
-
-  kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0
+  iAmplitude velocityToAmplitude iNoteVelocity
 
   if giCurrentSong == 0 then
     iFrequency mtof 51
-    event_i   "i", "BirdShitSynth", 0, 1, velocityToAmplitude(iNoteVelocity), iFrequency
+    event_i   "i", "BirdShitSynth", 0, 1, iAmplitude, iFrequency
   endif
 
 endin

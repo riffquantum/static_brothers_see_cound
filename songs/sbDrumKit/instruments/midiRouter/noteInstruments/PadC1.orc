@@ -5,9 +5,9 @@ giMidiNoteInterruptList[giPadC1Note] = 0
 instr 2052 ;PadC1
   if giHatClutchIsOpen == 1 then
     giHatClutchIsOpen = 0
-    prints "Hi Hat Clutch Off"
+    printsBlock "Hi Hat Clutch Off"
   else
     giHatClutchIsOpen = 1
-    prints "Hi Hat Clutch On"
+    printsBlock "Hi Hat Clutch On"
   endif
 endin

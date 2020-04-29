@@ -5,9 +5,9 @@ giMidiNoteInterruptList[giPadC2Note] = 0
 instr 2057 ;, PadC2
   if giDoubleKickOn == 1 then
     giDoubleKickOn = 0
-    prints "Double Kick Off"
+    printsBlock "Double Kick Off"
   else
     giDoubleKickOn = 1
-    prints "Double Kick On"
+    printsBlock "Double Kick On"
   endif
 endin

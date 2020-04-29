@@ -16,9 +16,8 @@ giCrashSampleTableLength getTableSizeFromSample gSCrashSamplePath
 giCrashSample ftgen 0, 0, giCrashSampleTableLength, 1, gSCrashSamplePath, 0, 0, 0
 
 instr Crash
-  iNoteVelocity = p4
-  iAmplitude velocityToAmplitude iNoteVelocity
-  kPitch linseg (iNoteVelocity/127/2 + 1), .5, 1, .1, 1
+  iAmplitude  = p4
+  kPitch linseg (iAmplitude/2 + 1), .5, 1, .1, 1
 
   kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0
 

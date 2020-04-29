@@ -15,9 +15,8 @@ giPunishYouSample1TableLength getTableSizeFromSample gSPunishYouSample1Path
 giPunishYouSample1 ftgen 0, 0, giPunishYouSample1TableLength, 1, gSPunishYouSample1Path, 0, 0, 0
 
 instr PunishYou
-  iNoteVelocity = p4
-  iAmplitude velocityToAmplitude iNoteVelocity
-  kPitch linseg (iNoteVelocity/127/2 + 1), .5, 1, .1, 1
+  iAmplitude  = p4
+  kPitch linseg (iAmplitude/2 + 1), .5, 1, .1, 1
 
   kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0
 

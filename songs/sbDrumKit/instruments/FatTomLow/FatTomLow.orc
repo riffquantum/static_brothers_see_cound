@@ -15,9 +15,8 @@ giFatTomLowSampleTableLength getTableSizeFromSample gSFatTomLowSamplePath
 giFatTomLowSample ftgen 0, 0, giFatTomLowSampleTableLength, 1, gSFatTomLowSamplePath, 0, 0, 0
 
 instr FatTomLow
-  iNoteVelocity = p4
-  iAmplitude velocityToAmplitude iNoteVelocity
-  kPitch linseg (iNoteVelocity/127/2 + 1), .5, 1, .1, 1
+  iAmplitude  = p4
+  kPitch linseg (iAmplitude/2 + 1), .5, 1, .1, 1
 
   kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0
 

@@ -4,10 +4,7 @@ giMidiNoteInterruptList[giTom1Note] = 0
 
 instr 2053 ;Tom1, PadA16,
   iNoteVelocity = p4
-  iAmplitude = iNoteVelocity/127 ;* 0dbfs
-  kPitch =1
+  iAmplitude velocityToAmplitude iNoteVelocity
 
-  kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0
-
-  event_i "i", "FatTomMiddle", 0, giMidiNoteDurationList[giTom1Note], iNoteVelocity, 4.07
+  event_i "i", "FatTomMiddle", 0, giMidiNoteDurationList[giTom1Note], iAmplitude
 endin

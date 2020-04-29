@@ -5,8 +5,7 @@ giTriggerDecayTimes[giCrashNote] = 2.831474
 
 instr 2073 ;Crash, Crash, PadA145,
   iNoteVelocity = p4
+  iAmplitude velocityToAmplitude iNoteVelocity
 
-  event_i "i", "Crash", 0, giMidiNoteDurationList[giCrashNote], iNoteVelocity, 4.07
-
-  skipNote:
+  event_i "i", "Crash", 0, giMidiNoteDurationList[giCrashNote], iAmplitude
 endin

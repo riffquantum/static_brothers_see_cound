@@ -4,9 +4,10 @@ giMidiNoteInterruptList[giGreenPadNote] ftgen 0, 0, 0, -2, giGreenPadNote, nstrn
 
 instr 2044 ;GreenPad, PadA8,
   iNoteVelocity = p4
+  iAmplitude velocityToAmplitude iNoteVelocity
 
   if giCurrentSong == 0 then
     iFrequency mtof 48
-    event_i   "i", "BirdShitSynth", 0, 1, velocityToAmplitude(iNoteVelocity), iFrequency
+    event_i   "i", "BirdShitSynth", 0, 1, iAmplitude, iFrequency
   endif
 endin
