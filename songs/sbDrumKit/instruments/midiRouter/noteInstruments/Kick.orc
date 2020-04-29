@@ -8,7 +8,7 @@ instr 2082 ;Kick, PadB9,
 
   event_i "i", "CbKick", 0, giMidiNoteDurationList[giKickNote], iAmplitude
 
-  event_i "i", "LongDeepKick", 0, giMidiNoteDurationList[giKickNote], iAmplitude
+  interruptThenTrigger nstrnum("LongDeepKick"), 0, giMidiNoteDurationList[giKickNote], iAmplitude
 
   event_i "i", "SharpKick", 0, giMidiNoteDurationList[giKickNote], iAmplitude
 endin

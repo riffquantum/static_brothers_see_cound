@@ -18,13 +18,13 @@
         #include "songs/sbDrumKit/instruments/midiRouter/noteInstruments/note-instrument-manifest.orc"
 
       giMetronomeIsOn = 0
-      giCurrentSong = 1
+      giCurrentSong = 0
       giDoubleKickOn = 1
       giHatClutchIsOpen = 1
 
       instr Dummy
         ;printk 0.5, gkTriggersLastVelocity[73]
-        midiMonitor
+        ; midiMonitor
       endin
     </CsInstruments>
 

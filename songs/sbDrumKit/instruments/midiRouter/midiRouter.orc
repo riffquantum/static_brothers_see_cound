@@ -52,8 +52,10 @@ instr MidiRouter
         interruptThenTrigger iInstrumentNumber, iLengthOfNote, iNoteVelocity
       elseif iInstrumentToInterruptNoteNumber < 2000 then
         turnoff2 iInstrumentToInterruptNoteNumber, 1, 1
+        event_i   "i", iInstrumentNumber, 0, iLengthOfNote, iNoteVelocity
       else
         turnoff2 iInstrumentToInterrupt, 1, 1
+        event_i   "i", iInstrumentNumber, 0, iLengthOfNote, iNoteVelocity
       endif
 
     loop_lt iInterruptCounter, 1, iInterruptListLength, interruptLoop
