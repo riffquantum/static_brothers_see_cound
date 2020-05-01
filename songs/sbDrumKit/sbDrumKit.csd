@@ -8,14 +8,14 @@
     </CsOptions>
 
     <CsInstruments>
-        #include "config/defaultConfig.orc"
+      #include "config/defaultConfig.orc"
 
-        gkBPM init 120
+      gkBPM init 120
 
-        #include "opcodes/opcode-manifest.orc"
-        #include "songs/sbDrumKit/instruments/midiRouter/midiNoteMapping.orc"
-        #include "songs/sbDrumKit/instruments/orchestra-manifest.orc"
-        #include "songs/sbDrumKit/instruments/midiRouter/noteInstruments/note-instrument-manifest.orc"
+      #include "opcodes/opcode-manifest.orc"
+      #include "songs/sbDrumKit/instruments/midiRouter/midiNoteMapping.orc"
+      #include "songs/sbDrumKit/instruments/orchestra-manifest.orc"
+      #include "songs/sbDrumKit/instruments/midiRouter/noteInstruments/note-instrument-manifest.orc"
 
       giMetronomeIsOn = 0
       giCurrentSong = 0
@@ -24,7 +24,7 @@
 
       instr Dummy
         ;printk 0.5, gkTriggersLastVelocity[73]
-        ; midiMonitor
+        midiMonitor
       endin
     </CsInstruments>
 

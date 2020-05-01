@@ -5,15 +5,13 @@ gSReverbForKickName = "ReverbForKick"
 gSReverbForKickRoute = "KickBus"
 instrumentRoute gSReverbForKickName, gSReverbForKickRoute
 
-
-
 gkReverbForKickEqBass init 1
 gkReverbForKickEqMid init 1
 gkReverbForKickEqHigh init 1
 gkReverbForKickFader init 1
 gkReverbForKickPan init 50
 
-gkReverbForKickWet init .9
+gkReverbForKickWet init .2
 gkReverbForKickDry init 1
 
 gkReverbForKickDelay init .99

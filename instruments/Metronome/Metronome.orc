@@ -11,18 +11,17 @@ alwayson "MetronomeMixerChannel"
 
 gkMetronomeEqBass init 1
 gkMetronomeEqMid init 1
-gkMetronomeEqHigh init .5
-gkMetronomeFader init 1
+gkMetronomeEqHigh init .1
+gkMetronomeFader init .8
 gkMetronomePan init 50
 
 instr MetronomeTone
-  iToneAmplitude = 0dbfs/2
+  iToneAmplitude = 0dbfs/3
 
 
   if giMetronomeIsOn == 1 then
     if arrayContains(giMetronomeAccents, giMetronomeCount) == 1 then
       aTone loscil iToneAmplitude, 1.1, giMetronomeToneSample, 1
-      aTone = aTone * 2
     else
       aTone loscil iToneAmplitude, 1, giMetronomeToneSample, 1
     endif

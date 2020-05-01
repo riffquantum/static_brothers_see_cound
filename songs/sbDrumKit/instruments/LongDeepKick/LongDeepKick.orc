@@ -5,7 +5,7 @@ instrumentRoute gSLongDeepKickName, gSLongDeepKickRoute
 
 alwayson "LongDeepKickMixerChannel"
 
-gkLongDeepKickEqBass init 1
+gkLongDeepKickEqBass init 1.5
 gkLongDeepKickEqMid init 1
 gkLongDeepKickEqHigh init 1
 gkLongDeepKickFader init 1

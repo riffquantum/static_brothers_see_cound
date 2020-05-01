@@ -1,9 +1,9 @@
 <CsoundSynthesizer>
   <CsOptions>
-      -odac -Ma  -m0
+      -odac1 -Ma  -m0
       -iadc
       -B512 -b128
-      
+
       ;--midioutfile=midiout.mid
       ;-F midiout.mid
       ;-+rtmidi=virtual
