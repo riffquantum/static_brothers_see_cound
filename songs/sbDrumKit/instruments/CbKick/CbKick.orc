@@ -1,5 +1,5 @@
 gSCbKickName = "CbKick"
-gSCbKickRoute = "Mixer"
+gSCbKickRoute = "KickBus"
 instrumentRoute gSCbKickName, gSCbKickRoute
 
 alwayson "CbKickMixerChannel"
@@ -10,7 +10,7 @@ gkCbKickEqHigh init 1
 gkCbKickFader init 1
 gkCbKickPan init 50
 
-gSCbKickSamplePath ="songs/sbDrumKit/samples/CB_Kick.wav"
+gSCbKickSamplePath ="songs/sbDrumKit/instruments/CbKick/CB_Kick.wav"
 giCbKickSampleTableLength getTableSizeFromSample gSCbKickSamplePath
 giCbKickSample ftgen 0, 0, giCbKickSampleTableLength, 1, gSCbKickSamplePath, 0, 0, 0
 
@@ -52,22 +52,7 @@ instr CbKickMixerChannel
   aCbKickL inleta "CbKickInL"
   aCbKickR inleta "CbKickInR"
 
-  kCbKickFader = gkCbKickFader
-  kCbKickPan = gkCbKickPan
-  kCbKickEqBass = gkCbKickEqBass
-  kCbKickEqMid = gkCbKickEqMid
-  kCbKickEqHigh = gkCbKickEqHigh
-
-  aCbKickL, aCbKickR threeBandEqStereo aCbKickL, aCbKickR, kCbKickEqBass, kCbKickEqMid, kCbKickEqHigh
-
-  if kCbKickPan > 100 then
-      kCbKickPan = 100
-  elseif kCbKickPan < 0 then
-      kCbKickPan = 0
-  endif
-
-  aCbKickL = (aCbKickL * ((100 - kCbKickPan) * 2 / 100)) * kCbKickFader
-  aCbKickR = (aCbKickR * (kCbKickPan * 2 / 100)) * kCbKickFader
+  aCbKickL, aCbKickR mixerChannel aCbKickL, aCbKickR, gkCbKickFader, gkCbKickPan, gkCbKickEqBass, gkCbKickEqMid, gkCbKickEqHigh
 
   outleta "CbKickOutL", aCbKickL
   outleta "CbKickOutR", aCbKickR

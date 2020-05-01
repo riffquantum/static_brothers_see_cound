@@ -10,7 +10,7 @@ gkPunishmentAwaitsEqHigh init 1
 gkPunishmentAwaitsFader init 1
 gkPunishmentAwaitsPan init 50
 
-gSPunishmentAwaitsSample1Path = "songs/sbDrumKit/samples/punishmentAwaits.wav"
+gSPunishmentAwaitsSample1Path = "songs/sbDrumKit/instruments/punishmentAwaits/punishmentAwaits.wav"
 giPunishmentAwaitsSample1TableLength getTableSizeFromSample gSPunishmentAwaitsSample1Path
 giPunishmentAwaitsSample1 ftgen 0, 0, giPunishmentAwaitsSample1TableLength, 1, gSPunishmentAwaitsSample1Path, 0, 0, 0
 

@@ -21,7 +21,6 @@
   Audio Processors and Effects
 */
 
-
 #include "distortion.orc"
 
 #include "threeBandEq.orc"
@@ -34,7 +33,11 @@
 
 #include "squareWave.orc"
 
+#include "stereoRoute.orc"
+
 #include "instrumentRoute.orc"
+
+#include "mixerChannel.orc"
 
 
 /*

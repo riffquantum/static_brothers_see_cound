@@ -1,5 +1,5 @@
 gSClosedHatName = "ClosedHat"
-gSClosedHatRoute = "Mixer"
+gSClosedHatRoute = "DrumKitBus"
 instrumentRoute gSClosedHatName, gSClosedHatRoute
 
 alwayson "ClosedHatMixerChannel"

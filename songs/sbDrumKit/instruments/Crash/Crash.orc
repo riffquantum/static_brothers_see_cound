@@ -1,5 +1,5 @@
 gSCrashName = "Crash"
-gSCrashRoute = "Mixer"
+gSCrashRoute = "DrumKitBus"
 instrumentRoute gSCrashName, gSCrashRoute
 
 

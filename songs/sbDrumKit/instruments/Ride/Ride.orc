@@ -1,5 +1,5 @@
 gSRideName = "Ride"
-gSRideRoute = "Mixer"
+gSRideRoute = "DrumKitBus"
 instrumentRoute gSRideName, gSRideRoute
 
 alwayson "RideMixerChannel"

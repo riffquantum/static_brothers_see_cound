@@ -1,5 +1,5 @@
 gSOpenHatName = "OpenHat"
-gSOpenHatRoute = "Mixer"
+gSOpenHatRoute = "DrumKitBus"
 instrumentRoute gSOpenHatName, gSOpenHatRoute
 
 alwayson "OpenHatMixerChannel"

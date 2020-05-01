@@ -1,5 +1,5 @@
 gSPitchedDownCrashName = "PitchedDownCrash"
-gSPitchedDownCrashRoute = "Mixer"
+gSPitchedDownCrashRoute = "DrumKitBus"
 instrumentRoute gSPitchedDownCrashName, gSPitchedDownCrashRoute
 
 

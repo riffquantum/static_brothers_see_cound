@@ -82,6 +82,7 @@ giPadD14Note = 96
 giPadD15Note = 97
 giPadD16Note = 98
 
+giTestNotes[] init 30
 /* giTestNotes maps a set of adjacent, low numbered, unassigned keys to other notes for convenience in testing notes on a virtual midi keyboard. */
 giTestNotes[12] = giKickNote ;z
 giTestNotes[13] = giHatPedalNote ;s

@@ -2,7 +2,7 @@ alwayson "ReverbForKick"
 alwayson "ReverbForKickMixerChannel"
 
 gSReverbForKickName = "ReverbForKick"
-gSReverbForKickRoute = "Mixer"
+gSReverbForKickRoute = "KickBus"
 instrumentRoute gSReverbForKickName, gSReverbForKickRoute
 
 

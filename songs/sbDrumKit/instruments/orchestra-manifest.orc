@@ -6,6 +6,8 @@
 
 #include "BirdShitSynth/BirdShitSynth.orc"
 
+#include "BirdShitSynthSamples/BirdShitSynthSamples.orc"
+
 #include "CbKick/CbKick.orc"
 
 #include "ClosedHat/ClosedHat.orc"
@@ -26,6 +28,8 @@
 
 #include "Photoshop/Photoshop.orc"
 
+#include "PhotoshopSamples/PhotoshopSamples.orc"
+
 #include "PitchedDownCrash/PitchedDownCrash.orc"
 
 #include "punishmentAwaits/punishmentAwaits.orc"
@@ -41,3 +45,13 @@
 #include "SharpSnare/SharpSnare.orc"
 
 #include "Snare/Snare.orc"
+
+
+
+#include "Busses/KickBus.orc"
+
+#include "Busses/DrumKitBus.orc"
+
+#include "DelayForDrumKit/DelayForDrumKit.orc"
+
+#include "ReverbForDrumKit/ReverbForDrumKit.orc"

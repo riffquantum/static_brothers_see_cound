@@ -1,7 +1,6 @@
 gSMidiNoteSampleList[] init 128
 giMidiNoteDurationList[] init 128
 giMidiNoteInterruptList[] init 128
-giTestNotes[] init 30
 giTriggerDecayTimes[] init 128
 
 giCurrentSong = 1
@@ -66,7 +65,8 @@ instr MidiRouter
 
   ; Global Instruments
   if giCurrentSong == 1 then
-    event_i   "i", "Photoshop", 0, .3, iNoteVelocity/127, iFrequency
+    event_i   "i", "Photoshop", 0, 1, iNoteVelocity/127, iFrequency
+    ; event_i   "i", "PhotoshopSamples", 0, 1, velocityToAmplitude(iNoteVelocity), iNoteNumber
   endif
 
   skipNote:

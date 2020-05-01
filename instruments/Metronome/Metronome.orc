@@ -4,6 +4,17 @@ giMetronomeBeatsPerMeasure = 4
 giMetronomeAccents[] fillarray 1
 giMetronomeToneSample ftgen 0, 0, 0, 1, "instruments/Metronome/Dance-Kit_Clv_EA8116.wav", 0, 0, 0
 
+connect "MetronomeTone", "MetronomeOutL", "MetronomeMixerChannel", "MetronomeInL"
+connect "MetronomeTone", "MetronomeOutR", "MetronomeMixerChannel", "MetronomeInR"
+
+alwayson "MetronomeMixerChannel"
+
+gkMetronomeEqBass init 1
+gkMetronomeEqMid init 1
+gkMetronomeEqHigh init .5
+gkMetronomeFader init 1
+gkMetronomePan init 50
+
 instr MetronomeTone
   iToneAmplitude = 0dbfs/2
 
@@ -17,7 +28,8 @@ instr MetronomeTone
     endif
   endif
 
-  out aTone, aTone
+  outleta "MetronomeOutL", aTone
+  outleta "MetronomeOutR", aTone
 endin
 
 instr Metronome
@@ -48,3 +60,34 @@ instr MetronomeCounter
     giMetronomeCount = 1
   endif
 endin
+
+instr MetronomeBassKnob
+  gkMetronomeEqBass linseg p4, p3, p5
+endin
+
+instr MetronomeMidKnob
+
+  gkMetronomeEqMid linseg p4, p3, p5
+endin
+
+instr MetronomeHighKnob
+  gkMetronomeEqHigh linseg p4, p3, p5
+endin
+
+instr MetronomeFader
+  gkMetronomeFader linseg p4, p3, p5
+endin
+
+instr MetronomePan
+  gkMetronomePan linseg p4, p3, p5
+endin
+
+instr MetronomeMixerChannel
+  aMetronomeL inleta "MetronomeInL"
+  aMetronomeR inleta "MetronomeInR"
+
+  aMetronomeL, aMetronomeR mixerChannel aMetronomeL, aMetronomeR, gkMetronomeFader, gkMetronomePan, gkMetronomeEqBass, gkMetronomeEqMid, gkMetronomeEqHigh
+
+  out aMetronomeL, aMetronomeR
+endin
+

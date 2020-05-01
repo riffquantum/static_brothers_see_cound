@@ -1,5 +1,5 @@
 gSLongDeepKickName = "LongDeepKick"
-gSLongDeepKickRoute = "Mixer"
+gSLongDeepKickRoute = "KickBus"
 instrumentRoute gSLongDeepKickName, gSLongDeepKickRoute
 
 

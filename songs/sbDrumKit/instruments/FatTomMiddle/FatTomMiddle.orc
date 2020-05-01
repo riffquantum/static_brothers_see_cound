@@ -1,5 +1,5 @@
 gSFatTomMiddleName = "FatTomMiddle"
-gSFatTomMiddleRoute = "Mixer"
+gSFatTomMiddleRoute = "DrumKitBus"
 instrumentRoute gSFatTomMiddleName, gSFatTomMiddleRoute
 
 alwayson "FatTomMiddleMixerChannel"

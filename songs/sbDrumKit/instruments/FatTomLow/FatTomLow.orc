@@ -1,5 +1,5 @@
 gSFatTomLowName = "FatTomLow"
-gSFatTomLowRoute = "Mixer"
+gSFatTomLowRoute = "DrumKitBus"
 instrumentRoute gSFatTomLowName, gSFatTomLowRoute
 
 alwayson "FatTomLowMixerChannel"

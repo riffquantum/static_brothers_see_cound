@@ -1,5 +1,5 @@
 gSSharpSnareName = "SharpSnare"
-gSSharpSnareRoute = "Mixer"
+gSSharpSnareRoute = "DrumKitBus"
 instrumentRoute gSSharpSnareName, gSSharpSnareRoute
 
 alwayson "SharpSnareMixerChannel"
