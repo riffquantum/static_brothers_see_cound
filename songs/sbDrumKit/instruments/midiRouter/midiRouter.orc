@@ -34,7 +34,7 @@ instr MidiRouter
 
   ; Sets some note-specific values
   iFrequency mtof iNoteNumber
-  iLengthOfNote = giMidiNoteDurationList[iNoteNumber]
+  iLengthOfNote = (giMidiNoteDurationList[iNoteNumber] != 0 ? giMidiNoteDurationList[iNoteNumber] : 1/sr)
   iInterruptList = giMidiNoteInterruptList[iNoteNumber]
   iInstrumentNumber = 2000 + iNoteNumber
 

@@ -1,11 +1,4 @@
-if giCurrentSong == 0 then
-  gSMidiNoteSampleList[giGreenPadNote] = "songs/sbDrumKit/instruments/BirdShitSynthSamples/BirdShitSynthSample1.wav"
-giMidiNoteDurationList[giGreenPadNote] = filelen(gSMidiNoteSampleList[giGreenPadNote])
-elseif giCurrentSong == 1 then
-  gSMidiNoteSampleList[giGreenPadNote] = "songs/sbDrumKit/samples/punishYou.wav"
-  giMidiNoteDurationList[giGreenPadNote] = filelen(gSMidiNoteSampleList[giGreenPadNote]) - .75
-  giMidiNoteInterruptList[giGreenPadNote] ftgen 0, 0, 0, -2, giGreenPadNote, nstrnum("PunishmentAwaits")
-endif
+giMidiNoteInterruptList[giGreenPadNote] = 0
 
 instr 2044 ;GreenPad, PadA8,
   iNoteVelocity = p4
@@ -15,6 +8,8 @@ instr 2044 ;GreenPad, PadA8,
     ; iFrequency mtof 48
     ; event_i   "i", "BirdShitSynth", 0, 1, iAmplitude, iFrequency
 
-    event_i   "i", "BirdShitSynthSamples", 0, 1, iAmplitude, 1
+    iDuration = filelen("songs/sbDrumKit/instruments/BirdShitSynthSamples/BirdShitSynthSample1.wav")
+
+    event_i   "i", "BirdShitSynthSamples", 0, iDuration, iAmplitude, 1
   endif
 endin
