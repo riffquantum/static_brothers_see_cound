@@ -1,6 +1,6 @@
-alwayson "DelayForDrumKit"
 alwayson "DelayForDrumKitMixerChannel"
 
+giDelayForDrumKitIsOn init 0
 giDelayForDrumKitBufferLength init 5
 gaDelayForDrumKitTime init .3
 gkDelayForDrumKitFeedbackAmmount init 0.8

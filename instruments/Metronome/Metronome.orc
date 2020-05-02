@@ -1,4 +1,4 @@
-giMetronomeIsOn = 1
+giMetronomeIsOn = 0
 giMetronomeCount = 1
 giMetronomeBeatsPerMeasure = 4
 giMetronomeAccents[] fillarray 1
@@ -34,10 +34,8 @@ endin
 instr Metronome
     kTrigger  metro  gkBPM/60
 
-    if giMetronomeIsOn == 1 then
-      schedkwhen    kTrigger, 0, 0, "MetronomeTone", 0, gkBPM/60
-      schedkwhen    kTrigger, 0, 0, "MetronomeCounter", 0, .1
-    endif
+    schedkwhen    kTrigger, 0, 0, "MetronomeTone", 0, gkBPM/60
+    schedkwhen    kTrigger, 0, 0, "MetronomeCounter", 0, .1
 endin
 
 instr MetronomeSwitch

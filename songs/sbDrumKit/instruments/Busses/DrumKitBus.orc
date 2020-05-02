@@ -1,3 +1,5 @@
+stereoRoute "DrumKitBus", "Mixer"
+stereoRoute "DrumKitBus", "ReverbForDrumKit"
 stereoRoute "DrumKitBus", "DelayForDrumKit"
 
 alwayson "DrumKitBus"
