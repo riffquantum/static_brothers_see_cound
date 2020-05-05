@@ -47,57 +47,16 @@
     gSNewEffectRoute = "Mixer"
     instrumentRoute gSNewEffectName, gSNewEffectRoute
 
-    gSNewInstrumentSampleFilePath = "localSamples/blueangel4.wav"
-    giNewInstrumentNumberOfChannels filenchnls gSNewInstrumentSampleFilePath
-    giNewInstrumentSampleLength filelen gSNewInstrumentSampleFilePath
-    giNewInstrumentStartTime = 1
-    giNewInstrumentEndTime = giNewInstrumentSampleLength
-    giNewInstrumentEnvelopeTable ftgenonce 2, 0, 16384, 9, 0.5, 1, 0
-    giNewInstrumentSampleRate filesr gSNewInstrumentSampleFilePath
-
-    if giNewInstrumentNumberOfChannels == 2 then
-        giNewInstrumentSampleTableL ftgenonce 0, 0, 0, 1, gSNewInstrumentSampleFilePath, giNewInstrumentStartTime, 0, 1
-        giNewInstrumentSampleTableR ftgenonce 0, 0, 0, 1, gSNewInstrumentSampleFilePath, giNewInstrumentStartTime, 0, 2
-    else
-        giNewInstrumentSampleTable ftgenonce 0, 0, 0, 1, gSNewInstrumentSampleFilePath, giNewInstrumentStartTime, 0, 0
-    endif
-
     /* MIDI Config Values */
     massign giNewInstrumentMidiChannel, "NewInstrument"
 
     instr NewInstrument
       iAmplitude flexibleAmplitudeInput p4
-      kAmplitudeEnvelope madsr .005, .01, iAmplitude, .5
-      kPitch = flexiblePitchInput(p5) / 261.6
+      kPitch = flexiblePitchInput(p5)
 
-      kTimeStretch linseg 1, 1, .5
-      kGrainSizeAdjustment = .1
-      kGrainFrequencyAdjustment = 1
-      kPitchAdjustment linseg 2.5, .25, 2.75
-      kGrainOverlapPercentageAdjustment = 1
+      aNewInstrumentL = 0
+      aNewInstrumentR = 0
 
-      kPitch *= kPitchAdjustment
-      kGrainOverlapPercentage = 88 * kGrainOverlapPercentageAdjustment
-      kGrainSize = 0.01 * kGrainSizeAdjustment
-      kGrainFrequency = 1/(kGrainSize/(100/kGrainOverlapPercentage)) * kGrainFrequencyAdjustment
-      kPointerRate = kTimeStretch * kGrainOverlapPercentage/100
-
-      iMaxOverlaps = 1000
-
-      if giNewInstrumentNumberOfChannels == 2 then
-        aNewInstrumentL syncloop 1, kGrainFrequency, kPitch, kGrainSize, kPointerRate, 0, giNewInstrumentEndTime, giNewInstrumentSampleTableL, giNewInstrumentEnvelopeTable, iMaxOverlaps
-
-        aNewInstrumentR syncloop 1, kGrainFrequency, kPitch, kGrainSize, kPointerRate, 0, giNewInstrumentEndTime, giNewInstrumentSampleTableR, giNewInstrumentEnvelopeTable, iMaxOverlaps
-
-        aNewInstrumentL = aNewInstrumentL * kAmplitudeEnvelope
-        aNewInstrumentR = aNewInstrumentR * kAmplitudeEnvelope
-      else
-        aNewInstrumentL syncloop 1, kGrainFrequency, kPitch, kGrainSize, kPointerRate, 0, giNewInstrumentEndTime, giNewInstrumentSampleTable, giNewInstrumentEnvelopeTable, iMaxOverlaps
-
-        aNewInstrumentR = aNewInstrumentR * kAmplitudeEnvelope
-
-        aNewInstrumentR = aNewInstrumentL
-      endif
 
       outleta "NewInstrumentOutL", aNewInstrumentL
       outleta "NewInstrumentOutR", aNewInstrumentR

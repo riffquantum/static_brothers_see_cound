@@ -44,6 +44,6 @@
 
 #include "MultiStageDistortion/MultiStageDistortion.orc"
 
-;#include "masterMidiInterface/masterMidiInterface.orc"
+#include "SyncLoopSamplerTemplate2/SyncLoopSamplerTemplate2.orc"
 
 #include "mixer/mixer.orc"
