@@ -18,7 +18,6 @@ gkMetronomePan init 50
 instr MetronomeTone
   iToneAmplitude = 0dbfs/3
 
-
   if giMetronomeIsOn == 1 then
     if arrayContains(giMetronomeAccents, giMetronomeCount) == 1 then
       aTone loscil iToneAmplitude, 1.1, giMetronomeToneSample, 1

@@ -142,10 +142,6 @@ instr SyncloopSamplerTemplate
     print ienvelopeTable
     print iMaxOverlaps
 
-    /*
-
-    */
-
     outleta "SyncloopSamplerTemplateOutL", aSyncloopSamplerTemplateL
     outleta "SyncloopSamplerTemplateOutR", aSyncloopSamplerTemplateR
 endin

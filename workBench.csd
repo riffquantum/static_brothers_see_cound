@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
   <CsOptions>
-      -odac1 -Ma  -m0
+      -odac -Ma  -m0
       -iadc
       -B512 -b128
 
@@ -20,7 +20,7 @@
     #include "patterns/pattern-manifest.orc"
 
     instr Dummy
-      midiMonitor
+      ; midiMonitor
     endin
 
     giMetronomeIsOn = 0
@@ -47,73 +47,64 @@
     gSNewEffectRoute = "Mixer"
     instrumentRoute gSNewEffectName, gSNewEffectRoute
 
+    gSNewInstrumentSampleFilePath = "localSamples/blueangel4.wav"
+    giNewInstrumentNumberOfChannels filenchnls gSNewInstrumentSampleFilePath
+    giNewInstrumentSampleLength filelen gSNewInstrumentSampleFilePath
+    giNewInstrumentStartTime = 1
+    giNewInstrumentEndTime = giNewInstrumentSampleLength
+    giNewInstrumentEnvelopeTable ftgenonce 2, 0, 16384, 9, 0.5, 1, 0
+    giNewInstrumentSampleRate filesr gSNewInstrumentSampleFilePath
+
+    if giNewInstrumentNumberOfChannels == 2 then
+        giNewInstrumentSampleTableL ftgenonce 0, 0, 0, 1, gSNewInstrumentSampleFilePath, giNewInstrumentStartTime, 0, 1
+        giNewInstrumentSampleTableR ftgenonce 0, 0, 0, 1, gSNewInstrumentSampleFilePath, giNewInstrumentStartTime, 0, 2
+    else
+        giNewInstrumentSampleTable ftgenonce 0, 0, 0, 1, gSNewInstrumentSampleFilePath, giNewInstrumentStartTime, 0, 0
+    endif
+
     /* MIDI Config Values */
     massign giNewInstrumentMidiChannel, "NewInstrument"
 
     instr NewInstrument
       iAmplitude flexibleAmplitudeInput p4
-      iPitch flexiblePitchInput p5
-      iSineTable sineWave
-      iSawtooth sawtoothWaveDown
-      iSawtoothUp sawtoothWaveUpAndDown
-      iSquareWave squareWave
+      kAmplitudeEnvelope madsr .005, .01, iAmplitude, .5
+      kPitch = flexiblePitchInput(p5) / 261.6
 
+      kTimeStretch linseg 1, 1, .5
+      kGrainSizeAdjustment = .1
+      kGrainFrequencyAdjustment = 1
+      kPitchAdjustment linseg 2.5, .25, 2.75
+      kGrainOverlapPercentageAdjustment = 1
 
-      iAttack = 0.01
-      iDecay = 0.01
-      iSustain = iAmplitude
-      iRelease = 0.15
-      iEnvelopeDelay = 0
-      kAmplitudeEnvelope = madsr(iAttack, iDecay, iSustain, iRelease, iEnvelopeDelay)
+      kPitch *= kPitchAdjustment
+      kGrainOverlapPercentage = 88 * kGrainOverlapPercentageAdjustment
+      kGrainSize = 0.01 * kGrainSizeAdjustment
+      kGrainFrequency = 1/(kGrainSize/(100/kGrainOverlapPercentage)) * kGrainFrequencyAdjustment
+      kPointerRate = kTimeStretch * kGrainOverlapPercentage/100
 
+      iMaxOverlaps = 1000
 
+      if giNewInstrumentNumberOfChannels == 2 then
+        aNewInstrumentL syncloop 1, kGrainFrequency, kPitch, kGrainSize, kPointerRate, 0, giNewInstrumentEndTime, giNewInstrumentSampleTableL, giNewInstrumentEnvelopeTable, iMaxOverlaps
 
-      kTremoloDepth = 0.1
-      kTremoloRate = 3
-      kTremolo = (1 - kTremoloDepth) + oscil(kTremoloDepth, kTremoloRate, iSineTable)
-      kAmplitudeEnvelope = kAmplitudeEnvelope * kTremolo
+        aNewInstrumentR syncloop 1, kGrainFrequency, kPitch, kGrainSize, kPointerRate, 0, giNewInstrumentEndTime, giNewInstrumentSampleTableR, giNewInstrumentEnvelopeTable, iMaxOverlaps
 
-      ;Primary Oscillator
-      ; aPrimaryOscillator = oscil(iAmplitude*0.5, iPitch, iSineTable)
-      ; aOctaveDown = oscil(iAmplitude, cpspch(pchcps(iPitch) - 1), iSineTable)
-      ; aOctaveDownSquare = oscil(iAmplitude*0.25, cpspch(pchcps(iPitch) - 1), iSquareWave)
-      ; aTwoOctavesDownSaw = oscil(iAmplitude*0.5, cpspch(pchcps(iPitch) - 2), iSawtooth)
-      ; aThreeOctavesDownSaw = oscil(iAmplitude*0.5, cpspch(pchcps(iPitch) - 3), iSawtooth)
+        aNewInstrumentL = aNewInstrumentL * kAmplitudeEnvelope
+        aNewInstrumentR = aNewInstrumentR * kAmplitudeEnvelope
+      else
+        aNewInstrumentL syncloop 1, kGrainFrequency, kPitch, kGrainSize, kPointerRate, 0, giNewInstrumentEndTime, giNewInstrumentSampleTable, giNewInstrumentEnvelopeTable, iMaxOverlaps
 
-      aPrimaryOscillator = oscil(kAmplitudeEnvelope*0.5, iPitch, iSineTable)
-      aOctaveDown = oscil(kAmplitudeEnvelope, cpspch(pchcps(iPitch) - 1), iSineTable)
-      aOctaveDownSquare = oscil(kAmplitudeEnvelope*0.25, cpspch(pchcps(iPitch) - 1), iSquareWave)
-      aTwoOctavesDownSaw = oscil(kAmplitudeEnvelope*0.5, cpspch(pchcps(iPitch) - 2), iSawtooth)
-      aThreeOctavesDownSaw = oscil(kAmplitudeEnvelope*0.5, cpspch(pchcps(iPitch) - 3), iSawtooth)
+        aNewInstrumentR = aNewInstrumentR * kAmplitudeEnvelope
 
-
-      aNewInstrumentL = aPrimaryOscillator
-      aNewInstrumentL += aOctaveDown
-      aNewInstrumentL += aOctaveDownSquare
-      aNewInstrumentL += aTwoOctavesDownSaw
-      aNewInstrumentL += aThreeOctavesDownSaw
-
-      aPrimaryOscillator *= kAmplitudeEnvelope
-
-      kHalfPowerPointValue linseg 500, .25, 150
-      kQ linsegr 0.0001, 1, 5.5, iRelease, 5.5
-      aNewInstrumentL lowpass2 aNewInstrumentL, kHalfPowerPointValue, kQ
-
-      ; aNewInstrumentL *= kAmplitudeEnvelope
-
-      ;Can I base the filter settings on the pitch to optimize sound at lower pitches?
-      ;Also base the amplitude of the partials based on pitch?
-
-      aNewInstrumentL balance aNewInstrumentL, aPrimaryOscillator
-
-      aNewInstrumentR = aNewInstrumentL
+        aNewInstrumentR = aNewInstrumentL
+      endif
 
       outleta "NewInstrumentOutL", aNewInstrumentL
       outleta "NewInstrumentOutR", aNewInstrumentR
     endin
 
     instr NewEffect
-      midiMonitor
+      ; midiMonitor
       aNewEffectInL inleta "NewEffectInL"
       aNewEffectInR inleta "NewEffectInR"
 

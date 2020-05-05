@@ -11,7 +11,6 @@ gSMultiStageDistortionRoute = "Mixer"
 instrumentRoute gSMultiStageDistortionName, gSMultiStageDistortionRoute
 
 instr MultiStageDistortion
-  midiMonitor
   aMultiStageDistortionInL inleta "MultiStageDistortionInL"
   aMultiStageDistortionInR inleta "MultiStageDistortionInR"
 
