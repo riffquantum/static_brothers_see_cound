@@ -4,7 +4,7 @@ giHatOpenNote = 55
 giHatClosedNote = 47
 giHatPedalNote = 56
 giHatSplashNote = 0
-giCrashNote = 73 ; aka Crash
+giCrashNote = 73
 giOrangePadNote = 43
 giRedPadNote = 38
 giBluePadNote = 45
@@ -101,17 +101,33 @@ giTestNotes[25] = giBluePadNote ;2
 giTestNotes[26] = giGreenPadNote ;w
 
 
-/* Controller Notes
-knobs left to right, bottom row to top row - 16 to 31
-Fader - 10
-Buttons
-0 = 14
-1 = 15
-2 = 85
-...
-7 = 90
-8 = 118
-9 = 119
+giXSessionFaderLeftControlNumber = 40
+giXSessionFaderRightControlNumber = 50
 
+giXSessionKnobC1ControlNumber = 105
+giXSessionKnobC2ControlNumber = 104
+giXSessionKnobC3ControlNumber = 107
+giXSessionKnobC4ControlNumber = 108
+giXSessionKnobC5ControlNumber = 110
+giXSessionKnobC6ControlNumber = 111
+giXSessionKnobC7ControlNumber = 112
+giXSessionKnobC8ControlNumber = 116
+giXSessionKnobC9ControlNumber = 70
+giXSessionKnobC10ControlNumber = 71
+giXSessionKnobC11ControlNumber = 75
+giXSessionKnobC12ControlNumber = 80
+giXSessionKnobC13ControlNumber = 82
+giXSessionKnobC14ControlNumber = 83
+giXSessionKnobC15ControlNumber = 55
+giXSessionKnobC16ControlNumber = 87
 
-*/
+giXSessionButton1ControlNumber = 22
+giXSessionButton2ControlNumber = 23
+giXSessionButton3ControlNumber = 24
+giXSessionButton4ControlNumber = 41
+giXSessionButton5ControlNumber = 42
+giXSessionButton6ControlNumber = 44
+giXSessionButton7ControlNumber = 52
+giXSessionButton8ControlNumber = 53
+giXSessionButton9ControlNumber = 54
+giXSessionButton0ControlNumber = 57

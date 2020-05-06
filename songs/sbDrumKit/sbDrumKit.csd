@@ -9,13 +9,15 @@
 
     <CsInstruments>
       #include "config/defaultConfig.orc"
-  
+
       gkBPM = 120
 
       #include "opcodes/opcode-manifest.orc"
       #include "songs/sbDrumKit/instruments/midiRouter/midiNoteMapping.orc"
       #include "songs/sbDrumKit/instruments/orchestra-manifest.orc"
       #include "songs/sbDrumKit/instruments/midiRouter/noteInstruments/note-instrument-manifest.orc"
+      #include "songs/sbDrumKit/instruments/midiRouter/midiControlInputs/midiControlInputs.orc"
+
 
       giCurrentSong = 0
       giDoubleKickOn = 1
