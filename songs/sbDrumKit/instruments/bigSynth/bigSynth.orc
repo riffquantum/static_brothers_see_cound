@@ -7,10 +7,9 @@ alwayson "BigSynthMixerChannel"
 gkBigSynthEqBass init 1
 gkBigSynthEqMid init 1
 gkBigSynthEqHigh init 1
-gkBigSynthFader init 1
+gkBigSynthFader init .001
 gkBigSynthPan init 50
 
-massign 2, "BigSynth"
 instr BigSynth
     if p4 != 0 then
       iAmplitude = p4

@@ -22,10 +22,11 @@
       giCurrentSong = 0
       giDoubleKickOn = 1
       giHatClutchIsOpen = 1
+      giMetronomeIsOn = 0
 
       instr Dummy
         ;printk 0.5, gkTriggersLastVelocity[73]
-        midiMonitor
+        ; midiMonitor
       endin
     </CsInstruments>
 

@@ -54,5 +54,4 @@ instr midiControlInputs
   #include "xSessionKnobC15.orc"
 
   #include "xSessionKnobC16.orc"
-
 endin

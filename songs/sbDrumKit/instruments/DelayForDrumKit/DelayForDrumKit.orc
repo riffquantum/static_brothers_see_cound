@@ -1,12 +1,14 @@
 alwayson "DelayForDrumKitMixerChannel"
 
+alwayson "DelayForDrumKit"
+
 giDelayForDrumKitIsOn init 0
 giDelayForDrumKitBufferLength init 5
 gaDelayForDrumKitTime init .3
 gkDelayForDrumKitFeedbackAmmount init 0.8
 gkDelayForDrumKitWetLevel init .2
-gkDelayForDrumKitDryLevel init 1
-gkStereoOffset init 0.01
+gkDelayForDrumKitDryLevel init 0
+gkStereoOffset init 0.1
 
 gkDelayForDrumKitEqBass init 1
 gkDelayForDrumKitEqMid init 1
@@ -16,7 +18,7 @@ gkDelayForDrumKitPan init 50
 gSDelayForDrumKitName = "DelayForDrumKit"
 gSDelayForDrumKitRoute = "Mixer"
 instrumentRoute gSDelayForDrumKitName, gSDelayForDrumKitRoute
-stereoRoute gSDelayForDrumKitName, "ReverbForDrumKit"
+stereoRoute "DelayForDrumKitMixerChannel", "ReverbForDrumKit"
 
 
 instr DelayForDrumKitTimeKnob

@@ -10,8 +10,8 @@ connect "MetronomeTone", "MetronomeOutR", "MetronomeMixerChannel", "MetronomeInR
 alwayson "MetronomeMixerChannel"
 
 gkMetronomeEqBass init 1
-gkMetronomeEqMid init 1
-gkMetronomeEqHigh init .1
+gkMetronomeEqMid init .5
+gkMetronomeEqHigh init .5
 gkMetronomeFader init .8
 gkMetronomePan init 50
 
