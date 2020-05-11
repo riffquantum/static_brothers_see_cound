@@ -25,8 +25,8 @@ instr MidiRouter
   ; Check trigger buffer to prevent extra notes from acoustic drum triggers
   iTriggerBuffer triggerBuffer iNoteNumber, iNoteVelocity, giTriggerDecayTimes[iNoteNumber]
 
-  ;print giTriggerDecayTimes[iNoteNumber]
-  ;print iTriggerBuffer
+  print giTriggerDecayTimes[iNoteNumber]
+  print iTriggerBuffer
 
   if iTriggerBuffer == 0 then
     goto skipNote
