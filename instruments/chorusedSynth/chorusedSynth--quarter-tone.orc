@@ -1,9 +1,10 @@
 ; Chorused Synth
 
-connect "ChorusedSynthQuarterTone", "ChorusedSynthQuarterToneOut", "ChorusedSynthQuarterToneMixerChannel", "ChorusedSynthQuarterToneIn"
+connect "QuarterTone", "OutL", "QuarterToneMixerChannel", "InL"
+connect "QuarterTone", "OutR", "QuarterToneMixerChannel", "InR"
 
-connect "ChorusedSynthQuarterToneMixerChannel", "ChorusedSynthQuarterToneOutL", "Mixer", "MixerInL"
-connect "ChorusedSynthQuarterToneMixerChannel", "ChorusedSynthQuarterToneOutR", "Mixer", "MixerInR"
+connect "QuarterToneMixerChannel", "OutL", "Mixer", "InL"
+connect "QuarterToneMixerChannel", "OutR", "Mixer", "InR"
 
 alwayson "ChorusedSynthQuarterToneMixerChannel"
 
@@ -11,29 +12,29 @@ gkChorusedSynthQuarterToneFader init 1
 gkChorusedSynthQuarterTonePan init 50
 
 instr ChorusedSynthQuarterTone
-    ;CONTROL SIGNALS
-    ;output action  args
+  ;CONTROL SIGNALS
+  ;output action  args
 
-    kEnvelope madsr .1, .5, .1, .1
+  kEnvelope madsr .1, .5, .1, .1
 
+  ;kEnvelope linenr .1, .2, .5, 0.001
 
+  iMidiNote notnum
 
-    ;kEnvelope linenr .1, .2, .5, 0.001
+  iFrequency = midiNoteQuarterToneKeyboardLayout(iMidiNote, 7)
 
-    iMidiNote notnum
+  kFrequency   linseg    iFrequency*1.5, 0.1, iFrequency
 
-    iFrequency = midiNoteQuarterToneKeyboardLayout(iMidiNote, 7)
+  iTable ftgenonce 100, 0, 16384, 20, 1
 
-    kFrequency   linseg    iFrequency*1.5, 0.1, iFrequency
+  aChorusedSynthMidiIn oscil   kEnvelope,    kFrequency,          100 ; main oscillator
 
-    iTable ftgenonce 100, 0, 16384, 20, 1
+  aChorusedSynthMidiIn += oscil(   kEnvelope,   (kFrequency * 0.99),  100)
 
-    aChorusedSynthQuarterTone1      oscil   kEnvelope,    kFrequency,          100 ; main oscillator
+  aChorusedSynthMidiIn += oscil(   kEnvelope,   (kFrequency * 1.01),  100)
 
-    aChorusedSynthQuarterTone2      oscil   kEnvelope,   (kFrequency * 0.99),  100 ; chorus oscillator
-
-    aChorusedSynthQuarterTone3      oscil   kEnvelope,   (kFrequency * 1.01),  100
-                         outleta "ChorusedSynthQuarterToneOut", aChorusedSynthQuarterTone1 + aChorusedSynthQuarterTone2 + aChorusedSynthQuarterTone3
+  outleta "OutL", aChorusedSynthMidiIn
+  outleta "OutR", aChorusedSynthMidiIn
 endin
 
 instr ChorusedSynthQuarterToneFader
@@ -45,8 +46,8 @@ instr ChorusedSynthQuarterTonePan
 endin
 
 instr ChorusedSynthQuarterToneMixerChannel
-    aChorusedSynthQuarterToneL inleta "ChorusedSynthQuarterToneIn"
-    aChorusedSynthQuarterToneR inleta "ChorusedSynthQuarterToneIn"
+    aChorusedSynthQuarterToneL inleta "In"
+    aChorusedSynthQuarterToneR inleta "In"
 
     kChorusedSynthQuarterToneFader = gkChorusedSynthQuarterToneFader
     kChorusedSynthQuarterTonePan = gkChorusedSynthQuarterTonePan
@@ -60,8 +61,8 @@ instr ChorusedSynthQuarterToneMixerChannel
     aChorusedSynthQuarterToneL = (aChorusedSynthQuarterToneL * ((100 - kChorusedSynthQuarterTonePan) * 2 / 100)) * kChorusedSynthQuarterToneFader
     aChorusedSynthQuarterToneR = (aChorusedSynthQuarterToneR * (kChorusedSynthQuarterTonePan * 2 / 100)) * kChorusedSynthQuarterToneFader
 
-    outleta "ChorusedSynthQuarterToneOutL", aChorusedSynthQuarterToneL
-    outleta "ChorusedSynthQuarterToneOutR", aChorusedSynthQuarterToneR
+    outleta "OutL", aChorusedSynthQuarterToneL
+    outleta "OutR", aChorusedSynthQuarterToneR
 endin
 
 ;0 - 127

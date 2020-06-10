@@ -25,8 +25,8 @@ instr Snare
 
   aSnare = aSnareSample
 
-  outleta "SnareOutL", aSnare
-  outleta "SnareOutR", aSnare
+  outleta "OutL", aSnare
+  outleta "OutR", aSnare
 endin
 
 instr SnareBassKnob
@@ -50,8 +50,8 @@ instr SnarePan
 endin
 
 instr SnareMixerChannel
-  aSnareL inleta "SnareInL"
-  aSnareR inleta "SnareInR"
+  aSnareL inleta "InL"
+  aSnareR inleta "InR"
 
   kSnareFader = gkSnareFader
   kSnarePan = gkSnarePan
@@ -70,6 +70,6 @@ instr SnareMixerChannel
   aSnareL = (aSnareL * ((100 - kSnarePan) * 2 / 100)) * kSnareFader
   aSnareR = (aSnareR * (kSnarePan * 2 / 100)) * kSnareFader
 
-  outleta "SnareOutL", aSnareL
-  outleta "SnareOutR", aSnareR
+  outleta "OutL", aSnareL
+  outleta "OutR", aSnareR
 endin

@@ -18,7 +18,7 @@ giBreakBeatTemplateFileLength filelen gSBreakBeatTemplateFilePath
 giBreakBeatTemplateLengthOfBeat = giBreakBeatTemplateFileLength / giBreakBeatTemplateLengthInBeats
 
 giBreakBeatTemplateBPM init 60 / giBreakBeatTemplateLengthOfBeat
-giBreakBeatTemplateFactor = i(gkBPM) / giBreakBeatTemplateBPM
+gkBreakBeatTemplateFactor = gkBPM / giBreakBeatTemplateBPM
 
 instr BreakBeatTemplate
   iAmplitude = p4
@@ -31,8 +31,8 @@ instr BreakBeatTemplate
 
   aBreakBeatTemplate = aBreakBeatTemplateSample
 
-  outleta "BreakBeatTemplateOutL", aBreakBeatTemplateL
-  outleta "BreakBeatTemplateOutR", aBreakBeatTemplateR
+  outleta "OutL", aBreakBeatTemplate
+  outleta "OutR", aBreakBeatTemplate
 endin
 
 instr BreakBeatTemplateDiskin
@@ -41,10 +41,8 @@ instr BreakBeatTemplateDiskin
 
     aBreakBeatTemplateL, aBreakBeatTemplateR breakSamplerDiskin gSBreakBeatTemplateFilePath, 16, iSkipTimeInBeats, kpitchFactor
 
-    aBreakBeatTemplate = aBreakBeatTemplateL
-
-    outleta "BreakBeatTemplateOutL", aBreakBeatTemplateL
-    outleta "BreakBeatTemplateOutR", aBreakBeatTemplateR
+    outleta "OutL", aBreakBeatTemplateL
+    outleta "OutR", aBreakBeatTemplateR
 endin
 
 instr BreakBeatTemplateDiskgrain
@@ -53,7 +51,7 @@ instr BreakBeatTemplateDiskgrain
     if kpitchFactor==0 then
       kpitchFactor = 1
     endif
-    kTimeFactor = kpitchFactor * giBreakBeatTemplateFactor
+    kTimeFactor = kpitchFactor * gkBreakBeatTemplateFactor
     kpitch = p6
     iskipTimeInBeats = p7
 
@@ -67,8 +65,8 @@ instr BreakBeatTemplateDiskgrain
 
     aBreakBeatTemplate diskgrain gSBreakBeatTemplateFilePath, kamplitude,    kfreq,     kpitch, kgrainsize ,     kpointerRate, iTable,  ioverlaps, imaxgrainsize, iskipTime
 
-    outleta "BreakBeatTemplateOutL", aBreakBeatTemplateL
-    outleta "BreakBeatTemplateOutR", aBreakBeatTemplateR
+    outleta "OutL", aBreakBeatTemplate
+    outleta "OutR", aBreakBeatTemplate
 endin
 
 instr BreakBeatTemplateSndwarp
@@ -84,7 +82,7 @@ instr BreakBeatTemplateSndwarp
     if kpitchFactor==0 then
       kpitchFactor = 1
     endif
-    ktimewarp = kpitchFactor * (1/giBreakBeatTemplateFactor)
+    ktimewarp = kpitchFactor * (1/gkBreakBeatTemplateFactor)
     kresample = p6
     isampleTable = iBreakBeatTemplateTable
     iskipTimeInBeats = p7
@@ -97,8 +95,8 @@ instr BreakBeatTemplateSndwarp
 
     aBreakBeatTemplate sndwarp kamplitude, ktimewarp, kresample, isampleTable, ibeginningTime, iwindowSize, irandw, ioverlap, ienvelopeTable, itimemode
 
-    outleta "BreakBeatTemplateOut", aBreakBeatTemplate
-
+    outleta "OutL", aBreakBeatTemplate
+    outleta "OutR", aBreakBeatTemplate
 endin
 
 instr BreakBeatTemplateBassKnob
@@ -142,7 +140,7 @@ instr BreakBeatTemplateMixerChannel
     aBreakBeatTemplateL = (aBreakBeatTemplateL * ((100 - kBreakBeatTemplatePan) * 2 / 100)) * kBreakBeatTemplateFader
     aBreakBeatTemplateR = (aBreakBeatTemplateR * (kBreakBeatTemplatePan * 2 / 100)) * kBreakBeatTemplateFader
 
-    outleta "BreakBeatTemplateOutL", aBreakBeatTemplateL
-    outleta "BreakBeatTemplateOutR", aBreakBeatTemplateR
+    outleta "OutL", aBreakBeatTemplateL
+    outleta "OutR", aBreakBeatTemplateR
 endin
 

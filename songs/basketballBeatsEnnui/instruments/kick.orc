@@ -26,8 +26,8 @@ instr Kick
 
   aKickOut = aKickOut1 + aKickOut2
 
-  outleta "KickOutL", aKickOut
-  outleta "KickOutR", aKickOut
+  outleta "OutL", aKickOut
+  outleta "OutR", aKickOut
 endin
 
 instr KickBassKnob
@@ -51,8 +51,8 @@ instr KickPan
 endin
 
 instr KickMixerChannel
-    aKickL inleta "KickInL"
-    aKickR inleta "KickInR"
+    aKickL inleta "InL"
+    aKickR inleta "InR"
 
     kpanvalue linseg 0, 1, 100
 
@@ -76,7 +76,7 @@ instr KickMixerChannel
     aKickL = (aKickL * ((100 - kKickPan) * 2 / 100)) * kKickFader
     aKickR = (aKickR * (kKickPan * 2 / 100)) * kKickFader
 
-    outleta "KickOutL", aKickL
-    outleta "KickOutR", aKickR
+    outleta "OutL", aKickL
+    outleta "OutR", aKickR
 
 endin

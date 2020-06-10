@@ -1,4 +1,7 @@
-alwayson "MultiStageDistortion"
+bypassRoute "MultiStageDistortion"
+stereoRoute "MultiStageDistortionMixerChannel", "Mixer"
+
+alwayson "MultiStageDistortionInput"
 alwayson "MultiStageDistortionMixerChannel"
 
 gkMultiStageDistortionEqBass init 1
@@ -6,13 +9,27 @@ gkMultiStageDistortionEqMid init 1
 gkMultiStageDistortionEqHigh init 1
 gkMultiStageDistortionFader init 1
 gkMultiStageDistortionPan init 50
-gSMultiStageDistortionName = "MultiStageDistortion"
-gSMultiStageDistortionRoute = "Mixer"
-instrumentRoute gSMultiStageDistortionName, gSMultiStageDistortionRoute
+
+gkMultiStageDistortionDryAmmount init 0
+gkMultiStageDistortionWetAmmount init 1
+
+instr MultiStageDistortionInput
+  aMultiStageDistortionInL inleta "InL"
+  aMultiStageDistortionInR inleta "InR"
+
+  aMultiStageDistortionOutWetL, aMultiStageDistortionOutWetR, aMultiStageDistortionOutDryL, aMultiStageDistortionOutDryR bypassSwitch aMultiStageDistortionInL, aMultiStageDistortionInR, gkMultiStageDistortionDryAmmount, gkMultiStageDistortionWetAmmount, "MultiStageDistortion"
+
+  outleta "OutWetL", aMultiStageDistortionOutWetL
+  outleta "OutWetR", aMultiStageDistortionOutWetR
+
+  outleta "OutDryL", aMultiStageDistortionOutDryL
+  outleta "OutDryR", aMultiStageDistortionOutDryR
+endin
+
 
 instr MultiStageDistortion
-  aMultiStageDistortionInL inleta "MultiStageDistortionInL"
-  aMultiStageDistortionInR inleta "MultiStageDistortionInR"
+  aMultiStageDistortionInL inleta "InL"
+  aMultiStageDistortionInR inleta "InR"
 
   aMultiStageDistortionOutL = aMultiStageDistortionInL
   aMultiStageDistortionOutR = aMultiStageDistortionInR
@@ -26,8 +43,8 @@ instr MultiStageDistortion
   aMultiStageDistortionOutL = butterlp(aMultiStageDistortionOutL, 5000)
   aMultiStageDistortionOutR = butterlp(aMultiStageDistortionOutR, 5000)
 
-  outleta "MultiStageDistortionOutL", aMultiStageDistortionOutL
-  outleta "MultiStageDistortionOutR", aMultiStageDistortionOutR
+  outleta "OutL", aMultiStageDistortionOutL
+  outleta "OutR", aMultiStageDistortionOutR
 endin
 
 instr MultiStageDistortionBassKnob
@@ -51,26 +68,11 @@ instr MultiStageDistortionPan
 endin
 
 instr MultiStageDistortionMixerChannel
-  aMultiStageDistortionL inleta "MultiStageDistortionInL"
-  aMultiStageDistortionR inleta "MultiStageDistortionInR"
+  aMultiStageDistortionL inleta "InL"
+  aMultiStageDistortionR inleta "InR"
 
-  kMultiStageDistortionFader = gkMultiStageDistortionFader
-  kMultiStageDistortionPan = gkMultiStageDistortionPan
-  kMultiStageDistortionEqBass = gkMultiStageDistortionEqBass
-  kMultiStageDistortionEqMid = gkMultiStageDistortionEqMid
-  kMultiStageDistortionEqHigh = gkMultiStageDistortionEqHigh
+  aMultiStageDistortionL, aMultiStageDistortionR mixerChannel aMultiStageDistortionL, aMultiStageDistortionR, gkMultiStageDistortionFader, gkMultiStageDistortionPan, gkMultiStageDistortionEqBass, gkMultiStageDistortionEqMid, gkMultiStageDistortionEqHigh
 
-  aMultiStageDistortionL, aMultiStageDistortionR threeBandEqStereo aMultiStageDistortionL, aMultiStageDistortionR, kMultiStageDistortionEqBass, kMultiStageDistortionEqMid, kMultiStageDistortionEqHigh
-
-  if kMultiStageDistortionPan > 100 then
-      kMultiStageDistortionPan = 100
-  elseif kMultiStageDistortionPan < 0 then
-      kMultiStageDistortionPan = 0
-  endif
-
-  aMultiStageDistortionL = (aMultiStageDistortionL * ((100 - kMultiStageDistortionPan) * 2 / 100)) * kMultiStageDistortionFader
-  aMultiStageDistortionR = (aMultiStageDistortionR * (kMultiStageDistortionPan * 2 / 100)) * kMultiStageDistortionFader
-
-  outleta "MultiStageDistortionOutL", aMultiStageDistortionL
-  outleta "MultiStageDistortionOutR", aMultiStageDistortionR
+  outleta "OutL", aMultiStageDistortionL
+  outleta "OutR", aMultiStageDistortionR
 endin

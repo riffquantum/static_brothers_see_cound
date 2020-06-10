@@ -1,11 +1,11 @@
 ;breakSamplerDiskin
 
 opcode breakSamplerDiskin, aa, Siik
-	SBreakFilePath, iSegmentLength, iSkipTimeInBeats, kPitchFactor xin
+	SBreakFilePath, iSegmentLengthInBeats, iSkipTimeInBeats, kPitchFactor xin
 
   iFileNumChannels filenchnls SBreakFilePath
   iBreakFileLength filelen SBreakFilePath
-  iBreakLengthOfBeat = iBreakFileLength / iSegmentLength
+  iBreakLengthOfBeat = iBreakFileLength / iSegmentLengthInBeats
   iBreakBPM init 60 /iBreakLengthOfBeat
   kBreakFactor = gkBPM / iBreakBPM
 

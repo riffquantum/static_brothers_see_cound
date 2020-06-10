@@ -26,8 +26,8 @@ instr LongDeepKick
 
   aLongDeepKick = aLongDeepKickSample
 
-  outleta "LongDeepKickOutL", aLongDeepKick
-  outleta "LongDeepKickOutR", aLongDeepKick
+  outleta "OutL", aLongDeepKick
+  outleta "OutR", aLongDeepKick
 endin
 
 instr LongDeepKickBassKnob
@@ -51,8 +51,8 @@ instr LongDeepKickPan
 endin
 
 instr LongDeepKickMixerChannel
-  aLongDeepKickL inleta "LongDeepKickInL"
-  aLongDeepKickR inleta "LongDeepKickInR"
+  aLongDeepKickL inleta "InL"
+  aLongDeepKickR inleta "InR"
 
   kLongDeepKickFader = gkLongDeepKickFader
   kLongDeepKickPan = gkLongDeepKickPan
@@ -71,6 +71,6 @@ instr LongDeepKickMixerChannel
   aLongDeepKickL = (aLongDeepKickL * ((100 - kLongDeepKickPan) * 2 / 100)) * kLongDeepKickFader
   aLongDeepKickR = (aLongDeepKickR * (kLongDeepKickPan * 2 / 100)) * kLongDeepKickFader
 
-  outleta "LongDeepKickOutL", aLongDeepKickL
-  outleta "LongDeepKickOutR", aLongDeepKickR
+  outleta "OutL", aLongDeepKickL
+  outleta "OutR", aLongDeepKickR
 endin

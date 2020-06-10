@@ -24,8 +24,8 @@ instr FatTomMiddle
 
   aFatTomMiddle = aFatTomMiddleSample
 
-  outleta "FatTomMiddleOutL", aFatTomMiddle
-  outleta "FatTomMiddleOutR", aFatTomMiddle
+  outleta "OutL", aFatTomMiddle
+  outleta "OutR", aFatTomMiddle
 endin
 
 instr FatTomMiddleBassKnob
@@ -49,8 +49,8 @@ instr FatTomMiddlePan
 endin
 
 instr FatTomMiddleMixerChannel
-  aFatTomMiddleL inleta "FatTomMiddleInL"
-  aFatTomMiddleR inleta "FatTomMiddleInR"
+  aFatTomMiddleL inleta "InL"
+  aFatTomMiddleR inleta "InR"
 
   kFatTomMiddleFader = gkFatTomMiddleFader
   kFatTomMiddlePan = gkFatTomMiddlePan
@@ -69,6 +69,6 @@ instr FatTomMiddleMixerChannel
   aFatTomMiddleL = (aFatTomMiddleL * ((100 - kFatTomMiddlePan) * 2 / 100)) * kFatTomMiddleFader
   aFatTomMiddleR = (aFatTomMiddleR * (kFatTomMiddlePan * 2 / 100)) * kFatTomMiddleFader
 
-  outleta "FatTomMiddleOutL", aFatTomMiddleL
-  outleta "FatTomMiddleOutR", aFatTomMiddleR
+  outleta "OutL", aFatTomMiddleL
+  outleta "OutR", aFatTomMiddleR
 endin

@@ -24,8 +24,8 @@ instr FatTomLow
 
   aFatTomLow = aFatTomLowSample
 
-  outleta "FatTomLowOutL", aFatTomLow
-  outleta "FatTomLowOutR", aFatTomLow
+  outleta "OutL", aFatTomLow
+  outleta "OutR", aFatTomLow
 endin
 
 instr FatTomLowBassKnob
@@ -49,8 +49,8 @@ instr FatTomLowPan
 endin
 
 instr FatTomLowMixerChannel
-  aFatTomLowL inleta "FatTomLowInL"
-  aFatTomLowR inleta "FatTomLowInR"
+  aFatTomLowL inleta "InL"
+  aFatTomLowR inleta "InR"
 
   kFatTomLowFader = gkFatTomLowFader
   kFatTomLowPan = gkFatTomLowPan
@@ -69,6 +69,6 @@ instr FatTomLowMixerChannel
   aFatTomLowL = (aFatTomLowL * ((100 - kFatTomLowPan) * 2 / 100)) * kFatTomLowFader
   aFatTomLowR = (aFatTomLowR * (kFatTomLowPan * 2 / 100)) * kFatTomLowFader
 
-  outleta "FatTomLowOutL", aFatTomLowL
-  outleta "FatTomLowOutR", aFatTomLowR
+  outleta "OutL", aFatTomLowL
+  outleta "OutR", aFatTomLowR
 endin

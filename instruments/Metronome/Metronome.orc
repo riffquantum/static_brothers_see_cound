@@ -1,13 +1,13 @@
+stereoRoute "MetronomeTone", "MetronomeMixerChannel"
+stereoRoute "MetronomeMixerChannel", "Mixer"
+
+alwayson "MetronomeMixerChannel"
+
 giMetronomeIsOn = 0
 giMetronomeCount = 1
 giMetronomeBeatsPerMeasure = 4
 giMetronomeAccents[] fillarray 1
 giMetronomeToneSample ftgen 0, 0, 0, 1, "instruments/Metronome/Dance-Kit_Clv_EA8116.wav", 0, 0, 0
-
-connect "MetronomeTone", "MetronomeOutL", "MetronomeMixerChannel", "MetronomeInL"
-connect "MetronomeTone", "MetronomeOutR", "MetronomeMixerChannel", "MetronomeInR"
-
-alwayson "MetronomeMixerChannel"
 
 gkMetronomeEqBass init 1
 gkMetronomeEqMid init .5
@@ -26,15 +26,15 @@ instr MetronomeTone
     endif
   endif
 
-  outleta "MetronomeOutL", aTone
-  outleta "MetronomeOutR", aTone
+  outleta "OutL", aTone
+  outleta "OutR", aTone
 endin
 
 instr Metronome
-    kTrigger  metro  gkBPM/60
+  kTrigger  metro  gkBPM/60
 
-    schedkwhen    kTrigger, 0, 0, "MetronomeTone", 0, gkBPM/60
-    schedkwhen    kTrigger, 0, 0, "MetronomeCounter", 0, .1
+  schedkwhen    kTrigger, 0, 0, "MetronomeTone", 0, gkBPM/60
+  schedkwhen    kTrigger, 0, 0, "MetronomeCounter", 0, .1
 endin
 
 instr MetronomeSwitch
@@ -62,7 +62,6 @@ instr MetronomeBassKnob
 endin
 
 instr MetronomeMidKnob
-
   gkMetronomeEqMid linseg p4, p3, p5
 endin
 
@@ -79,8 +78,8 @@ instr MetronomePan
 endin
 
 instr MetronomeMixerChannel
-  aMetronomeL inleta "MetronomeInL"
-  aMetronomeR inleta "MetronomeInR"
+  aMetronomeL inleta "InL"
+  aMetronomeR inleta "InR"
 
   aMetronomeL, aMetronomeR mixerChannel aMetronomeL, aMetronomeR, gkMetronomeFader, gkMetronomePan, gkMetronomeEqBass, gkMetronomeEqMid, gkMetronomeEqHigh
 

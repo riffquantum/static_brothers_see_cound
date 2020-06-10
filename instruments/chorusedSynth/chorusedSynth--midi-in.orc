@@ -1,9 +1,10 @@
 ; Chorused Synth
 
-connect "ChorusedSynthMidiIn", "ChorusedSynthMidiInOut", "ChorusedSynthMidiInMixerChannel", "ChorusedSynthMidiInIn"
+connect "ChorusedSynthMidiIn", "OutL", "ChorusedSynthMidiInMixerChannel", "InL"
+connect "ChorusedSynthMidiIn", "OutR", "ChorusedSynthMidiInMixerChannel", "InR"
 
-connect "ChorusedSynthMidiInMixerChannel", "ChorusedSynthMidiInOutL", "Mixer", "MixerInL"
-connect "ChorusedSynthMidiInMixerChannel", "ChorusedSynthMidiInOutR", "Mixer", "MixerInR"
+connect "ChorusedSynthMidiInMixerChannel", "OutL", "Mixer", "InL"
+connect "ChorusedSynthMidiInMixerChannel", "OutR", "Mixer", "InR"
 
 alwayson "ChorusedSynthMidiInMixerChannel"
 
@@ -11,25 +12,27 @@ gkChorusedSynthMidiInFader init 1
 gkChorusedSynthMidiInPan init 50
 
 instr ChorusedSynthMidiIn
-    ;CONTROL SIGNALS
-    ;output action  args
+  ;CONTROL SIGNALS
+  ;output action  args
 
 
-    kamp     =        0.1
-    ifreq   cpsmidi
-    kfreq   linseg    ifreq*1.2, 0.1, ifreq
+  kamp     =        0.1
+  ifreq   cpsmidi
+  kfreq   linseg    ifreq*1.2, 0.1, ifreq
 
-    iTable ftgenonce 100, 0, 16384, 20, 1
+  iTable ftgenonce 100, 0, 16384, 20, 1
 
-    ;AUDIO SIGNALS
-    ;output action  args
-    ;               amp     hz                    f
-    aChorusedSynthMidiIn1      oscil   kamp,    ifreq,          100 ; main oscillator
+  ;AUDIO SIGNALS
+  ;output action  args
+  ;               amp     hz                    f
+  aChorusedSynthMidiIn oscil   kamp,    ifreq,          100 ; main oscillator
 
-    aChorusedSynthMidiIn2      oscil   kamp,   (ifreq * 0.99),  100 ; chorus oscillator
+  aChorusedSynthMidiIn += oscil(   kamp,   (ifreq * 0.99),  100)
 
-    aChorusedSynthMidiIn3      oscil   kamp,   (ifreq * 1.01),  100
-                         outleta "ChorusedSynthMidiInOut", aChorusedSynthMidiIn1 + aChorusedSynthMidiIn2 + aChorusedSynthMidiIn3
+  aChorusedSynthMidiIn += oscil(   kamp,   (ifreq * 1.01),  100)
+
+  outleta "OutL", aChorusedSynthMidiIn
+  outleta "OutR", aChorusedSynthMidiIn
 endin
 
 instr ChorusedSynthMidiInFader
@@ -41,8 +44,8 @@ instr ChorusedSynthMidiInPan
 endin
 
 instr ChorusedSynthMidiInMixerChannel
-    aChorusedSynthMidiInL inleta "ChorusedSynthMidiInIn"
-    aChorusedSynthMidiInR inleta "ChorusedSynthMidiInIn"
+    aChorusedSynthMidiInL inleta "InL"
+    aChorusedSynthMidiInR inleta "InR"
 
     kChorusedSynthMidiInFader = gkChorusedSynthMidiInFader
     kChorusedSynthMidiInPan = gkChorusedSynthMidiInPan
@@ -56,7 +59,7 @@ instr ChorusedSynthMidiInMixerChannel
     aChorusedSynthMidiInL = (aChorusedSynthMidiInL * ((100 - kChorusedSynthMidiInPan) * 2 / 100)) * kChorusedSynthMidiInFader
     aChorusedSynthMidiInR = (aChorusedSynthMidiInR * (kChorusedSynthMidiInPan * 2 / 100)) * kChorusedSynthMidiInFader
 
-    outleta "ChorusedSynthMidiInOutL", aChorusedSynthMidiInL
-    outleta "ChorusedSynthMidiInOutR", aChorusedSynthMidiInR
+    outleta "OutL", aChorusedSynthMidiInL
+    outleta "OutR", aChorusedSynthMidiInR
 endin
 

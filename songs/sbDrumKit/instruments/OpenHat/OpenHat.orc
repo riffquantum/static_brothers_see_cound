@@ -25,8 +25,8 @@ instr OpenHat
 
   aOpenHat = aOpenHatSample
 
-  outleta "OpenHatOutL", aOpenHat
-  outleta "OpenHatOutR", aOpenHat
+  outleta "OutL", aOpenHat
+  outleta "OutR", aOpenHat
 endin
 
 instr OpenHatBassKnob
@@ -50,8 +50,8 @@ instr OpenHatPan
 endin
 
 instr OpenHatMixerChannel
-  aOpenHatL inleta "OpenHatInL"
-  aOpenHatR inleta "OpenHatInR"
+  aOpenHatL inleta "InL"
+  aOpenHatR inleta "InR"
 
   kOpenHatFader = gkOpenHatFader
   kOpenHatPan = gkOpenHatPan
@@ -70,6 +70,6 @@ instr OpenHatMixerChannel
   aOpenHatL = (aOpenHatL * ((100 - kOpenHatPan) * 2 / 100)) * kOpenHatFader
   aOpenHatR = (aOpenHatR * (kOpenHatPan * 2 / 100)) * kOpenHatFader
 
-  outleta "OpenHatOutL", aOpenHatL
-  outleta "OpenHatOutR", aOpenHatR
+  outleta "OutL", aOpenHatL
+  outleta "OutR", aOpenHatR
 endin

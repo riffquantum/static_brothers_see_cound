@@ -25,8 +25,8 @@ instr Ride
 
   aRide = aRideSample
 
-  outleta "RideOutL", aRide
-  outleta "RideOutR", aRide
+  outleta "OutL", aRide
+  outleta "OutR", aRide
 endin
 
 instr RideBassKnob
@@ -50,8 +50,8 @@ instr RidePan
 endin
 
 instr RideMixerChannel
-  aRideL inleta "RideInL"
-  aRideR inleta "RideInR"
+  aRideL inleta "InL"
+  aRideR inleta "InR"
 
   kRideFader = gkRideFader
   kRidePan = gkRidePan
@@ -70,6 +70,6 @@ instr RideMixerChannel
   aRideL = (aRideL * ((100 - kRidePan) * 2 / 100)) * kRideFader
   aRideR = (aRideR * (kRidePan * 2 / 100)) * kRideFader
 
-  outleta "RideOutL", aRideL
-  outleta "RideOutR", aRideR
+  outleta "OutL", aRideL
+  outleta "OutR", aRideR
 endin

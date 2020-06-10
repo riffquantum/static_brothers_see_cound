@@ -9,10 +9,7 @@
         to turn notes on and off per measure.
 */
 
-gSTR808Name = "TR808"
-gSTR808Route = "Mixer"
-instrumentRoute gSTR808Name, gSTR808Route
-
+instrumentRoute "TR808", "Mixer"
 alwayson "TR808MixerChannel"
 
 gkTR808EqBass init 1
@@ -22,65 +19,50 @@ gkTR808Fader init 1
 gkTR808Pan init 50
 
 instr TR808
-    SDrumName strget p4
-    SFullPath strcat "instruments/TR808/RolandTR-808/", SDrumName
-    SFullPath strcat SFullPath, ".aif"
-    kKillswitch init p7
+  SDrumName strget p4
+  SFullPath strcat "instruments/TR808/RolandTR-808/", SDrumName
+  SFullPath strcat SFullPath, ".aif"
+  kKillswitch init p7
 
-    if (kKillswitch == 0) then
-        a8081  diskin SFullPath, p5
-    endif
+  if (kKillswitch == 0) then
+    a8081  diskin SFullPath, p5
+  endif
 
-    kres1           rms (a8081 * p6)
+  kres1 rms (a8081 * p6)
 
-    a8083          gain a8081, kres1
+  a8083 gain a8081, kres1
 
-    outleta "TR808OutL", a8083
-    outleta "TR808OutR", a8083
+  outleta "OutL", a8083
+  outleta "OutR", a8083
 endin
 
 instr TR808BassKnob
-    gkTR808EqBass linseg p4, p3, p5
+  gkTR808EqBass linseg p4, p3, p5
 endin
 
 instr TR808MidKnob
-    gkTR808EqMid linseg p4, p3, p5
+  gkTR808EqMid linseg p4, p3, p5
 endin
 
 instr TR808HighKnob
-    gkTR808EqHigh linseg p4, p3, p5
+  gkTR808EqHigh linseg p4, p3, p5
 endin
 
 instr TR808Fader
-    gkTR808Fader linseg p4, p3, p5
+  gkTR808Fader linseg p4, p3, p5
 endin
 
 instr TR808Pan
-    gkTR808Pan linseg p4, p3, p5
+  gkTR808Pan linseg p4, p3, p5
 endin
 
 instr TR808MixerChannel
-    aTR808L inleta "TR808InL"
-    aTR808R inleta "TR808InR"
+  aTR808L inleta "InL"
+  aTR808R inleta "InR"
 
-    kTR808Fader = gkTR808Fader
-    kTR808Pan = gkTR808Pan
-    kTR808EqBass = gkTR808EqBass
-    kTR808EqMid = gkTR808EqMid
-    kTR808EqHigh = gkTR808EqHigh
+  aTR808L, aTR808R mixerChannel aTR808L, aTR808R, gkTR808Fader, gkTR808Pan, gkTR808EqBass, gkTR808EqMid, gkTR808EqHigh
 
-    aTR808L, aTR808R threeBandEqStereo aTR808L, aTR808R, kTR808EqBass, kTR808EqMid, kTR808EqHigh
 
-    if kTR808Pan > 100 then
-        kTR808Pan = 100
-    elseif kTR808Pan < 0 then
-        kTR808Pan = 0
-    endif
-
-    aTR808L = (aTR808L * ((100 - kTR808Pan) * 2 / 100)) * kTR808Fader
-    aTR808R = (aTR808R * (kTR808Pan * 2 / 100)) * kTR808Fader
-
-    outleta "TR808OutL", aTR808L
-    outleta "TR808OutR", aTR808R
-
+  outleta "OutL", aTR808L
+  outleta "OutR", aTR808R
 endin

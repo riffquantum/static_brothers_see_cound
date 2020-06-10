@@ -24,8 +24,8 @@ instr SharpSnare
 
   aSharpSnare = aSharpSnareSample
 
-  outleta "SharpSnareOutL", aSharpSnare
-  outleta "SharpSnareOutR", aSharpSnare
+  outleta "OutL", aSharpSnare
+  outleta "OutR", aSharpSnare
 endin
 
 instr SharpSnareBassKnob
@@ -49,8 +49,8 @@ instr SharpSnarePan
 endin
 
 instr SharpSnareMixerChannel
-  aSharpSnareL inleta "SharpSnareInL"
-  aSharpSnareR inleta "SharpSnareInR"
+  aSharpSnareL inleta "InL"
+  aSharpSnareR inleta "InR"
 
   kSharpSnareFader = gkSharpSnareFader
   kSharpSnarePan = gkSharpSnarePan
@@ -69,6 +69,6 @@ instr SharpSnareMixerChannel
   aSharpSnareL = (aSharpSnareL * ((100 - kSharpSnarePan) * 2 / 100)) * kSharpSnareFader
   aSharpSnareR = (aSharpSnareR * (kSharpSnarePan * 2 / 100)) * kSharpSnareFader
 
-  outleta "SharpSnareOutL", aSharpSnareL
-  outleta "SharpSnareOutR", aSharpSnareR
+  outleta "OutL", aSharpSnareL
+  outleta "OutR", aSharpSnareR
 endin

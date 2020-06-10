@@ -23,8 +23,8 @@ instr TomHigh
 
   aTomHighOut loscil kAmplitudeEnvelope, kPitch, giTomHighSample, 1
 
-  outleta "TomHighOutL", aTomHighOut
-  outleta "TomHighOutR", aTomHighOut
+  outleta "OutL", aTomHighOut
+  outleta "OutR", aTomHighOut
 endin
 
 instr TomHighBassKnob
@@ -48,8 +48,8 @@ instr TomHighPan
 endin
 
 instr TomHighMixerChannel
-    aTomHighL inleta "TomHighInL"
-    aTomHighR inleta "TomHighInR"
+    aTomHighL inleta "InL"
+    aTomHighR inleta "InR"
 
     kpanvalue linseg 0, 1, 100
 
@@ -73,7 +73,7 @@ instr TomHighMixerChannel
     aTomHighL = (aTomHighL * ((100 - kTomHighPan) * 2 / 100)) * kTomHighFader
     aTomHighR = (aTomHighR * (kTomHighPan * 2 / 100)) * kTomHighFader
 
-    outleta "TomHighOutL", aTomHighL
-    outleta "TomHighOutR", aTomHighR
+    outleta "OutL", aTomHighL
+    outleta "OutR", aTomHighR
 
 endin

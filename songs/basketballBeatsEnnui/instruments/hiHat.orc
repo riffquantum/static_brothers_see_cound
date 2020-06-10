@@ -23,8 +23,8 @@ instr HiHat
 
   aHiHatOut loscil kAmplitudeEnvelope, kPitch, giHiHatSample, 1
 
-  outleta "HiHatOutL", aHiHatOut
-  outleta "HiHatOutR", aHiHatOut
+  outleta "OutL", aHiHatOut
+  outleta "OutR", aHiHatOut
 endin
 
 instr HiHatBassKnob
@@ -48,8 +48,8 @@ instr HiHatPan
 endin
 
 instr HiHatMixerChannel
-    aHiHatL inleta "HiHatInL"
-    aHiHatR inleta "HiHatInR"
+    aHiHatL inleta "InL"
+    aHiHatR inleta "InR"
 
     kpanvalue linseg 0, 1, 100
 
@@ -73,7 +73,7 @@ instr HiHatMixerChannel
     aHiHatL = (aHiHatL * ((100 - kHiHatPan) * 2 / 100)) * kHiHatFader
     aHiHatR = (aHiHatR * (kHiHatPan * 2 / 100)) * kHiHatFader
 
-    outleta "HiHatOutL", aHiHatL
-    outleta "HiHatOutR", aHiHatR
+    outleta "OutL", aHiHatL
+    outleta "OutR", aHiHatR
 
 endin

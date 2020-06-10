@@ -1,3 +1,4 @@
+instrumentRoute "SyncLoopSamplerTemplate2", "Mixer"
 alwayson "SyncLoopSamplerTemplate2MixerChannel"
 
 gkSyncLoopSamplerTemplate2EqBass init 1
@@ -5,9 +6,6 @@ gkSyncLoopSamplerTemplate2EqMid init 1
 gkSyncLoopSamplerTemplate2EqHigh init 1
 gkSyncLoopSamplerTemplate2Fader init 1
 gkSyncLoopSamplerTemplate2Pan init 50
-gSSyncLoopSamplerTemplate2Name = "SyncLoopSamplerTemplate2"
-gSSyncLoopSamplerTemplate2Route = "NewEffect"
-instrumentRoute gSSyncLoopSamplerTemplate2Name, gSSyncLoopSamplerTemplate2Route
 
 gSSyncLoopSamplerTemplate2SampleFilePath = "localSamples/Drums/Beatbox-Drums_Kick_EA7508.wav"
 giSyncLoopSamplerTemplate2NumberOfChannels filenchnls gSSyncLoopSamplerTemplate2SampleFilePath
@@ -18,10 +16,10 @@ giSyncLoopSamplerTemplate2EnvelopeTable ftgenonce 2, 0, 16384, 9, 0.5, 1, 0
 giSyncLoopSamplerTemplate2SampleRate filesr gSSyncLoopSamplerTemplate2SampleFilePath
 
 if giSyncLoopSamplerTemplate2NumberOfChannels == 2 then
-    giSyncLoopSamplerTemplate2SampleTableL ftgenonce 0, 0, 0, 1, gSSyncLoopSamplerTemplate2SampleFilePath, giSyncLoopSamplerTemplate2StartTime, 0, 1
-    giSyncLoopSamplerTemplate2SampleTableR ftgenonce 0, 0, 0, 1, gSSyncLoopSamplerTemplate2SampleFilePath, giSyncLoopSamplerTemplate2StartTime, 0, 2
+  giSyncLoopSamplerTemplate2SampleTableL ftgenonce 0, 0, 0, 1, gSSyncLoopSamplerTemplate2SampleFilePath, giSyncLoopSamplerTemplate2StartTime, 0, 1
+  giSyncLoopSamplerTemplate2SampleTableR ftgenonce 0, 0, 0, 1, gSSyncLoopSamplerTemplate2SampleFilePath, giSyncLoopSamplerTemplate2StartTime, 0, 2
 else
-    giSyncLoopSamplerTemplate2SampleTable ftgenonce 0, 0, 0, 1, gSSyncLoopSamplerTemplate2SampleFilePath, giSyncLoopSamplerTemplate2StartTime, 0, 0
+  giSyncLoopSamplerTemplate2SampleTable ftgenonce 0, 0, 0, 1, gSSyncLoopSamplerTemplate2SampleFilePath, giSyncLoopSamplerTemplate2StartTime, 0, 0
 endif
 
 /* MIDI Config Values */
@@ -69,8 +67,8 @@ instr SyncLoopSamplerTemplate2
     aSyncLoopSamplerTemplate2R = aSyncLoopSamplerTemplate2L
   endif
 
-  outleta "SyncLoopSamplerTemplate2OutL", aSyncLoopSamplerTemplate2L
-  outleta "SyncLoopSamplerTemplate2OutR", aSyncLoopSamplerTemplate2R
+  outleta "OutL", aSyncLoopSamplerTemplate2L
+  outleta "OutR", aSyncLoopSamplerTemplate2R
 endin
 
 instr SyncLoopSamplerTemplate2BassKnob
@@ -94,26 +92,11 @@ instr SyncLoopSamplerTemplate2Pan
 endin
 
 instr SyncLoopSamplerTemplate2MixerChannel
-  aSyncLoopSamplerTemplate2L inleta "SyncLoopSamplerTemplate2InL"
-  aSyncLoopSamplerTemplate2R inleta "SyncLoopSamplerTemplate2InR"
+  aSyncLoopSamplerTemplate2L inleta "InL"
+  aSyncLoopSamplerTemplate2R inleta "InR"
 
-  kSyncLoopSamplerTemplate2Fader = gkSyncLoopSamplerTemplate2Fader
-  kSyncLoopSamplerTemplate2Pan = gkSyncLoopSamplerTemplate2Pan
-  kSyncLoopSamplerTemplate2EqBass = gkSyncLoopSamplerTemplate2EqBass
-  kSyncLoopSamplerTemplate2EqMid = gkSyncLoopSamplerTemplate2EqMid
-  kSyncLoopSamplerTemplate2EqHigh = gkSyncLoopSamplerTemplate2EqHigh
+  aSyncLoopSamplerTemplate2L, aSyncLoopSamplerTemplate2R mixerChannel aSyncLoopSamplerTemplate2L, aSyncLoopSamplerTemplate2R, gkSyncLoopSamplerTemplate2Fader, gkSyncLoopSamplerTemplate2Pan, gkSyncLoopSamplerTemplate2EqBass, gkSyncLoopSamplerTemplate2EqMid, gkSyncLoopSamplerTemplate2EqHigh
 
-  aSyncLoopSamplerTemplate2L, aSyncLoopSamplerTemplate2R threeBandEqStereo aSyncLoopSamplerTemplate2L, aSyncLoopSamplerTemplate2R, kSyncLoopSamplerTemplate2EqBass, kSyncLoopSamplerTemplate2EqMid, kSyncLoopSamplerTemplate2EqHigh
-
-  if kSyncLoopSamplerTemplate2Pan > 100 then
-      kSyncLoopSamplerTemplate2Pan = 100
-  elseif kSyncLoopSamplerTemplate2Pan < 0 then
-      kSyncLoopSamplerTemplate2Pan = 0
-  endif
-
-  aSyncLoopSamplerTemplate2L = (aSyncLoopSamplerTemplate2L * ((100 - kSyncLoopSamplerTemplate2Pan) * 2 / 100)) * kSyncLoopSamplerTemplate2Fader
-  aSyncLoopSamplerTemplate2R = (aSyncLoopSamplerTemplate2R * (kSyncLoopSamplerTemplate2Pan * 2 / 100)) * kSyncLoopSamplerTemplate2Fader
-
-  outleta "SyncLoopSamplerTemplate2OutL", aSyncLoopSamplerTemplate2L
-  outleta "SyncLoopSamplerTemplate2OutR", aSyncLoopSamplerTemplate2R
+  outleta "OutL", aSyncLoopSamplerTemplate2L
+  outleta "OutR", aSyncLoopSamplerTemplate2R
 endin

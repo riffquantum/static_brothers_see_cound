@@ -32,11 +32,11 @@ instr DrumKitBusPan
 endin
 
 instr DrumKitBus
-  aDrumKitBusL inleta "DrumKitBusInL"
-  aDrumKitBusR inleta "DrumKitBusInR"
+  aDrumKitBusL inleta "InL"
+  aDrumKitBusR inleta "InR"
 
   aDrumKitBusL, aDrumKitBusR mixerChannel aDrumKitBusL, aDrumKitBusR, gkDrumKitBusFader, gkDrumKitBusPan, gkDrumKitBusEqBass, gkDrumKitBusEqMid, gkDrumKitBusEqHigh
 
-  outleta "DrumKitBusOutL", aDrumKitBusL
-  outleta "DrumKitBusOutR", aDrumKitBusR
+  outleta "OutL", aDrumKitBusL
+  outleta "OutR", aDrumKitBusR
 endin

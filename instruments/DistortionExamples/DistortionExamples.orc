@@ -1,9 +1,8 @@
-alwayson "DistortionExamples"
-alwayson "DistortionExamplesMixerChannel"
+bypassRoute "DistortionExamples"
+stereoRoute "DistortionExamplesMixerChannel", "Mixer"
 
-gSDistortionExamplesName = "DistortionExamples"
-gSDistortionExamplesRoute = "Mixer"
-instrumentRoute gSDistortionExamplesName, gSDistortionExamplesRoute
+alwayson "DistortionExamplesInput"
+alwayson "DistortionExamplesMixerChannel"
 
 gkDistortionExamplesEqBass init 1
 gkDistortionExamplesEqMid init 1
@@ -15,11 +14,27 @@ gkPreGain init 1
 gkPostGain init 1
 gkDutyCycleOffset init .1
 gkSlopeOffset init .1
-giDistortionExamplesMode init 5
+giDistortionExamplesMode init 2
+
+gkDistortionExamplesWetAmmount init 1
+gkDistortionExamplesDryAmmount init 0
+
+instr DistortionExamplesInput
+  aDistortionExamplesInL inleta "InL"
+  aDistortionExamplesInR inleta "InR"
+
+  aDistortionExamplesOutWetL, aDistortionExamplesOutWetR, aDistortionExamplesOutDryL, aDistortionExamplesOutDryR bypassSwitch aDistortionExamplesInL, aDistortionExamplesInR, gkDistortionExamplesDryAmmount, gkDistortionExamplesWetAmmount, "DistortionExamples"
+
+  outleta "OutWetL", aDistortionExamplesOutWetL
+  outleta "OutWetR", aDistortionExamplesOutWetR
+
+  outleta "OutDryL", aDistortionExamplesOutDryL
+  outleta "OutDryR", aDistortionExamplesOutDryR
+endin
 
 instr DistortionExamples
-  aDistortionExamplesInL inleta "DistortionExamplesInL"
-  aDistortionExamplesInR inleta "DistortionExamplesInR"
+  aDistortionExamplesInL inleta "InL"
+  aDistortionExamplesInR inleta "InR"
 
   aDistortionExamplesOutL = aDistortionExamplesInL
   aDistortionExamplesOutR = aDistortionExamplesInR
@@ -105,8 +120,8 @@ instr DistortionExamples
     aDistortionExamplesOutR balance aDistortionExamplesOutR, aDistortionExamplesInR
   endif
 
-  outleta "DistortionExamplesOutL", aDistortionExamplesOutL
-  outleta "DistortionExamplesOutR", aDistortionExamplesOutR
+  outleta "OutL", aDistortionExamplesOutL
+  outleta "OutR", aDistortionExamplesOutR
 endin
 
 instr DistortionExamplesPreGainKnob
@@ -126,46 +141,31 @@ instr DistortionExamplesSlopeOffsetKnob
 endin
 
 instr DistortionExamplesBassKnob
-    gkDistortionExamplesEqBass linseg p4, p3, p5
+  gkDistortionExamplesEqBass linseg p4, p3, p5
 endin
 
 instr DistortionExamplesMidKnob
-    gkDistortionExamplesEqMid linseg p4, p3, p5
+  gkDistortionExamplesEqMid linseg p4, p3, p5
 endin
 
 instr DistortionExamplesHighKnob
-    gkDistortionExamplesEqHigh linseg p4, p3, p5
+  gkDistortionExamplesEqHigh linseg p4, p3, p5
 endin
 
 instr DistortionExamplesFader
-    gkDistortionExamplesFader linseg p4, p3, p5
+  gkDistortionExamplesFader linseg p4, p3, p5
 endin
 
 instr DistortionExamplesPan
-    gkDistortionExamplesPan linseg p4, p3, p5
+  gkDistortionExamplesPan linseg p4, p3, p5
 endin
 
 instr DistortionExamplesMixerChannel
-    aDistortionExamplesL inleta "DistortionExamplesInL"
-    aDistortionExamplesR inleta "DistortionExamplesInR"
+  aDistortionExamplesL inleta "InL"
+  aDistortionExamplesR inleta "InR"
 
-    kDistortionExamplesFader = gkDistortionExamplesFader
-    kDistortionExamplesPan = gkDistortionExamplesPan
-    kDistortionExamplesEqBass = gkDistortionExamplesEqBass
-    kDistortionExamplesEqMid = gkDistortionExamplesEqMid
-    kDistortionExamplesEqHigh = gkDistortionExamplesEqHigh
+  aDistortionExamplesL, aDistortionExamplesR mixerChannel aDistortionExamplesL, aDistortionExamplesR, gkDistortionExamplesFader, gkDistortionExamplesPan, gkDistortionExamplesEqBass, gkDistortionExamplesEqMid, gkDistortionExamplesEqHigh
 
-    aDistortionExamplesL, aDistortionExamplesR threeBandEqStereo aDistortionExamplesL, aDistortionExamplesR, kDistortionExamplesEqBass, kDistortionExamplesEqMid, kDistortionExamplesEqHigh
-
-    if kDistortionExamplesPan > 100 then
-        kDistortionExamplesPan = 100
-    elseif kDistortionExamplesPan < 0 then
-        kDistortionExamplesPan = 0
-    endif
-
-    aDistortionExamplesL = (aDistortionExamplesL * ((100 - kDistortionExamplesPan) * 2 / 100)) * kDistortionExamplesFader
-    aDistortionExamplesR = (aDistortionExamplesR * (kDistortionExamplesPan * 2 / 100)) * kDistortionExamplesFader
-
-    outleta "DistortionExamplesOutL", aDistortionExamplesL
-    outleta "DistortionExamplesOutR", aDistortionExamplesR
+  outleta "OutL", aDistortionExamplesL
+  outleta "OutR", aDistortionExamplesR
 endin

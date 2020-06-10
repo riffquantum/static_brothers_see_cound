@@ -1,7 +1,3 @@
-#include "../../../instruments/Metronome/Metronome.orc"
-
-#include "../../../instruments/ReverbExamples/ReverbExamples.orc"
-
 #include "bigSynth/bigSynth.orc"
 
 #include "BirdShitSynth/BirdShitSynth.orc"
@@ -21,8 +17,6 @@
 #include "LongDeepKick/LongDeepKick.orc"
 
 #include "midiRouter/midiRouter.orc"
-
-#include "mixer/mixer.orc"
 
 #include "OpenHat/OpenHat.orc"
 
@@ -45,8 +39,6 @@
 #include "SharpSnare/SharpSnare.orc"
 
 #include "Snare/Snare.orc"
-
-
 
 #include "Busses/KickBus.orc"
 

@@ -3,6 +3,6 @@
 opcode stereoRoute, 0, SS
 	SInstrumentName, SInstrumentRoute xin
 
-  connect SInstrumentName, strcat(SInstrumentName, "OutL"), SInstrumentRoute, strcat(SInstrumentRoute, "InL")
-  connect SInstrumentName, strcat(SInstrumentName, "OutR"), SInstrumentRoute, strcat(SInstrumentRoute, "InR")
+  connect SInstrumentName, "OutL", SInstrumentRoute, "InL"
+  connect SInstrumentName, "OutR", SInstrumentRoute, "InR"
 endop

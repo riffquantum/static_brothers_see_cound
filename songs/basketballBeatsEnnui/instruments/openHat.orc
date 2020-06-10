@@ -29,8 +29,8 @@ instr OpenHat
 
   aOpenHatOut loscil kAmplitudeEnvelope, kPitch, giOpenHatSample, 1
 
-  outleta "OpenHatOutL", aOpenHatOut
-  outleta "OpenHatOutR", aOpenHatOut
+  outleta "OutL", aOpenHatOut
+  outleta "OutR", aOpenHatOut
 endin
 
 instr OpenHatBassKnob
@@ -54,8 +54,8 @@ instr OpenHatPan
 endin
 
 instr OpenHatMixerChannel
-    aOpenHatL inleta "OpenHatInL"
-    aOpenHatR inleta "OpenHatInR"
+    aOpenHatL inleta "InL"
+    aOpenHatR inleta "InR"
 
     kpanvalue linseg 0, 1, 100
 
@@ -67,14 +67,6 @@ instr OpenHatMixerChannel
 
     aOpenHatL, aOpenHatR threeBandEqStereo aOpenHatL, aOpenHatR, kOpenHatEqBass, kOpenHatEqMid, kOpenHatEqHigh
 
-    aOpenHatDelayL delayBuffer aOpenHatL, .7, .1, 1
-    aOpenHatDelayL pitchShifter aOpenHatDelayL, gkOpenHatSharpDelayPitchLine, 0, 1
-    aOpenHatDelayR delayBuffer aOpenHatR, .7, .1, 1
-    aOpenHatDelayR pitchShifter aOpenHatDelayR, gkOpenHatSharpDelayPitchLine, 0, 1
-
-    aOpenHatL = aOpenHatL + aOpenHatDelayL
-    aOpenHatR = aOpenHatR + aOpenHatDelayR
-
     if kOpenHatPan > 100 then
         kOpenHatPan = 100
     elseif kOpenHatPan < 0 then
@@ -84,6 +76,6 @@ instr OpenHatMixerChannel
     aOpenHatL = (aOpenHatL * ((100 - kOpenHatPan) * 2 / 100)) * kOpenHatFader
     aOpenHatR = (aOpenHatR * (kOpenHatPan * 2 / 100)) * kOpenHatFader
 
-    outleta "OpenHatOutL", aOpenHatL
-    outleta "OpenHatOutR", aOpenHatR
+    outleta "OutL", aOpenHatL
+    outleta "OutR", aOpenHatR
 endin

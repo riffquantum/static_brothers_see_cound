@@ -3,26 +3,24 @@
         -odac -Ma  -m0
         -B512 -b128
         -t120
-
         ;-+rtmidi=virtual
     </CsOptions>
 
     <CsInstruments>
       #include "config/defaultConfig.orc"
 
-      gkBPM = 120
-
       #include "opcodes/opcode-manifest.orc"
+      #include "config/defaultMidiAssignments.orc"
+      #include "instruments/orchestra-manifest.orc"
       #include "songs/sbDrumKit/instruments/midiRouter/midiNoteMapping.orc"
       #include "songs/sbDrumKit/instruments/orchestra-manifest.orc"
       #include "songs/sbDrumKit/instruments/midiRouter/noteInstruments/note-instrument-manifest.orc"
       #include "songs/sbDrumKit/instruments/midiRouter/midiControlInputs/midiControlInputs.orc"
 
-
       giCurrentSong = 0
       giDoubleKickOn = 1
       giHatClutchIsOpen = 1
-      giMetronomeIsOn = 0
+      giMetronomeIsOn = 1
 
       instr Dummy
         ;printk 0.5, gkTriggersLastVelocity[73]
@@ -33,13 +31,6 @@
     <CsScore>
         i "Metronome" 0 3600 .100 300
         i "Dummy" 0 3600 .100 300
-        /*i "BigSynth" 0 4 .559 164
-        i "BigSynth" 2 2 .559 148
-
-        i "BigSynth" 5 15 .559 164
-        i "BigSynth" 5 15 .559 100
-        i "BigSynth" 5 15 .559 144
-        i "BigSynth" 5 15 .5 800*/
 
     </CsScore>
 </CsoundSynthesizer>

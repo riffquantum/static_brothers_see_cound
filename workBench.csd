@@ -58,20 +58,20 @@
       aNewInstrumentR = 0
 
 
-      outleta "NewInstrumentOutL", aNewInstrumentL
-      outleta "NewInstrumentOutR", aNewInstrumentR
+      outleta "OutL", aNewInstrumentL
+      outleta "OutR", aNewInstrumentR
     endin
 
     instr NewEffect
       ; midiMonitor
-      aNewEffectInL inleta "NewEffectInL"
-      aNewEffectInR inleta "NewEffectInR"
+      aNewEffectInL inleta "InL"
+      aNewEffectInR inleta "InR"
 
       aNewEffectOutL = aNewEffectInL
       aNewEffectOutR = aNewEffectInR
 
-      outleta "NewEffectOutL", aNewEffectOutL
-      outleta "NewEffectOutR", aNewEffectOutR
+      outleta "OutL", aNewEffectOutL
+      outleta "OutR", aNewEffectOutR
     endin
 
     instr NewInstrumentBassKnob
@@ -95,8 +95,8 @@
     endin
 
     instr NewInstrumentMixerChannel
-      aNewInstrumentL inleta "NewInstrumentInL"
-      aNewInstrumentR inleta "NewInstrumentInR"
+      aNewInstrumentL inleta "InL"
+      aNewInstrumentR inleta "InR"
 
       kNewInstrumentFader = gkNewInstrumentFader
       kNewInstrumentPan = gkNewInstrumentPan
@@ -115,8 +115,8 @@
       aNewInstrumentL = (aNewInstrumentL * ((100 - kNewInstrumentPan) * 2 / 100)) * kNewInstrumentFader
       aNewInstrumentR = (aNewInstrumentR * (kNewInstrumentPan * 2 / 100)) * kNewInstrumentFader
 
-      outleta "NewInstrumentOutL", aNewInstrumentL
-      outleta "NewInstrumentOutR", aNewInstrumentR
+      outleta "OutL", aNewInstrumentL
+      outleta "OutR", aNewInstrumentR
     endin
 
     instr NewEffectBassKnob
@@ -140,8 +140,8 @@
     endin
 
     instr NewEffectMixerChannel
-      aNewEffectL inleta "NewEffectInL"
-      aNewEffectR inleta "NewEffectInR"
+      aNewEffectL inleta "InL"
+      aNewEffectR inleta "InR"
 
       kNewEffectFader = gkNewEffectFader
       kNewEffectPan = gkNewEffectPan
@@ -160,8 +160,8 @@
       aNewEffectL = (aNewEffectL * ((100 - kNewEffectPan) * 2 / 100)) * kNewEffectFader
       aNewEffectR = (aNewEffectR * (kNewEffectPan * 2 / 100)) * kNewEffectFader
 
-      outleta "NewEffectOutL", aNewEffectL
-      outleta "NewEffectOutR", aNewEffectR
+      outleta "OutL", aNewEffectL
+      outleta "OutR", aNewEffectR
     endin
 
     instr WorkingPattern

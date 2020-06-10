@@ -30,11 +30,11 @@ instr KickBusPan
 endin
 
 instr KickBus
-  aKickBusL inleta "KickBusInL"
-  aKickBusR inleta "KickBusInR"
+  aKickBusL inleta "InL"
+  aKickBusR inleta "InR"
 
   aKickBusL, aKickBusR mixerChannel aKickBusL, aKickBusR, gkKickBusFader, gkKickBusPan, gkKickBusEqBass, gkKickBusEqMid, gkKickBusEqHigh
 
-  outleta "KickBusOutL", aKickBusL
-  outleta "KickBusOutR", aKickBusR
+  outleta "OutL", aKickBusL
+  outleta "OutR", aKickBusR
 endin

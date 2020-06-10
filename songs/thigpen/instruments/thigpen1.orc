@@ -96,8 +96,8 @@ instr Thigpen1
         aThigpen1R = aThigpen1L
     endif
 
-    outleta "Thigpen1OutL", aThigpen1L
-    outleta "Thigpen1OutR", aThigpen1R
+    outleta "OutL", aThigpen1L
+    outleta "OutR", aThigpen1R
 endin
 
 instr Thigpen1BassKnob
@@ -121,8 +121,8 @@ instr Thigpen1Pan
 endin
 
 instr Thigpen1MixerChannel
-    aThigpen1L inleta "Thigpen1InL"
-    aThigpen1R inleta "Thigpen1InR"
+    aThigpen1L inleta "InL"
+    aThigpen1R inleta "InR"
 
     kThigpen1Fader = gkThigpen1Fader
     kThigpen1Pan = gkThigpen1Pan
@@ -141,6 +141,6 @@ instr Thigpen1MixerChannel
     aThigpen1L = (aThigpen1L * ((100 - kThigpen1Pan) * 2 / 100)) * kThigpen1Fader
     aThigpen1R = (aThigpen1R * (kThigpen1Pan * 2 / 100)) * kThigpen1Fader
 
-    outleta "Thigpen1OutL", aThigpen1L
-    outleta "Thigpen1OutR", aThigpen1R
+    outleta "OutL", aThigpen1L
+    outleta "OutR", aThigpen1R
 endin

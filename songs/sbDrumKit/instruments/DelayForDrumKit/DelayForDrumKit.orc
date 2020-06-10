@@ -1,25 +1,19 @@
+instrumentRoute "DelayForDrumKit", "Mixer"
+stereoRoute "DelayForDrumKitMixerChannel", "ReverbForDrumKit"
 alwayson "DelayForDrumKitMixerChannel"
 
-alwayson "DelayForDrumKit"
-
-giDelayForDrumKitIsOn init 0
 giDelayForDrumKitBufferLength init 5
 gaDelayForDrumKitTime init .3
 gkDelayForDrumKitFeedbackAmmount init 0.8
 gkDelayForDrumKitWetLevel init .2
 gkDelayForDrumKitDryLevel init 0
-gkStereoOffset init 0.1
+gkDelayForDrumKitStereoOffset init 0.1
 
 gkDelayForDrumKitEqBass init 1
 gkDelayForDrumKitEqMid init 1
 gkDelayForDrumKitEqHigh init 1
 gkDelayForDrumKitFader init 1
 gkDelayForDrumKitPan init 50
-gSDelayForDrumKitName = "DelayForDrumKit"
-gSDelayForDrumKitRoute = "Mixer"
-instrumentRoute gSDelayForDrumKitName, gSDelayForDrumKitRoute
-stereoRoute "DelayForDrumKitMixerChannel", "ReverbForDrumKit"
-
 
 instr DelayForDrumKitTimeKnob
   gaDelayForDrumKitTime linseg p4, p3, p5
@@ -34,16 +28,18 @@ instr DelayForDrumKitLevelKnob
 endin
 
 instr StereoOffsetKnob
-  gkStereoOffset linseg p4, p3, p5
+  gkDelayForDrumKitStereoOffset linseg p4, p3, p5
 endin
 
 
 instr DelayForDrumKit
-  aDelayForDrumKitInL inleta "DelayForDrumKitInL"
-  aDelayForDrumKitInR inleta "DelayForDrumKitInR"
+  aDelayForDrumKitInL inleta "InL"
+  aDelayForDrumKitInR inleta "InR"
 
-  aDelayForDrumKitTimeL = gaDelayForDrumKitTime + gkStereoOffset
-  aDelayForDrumKitTimeR = gaDelayForDrumKitTime - gkStereoOffset
+  aDelayForDrumKitTimeL = gaDelayForDrumKitTime + gkDelayForDrumKitStereoOffset
+  aDelayForDrumKitTimeR = gaDelayForDrumKitTime - gkDelayForDrumKitStereoOffset
+
+  kWetLevel = madsr(.01, .01, 1, .01) * gkDelayForDrumKitWetLevel
 
   aDelayForDrumKitWetL delayBuffer aDelayForDrumKitInL, gkDelayForDrumKitFeedbackAmmount, giDelayForDrumKitBufferLength, aDelayForDrumKitTimeL + oscil(0.025, .1) + oscil(0.025, .05), gkDelayForDrumKitWetLevel
   aDelayForDrumKitWetR delayBuffer aDelayForDrumKitInR, gkDelayForDrumKitFeedbackAmmount, giDelayForDrumKitBufferLength, aDelayForDrumKitTimeR + oscil(0.025, .1) + oscil(0.025, .05), gkDelayForDrumKitWetLevel
@@ -51,8 +47,8 @@ instr DelayForDrumKit
   aDelayForDrumKitOutL = (aDelayForDrumKitInL * gkDelayForDrumKitDryLevel) + aDelayForDrumKitWetL
   aDelayForDrumKitOutR = (aDelayForDrumKitInR * gkDelayForDrumKitDryLevel) + aDelayForDrumKitWetR
 
-  outleta "DelayForDrumKitOutL", aDelayForDrumKitOutL
-  outleta "DelayForDrumKitOutR", aDelayForDrumKitOutR
+  outleta "OutL", aDelayForDrumKitOutL
+  outleta "OutR", aDelayForDrumKitOutR
 endin
 
 instr DelayForDrumKitBassKnob
@@ -76,26 +72,11 @@ instr DelayForDrumKitPan
 endin
 
 instr DelayForDrumKitMixerChannel
-  aDelayForDrumKitL inleta "DelayForDrumKitInL"
-  aDelayForDrumKitR inleta "DelayForDrumKitInR"
+  aDelayForDrumKitL inleta "InL"
+  aDelayForDrumKitR inleta "InR"
 
-  kDelayForDrumKitFader = gkDelayForDrumKitFader
-  kDelayForDrumKitPan = gkDelayForDrumKitPan
-  kDelayForDrumKitEqBass = gkDelayForDrumKitEqBass
-  kDelayForDrumKitEqMid = gkDelayForDrumKitEqMid
-  kDelayForDrumKitEqHigh = gkDelayForDrumKitEqHigh
+  aDelayForDrumKitL, aDelayForDrumKitR mixerChannel aDelayForDrumKitL, aDelayForDrumKitR, gkDelayForDrumKitFader, gkDelayForDrumKitPan, gkDelayForDrumKitEqBass, gkDelayForDrumKitEqMid, gkDelayForDrumKitEqHigh
 
-  aDelayForDrumKitL, aDelayForDrumKitR threeBandEqStereo aDelayForDrumKitL, aDelayForDrumKitR, kDelayForDrumKitEqBass, kDelayForDrumKitEqMid, kDelayForDrumKitEqHigh
-
-  if kDelayForDrumKitPan > 100 then
-      kDelayForDrumKitPan = 100
-  elseif kDelayForDrumKitPan < 0 then
-      kDelayForDrumKitPan = 0
-  endif
-
-  aDelayForDrumKitL = (aDelayForDrumKitL * ((100 - kDelayForDrumKitPan) * 2 / 100)) * kDelayForDrumKitFader
-  aDelayForDrumKitR = (aDelayForDrumKitR * (kDelayForDrumKitPan * 2 / 100)) * kDelayForDrumKitFader
-
-  outleta "DelayForDrumKitOutL", aDelayForDrumKitL
-  outleta "DelayForDrumKitOutR", aDelayForDrumKitR
+  outleta "OutL", aDelayForDrumKitL
+  outleta "OutR", aDelayForDrumKitR
 endin

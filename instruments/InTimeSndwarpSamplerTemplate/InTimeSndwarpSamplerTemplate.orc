@@ -1,6 +1,4 @@
-gSInTimeSndwarpSamplerTemplateName = "InTimeSndwarpSamplerTemplate"
-gSInTimeSndwarpSamplerTemplateRoute = "Mixer"
-instrumentRoute gSInTimeSndwarpSamplerTemplateName, gSInTimeSndwarpSamplerTemplateRoute
+instrumentRoute "InTimeSndwarpSamplerTemplate", "Mixer"
 
 alwayson "InTimeSndwarpSamplerTemplateMixerChannel"
 
@@ -45,8 +43,8 @@ instr InTimeSndwarpSamplerTemplate
   aInTimeSndwarpSamplerTemplateL = kAmplitudeEnvelope * aInTimeSndwarpSamplerTemplateL
   aInTimeSndwarpSamplerTemplateR = kAmplitudeEnvelope * aInTimeSndwarpSamplerTemplateR
 
-  outleta "InTimeSndwarpSamplerTemplateOutL", aInTimeSndwarpSamplerTemplateL
-  outleta "InTimeSndwarpSamplerTemplateOutR", aInTimeSndwarpSamplerTemplateR
+  outleta "OutL", aInTimeSndwarpSamplerTemplateL
+  outleta "OutR", aInTimeSndwarpSamplerTemplateR
 endin
 
 instr InTimeSndwarpSamplerTemplateBassKnob
@@ -70,26 +68,11 @@ instr InTimeSndwarpSamplerTemplatePan
 endin
 
 instr InTimeSndwarpSamplerTemplateMixerChannel
-  aInTimeSndwarpSamplerTemplateL inleta "InTimeSndwarpSamplerTemplateInL"
-  aInTimeSndwarpSamplerTemplateR inleta "InTimeSndwarpSamplerTemplateInR"
+  aInTimeSndwarpSamplerTemplateL inleta "InL"
+  aInTimeSndwarpSamplerTemplateR inleta "InR"
 
-  kInTimeSndwarpSamplerTemplateFader = gkInTimeSndwarpSamplerTemplateFader
-  kInTimeSndwarpSamplerTemplatePan = gkInTimeSndwarpSamplerTemplatePan
-  kInTimeSndwarpSamplerTemplateEqBass = gkInTimeSndwarpSamplerTemplateEqBass
-  kInTimeSndwarpSamplerTemplateEqMid = gkInTimeSndwarpSamplerTemplateEqMid
-  kInTimeSndwarpSamplerTemplateEqHigh = gkInTimeSndwarpSamplerTemplateEqHigh
+  aInTimeSndwarpSamplerTemplateL, aInTimeSndwarpSamplerTemplateR mixerChannel aInTimeSndwarpSamplerTemplateL, aInTimeSndwarpSamplerTemplateR, gkInTimeSndwarpSamplerTemplateFader, gkInTimeSndwarpSamplerTemplatePan, gkInTimeSndwarpSamplerTemplateEqBass, gkInTimeSndwarpSamplerTemplateEqMid, gkInTimeSndwarpSamplerTemplateEqHigh
 
-  aInTimeSndwarpSamplerTemplateL, aInTimeSndwarpSamplerTemplateR threeBandEqStereo aInTimeSndwarpSamplerTemplateL, aInTimeSndwarpSamplerTemplateR, kInTimeSndwarpSamplerTemplateEqBass, kInTimeSndwarpSamplerTemplateEqMid, kInTimeSndwarpSamplerTemplateEqHigh
-
-  if kInTimeSndwarpSamplerTemplatePan > 100 then
-      kInTimeSndwarpSamplerTemplatePan = 100
-  elseif kInTimeSndwarpSamplerTemplatePan < 0 then
-      kInTimeSndwarpSamplerTemplatePan = 0
-  endif
-
-  aInTimeSndwarpSamplerTemplateL = (aInTimeSndwarpSamplerTemplateL * ((100 - kInTimeSndwarpSamplerTemplatePan) * 2 / 100)) * kInTimeSndwarpSamplerTemplateFader
-  aInTimeSndwarpSamplerTemplateR = (aInTimeSndwarpSamplerTemplateR * (kInTimeSndwarpSamplerTemplatePan * 2 / 100)) * kInTimeSndwarpSamplerTemplateFader
-
-  outleta "InTimeSndwarpSamplerTemplateOutL", aInTimeSndwarpSamplerTemplateL
-  outleta "InTimeSndwarpSamplerTemplateOutR", aInTimeSndwarpSamplerTemplateR
+  outleta "OutL", aInTimeSndwarpSamplerTemplateL
+  outleta "OutR", aInTimeSndwarpSamplerTemplateR
 endin

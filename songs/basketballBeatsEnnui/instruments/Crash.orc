@@ -24,8 +24,8 @@ instr Crash
 
   aCrashOut loscil kAmplitudeEnvelope, kPitch, giCrashSample, 1
 
-  outleta "CrashOutL", aCrashOut
-  outleta "CrashOutR", aCrashOut
+  outleta "OutL", aCrashOut
+  outleta "OutR", aCrashOut
 endin
 
 instr CrashBassKnob
@@ -49,8 +49,8 @@ instr CrashPan
 endin
 
 instr CrashMixerChannel
-    aCrashL inleta "CrashInL"
-    aCrashR inleta "CrashInR"
+    aCrashL inleta "InL"
+    aCrashR inleta "InR"
 
     kpanvalue linseg 0, 1, 100
 
@@ -74,7 +74,7 @@ instr CrashMixerChannel
     aCrashL = (aCrashL * ((100 - kCrashPan) * 2 / 100)) * kCrashFader
     aCrashR = (aCrashR * (kCrashPan * 2 / 100)) * kCrashFader
 
-    outleta "CrashOutL", aCrashL
-    outleta "CrashOutR", aCrashR
+    outleta "OutL", aCrashL
+    outleta "OutR", aCrashR
 
 endin

@@ -24,8 +24,8 @@ instr PunishmentAwaits
 
   aPunishmentAwaits = aPunishmentAwaitsSample1
 
-  outleta "PunishmentAwaitsOutL", aPunishmentAwaits
-  outleta "PunishmentAwaitsOutR", aPunishmentAwaits
+  outleta "OutL", aPunishmentAwaits
+  outleta "OutR", aPunishmentAwaits
 endin
 
 instr PunishmentAwaitsBassKnob
@@ -49,8 +49,8 @@ instr PunishmentAwaitsPan
 endin
 
 instr PunishmentAwaitsMixerChannel
-  aPunishmentAwaitsL inleta "PunishmentAwaitsInL"
-  aPunishmentAwaitsR inleta "PunishmentAwaitsInR"
+  aPunishmentAwaitsL inleta "InL"
+  aPunishmentAwaitsR inleta "InR"
 
   kPunishmentAwaitsFader = gkPunishmentAwaitsFader
   kPunishmentAwaitsPan = gkPunishmentAwaitsPan
@@ -69,6 +69,6 @@ instr PunishmentAwaitsMixerChannel
   aPunishmentAwaitsL = (aPunishmentAwaitsL * ((100 - kPunishmentAwaitsPan) * 2 / 100)) * kPunishmentAwaitsFader
   aPunishmentAwaitsR = (aPunishmentAwaitsR * (kPunishmentAwaitsPan * 2 / 100)) * kPunishmentAwaitsFader
 
-  outleta "PunishmentAwaitsOutL", aPunishmentAwaitsL
-  outleta "PunishmentAwaitsOutR", aPunishmentAwaitsR
+  outleta "OutL", aPunishmentAwaitsL
+  outleta "OutR", aPunishmentAwaitsR
 endin

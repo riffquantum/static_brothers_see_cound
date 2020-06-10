@@ -3,14 +3,13 @@
 alwayson "Mixer"
 
 instr Mixer
-    aOutL inleta "MixerInL"
-    aOutR inleta "MixerInR"
+    aOutL inleta "InL"
+    aOutR inleta "InR"
 
     iSafetyMaxAmplitude = 0dbfs * 3
 
     kHardLimitMinimum = iSafetyMaxAmplitude * -2
     kHardLimitMaximum = iSafetyMaxAmplitude * 2
-
 
     aOutL clip aOutL, 1, iSafetyMaxAmplitude
     aOutR clip aOutR, 1, iSafetyMaxAmplitude

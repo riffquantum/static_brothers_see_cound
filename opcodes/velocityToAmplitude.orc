@@ -13,11 +13,13 @@ giHeadRoomInDb = 10
 opcode velocityToAmplitude, i, ip
   iNoteVelocity, iCurveDegree xin
 
-  iScaleValue = 0dbfs - ampdb(giHeadRoomInDb)
 
   iScaledVelocity velocityCurve iNoteVelocity, iCurveDegree
 
+  iScaleValue = 0dbfs - ampdb(giHeadRoomInDb)
   iAmplitude = iScaledVelocity/127 * iScaleValue
+
+  iAmplitude = (iScaledVelocity/127 - 1/ampdb(giHeadRoomInDb)) * 0dbfs
 
   xout iAmplitude
 endop

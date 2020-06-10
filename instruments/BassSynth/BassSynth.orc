@@ -1,3 +1,4 @@
+instrumentRoute "BassSynth", "Mixer"
 alwayson "BassSynthMixerChannel"
 
 gkBassSynthEqBass init 1
@@ -5,9 +6,6 @@ gkBassSynthEqMid init 1
 gkBassSynthEqHigh init 1
 gkBassSynthFader init 1
 gkBassSynthPan init 50
-gSBassSynthName = "BassSynth"
-gSBassSynthRoute = "Mixer"
-instrumentRoute gSBassSynthName, gSBassSynthRoute
 
 /* MIDI Config Values */
 massign giBassSynthMidiChannel, "BassSynth"
@@ -68,8 +66,8 @@ instr BassSynth
 
   aBassSynthR = aBassSynthL
 
-  outleta "BassSynthOutL", aBassSynthL
-  outleta "BassSynthOutR", aBassSynthR
+  outleta "OutL", aBassSynthL
+  outleta "OutR", aBassSynthR
 endin
 
 instr BassSynthBassKnob
@@ -93,26 +91,11 @@ instr BassSynthPan
 endin
 
 instr BassSynthMixerChannel
-  aBassSynthL inleta "BassSynthInL"
-  aBassSynthR inleta "BassSynthInR"
+  aBassSynthL inleta "InL"
+  aBassSynthR inleta "InR"
 
-  kBassSynthFader = gkBassSynthFader
-  kBassSynthPan = gkBassSynthPan
-  kBassSynthEqBass = gkBassSynthEqBass
-  kBassSynthEqMid = gkBassSynthEqMid
-  kBassSynthEqHigh = gkBassSynthEqHigh
+  aBassSynthL, aBassSynthR mixerChannel aBassSynthL, aBassSynthR, gkBassSynthFader, gkBassSynthPan, gkBassSynthEqBass, gkBassSynthEqMid, gkBassSynthEqHigh
 
-  aBassSynthL, aBassSynthR threeBandEqStereo aBassSynthL, aBassSynthR, kBassSynthEqBass, kBassSynthEqMid, kBassSynthEqHigh
-
-  if kBassSynthPan > 100 then
-      kBassSynthPan = 100
-  elseif kBassSynthPan < 0 then
-      kBassSynthPan = 0
-  endif
-
-  aBassSynthL = (aBassSynthL * ((100 - kBassSynthPan) * 2 / 100)) * kBassSynthFader
-  aBassSynthR = (aBassSynthR * (kBassSynthPan * 2 / 100)) * kBassSynthFader
-
-  outleta "BassSynthOutL", aBassSynthL
-  outleta "BassSynthOutR", aBassSynthR
+  outleta "OutL", aBassSynthL
+  outleta "OutR", aBassSynthR
 endin

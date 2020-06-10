@@ -18,8 +18,8 @@ gkReverbForKickDelay init .99
 gkReverbForKickCutoff init sr/2-100
 
 instr ReverbForKick
-  aReverbForKickInL inleta "ReverbForKickInL"
-  aReverbForKickInR inleta "ReverbForKickInR"
+  aReverbForKickInL inleta "InL"
+  aReverbForKickInR inleta "InR"
 
   aReverbForKickWetL, aReverbForKickWetR reverbsc aReverbForKickInL, aReverbForKickInR, gkReverbForKickDelay, gkReverbForKickCutoff
 
@@ -29,8 +29,8 @@ instr ReverbForKick
   aReverbForKickL = (aReverbForKickWetL * gkReverbForKickWet) + (aReverbForKickInL * gkReverbForKickDry)
   aReverbForKickR = (aReverbForKickWetR * gkReverbForKickWet) + (aReverbForKickInR * gkReverbForKickDry)
 
-  outleta "ReverbForKickOutL", aReverbForKickL
-  outleta "ReverbForKickOutR", aReverbForKickR
+  outleta "OutL", aReverbForKickL
+  outleta "OutR", aReverbForKickR
 endin
 
 instr ReverbForKickWet
@@ -70,8 +70,8 @@ instr ReverbForKickPan
 endin
 
 instr ReverbForKickMixerChannel
-    aReverbForKickL inleta "ReverbForKickInL"
-    aReverbForKickR inleta "ReverbForKickInR"
+    aReverbForKickL inleta "InL"
+    aReverbForKickR inleta "InR"
 
     kReverbForKickFader = gkReverbForKickFader
     kReverbForKickPan = gkReverbForKickPan
@@ -90,6 +90,6 @@ instr ReverbForKickMixerChannel
     aReverbForKickL = (aReverbForKickL * ((100 - kReverbForKickPan) * 2 / 100)) * kReverbForKickFader
     aReverbForKickR = (aReverbForKickR * (kReverbForKickPan * 2 / 100)) * kReverbForKickFader
 
-    outleta "ReverbForKickOutL", aReverbForKickL
-    outleta "ReverbForKickOutR", aReverbForKickR
+    outleta "OutL", aReverbForKickL
+    outleta "OutR", aReverbForKickR
 endin

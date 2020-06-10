@@ -71,8 +71,8 @@ instr PhotoshopSamples
 
   aPhotoshopSample loscil kAmplitudeEnvelope, 1, iSample, 1
 
-  outleta "PhotoshopSamplesOutL", aPhotoshopSample
-  outleta "PhotoshopSamplesOutR", aPhotoshopSample
+  outleta "OutL", aPhotoshopSample
+  outleta "OutR", aPhotoshopSample
 endin
 
 instr PhotoshopSamplesBassKnob
@@ -96,8 +96,8 @@ instr PhotoshopSamplesPan
 endin
 
 instr PhotoshopSamplesMixerChannel
-    aPhotoshopSamplesL inleta "PhotoshopSamplesInL"
-    aPhotoshopSamplesR inleta "PhotoshopSamplesInR"
+    aPhotoshopSamplesL inleta "InL"
+    aPhotoshopSamplesR inleta "InR"
 
     kPhotoshopSamplesFader = gkPhotoshopSamplesFader
     kPhotoshopSamplesPan = gkPhotoshopSamplesPan
@@ -116,6 +116,6 @@ instr PhotoshopSamplesMixerChannel
     aPhotoshopSamplesL = (aPhotoshopSamplesL * ((100 - kPhotoshopSamplesPan) * 2 / 100)) * kPhotoshopSamplesFader
     aPhotoshopSamplesR = (aPhotoshopSamplesR * (kPhotoshopSamplesPan * 2 / 100)) * kPhotoshopSamplesFader
 
-    outleta "PhotoshopSamplesOutL", aPhotoshopSamplesL
-    outleta "PhotoshopSamplesOutR", aPhotoshopSamplesR
+    outleta "OutL", aPhotoshopSamplesL
+    outleta "OutR", aPhotoshopSamplesR
 endin

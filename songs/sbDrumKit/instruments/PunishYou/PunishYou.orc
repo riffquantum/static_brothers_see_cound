@@ -24,8 +24,8 @@ instr PunishYou
 
   aPunishYou = aPunishYouSample1
 
-  outleta "PunishYouOutL", aPunishYou
-  outleta "PunishYouOutR", aPunishYou
+  outleta "OutL", aPunishYou
+  outleta "OutR", aPunishYou
 endin
 
 instr PunishYouBassKnob
@@ -49,8 +49,8 @@ instr PunishYouPan
 endin
 
 instr PunishYouMixerChannel
-  aPunishYouL inleta "PunishYouInL"
-  aPunishYouR inleta "PunishYouInR"
+  aPunishYouL inleta "InL"
+  aPunishYouR inleta "InR"
 
   kPunishYouFader = gkPunishYouFader
   kPunishYouPan = gkPunishYouPan
@@ -69,6 +69,6 @@ instr PunishYouMixerChannel
   aPunishYouL = (aPunishYouL * ((100 - kPunishYouPan) * 2 / 100)) * kPunishYouFader
   aPunishYouR = (aPunishYouR * (kPunishYouPan * 2 / 100)) * kPunishYouFader
 
-  outleta "PunishYouOutL", aPunishYouL
-  outleta "PunishYouOutR", aPunishYouR
+  outleta "OutL", aPunishYouL
+  outleta "OutR", aPunishYouR
 endin

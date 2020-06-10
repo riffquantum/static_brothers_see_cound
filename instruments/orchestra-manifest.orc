@@ -46,4 +46,8 @@
 
 #include "SyncLoopSamplerTemplate2/SyncLoopSamplerTemplate2.orc"
 
-#include "mixer/mixer.orc"
+#include "Freezer/Freezer.orc"
+
+#include "PitchShifter/PitchShifter.orc"
+
+#include "Mixer/Mixer.orc"

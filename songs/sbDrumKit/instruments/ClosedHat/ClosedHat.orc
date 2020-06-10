@@ -24,8 +24,8 @@ instr ClosedHat
 
   aClosedHat = aClosedHatSample
 
-  outleta "ClosedHatOutL", aClosedHat
-  outleta "ClosedHatOutR", aClosedHat
+  outleta "OutL", aClosedHat
+  outleta "OutR", aClosedHat
 endin
 
 instr ClosedHatBassKnob
@@ -49,8 +49,8 @@ instr ClosedHatPan
 endin
 
 instr ClosedHatMixerChannel
-  aClosedHatL inleta "ClosedHatInL"
-  aClosedHatR inleta "ClosedHatInR"
+  aClosedHatL inleta "InL"
+  aClosedHatR inleta "InR"
 
   kClosedHatFader = gkClosedHatFader
   kClosedHatPan = gkClosedHatPan
@@ -69,6 +69,6 @@ instr ClosedHatMixerChannel
   aClosedHatL = (aClosedHatL * ((100 - kClosedHatPan) * 2 / 100)) * kClosedHatFader
   aClosedHatR = (aClosedHatR * (kClosedHatPan * 2 / 100)) * kClosedHatFader
 
-  outleta "ClosedHatOutL", aClosedHatL
-  outleta "ClosedHatOutR", aClosedHatR
+  outleta "OutL", aClosedHatL
+  outleta "OutR", aClosedHatR
 endin

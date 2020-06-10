@@ -1,3 +1,4 @@
+instrumentRoute "Delay", "Mixer"
 alwayson "Delay"
 alwayson "DelayMixerChannel"
 
@@ -12,9 +13,6 @@ gkDelayEqMid init 1
 gkDelayEqHigh init 1
 gkDelayFader init 1
 gkDelayPan init 50
-gSDelayName = "Delay"
-gSDelayRoute = "Mixer"
-instrumentRoute gSDelayName, gSDelayRoute
 
 instr DelayTimeKnob
   gaDelayTime linseg p4, p3, p5
@@ -34,8 +32,8 @@ endin
 
 
 instr Delay
-  aDelayInL inleta "DelayInL"
-  aDelayInR inleta "DelayInR"
+  aDelayInL inleta "InL"
+  aDelayInR inleta "InR"
 
   aDelayTimeL = gaDelayTime + gkStereoOffset
   aDelayTimeR = gaDelayTime - gkStereoOffset
@@ -46,8 +44,8 @@ instr Delay
   aDelayOutL = aDelayInL + aDelayAudioL
   aDelayOutR = aDelayInR + aDelayAudioR
 
-  outleta "DelayOutL", aDelayOutL
-  outleta "DelayOutR", aDelayOutR
+  outleta "OutL", aDelayOutL
+  outleta "OutR", aDelayOutR
 endin
 
 instr DelayBassKnob
@@ -71,26 +69,11 @@ instr DelayPan
 endin
 
 instr DelayMixerChannel
-  aDelayL inleta "DelayInL"
-  aDelayR inleta "DelayInR"
+  aDelayL inleta "InL"
+  aDelayR inleta "InR"
 
-  kDelayFader = gkDelayFader
-  kDelayPan = gkDelayPan
-  kDelayEqBass = gkDelayEqBass
-  kDelayEqMid = gkDelayEqMid
-  kDelayEqHigh = gkDelayEqHigh
+  aDelayL, aDelayR mixerChannel aDelayL, aDelayR, gkDelayFader, gkDelayPan, gkDelayEqBass, gkDelayEqMid, gkDelayEqHigh
 
-  aDelayL, aDelayR threeBandEqStereo aDelayL, aDelayR, kDelayEqBass, kDelayEqMid, kDelayEqHigh
-
-  if kDelayPan > 100 then
-      kDelayPan = 100
-  elseif kDelayPan < 0 then
-      kDelayPan = 0
-  endif
-
-  aDelayL = (aDelayL * ((100 - kDelayPan) * 2 / 100)) * kDelayFader
-  aDelayR = (aDelayR * (kDelayPan * 2 / 100)) * kDelayFader
-
-  outleta "DelayOutL", aDelayL
-  outleta "DelayOutR", aDelayR
+  outleta "OutL", aDelayL
+  outleta "OutR", aDelayR
 endin

@@ -37,8 +37,8 @@ instr Photoshop
     aOutL = kAmplitudeEnvelope * aOutL
     aOutR = kAmplitudeEnvelope * aOutR
 
-    outleta "PhotoshopOutL", aOutL
-    outleta "PhotoshopOutR", aOutR
+    outleta "OutL", aOutL
+    outleta "OutR", aOutR
 endin
 
 instr PhotoshopBassKnob
@@ -62,8 +62,8 @@ instr PhotoshopPan
 endin
 
 instr PhotoshopMixerChannel
-    aPhotoshopL inleta "PhotoshopInL"
-    aPhotoshopR inleta "PhotoshopInR"
+    aPhotoshopL inleta "InL"
+    aPhotoshopR inleta "InR"
 
     kPhotoshopFader = gkPhotoshopFader
     kPhotoshopPan = gkPhotoshopPan
@@ -82,6 +82,6 @@ instr PhotoshopMixerChannel
     aPhotoshopL = (aPhotoshopL * ((100 - kPhotoshopPan) * 2 / 100)) * kPhotoshopFader
     aPhotoshopR = (aPhotoshopR * (kPhotoshopPan * 2 / 100)) * kPhotoshopFader
 
-    outleta "PhotoshopOutL", aPhotoshopL
-    outleta "PhotoshopOutR", aPhotoshopR
+    outleta "OutL", aPhotoshopL
+    outleta "OutR", aPhotoshopR
 endin

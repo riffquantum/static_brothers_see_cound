@@ -25,8 +25,8 @@ instr Crash
 
   aCrash = aCrashSample
 
-  outleta "CrashOutL", aCrash
-  outleta "CrashOutR", aCrash
+  outleta "OutL", aCrash
+  outleta "OutR", aCrash
 endin
 
 instr CrashBassKnob
@@ -50,8 +50,8 @@ instr CrashPan
 endin
 
 instr CrashMixerChannel
-  aCrashL inleta "CrashInL"
-  aCrashR inleta "CrashInR"
+  aCrashL inleta "InL"
+  aCrashR inleta "InR"
 
   kCrashFader = gkCrashFader
   kCrashPan = gkCrashPan
@@ -70,6 +70,6 @@ instr CrashMixerChannel
   aCrashL = (aCrashL * ((100 - kCrashPan) * 2 / 100)) * kCrashFader
   aCrashR = (aCrashR * (kCrashPan * 2 / 100)) * kCrashFader
 
-  outleta "CrashOutL", aCrashL
-  outleta "CrashOutR", aCrashR
+  outleta "OutL", aCrashL
+  outleta "OutR", aCrashR
 endin

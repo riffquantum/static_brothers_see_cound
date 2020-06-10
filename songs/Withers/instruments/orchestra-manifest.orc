@@ -1,0 +1,8 @@
+#include "WhoIsHeLoop/WhoIsHeLoop.orc"
+#include "Kick/Kick.orc"
+#include "LinnKick/LinnKick.orc"
+#include "EightOhEightKick/EightOhEightKick.orc"
+#include "Snare/Snare.orc"
+#include "ClosedHat/ClosedHat.orc"
+#include "OpenHat/OpenHat.orc"
+#include "DrumKitBus/DrumKitBus.orc"

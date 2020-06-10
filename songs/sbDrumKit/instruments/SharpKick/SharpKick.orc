@@ -24,8 +24,8 @@ instr SharpKick
 
   aSharpKick = aSharpKickSample
 
-  outleta "SharpKickOutL", aSharpKick
-  outleta "SharpKickOutR", aSharpKick
+  outleta "OutL", aSharpKick
+  outleta "OutR", aSharpKick
 endin
 
 instr SharpKickBassKnob
@@ -49,8 +49,8 @@ instr SharpKickPan
 endin
 
 instr SharpKickMixerChannel
-  aSharpKickL inleta "SharpKickInL"
-  aSharpKickR inleta "SharpKickInR"
+  aSharpKickL inleta "InL"
+  aSharpKickR inleta "InR"
 
   kSharpKickFader = gkSharpKickFader
   kSharpKickPan = gkSharpKickPan
@@ -69,6 +69,6 @@ instr SharpKickMixerChannel
   aSharpKickL = (aSharpKickL * ((100 - kSharpKickPan) * 2 / 100)) * kSharpKickFader
   aSharpKickR = (aSharpKickR * (kSharpKickPan * 2 / 100)) * kSharpKickFader
 
-  outleta "SharpKickOutL", aSharpKickL
-  outleta "SharpKickOutR", aSharpKickR
+  outleta "OutL", aSharpKickL
+  outleta "OutR", aSharpKickR
 endin

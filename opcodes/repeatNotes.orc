@@ -1,4 +1,4 @@
-opcode "repeatNotes", 0, Siiiiiiii
+opcode "repeatNotes", 0, Siiiiiooo
   SInstrumentName, iStartTime, iTotalDuration, iNotesPerBeat, iNoteDuration, iVelocity, iPitchQuotient, iAccent, iSwing xin
 
   iTotalNotes = iTotalDuration * iNotesPerBeat
@@ -6,17 +6,17 @@ opcode "repeatNotes", 0, Siiiiiiii
 
   until iNoteCount >= iTotalNotes do
     if iPitchQuotient == 0 then
-        iPitch = 1
+      iPitch = 1
     else
-        iPitch = 1 - iNoteCount/iPitchQuotient
+      iPitch = 1 - iNoteCount/iPitchQuotient
     endif
 
     if (iAccent == 0) then
-        iAccented = 0
+      iAccented = 0
     elseif(iNoteCount % iAccent == 0) then
-        iAccented = 1
+      iAccented = 1
     else
-        iAccented = 0
+      iAccented = 0
     endif
 
     iNoteVelocity = iAccented == 1 ?  iVelocity * 1.5 :  iVelocity
@@ -25,9 +25,9 @@ opcode "repeatNotes", 0, Siiiiiiii
     SNoteParams sprintfk {{ %f %f }}, iNoteVelocity, iNotePitch
 
     if (iNoteCount % 2 == 0) then
-        beatScorelineS( SInstrumentName, iStartTime + iNoteCount*(1/iNotesPerBeat), iNoteDuration, SNoteParams )
+      beatScorelineS( SInstrumentName, iStartTime + iNoteCount*(1/iNotesPerBeat), iNoteDuration, SNoteParams )
     else
-        beatScorelineS( SInstrumentName, iStartTime + iNoteCount*(1/iNotesPerBeat) + iSwing, iNoteDuration - iSwing, SNoteParams )
+      beatScorelineS( SInstrumentName, iStartTime + iNoteCount*(1/iNotesPerBeat) + iSwing, iNoteDuration - iSwing, SNoteParams )
     endif
 
     iNoteCount += 1

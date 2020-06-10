@@ -50,8 +50,8 @@ instr sinkingBreakDiskin
 
     asinkingL, asinkingR diskin SsinkingFilePath, kpitch, iSkipTime, iwraparound, iformat, iskipinit
 
-    outleta "sinkingBreakOutL", asinkingL
-    outleta "sinkingBreakOutR", asinkingR
+    outleta "OutL", asinkingL
+    outleta "OutR", asinkingR
 
 endin
 
@@ -79,8 +79,8 @@ instr sinkingBreakDiskgrain
 
     asinkingL, asinkingR diskgrain SsinkingFilePath, kamplitude,    kfreq,     kpitch, kgrainsize ,     kpointerRate, iTable,  ioverlaps, imaxgrainsize, iskipTime
 
-    outleta "sinkingBreakOutL", asinkingL
-    outleta "sinkingBreakOutR", asinkingR
+    outleta "OutL", asinkingL
+    outleta "OutR", asinkingR
 
 endin
 
@@ -114,8 +114,8 @@ instr sinkingBreakSndwarp
 
     asinkingL, asinkingR sndwarpst kamplitude, ktimewarp, kresample, isampleTable, ibeginningTime, iwindowSize, irandw, ioverlap, ienvelopeTable, itimemode
 
-    outleta "sinkingBreakOutL", asinkingL
-    outleta "sinkingBreakOutR", asinkingR
+    outleta "OutL", asinkingL
+    outleta "OutR", asinkingR
 
 endin
 
@@ -140,8 +140,8 @@ instr sinkingBreakPan
 endin
 
 instr sinkingBreakMixerChannel
-    asinkingBreakL inleta "sinkingBreakInL"
-    asinkingBreakR inleta "sinkingBreakInR"
+    asinkingBreakL inleta "InL"
+    asinkingBreakR inleta "InR"
 
     ksinkingBreakFader = gksinkingBreakFader
     ksinkingBreakPan = gksinkingBreakPan
@@ -163,7 +163,7 @@ instr sinkingBreakMixerChannel
     asinkingBreakL = (asinkingBreakL * ((100 - ksinkingBreakPan) * 2 / 100)) * ksinkingBreakFader
     asinkingBreakR = (asinkingBreakR * (ksinkingBreakPan * 2 / 100)) * ksinkingBreakFader
 
-    outleta "sinkingBreakOutL", asinkingBreakL
-    outleta "sinkingBreakOutR", asinkingBreakR
+    outleta "OutL", asinkingBreakL
+    outleta "OutR", asinkingBreakR
 endin
 

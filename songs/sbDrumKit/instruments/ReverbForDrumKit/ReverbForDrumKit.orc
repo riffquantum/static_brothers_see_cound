@@ -20,8 +20,8 @@ gkReverbForDrumKitWet init .01
 gkReverbForDrumKitDry init 0
 
 instr ReverbForDrumKit
-  aReverbForDrumKitInL inleta "ReverbForDrumKitInL"
-  aReverbForDrumKitInR inleta "ReverbForDrumKitInR"
+  aReverbForDrumKitInL inleta "InL"
+  aReverbForDrumKitInR inleta "InR"
 
   SImpulsePath = "./localSamples/IMreverbs/Narrow Bumpy Space.wav"
 
@@ -37,8 +37,8 @@ instr ReverbForDrumKit
   aReverbForDrumKitOutL = (aReverbForDrumKitWetL * gkReverbForDrumKitWet) + (aReverbForDrumKitInL * gkReverbForDrumKitDry)
   aReverbForDrumKitOutR = (aReverbForDrumKitWetR * gkReverbForDrumKitWet) + (aReverbForDrumKitInR * gkReverbForDrumKitDry)
 
-  outleta "ReverbForDrumKitOutL", aReverbForDrumKitOutL
-  outleta "ReverbForDrumKitOutR", aReverbForDrumKitOutR
+  outleta "OutL", aReverbForDrumKitOutL
+  outleta "OutR", aReverbForDrumKitOutR
 endin
 
 instr ReverbForDrumKitBassKnob
@@ -62,8 +62,8 @@ instr ReverbForDrumKitPan
 endin
 
 instr ReverbForDrumKitMixerChannel
-  aReverbForDrumKitL inleta "ReverbForDrumKitInL"
-  aReverbForDrumKitR inleta "ReverbForDrumKitInR"
+  aReverbForDrumKitL inleta "InL"
+  aReverbForDrumKitR inleta "InR"
 
   kReverbForDrumKitFader = gkReverbForDrumKitFader
   kReverbForDrumKitPan = gkReverbForDrumKitPan
@@ -82,6 +82,6 @@ instr ReverbForDrumKitMixerChannel
   aReverbForDrumKitL = (aReverbForDrumKitL * ((100 - kReverbForDrumKitPan) * 2 / 100)) * kReverbForDrumKitFader
   aReverbForDrumKitR = (aReverbForDrumKitR * (kReverbForDrumKitPan * 2 / 100)) * kReverbForDrumKitFader
 
-  outleta "ReverbForDrumKitOutL", aReverbForDrumKitL
-  outleta "ReverbForDrumKitOutR", aReverbForDrumKitR
+  outleta "OutL", aReverbForDrumKitL
+  outleta "OutR", aReverbForDrumKitR
 endin

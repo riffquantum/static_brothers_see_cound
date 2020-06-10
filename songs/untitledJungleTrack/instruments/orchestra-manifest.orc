@@ -1,0 +1,6 @@
+#include "AmenBreak/AmenBreak.orc"
+#include "FunkyDrummerBreak/FunkyDrummerBreak.orc"
+#include "TablaSitarLoop1/TablaSitarLoop1.orc"
+#include "TablaBreakdown/TablaBreakdown.orc"
+#include "TablaLoop2/TablaLoop2.orc"
+#include "TablaRasaRanga2/TablaRasaRanga2.orc"

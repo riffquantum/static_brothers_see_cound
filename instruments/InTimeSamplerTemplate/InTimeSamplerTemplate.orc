@@ -1,6 +1,4 @@
-gSInTimeSamplerTemplateName = "InTimeSamplerTemplate"
-gSInTimeSamplerTemplateRoute = "Mixer"
-instrumentRoute gSInTimeSamplerTemplateName, gSInTimeSamplerTemplateRoute
+instrumentRoute "InTimeSamplerTemplate", "Mixer"
 
 alwayson "InTimeSamplerTemplateMixerChannel"
 
@@ -41,8 +39,8 @@ instr InTimeSamplerTemplate
     aInTimeSamplerTemplateR = aInTimeSamplerTemplateL
   endif
 
-  outleta "InTimeSamplerTemplateOutL", aInTimeSamplerTemplateL
-  outleta "InTimeSamplerTemplateOutR", aInTimeSamplerTemplateR
+  outleta "OutL", aInTimeSamplerTemplateL
+  outleta "OutR", aInTimeSamplerTemplateR
 endin
 
 instr InTimeSamplerTemplateBassKnob
@@ -66,27 +64,12 @@ instr InTimeSamplerTemplatePan
 endin
 
 instr InTimeSamplerTemplateMixerChannel
-  aInTimeSamplerTemplateL inleta "InTimeSamplerTemplateInL"
-  aInTimeSamplerTemplateR inleta "InTimeSamplerTemplateInR"
+  aInTimeSamplerTemplateL inleta "InL"
+  aInTimeSamplerTemplateR inleta "InR"
 
-  kInTimeSamplerTemplateFader = gkInTimeSamplerTemplateFader
-  kInTimeSamplerTemplatePan = gkInTimeSamplerTemplatePan
-  kInTimeSamplerTemplateEqBass = gkInTimeSamplerTemplateEqBass
-  kInTimeSamplerTemplateEqMid = gkInTimeSamplerTemplateEqMid
-  kInTimeSamplerTemplateEqHigh = gkInTimeSamplerTemplateEqHigh
+  aInTimeSamplerTemplateL, aInTimeSamplerTemplateR mixerChannel aInTimeSamplerTemplateL, aInTimeSamplerTemplateR, gkInTimeSamplerTemplateFader, gkInTimeSamplerTemplatePan, gkInTimeSamplerTemplateEqBass, gkInTimeSamplerTemplateEqMid, gkInTimeSamplerTemplateEqHigh
 
-  aInTimeSamplerTemplateL, aInTimeSamplerTemplateR threeBandEqStereo aInTimeSamplerTemplateL, aInTimeSamplerTemplateR, kInTimeSamplerTemplateEqBass, kInTimeSamplerTemplateEqMid, kInTimeSamplerTemplateEqHigh
-
-  if kInTimeSamplerTemplatePan > 100 then
-      kInTimeSamplerTemplatePan = 100
-  elseif kInTimeSamplerTemplatePan < 0 then
-      kInTimeSamplerTemplatePan = 0
-  endif
-
-  aInTimeSamplerTemplateL = (aInTimeSamplerTemplateL * ((100 - kInTimeSamplerTemplatePan) * 2 / 100)) * kInTimeSamplerTemplateFader
-  aInTimeSamplerTemplateR = (aInTimeSamplerTemplateR * (kInTimeSamplerTemplatePan * 2 / 100)) * kInTimeSamplerTemplateFader
-
-  outleta "InTimeSamplerTemplateOutL", aInTimeSamplerTemplateL
-  outleta "InTimeSamplerTemplateOutR", aInTimeSamplerTemplateR
+  outleta "OutL", aInTimeSamplerTemplateL
+  outleta "OutR", aInTimeSamplerTemplateR
 endin
 

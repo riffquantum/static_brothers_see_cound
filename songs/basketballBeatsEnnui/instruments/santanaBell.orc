@@ -223,8 +223,8 @@ instr santanaBellSndwarp
     endif
 
 
-    outleta "santanaBellOutL", asantanaBellL
-    outleta "santanaBellOutR", asantanaBellR
+    outleta "OutL", asantanaBellL
+    outleta "OutR", asantanaBellR
 
 endin
 
@@ -249,8 +249,8 @@ instr santanaBellPan
 endin
 
 instr santanaBellMixerChannel
-    asantanaBellL inleta "santanaBellInL"
-    asantanaBellR inleta "santanaBellInR"
+    asantanaBellL inleta "InL"
+    asantanaBellR inleta "InR"
 
     ksantanaBellFader = gksantanaBellFader
     ksantanaBellPan = gksantanaBellPan
@@ -270,7 +270,7 @@ instr santanaBellMixerChannel
     asantanaBellR = (asantanaBellR * (ksantanaBellPan * 2 / 100)) * ksantanaBellFader
 
 
-    outleta "santanaBellOutL", asantanaBellL
-    outleta "santanaBellOutR", asantanaBellR
+    outleta "OutL", asantanaBellL
+    outleta "OutR", asantanaBellR
 endin
 

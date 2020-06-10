@@ -26,8 +26,8 @@ instr BirdShitSynthSamples
 
   aBirdShitSynthSample loscil kAmplitudeEnvelope, 1, iSample, 1
 
-  outleta "BirdShitSynthSamplesOutL", aBirdShitSynthSample
-  outleta "BirdShitSynthSamplesOutR", aBirdShitSynthSample
+  outleta "OutL", aBirdShitSynthSample
+  outleta "OutR", aBirdShitSynthSample
 endin
 
 instr BirdShitSynthSamplesBassKnob
@@ -51,8 +51,8 @@ instr BirdShitSynthSamplesPan
 endin
 
 instr BirdShitSynthSamplesMixerChannel
-  aBirdShitSynthSamplesL inleta "BirdShitSynthSamplesInL"
-  aBirdShitSynthSamplesR inleta "BirdShitSynthSamplesInR"
+  aBirdShitSynthSamplesL inleta "InL"
+  aBirdShitSynthSamplesR inleta "InR"
 
   kBirdShitSynthSamplesFader = gkBirdShitSynthSamplesFader
   kBirdShitSynthSamplesPan = gkBirdShitSynthSamplesPan
@@ -71,6 +71,6 @@ instr BirdShitSynthSamplesMixerChannel
   aBirdShitSynthSamplesL = (aBirdShitSynthSamplesL * ((100 - kBirdShitSynthSamplesPan) * 2 / 100)) * kBirdShitSynthSamplesFader
   aBirdShitSynthSamplesR = (aBirdShitSynthSamplesR * (kBirdShitSynthSamplesPan * 2 / 100)) * kBirdShitSynthSamplesFader
 
-  outleta "BirdShitSynthSamplesOutL", aBirdShitSynthSamplesL
-  outleta "BirdShitSynthSamplesOutR", aBirdShitSynthSamplesR
+  outleta "OutL", aBirdShitSynthSamplesL
+  outleta "OutR", aBirdShitSynthSamplesR
 endin

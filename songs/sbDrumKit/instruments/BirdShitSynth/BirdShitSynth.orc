@@ -42,8 +42,8 @@ instr BirdShitSynth
     aBirdShitSynthR += oscil(kAmplitudeEnvelope*0.25, iPitch*.9*.9, iSineTable)
 
 
-    outleta "BirdShitSynthOutL", aBirdShitSynthL
-    outleta "BirdShitSynthOutR", aBirdShitSynthR
+    outleta "OutL", aBirdShitSynthL
+    outleta "OutR", aBirdShitSynthR
 endin
 
 instr BirdShitSynthBassKnob
@@ -67,8 +67,8 @@ instr BirdShitSynthPan
 endin
 
 instr BirdShitSynthMixerChannel
-    aBirdShitSynthL inleta "BirdShitSynthInL"
-    aBirdShitSynthR inleta "BirdShitSynthInR"
+    aBirdShitSynthL inleta "InL"
+    aBirdShitSynthR inleta "InR"
 
     kBirdShitSynthFader = gkBirdShitSynthFader
     kBirdShitSynthPan = gkBirdShitSynthPan
@@ -87,13 +87,13 @@ instr BirdShitSynthMixerChannel
     aBirdShitSynthL = (aBirdShitSynthL * ((100 - kBirdShitSynthPan) * 2 / 100)) * kBirdShitSynthFader
     aBirdShitSynthR = (aBirdShitSynthR * (kBirdShitSynthPan * 2 / 100)) * kBirdShitSynthFader
 
-    outleta "BirdShitSynthOutL", aBirdShitSynthL
-    outleta "BirdShitSynthOutR", aBirdShitSynthR
+    outleta "OutL", aBirdShitSynthL
+    outleta "OutR", aBirdShitSynthR
 endin
 
 instr BirdShitSynthDistortion
-  aBirdShitSynthDistortionInL inleta "BirdShitSynthDistortionInL"
-  aBirdShitSynthDistortionInR inleta "BirdShitSynthDistortionInR"
+  aBirdShitSynthDistortionInL inleta "InL"
+  aBirdShitSynthDistortionInR inleta "InR"
 
   aBirdShitSynthDistortionOutL = aBirdShitSynthDistortionInL
   aBirdShitSynthDistortionOutR = aBirdShitSynthDistortionInR
@@ -107,8 +107,8 @@ instr BirdShitSynthDistortion
   aBirdShitSynthDistortionOutL = butterlp(aBirdShitSynthDistortionOutL, 5000)
   aBirdShitSynthDistortionOutR = butterlp(aBirdShitSynthDistortionOutR, 5000)
 
-  outleta "BirdShitSynthDistortionOutL", aBirdShitSynthDistortionOutL
-  outleta "BirdShitSynthDistortionOutR", aBirdShitSynthDistortionOutR
+  outleta "OutL", aBirdShitSynthDistortionOutL
+  outleta "OutR", aBirdShitSynthDistortionOutR
 endin
 
 instr BirdShitSynthDistortionBassKnob
@@ -132,8 +132,8 @@ instr BirdShitSynthDistortionPan
 endin
 
 instr BirdShitSynthDistortionMixerChannel
-  aBirdShitSynthDistortionL inleta "BirdShitSynthDistortionInL"
-  aBirdShitSynthDistortionR inleta "BirdShitSynthDistortionInR"
+  aBirdShitSynthDistortionL inleta "InL"
+  aBirdShitSynthDistortionR inleta "InR"
 
   kBirdShitSynthDistortionFader = gkBirdShitSynthDistortionFader
   kBirdShitSynthDistortionPan = gkBirdShitSynthDistortionPan
@@ -152,6 +152,6 @@ instr BirdShitSynthDistortionMixerChannel
   aBirdShitSynthDistortionL = (aBirdShitSynthDistortionL * ((100 - kBirdShitSynthDistortionPan) * 2 / 100)) * kBirdShitSynthDistortionFader
   aBirdShitSynthDistortionR = (aBirdShitSynthDistortionR * (kBirdShitSynthDistortionPan * 2 / 100)) * kBirdShitSynthDistortionFader
 
-  outleta "BirdShitSynthDistortionOutL", aBirdShitSynthDistortionL
-  outleta "BirdShitSynthDistortionOutR", aBirdShitSynthDistortionR
+  outleta "OutL", aBirdShitSynthDistortionL
+  outleta "OutR", aBirdShitSynthDistortionR
 endin

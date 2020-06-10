@@ -25,6 +25,8 @@
 
 #include "threeBandEq.orc"
 
+#include "pan.orc"
+
 #include "pitchShifter.orc"
 
 #include "delayBuffer.orc"
@@ -37,8 +39,11 @@
 
 #include "instrumentRoute.orc"
 
-#include "mixerChannel.orc"
+#include "bypassSwitch.orc"
 
+#include "bypassRoute.orc"
+
+#include "mixerChannel.orc"
 
 /*
   Table Generators
@@ -134,3 +139,9 @@
 #include "thirteenthChord.orc"
 
 #include "minorThirteenthChord.orc"
+
+/*
+  Signal Generators
+*/
+
+#include "drumSample.orc"

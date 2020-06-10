@@ -24,8 +24,8 @@ instr Ride
 
   aRideOut loscil kAmplitudeEnvelope, kPitch, giRideSample, 1
 
-  outleta "RideOutL", aRideOut
-  outleta "RideOutR", aRideOut
+  outleta "OutL", aRideOut
+  outleta "OutR", aRideOut
 endin
 
 instr RideBassKnob
@@ -49,8 +49,8 @@ instr RidePan
 endin
 
 instr RideMixerChannel
-    aRideL inleta "RideInL"
-    aRideR inleta "RideInR"
+    aRideL inleta "InL"
+    aRideR inleta "InR"
 
     kpanvalue linseg 0, 1, 100
 
@@ -74,7 +74,7 @@ instr RideMixerChannel
     aRideL = (aRideL * ((100 - kRidePan) * 2 / 100)) * kRideFader
     aRideR = (aRideR * (kRidePan * 2 / 100)) * kRideFader
 
-    outleta "RideOutL", aRideL
-    outleta "RideOutR", aRideR
+    outleta "OutL", aRideL
+    outleta "OutR", aRideR
 
 endin

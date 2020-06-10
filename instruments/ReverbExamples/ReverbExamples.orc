@@ -1,8 +1,7 @@
+instrumentRoute "ReverbExamples", "Mixer"
+
 alwayson "ReverbExamples"
 alwayson "ReverbExamplesMixerChannel"
-
-connect "ReverbExamples", "ReverbExamplesOutL", "ReverbExamplesMixerChannel", "ReverbExamplesInL"
-connect "ReverbExamples", "ReverbExamplesOutR", "ReverbExamplesMixerChannel", "ReverbExamplesInR"
 
 gkReverbExamplesEqBass init 1
 gkReverbExamplesEqMid init 1
@@ -12,12 +11,11 @@ gkReverbExamplesPan init 50
 
 gkReverbExamplesWet init .3
 gkReverbExamplesDry init 1
-
 giReverbExamplesMode init 3
 
 instr ReverbExamples
-  aReverbExamplesInL inleta "ReverbExamplesInL"
-  aReverbExamplesInR inleta "ReverbExamplesInR"
+  aReverbExamplesInL inleta "InL"
+  aReverbExamplesInR inleta "InR"
 
   aReverbExamplesWetL = aReverbExamplesInL
   aReverbExamplesWetR = aReverbExamplesInR
@@ -183,62 +181,44 @@ instr ReverbExamples
   aReverbExamplesL = (aReverbExamplesWetL * gkReverbExamplesWet) + (aReverbExamplesInL * gkReverbExamplesDry)
   aReverbExamplesR = (aReverbExamplesWetR * gkReverbExamplesWet) + (aReverbExamplesInR * gkReverbExamplesDry)
 
-  outleta "ReverbExamplesOutL", aReverbExamplesL
-  outleta "ReverbExamplesOutR", aReverbExamplesR
+  outleta "OutL", aReverbExamplesL
+  outleta "OutR", aReverbExamplesR
 endin
 
 instr ReverbExamplesWetKnob
-    gkReverbExamplesWet linseg p4, p3, p5
+  gkReverbExamplesWet linseg p4, p3, p5
 endin
 
 instr ReverbExamplesDryKnob
-    gkReverbExamplesWet linseg p4, p3, p5
+  gkReverbExamplesWet linseg p4, p3, p5
 endin
 
 instr ReverbExamplesBassKnob
-    gkReverbExamplesEqBass linseg p4, p3, p5
+  gkReverbExamplesEqBass linseg p4, p3, p5
 endin
 
 instr ReverbExamplesMidKnob
-    gkReverbExamplesEqMid linseg p4, p3, p5
+  gkReverbExamplesEqMid linseg p4, p3, p5
 endin
 
 instr ReverbExamplesHighKnob
-    gkReverbExamplesEqHigh linseg p4, p3, p5
+  gkReverbExamplesEqHigh linseg p4, p3, p5
 endin
 
 instr ReverbExamplesFader
-    gkReverbExamplesFader linseg p4, p3, p5
+  gkReverbExamplesFader linseg p4, p3, p5
 endin
 
 instr ReverbExamplesPan
-    gkReverbExamplesPan linseg p4, p3, p5
+  gkReverbExamplesPan linseg p4, p3, p5
 endin
 
 instr ReverbExamplesMixerChannel
-    aReverbExamplesL inleta "ReverbExamplesInL"
-    aReverbExamplesR inleta "ReverbExamplesInR"
+  aReverbExamplesL inleta "InL"
+  aReverbExamplesR inleta "InR"
 
-    kReverbExamplesFader = gkReverbExamplesFader
-    kReverbExamplesPan = gkReverbExamplesPan
-    kReverbExamplesEqBass = gkReverbExamplesEqBass
-    kReverbExamplesEqMid = gkReverbExamplesEqMid
-    kReverbExamplesEqHigh = gkReverbExamplesEqHigh
+  aReverbExamplesL, aReverbExamplesR mixerChannel aReverbExamplesL, aReverbExamplesR, gkReverbExamplesFader, gkReverbExamplesPan, gkReverbExamplesEqBass, gkReverbExamplesEqMid, gkReverbExamplesEqHigh
 
-    aReverbExamplesL, aReverbExamplesR threeBandEqStereo aReverbExamplesL, aReverbExamplesR, kReverbExamplesEqBass, kReverbExamplesEqMid, kReverbExamplesEqHigh
-
-    if kReverbExamplesPan > 100 then
-        kReverbExamplesPan = 100
-    elseif kReverbExamplesPan < 0 then
-        kReverbExamplesPan = 0
-    endif
-
-    aReverbExamplesL = (aReverbExamplesL * ((100 - kReverbExamplesPan) * 2 / 100)) * kReverbExamplesFader
-    aReverbExamplesR = (aReverbExamplesR * (kReverbExamplesPan * 2 / 100)) * kReverbExamplesFader
-
-    outleta "ReverbExamplesOutL", aReverbExamplesL
-    outleta "ReverbExamplesOutR", aReverbExamplesR
+  outleta "OutL", aReverbExamplesL
+  outleta "OutR", aReverbExamplesR
 endin
-
-connect "ReverbExamplesMixerChannel", "ReverbExamplesOutL", "Mixer", "MixerInL"
-connect "ReverbExamplesMixerChannel", "ReverbExamplesOutR", "Mixer", "MixerInR"

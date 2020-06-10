@@ -14,7 +14,7 @@
 
 #include "../../../instruments/TR606/TR606.orc"
 
-#include "../../../instruments/mixer/mixer.orc"
+#include "../../../instruments/Mixer/Mixer.orc"
 
 
 /*

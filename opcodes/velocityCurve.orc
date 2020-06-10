@@ -10,6 +10,8 @@
 opcode velocityCurve, i, ip
   iVelocity, iDegree xin
 
+  iDegree = iDegree == 0 ? 1 : iDegree
+
   iScaledVelocity = limit((iVelocity/127)^(1/iDegree) * 127, 0, 127)
 
   xout iScaledVelocity

@@ -61,8 +61,8 @@ instr BigSynth
   kcf line 1000, 1, 0
   aOut reson aOut, kcf, 1/kcf
 
-  outleta "BigSynthOutL", aOut
-  outleta "BigSynthOutR", aOut
+  outleta "OutL", aOut
+  outleta "OutR", aOut
 endin
 
 instr BigSynthBassKnob
@@ -86,8 +86,8 @@ instr BigSynthPan
 endin
 
 instr BigSynthMixerChannel
-    aBigSynthL inleta "BigSynthInL"
-    aBigSynthR inleta "BigSynthInR"
+    aBigSynthL inleta "InL"
+    aBigSynthR inleta "InR"
 
     kBigSynthFader = gkBigSynthFader
     kBigSynthPan = gkBigSynthPan
@@ -106,7 +106,7 @@ instr BigSynthMixerChannel
     aBigSynthL = (aBigSynthL * ((100 - kBigSynthPan) * 2 / 100)) * kBigSynthFader
     aBigSynthR = (aBigSynthR * (kBigSynthPan * 2 / 100)) * kBigSynthFader
 
-    outleta "BigSynthOutL", aBigSynthL
-    outleta "BigSynthOutR", aBigSynthR
+    outleta "OutL", aBigSynthL
+    outleta "OutR", aBigSynthR
 endin
 

@@ -7,9 +7,6 @@ opcode triggerBuffer, i, iii
   iCurrentTime times
   iTimeSinceLastNote = iCurrentTime - gitriggerBufferLastTimeForNote[iNoteNumber]
 
-  printsBlock sprintf({{ Last Velocity: %i }}, giTiggerBufferLastVelocityForNote[iNoteNumber])
-  printsBlock sprintf({{ iTimeSinceLastNote: %f }}, iTimeSinceLastNote)
-
   if iDecayTime == 0 || iTimeSinceLastNote == 0 || giTiggerBufferLastVelocityForNote[iNoteNumber] == 0 then
     iTriggerNote = 1
   endif
@@ -24,7 +21,9 @@ opcode triggerBuffer, i, iii
 
   giTiggerBufferLastVelocityForNote[iNoteNumber] = iVelocity
   gitriggerBufferLastTimeForNote[iNoteNumber] = iCurrentTime
-  output:
+
+  prints sprintf(" [V: %i T: %f ], ", iVelocity, iTimeSinceLastNote)
+
   xout iTriggerNote
 endop
 

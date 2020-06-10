@@ -11,8 +11,7 @@ gkCbKickFader init 1
 gkCbKickPan init 50
 
 gSCbKickSamplePath ="songs/sbDrumKit/instruments/CbKick/CB_Kick.wav"
-giCbKickSampleTableLength getTableSizeFromSample gSCbKickSamplePath
-giCbKickSample ftgen 0, 0, giCbKickSampleTableLength, 1, gSCbKickSamplePath, 0, 0, 0
+giCbKickSample ftgen 0, 0, 0, 1, gSCbKickSamplePath, 0, 0, 0
 
 instr CbKick
   iAmplitude = p4
@@ -23,8 +22,8 @@ instr CbKick
 
   aCbKick = aCbKickSample
 
-  outleta "CbKickOutL", aCbKick
-  outleta "CbKickOutR", aCbKick
+  outleta "OutL", aCbKick
+  outleta "OutR", aCbKick
 endin
 
 instr CbKickBassKnob
@@ -49,11 +48,11 @@ instr CbKickPan
 endin
 
 instr CbKickMixerChannel
-  aCbKickL inleta "CbKickInL"
-  aCbKickR inleta "CbKickInR"
+  aCbKickL inleta "InL"
+  aCbKickR inleta "InR"
 
   aCbKickL, aCbKickR mixerChannel aCbKickL, aCbKickR, gkCbKickFader, gkCbKickPan, gkCbKickEqBass, gkCbKickEqMid, gkCbKickEqHigh
 
-  outleta "CbKickOutL", aCbKickL
-  outleta "CbKickOutR", aCbKickR
+  outleta "OutL", aCbKickL
+  outleta "OutR", aCbKickR
 endin

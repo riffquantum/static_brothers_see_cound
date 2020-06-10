@@ -23,8 +23,8 @@ instr Snare
 
   aSnareOut loscil kAmplitudeEnvelope, 1, giSnareSample, 1
 
-  outleta "SnareOutL", aSnareOut
-  outleta "SnareOutR", aSnareOut
+  outleta "OutL", aSnareOut
+  outleta "OutR", aSnareOut
 endin
 
 instr SnareBassKnob
@@ -48,8 +48,8 @@ instr SnarePan
 endin
 
 instr SnareMixerChannel
-    aSnareL inleta "SnareInL"
-    aSnareR inleta "SnareInR"
+    aSnareL inleta "InL"
+    aSnareR inleta "InR"
 
     kpanvalue linseg 0, 1, 100
 
@@ -73,7 +73,7 @@ instr SnareMixerChannel
     aSnareL = (aSnareL * ((100 - kSnarePan) * 2 / 100)) * kSnareFader
     aSnareR = (aSnareR * (kSnarePan * 2 / 100)) * kSnareFader
 
-    outleta "SnareOutL", aSnareL
-    outleta "SnareOutR", aSnareR
+    outleta "OutL", aSnareL
+    outleta "OutR", aSnareR
 
 endin

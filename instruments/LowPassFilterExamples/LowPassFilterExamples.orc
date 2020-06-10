@@ -1,9 +1,8 @@
-alwayson "LowPassFilterExamples"
+alwayson "LowPassFilterExamplesInput"
 alwayson "LowPassFilterExamplesMixerChannel"
 
-gSLowPassFilterExamplesName = "LowPassFilterExamples"
-gSLowPassFilterExamplesRoute = "Mixer"
-instrumentRoute gSLowPassFilterExamplesName, gSLowPassFilterExamplesRoute
+bypassRoute "LowPassFilterExamples"
+stereoRoute "LowPassFilterExamplesMixerChannel", "Mixer"
 
 gkLowPassFilterExamplesEqBass init 1
 gkLowPassFilterExamplesEqMid init 1
@@ -11,13 +10,27 @@ gkLowPassFilterExamplesEqHigh init 1
 gkLowPassFilterExamplesFader init 1
 gkLowPassFilterExamplesPan init 50
 
+gkLowPassFilterExamplesDryAmmount init 0
+gkLowPassFilterExamplesWetAmmount init 1
 gkLowPassFilterExamplesAmount init .1
-
 giLowPassFilterExamplesMode init 5
 
+instr LowPassFilterExamplesInput
+  aLowPassFilterExamplesInL inleta "InL"
+  aLowPassFilterExamplesInR inleta "InR"
+
+  aLowPassFilterExamplesOutWetL, aLowPassFilterExamplesOutWetR, aLowPassFilterExamplesOutDryL, aLowPassFilterExamplesOutDryR bypassSwitch aLowPassFilterExamplesInL, aLowPassFilterExamplesInR, gkLowPassFilterExamplesDryAmmount, gkLowPassFilterExamplesWetAmmount, "LowPassFilterExamples"
+
+  outleta "OutWetL", aLowPassFilterExamplesOutWetL
+  outleta "OutWetR", aLowPassFilterExamplesOutWetR
+
+  outleta "OutDryL", aLowPassFilterExamplesOutDryL
+  outleta "OutDryR", aLowPassFilterExamplesOutDryR
+endin
+
 instr LowPassFilterExamples
-  aLowPassFilterExamplesInL inleta "LowPassFilterExamplesInL"
-  aLowPassFilterExamplesInR inleta "LowPassFilterExamplesInR"
+  aLowPassFilterExamplesInL inleta "InL"
+  aLowPassFilterExamplesInR inleta "InR"
   iBalanceSignal = 1
   kHalfPowerPoint = 1000
   kHalfPowerPointOscilator oscil kHalfPowerPoint/2, .5
@@ -84,55 +97,40 @@ instr LowPassFilterExamples
     aLowPassFilterExamplesOutR balance aLowPassFilterExamplesOutR, aLowPassFilterExamplesInR
   endif
 
-  outleta "LowPassFilterExamplesOutL", aLowPassFilterExamplesOutL
-  outleta "LowPassFilterExamplesOutR", aLowPassFilterExamplesOutR
+  outleta "OutL", aLowPassFilterExamplesOutL
+  outleta "OutR", aLowPassFilterExamplesOutR
 endin
 
 instr LowPassFilterExamplesAmountKnob
-    gkLowPassFilterExamplesAmount linseg p4, p3, p5
+  gkLowPassFilterExamplesAmount linseg p4, p3, p5
 endin
 
 instr LowPassFilterExamplesBassKnob
-    gkLowPassFilterExamplesEqBass linseg p4, p3, p5
+  gkLowPassFilterExamplesEqBass linseg p4, p3, p5
 endin
 
 instr LowPassFilterExamplesMidKnob
-    gkLowPassFilterExamplesEqMid linseg p4, p3, p5
+  gkLowPassFilterExamplesEqMid linseg p4, p3, p5
 endin
 
 instr LowPassFilterExamplesHighKnob
-    gkLowPassFilterExamplesEqHigh linseg p4, p3, p5
+  gkLowPassFilterExamplesEqHigh linseg p4, p3, p5
 endin
 
 instr LowPassFilterExamplesFader
-    gkLowPassFilterExamplesFader linseg p4, p3, p5
+  gkLowPassFilterExamplesFader linseg p4, p3, p5
 endin
 
 instr LowPassFilterExamplesPan
-    gkLowPassFilterExamplesPan linseg p4, p3, p5
+  gkLowPassFilterExamplesPan linseg p4, p3, p5
 endin
 
 instr LowPassFilterExamplesMixerChannel
-    aLowPassFilterExamplesL inleta "LowPassFilterExamplesInL"
-    aLowPassFilterExamplesR inleta "LowPassFilterExamplesInR"
+  aLowPassFilterExamplesL inleta "InL"
+  aLowPassFilterExamplesR inleta "InR"
 
-    kLowPassFilterExamplesFader = gkLowPassFilterExamplesFader
-    kLowPassFilterExamplesPan = gkLowPassFilterExamplesPan
-    kLowPassFilterExamplesEqBass = gkLowPassFilterExamplesEqBass
-    kLowPassFilterExamplesEqMid = gkLowPassFilterExamplesEqMid
-    kLowPassFilterExamplesEqHigh = gkLowPassFilterExamplesEqHigh
+  aLowPassFilterExamplesL, aLowPassFilterExamplesR mixerChannel aLowPassFilterExamplesL, aLowPassFilterExamplesR, gkLowPassFilterExamplesFader, gkLowPassFilterExamplesPan, gkLowPassFilterExamplesEqBass, gkLowPassFilterExamplesEqMid, gkLowPassFilterExamplesEqHigh
 
-    aLowPassFilterExamplesL, aLowPassFilterExamplesR threeBandEqStereo aLowPassFilterExamplesL, aLowPassFilterExamplesR, kLowPassFilterExamplesEqBass, kLowPassFilterExamplesEqMid, kLowPassFilterExamplesEqHigh
-
-    if kLowPassFilterExamplesPan > 100 then
-        kLowPassFilterExamplesPan = 100
-    elseif kLowPassFilterExamplesPan < 0 then
-        kLowPassFilterExamplesPan = 0
-    endif
-
-    aLowPassFilterExamplesL = (aLowPassFilterExamplesL * ((100 - kLowPassFilterExamplesPan) * 2 / 100)) * kLowPassFilterExamplesFader
-    aLowPassFilterExamplesR = (aLowPassFilterExamplesR * (kLowPassFilterExamplesPan * 2 / 100)) * kLowPassFilterExamplesFader
-
-    outleta "LowPassFilterExamplesOutL", aLowPassFilterExamplesL
-    outleta "LowPassFilterExamplesOutR", aLowPassFilterExamplesR
+  outleta "OutL", aLowPassFilterExamplesL
+  outleta "OutR", aLowPassFilterExamplesR
 endin

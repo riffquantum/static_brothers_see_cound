@@ -54,8 +54,8 @@ instr walkInTheSoftRainSampleDiskin
 
     awalkInTheSoftRainL, awalkInTheSoftRainR diskin SwalkInTheSoftRainFilePath, kpitch, iSkipTime, iwraparound, iformat, iskipinit
 
-    outleta "walkInTheSoftRainSampleOutL", awalkInTheSoftRainL
-    outleta "walkInTheSoftRainSampleOutR", awalkInTheSoftRainR
+    outleta "OutL", awalkInTheSoftRainL
+    outleta "OutR", awalkInTheSoftRainR
 
 endin
 
@@ -83,8 +83,8 @@ instr walkInTheSoftRainSampleDiskgrain
 
     awalkInTheSoftRainL, awalkInTheSoftRainR diskgrain SwalkInTheSoftRainFilePath, kamplitude,    kfreq,     kpitch, kgrainsize ,     kpointerRate, iTable,  ioverlaps, imaxgrainsize, iskipTime
 
-    outleta "walkInTheSoftRainSampleOutL", awalkInTheSoftRainL
-    outleta "walkInTheSoftRainSampleOutR", awalkInTheSoftRainR
+    outleta "OutL", awalkInTheSoftRainL
+    outleta "OutR", awalkInTheSoftRainR
 
 endin
 
@@ -118,8 +118,8 @@ instr walkInTheSoftRainSampleSndwarp
 
     awalkInTheSoftRainL, awalkInTheSoftRainR sndwarpst kamplitude, ktimewarp, kresample, isampleTable, ibeginningTime, iwindowSize, irandw, ioverlap, ienvelopeTable, itimemode
 
-    outleta "walkInTheSoftRainSampleOutL", awalkInTheSoftRainL
-    outleta "walkInTheSoftRainSampleOutR", awalkInTheSoftRainR
+    outleta "OutL", awalkInTheSoftRainL
+    outleta "OutR", awalkInTheSoftRainR
 
 endin
 
@@ -144,8 +144,8 @@ instr walkInTheSoftRainSamplePan
 endin
 
 instr walkInTheSoftRainSampleMixerChannel
-    awalkInTheSoftRainSampleL inleta "walkInTheSoftRainSampleInL"
-    awalkInTheSoftRainSampleR inleta "walkInTheSoftRainSampleInR"
+    awalkInTheSoftRainSampleL inleta "InL"
+    awalkInTheSoftRainSampleR inleta "InR"
 
     kwalkInTheSoftRainSampleFader = gkwalkInTheSoftRainSampleFader
     kwalkInTheSoftRainSamplePan = gkwalkInTheSoftRainSamplePan
@@ -176,7 +176,7 @@ instr walkInTheSoftRainSampleMixerChannel
     awalkInTheSoftRainSampleL = (awalkInTheSoftRainSampleL * ((100 - kwalkInTheSoftRainSamplePan) * 2 / 100)) * kwalkInTheSoftRainSampleFader
     awalkInTheSoftRainSampleR = (awalkInTheSoftRainSampleR * (kwalkInTheSoftRainSamplePan * 2 / 100)) * kwalkInTheSoftRainSampleFader
 
-    outleta "walkInTheSoftRainSampleOutL", awalkInTheSoftRainSampleL
-    outleta "walkInTheSoftRainSampleOutR", awalkInTheSoftRainSampleR
+    outleta "OutL", awalkInTheSoftRainSampleL
+    outleta "OutR", awalkInTheSoftRainSampleR
 endin
 

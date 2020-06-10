@@ -32,7 +32,7 @@ instr Kick
     kres   rms (aKick * kAmp)
     aKick gain aKick, kres
 
-    outleta "KickOut", aKick
+    outleta "Out", aKick
 endin
 
 instr KickBassKnob
@@ -56,8 +56,8 @@ instr KickPan
 endin
 
 instr KickMixerChannel
-    aKickL inleta "KickIn"
-    aKickR inleta "KickIn"
+    aKickL inleta "In"
+    aKickR inleta "In"
 
     kpanvalue linseg 0, 1, 100
 
@@ -81,7 +81,7 @@ instr KickMixerChannel
     aKickL = (aKickL * ((100 - kKickPan) * 2 / 100)) * kKickFader
     aKickR = (aKickR * (kKickPan * 2 / 100)) * kKickFader
 
-    outleta "KickOutL", aKickL
-    outleta "KickOutR", aKickR
+    outleta "OutL", aKickL
+    outleta "OutR", aKickR
 
 endin

@@ -47,7 +47,7 @@ instr plucker
 
     ;aplucker wgpluck2 iPluckPoint, kAmp, kPitch, kReflectionCoefficient
 
-    outleta "pluckerOut", aplucker
+    outleta "Out", aplucker
 endin
 
 instr pluckerBassKnob
@@ -71,31 +71,14 @@ instr pluckerPan
 endin
 
 instr pluckerMixerChannel
-    apluckerL inleta "pluckerIn"
-    apluckerR inleta "pluckerIn"
-
-    kpanvalue linseg 0, 1, 100
+    apluckerL inleta "In"
+    apluckerR inleta "In"
 
     kpluckerFader = gkpluckerFader
     kpluckerPan = gkpluckerPan
     kpluckerEqBass = gkpluckerEqBass
     kpluckerEqMid = gkpluckerEqMid
     kpluckerEqHigh = gkpluckerEqHigh
-
-    apluckerD1L = delayBuffer(pitchShifter( apluckerR, 1.5, 1, 1), .5, .025, 1)
-    apluckerD1R = delayBuffer(pitchShifter( apluckerR, 1.8, 1, 1), .5, .03, 1)
-
-    apluckerD2L = delayBuffer(pitchShifter( apluckerR, 1.25, 1, 1), .5, .035, 1)
-    apluckerD2R = delayBuffer(pitchShifter( apluckerR, 2.25, 1, 1), .5, .04, 1)
-
-    apluckerL = apluckerL + apluckerD1L
-    apluckerR = apluckerR + apluckerD1R
-
-    apluckerL = apluckerL + apluckerD2L
-    apluckerR = apluckerR + apluckerD2R
-
-    ;apluckerL limit apluckerL, 0, 1
-    ;apluckerR limit apluckerR, 0, 1
 
     apluckerL, apluckerR threeBandEqStereo apluckerL, apluckerR, kpluckerEqBass, kpluckerEqMid, kpluckerEqHigh
 
@@ -108,7 +91,7 @@ instr pluckerMixerChannel
     apluckerL = (apluckerL * ((100 - kpluckerPan) * 2 / 100)) * kpluckerFader
     apluckerR = (apluckerR * (kpluckerPan * 2 / 100)) * kpluckerFader
 
-    outleta "pluckerOutL", apluckerL
-    outleta "pluckerOutR", apluckerR
+    outleta "OutL", apluckerL
+    outleta "OutR", apluckerR
 
 endin

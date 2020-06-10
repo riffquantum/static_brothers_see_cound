@@ -26,8 +26,8 @@ instr PitchedDownCrash
 
   aPitchedDownCrash = aPitchedDownCrashSample
 
-  outleta "PitchedDownCrashOutL", aPitchedDownCrash
-  outleta "PitchedDownCrashOutR", aPitchedDownCrash
+  outleta "OutL", aPitchedDownCrash
+  outleta "OutR", aPitchedDownCrash
 endin
 
 instr PitchedDownCrashBassKnob
@@ -51,8 +51,8 @@ instr PitchedDownCrashPan
 endin
 
 instr PitchedDownCrashMixerChannel
-  aPitchedDownCrashL inleta "PitchedDownCrashInL"
-  aPitchedDownCrashR inleta "PitchedDownCrashInR"
+  aPitchedDownCrashL inleta "InL"
+  aPitchedDownCrashR inleta "InR"
 
   kPitchedDownCrashFader = gkPitchedDownCrashFader
   kPitchedDownCrashPan = gkPitchedDownCrashPan
@@ -71,6 +71,6 @@ instr PitchedDownCrashMixerChannel
   aPitchedDownCrashL = (aPitchedDownCrashL * ((100 - kPitchedDownCrashPan) * 2 / 100)) * kPitchedDownCrashFader
   aPitchedDownCrashR = (aPitchedDownCrashR * (kPitchedDownCrashPan * 2 / 100)) * kPitchedDownCrashFader
 
-  outleta "PitchedDownCrashOutL", aPitchedDownCrashL
-  outleta "PitchedDownCrashOutR", aPitchedDownCrashR
+  outleta "OutL", aPitchedDownCrashL
+  outleta "OutR", aPitchedDownCrashR
 endin
