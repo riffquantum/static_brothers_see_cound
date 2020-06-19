@@ -1,4 +1,4 @@
-bypassRoute "DistortionExamples"
+bypassRoute "DistortionExamples", "Mixer"
 stereoRoute "DistortionExamplesMixerChannel", "Mixer"
 
 alwayson "DistortionExamplesInput"
@@ -10,11 +10,11 @@ gkDistortionExamplesEqHigh init 1
 gkDistortionExamplesFader init 1
 gkDistortionExamplesPan init 50
 
-gkPreGain init 1
+gkPreGain init 10
 gkPostGain init 1
-gkDutyCycleOffset init .1
-gkSlopeOffset init .1
-giDistortionExamplesMode init 2
+gkDutyCycleOffset init .01
+gkSlopeOffset init .01
+giDistortionExamplesMode init 5
 
 gkDistortionExamplesWetAmmount init 1
 gkDistortionExamplesDryAmmount init 0
@@ -39,7 +39,7 @@ instr DistortionExamples
   aDistortionExamplesOutL = aDistortionExamplesInL
   aDistortionExamplesOutR = aDistortionExamplesInR
 
-  iBalanceSignal = 1
+  iBalanceSignal = 0
 
   /* ********
       clip
@@ -101,14 +101,18 @@ instr DistortionExamples
   endif
 
   /* ********
-      custom distortion
+      custom hansDistortion
      ********
   */
 
   if giDistortionExamplesMode == 5 then
     iBalanceSignal = 0
-    aDistortionExamplesOutL distortion aDistortionExamplesOutL, gkPreGain, gkPostGain, gkDutyCycleOffset, gkSlopeOffset
-    aDistortionExamplesOutR distortion aDistortionExamplesOutR, gkPreGain, gkPostGain, gkDutyCycleOffset, gkSlopeOffset
+
+    iTableHeavy ftgenonce 0, 0, 8192, 7, -.8, 934, -.79, 934, -.77, 934, -.64, 1034, -.48, 520, .47, 2300, .48, 1536, .48
+    iTableLight ftgenonce 0, 0, 8192, 8, -.8, 336, -.78, 800, -.7, 5920, .7, 800, .78, 336, .8
+
+    aDistortionExamplesOutL hansDistortion aDistortionExamplesOutL, gkPreGain, gkPostGain, gkDutyCycleOffset, gkSlopeOffset, iTableLight
+    aDistortionExamplesOutR hansDistortion aDistortionExamplesOutR, gkPreGain, gkPostGain, gkDutyCycleOffset, gkSlopeOffset, iTableLight
 
     aDistortionExamplesOutL butterlp aDistortionExamplesOutL, 5000
     aDistortionExamplesOutR butterlp aDistortionExamplesOutR, 5000

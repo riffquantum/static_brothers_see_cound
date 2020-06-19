@@ -1,4 +1,4 @@
-instrumentRoute "DisonantSynth", "MultiStageDistortion"
+instrumentRoute "DisonantSynth", "Mixer"
 alwayson "DisonantSynthMixerChannel"
 
 gkDisonantSynthEqBass init 1
@@ -13,19 +13,19 @@ massign giDisonantSynthMidiChannel, "DisonantSynth"
 instr DisonantSynth
   iAmplitude flexibleAmplitudeInput p4
   iPitch flexiblePitchInput p5
-  iSineTable sineWave
+  iWaveTable sineWave
 
-  kTremolo = .75 + oscil(.25, 1.5, iSineTable)
+  kTremolo = .75 + oscil(.25, 1.5)
   kAmplitudeEnvelope = madsr(.005, .01, iAmplitude, .5, 0)
   kAmplitudeEnvelope = kAmplitudeEnvelope * kTremolo
 
-  aDisonantSynthL = oscil(kAmplitudeEnvelope*0.5, iPitch*1.1, iSineTable)
-  aDisonantSynthL += oscil(kAmplitudeEnvelope, iPitch*1.1*.5, iSineTable)
-  aDisonantSynthL += oscil(kAmplitudeEnvelope*0.25, iPitch*1.1*.9, iSineTable)
+  aDisonantSynthL = oscil(kAmplitudeEnvelope*(2/7), iPitch*1.1, iWaveTable)
+  aDisonantSynthL += oscil(kAmplitudeEnvelope*(4/7), iPitch*1.1*.5, iWaveTable)
+  aDisonantSynthL += oscil(kAmplitudeEnvelope*(1/7), iPitch*1.1*.9, iWaveTable)
 
-  aDisonantSynthR = oscil(kAmplitudeEnvelope*0.5, iPitch*.9, iSineTable)
-  aDisonantSynthR += oscil(kAmplitudeEnvelope, iPitch*.9*.5, iSineTable)
-  aDisonantSynthR += oscil(kAmplitudeEnvelope*0.25, iPitch*.9*.9, iSineTable)
+  aDisonantSynthR = oscil(kAmplitudeEnvelope*(2/7), iPitch*.9, iWaveTable)
+  aDisonantSynthR += oscil(kAmplitudeEnvelope*(4/7), iPitch*.9*.5, iWaveTable)
+  aDisonantSynthR += oscil(kAmplitudeEnvelope*(1/7), iPitch*.9*.9, iWaveTable)
 
   outleta "OutL", aDisonantSynthL
   outleta "OutR", aDisonantSynthR

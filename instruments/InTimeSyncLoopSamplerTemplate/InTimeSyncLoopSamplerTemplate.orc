@@ -24,7 +24,7 @@ giInTimeSyncloopSamplerTemplateFxSpeedAdjustmentControl = 5
 massign giInTimeSyncloopSamplerTemplateMidiChannel, "InTimeSyncloopSamplerTemplate"
 
 /* Sound File Data */
-gSInTimeSyncloopSamplerTemplatesampleFilePath = "instruments/breakBeatInstruments/amen-break.wav"
+gSInTimeSyncloopSamplerTemplatesampleFilePath = "instruments/breakBeatInstruments/AmenBreak.wav"
 giInTimeSyncloopSamplerTemplateSampleNumberOfBeats = 16
 giInTimeSyncloopSamplerTemplateFileNumChannels filenchnls gSInTimeSyncloopSamplerTemplatesampleFilePath
 giInTimeSyncloopSamplerTemplateFileLength filelen gSInTimeSyncloopSamplerTemplatesampleFilePath

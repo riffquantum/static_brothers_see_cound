@@ -11,7 +11,7 @@ gkInTimeSamplerTemplatePan init 50
 /* MIDI Config Values */
 massign giInTimeSamplerTemplateMidiChannel, "InTimeSamplerTemplate"
 
-gSInTimeSamplerTemplateSamplePath = "instruments/breakBeatInstruments/amen-break.wav"
+gSInTimeSamplerTemplateSamplePath = "instruments/breakBeatInstruments/AmenBreak.wav"
 giInTimeSamplerTemplateSampleChannels filenchnls gSInTimeSamplerTemplateSamplePath
 giInTimeSamplerTemplateSampleLength filelen gSInTimeSamplerTemplateSamplePath
 giInTimeSamplerTemplateSampleLengthInBeats = 16

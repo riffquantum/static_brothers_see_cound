@@ -1,4 +1,4 @@
-bypassRoute "MultiStageDistortion"
+bypassRoute "MultiStageDistortion", "Mixer"
 stereoRoute "MultiStageDistortionMixerChannel", "Mixer"
 
 alwayson "MultiStageDistortionInput"
@@ -31,11 +31,14 @@ instr MultiStageDistortion
   aMultiStageDistortionInL inleta "InL"
   aMultiStageDistortionInR inleta "InR"
 
+  iTableHeavy ftgenonce 0, 0, 8192, 7, -.8, 934, -.79, 934, -.77, 934, -.64, 1034, -.48, 520, .47, 2300, .48, 1536, .48
+  iTableLight ftgenonce 0, 0, 8192, 8, -.8, 336, -.78, 800, -.7, 5920, .7, 800, .78, 336, .8
+
   aMultiStageDistortionOutL = aMultiStageDistortionInL
   aMultiStageDistortionOutR = aMultiStageDistortionInR
 
-  aMultiStageDistortionOutL += distortion(aMultiStageDistortionOutL, 1.3, .7, .1, .1)
-  aMultiStageDistortionOutR += distortion(aMultiStageDistortionOutR, 1.3, .7, .1, .1)
+  aMultiStageDistortionOutL += hansDistortion(aMultiStageDistortionOutL, 1.3, .7, .1, .1, iTableLight)
+  aMultiStageDistortionOutR += hansDistortion(aMultiStageDistortionOutR, 1.3, .7, .1, .1, iTableLight)
 
   aMultiStageDistortionOutL = clip(aMultiStageDistortionOutL * 1.3, 1, 1, 0)
   aMultiStageDistortionOutR = clip(aMultiStageDistortionOutL * 1.3, 1, 1, 0)

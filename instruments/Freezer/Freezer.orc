@@ -1,4 +1,4 @@
-bypassRoute "Freezer"
+bypassRoute "Freezer", "Mixer"
 stereoRoute "FreezerMixerChannel", "PitchShifterInput"
 
 alwayson "FreezerInput"

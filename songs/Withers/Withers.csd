@@ -2,7 +2,7 @@
   <CsOptions>
     -m0
     -Ma
-    -t60
+    -t30
     -odac
     ; -W -o "Withers.wav" -m0
   </CsOptions>
@@ -10,7 +10,7 @@
   <CsInstruments>
     #include "config/defaultConfig.orc"
     #include "config/defaultMidiAssignments.orc"
-    gkBPM init 60
+    gkBPM init 30
 
     #include "opcodes/opcode-manifest.orc"
     #include "instruments/orchestra-manifest.orc"
@@ -51,13 +51,13 @@
 
         beatScoreline "OpenHat", iBaseTime+0.0, 16, 80,  .25
 
-        beatScoreline "Freezer", iBaseTime+1, 3, 1
+        ; beatScoreline "Freezer", iBaseTime+1, 3, 1
 
         ; beatScoreline "PitchShifter", iBaseTime+1, 3, 1.5, .5
 
         ; beatScoreline "Freezer", iBaseTime+1.5, 4/8, .125, .125
 
-        beatScoreline "Freezer", iBaseTime+2.5, 4/8, 1/16, 2/16
+        ; beatScoreline "Freezer", iBaseTime+2.5, 4/8, 1/16, 2/16
 
         iMeasureCount += 1
       od

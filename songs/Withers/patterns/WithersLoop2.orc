@@ -6,7 +6,7 @@ instr WithersLoop2
     until iMeasureCount * iBeatsPerMeasure >= iPatternLength do
     iBaseTime = iMeasureCount*iBeatsPerMeasure
 
-    beatScoreline "WhoIsHeLoop", iBaseTime+0, 4, 90, 1, 2.5
+    beatScoreline "WhoIsHeLoop", iBaseTime+0, 4, 110, 1, 2.5
 
     iMeasureCount += 1
     od

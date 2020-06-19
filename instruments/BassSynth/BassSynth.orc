@@ -1,4 +1,4 @@
-instrumentRoute "BassSynth", "Mixer"
+instrumentRoute "BassSynth", "WarmDistortionInput"
 alwayson "BassSynthMixerChannel"
 
 gkBassSynthEqBass init 1
@@ -31,18 +31,11 @@ instr BassSynth
   kTremolo = (1 - kTremoloDepth) + oscil(kTremoloDepth, kTremoloRate, iSineTable)
   kAmplitudeEnvelope = kAmplitudeEnvelope * kTremolo
 
-  ;Primary Oscillator
-  ; aPrimaryOscillator = oscil(iAmplitude*0.5, iPitch, iSineTable)
-  ; aOctaveDown = oscil(iAmplitude, cpspch(pchcps(iPitch) - 1), iSineTable)
-  ; aOctaveDownSquare = oscil(iAmplitude*0.25, cpspch(pchcps(iPitch) - 1), iSquareWave)
-  ; aTwoOctavesDownSaw = oscil(iAmplitude*0.5, cpspch(pchcps(iPitch) - 2), iSawtooth)
-  ; aThreeOctavesDownSaw = oscil(iAmplitude*0.5, cpspch(pchcps(iPitch) - 3), iSawtooth)
-
-  aPrimaryOscillator = oscil(kAmplitudeEnvelope*0.5, iPitch, iSineTable)
-  aOctaveDown = oscil(kAmplitudeEnvelope, cpspch(pchcps(iPitch) - 1), iSineTable)
-  aOctaveDownSquare = oscil(kAmplitudeEnvelope*0.25, cpspch(pchcps(iPitch) - 1), iSquareWave)
-  aTwoOctavesDownSaw = oscil(kAmplitudeEnvelope*0.5, cpspch(pchcps(iPitch) - 2), iSawtooth)
-  aThreeOctavesDownSaw = oscil(kAmplitudeEnvelope*0.5, cpspch(pchcps(iPitch) - 3), iSawtooth)
+  aPrimaryOscillator = oscil(kAmplitudeEnvelope*(2/11), iPitch, iSineTable)
+  aOctaveDown = oscil(kAmplitudeEnvelope*(4/11), cpspch(pchcps(iPitch) - 1), iSineTable)
+  aOctaveDownSquare = oscil(kAmplitudeEnvelope*(1/11), cpspch(pchcps(iPitch) - 1), iSquareWave)
+  aTwoOctavesDownSaw = oscil(kAmplitudeEnvelope*(2/11), cpspch(pchcps(iPitch) - 2), iSawtooth)
+  aThreeOctavesDownSaw = oscil(kAmplitudeEnvelope*(2/11), cpspch(pchcps(iPitch) - 3), iSawtooth)
 
 
   aBassSynthL = aPrimaryOscillator

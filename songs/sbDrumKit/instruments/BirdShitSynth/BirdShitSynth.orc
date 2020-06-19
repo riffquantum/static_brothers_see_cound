@@ -98,8 +98,8 @@ instr BirdShitSynthDistortion
   aBirdShitSynthDistortionOutL = aBirdShitSynthDistortionInL
   aBirdShitSynthDistortionOutR = aBirdShitSynthDistortionInR
 
-  aBirdShitSynthDistortionOutL += distortion(aBirdShitSynthDistortionOutL, 1.3, .7, .1, .1)
-  aBirdShitSynthDistortionOutR += distortion(aBirdShitSynthDistortionOutR, 1.3, .7, .1, .1)
+  aBirdShitSynthDistortionOutL += hansDistortion(aBirdShitSynthDistortionOutL, 1.3, .7, .1, .1)
+  aBirdShitSynthDistortionOutR += hansDistortion(aBirdShitSynthDistortionOutR, 1.3, .7, .1, .1)
 
   aBirdShitSynthDistortionOutL = clip(aBirdShitSynthDistortionOutL * 1.3, 1, 1, 0)
   aBirdShitSynthDistortionOutR = clip(aBirdShitSynthDistortionOutL * 1.3, 1, 1, 0)

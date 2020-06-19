@@ -14,67 +14,69 @@
         #include "instruments/orchestra-manifest.orc"
 
         instr MainRiff
+            iRiffVelocity = 100
+
             ;measure 0
-            ;beatScoreline "SimpleOscillator", 0.0, 1.0, 0.5, 8
-            beatScoreline "SimpleOscillator", 0.0, 2.0, 0.5, 9.10
-            beatScoreline "SimpleOscillator", 2.0, 2.0, 0.5, 9.06 ;D
+            ;beatScoreline "SimpleOscillator", 0.0, 1.0, iRiffVelocity, 8
+            beatScoreline "SimpleOscillator", 0.0, 2.0, iRiffVelocity, 9.10
+            beatScoreline "SimpleOscillator", 2.0, 2.0, iRiffVelocity, 9.06 ;D
 
             ;measure 1
-            beatScoreline "SimpleOscillator", 4.0, 2.0, 0.5, 9.03 ;B
-            beatScoreline "SimpleOscillator", 6.0, 1.5, 0.5, 8.11 ;G
-            beatScoreline "SimpleOscillator", 7.5, 4.5, 0.5, 9.02 ;A#
+            beatScoreline "SimpleOscillator", 4.0, 2.0, iRiffVelocity, 9.03 ;B
+            beatScoreline "SimpleOscillator", 6.0, 1.5, iRiffVelocity, 8.11 ;G
+            beatScoreline "SimpleOscillator", 7.5, 4.5, iRiffVelocity, 9.02 ;A#
 
             ;measure 2
 
             ;measure 3
-            beatScoreline "SimpleOscillator", 12, 1.5, 0.5, 9.03 ;B
-            beatScoreline "SimpleOscillator", 13.5, 2.5, 0.5, 9.01 ;A
+            beatScoreline "SimpleOscillator", 12, 1.5, iRiffVelocity, 9.03 ;B
+            beatScoreline "SimpleOscillator", 13.5, 2.5, iRiffVelocity, 9.01 ;A
 
             ;measure 4
 
-            beatScoreline "SimpleOscillator", 16, 2.0, 0.5, 9.06 ;D
-            beatScoreline "SimpleOscillator", 18, 2.0, 0.5, 9.02 ;A#
+            beatScoreline "SimpleOscillator", 16, 2.0, iRiffVelocity, 9.06 ;D
+            beatScoreline "SimpleOscillator", 18, 2.0, iRiffVelocity, 9.02 ;A#
 
             ;measure 5
-            beatScoreline "SimpleOscillator", 20, 2.0, 0.5, 8.11 ;G
-            beatScoreline "SimpleOscillator", 22, 1.5, 0.5, 8.07 ;D#
-            beatScoreline "SimpleOscillator", 23.5, 4.5, 0.5, 8.10 ;F#
+            beatScoreline "SimpleOscillator", 20, 2.0, iRiffVelocity, 8.11 ;G
+            beatScoreline "SimpleOscillator", 22, 1.5, iRiffVelocity, 8.07 ;D#
+            beatScoreline "SimpleOscillator", 23.5, 4.5, iRiffVelocity, 8.10 ;F#
 
             ;measure 6
 
             ;measure 7
-            beatScoreline "SimpleOscillator", 28, 2.0, 0.5, 8.11 ; G
-            beatScoreline "SimpleOscillator", 30, 1.5, 0.5, 8.09 ; F
-            beatScoreline "SimpleOscillator", 31.5, 4.5 , 0.5, 9.02 ; F
+            beatScoreline "SimpleOscillator", 28, 2.0, iRiffVelocity, 8.11 ; G
+            beatScoreline "SimpleOscillator", 30, 1.5, iRiffVelocity, 8.09 ; F
+            beatScoreline "SimpleOscillator", 31.5, 4.5 , iRiffVelocity, 9.02 ; F
 
             ;measure 8
 
             ;measure 9
-            beatScoreline "SimpleOscillator", 36, 2.0, 0.5, 9.03 ; B
-            beatScoreline "SimpleOscillator", 38, 1.5, 0.5, 9.01 ; A
-            beatScoreline "SimpleOscillator", 39.5, 4.5 , 0.5, 9.06 ; D
+            beatScoreline "SimpleOscillator", 36, 2.0, iRiffVelocity, 9.03 ; B
+            beatScoreline "SimpleOscillator", 38, 1.5, iRiffVelocity, 9.01 ; A
+            beatScoreline "SimpleOscillator", 39.5, 4.5 , iRiffVelocity, 9.06 ; D
 
             ;measure 10
 
             ;measure 11
 
-            beatScoreline "SimpleOscillator", 44, 2.0, 0.5, 9.07 ; D#
-            beatScoreline "SimpleOscillator", 46, 1.5, 0.5, 9.05 ; C#
-            beatScoreline "SimpleOscillator", 47.5, 2.5 , 0.5, 9.10 ; F#
+            beatScoreline "SimpleOscillator", 44, 2.0, iRiffVelocity, 9.07 ; D#
+            beatScoreline "SimpleOscillator", 46, 1.5, iRiffVelocity, 9.05 ; C#
+            beatScoreline "SimpleOscillator", 47.5, 2.5 , iRiffVelocity, 9.10 ; F#
 
             ;measure 12
-            beatScoreline "SimpleOscillator", 50, 2.0, 0.5, 9.10 ; F#
+            beatScoreline "SimpleOscillator", 50, 2.0, iRiffVelocity, 9.10 ; F#
 
             ;measure 13
-            beatScoreline "SimpleOscillator", 52, 2.0, 0.5, 9.11 ; G
-            beatScoreline "SimpleOscillator", 54, 1.5, 0.5, 9.09 ; F
-            beatScoreline "SimpleOscillator", 55.5, 4.5, 0.5, 10.02 ; F#
+            beatScoreline "SimpleOscillator", 52, 2.0, iRiffVelocity, 9.11 ; G
+            beatScoreline "SimpleOscillator", 54, 1.5, iRiffVelocity, 9.09 ; F
+            beatScoreline "SimpleOscillator", 55.5, 4.5, iRiffVelocity, 10.02 ; F#
 
             ;measure 14
 
             ;measure 15
-            beatScoreline "SimpleOscillator", 60, 1.5, 0.5, 9.10 ; F#
-            beatScoreline "SimpleOscillator", 61.5, 2.5, 0.5, 9.10 ; F
+            beatScoreline "SimpleOscillator", 60, 1.5, iRiffVelocity, 9.10 ; F#
+            beatScoreline "SimpleOscillator", 61.5, 2.5, iRiffVelocity, 9.10 ; F
         endin
 
         instr ChordProgression
@@ -88,7 +90,7 @@
             ; diminishedFifthChord "SimpleOscillator", 28, 3.5, 1, 6.0
             ; halfDiminishedSeventhChord "SimpleOscillator", 32, 3.5, 1, 6.0
 
-            iChordVolume = 1
+            iChordVolume = 40
 
             ;Measure 1
             majorSeventhChord "SimpleOscillator", 0, 1.5, iChordVolume, 7.03
@@ -163,8 +165,8 @@
 
         i "MainRiff" 0 64
         i "ChordProgression" 0 64
-        i "MainRiff" 64 64
-        i "ChordProgression" 64 64
+        ; i "MainRiff" 64 64
+        ; i "ChordProgression" 64 64
 
     </CsScore>
 </CsoundSynthesizer>

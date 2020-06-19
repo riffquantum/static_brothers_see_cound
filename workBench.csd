@@ -2,7 +2,8 @@
   <CsOptions>
       -odac -Ma  -m0
       -iadc
-      -B512 -b128
+      -B512 -b60
+      -t160
 
       ;--midioutfile=midiout.mid
       ;-F midiout.mid
@@ -13,7 +14,7 @@
     #include "config/defaultConfig.orc"
     #include "config/defaultMidiAssignments.orc"
 
-    gkBPM init 140
+    gkBPM init 160
 
     #include "opcodes/opcode-manifest.orc"
     #include "instruments/orchestra-manifest.orc"
@@ -167,14 +168,27 @@
     instr WorkingPattern
       iPatternLength = p3 * i(gkBPM)/60
 
-      iBeatsPerMeasure = 4
+      iBeatsPerMeasure = 8
       iMeasureIndex = 0
 
       until iMeasureIndex * iBeatsPerMeasure >= iPatternLength do
-        iBaseTime = iMeasureIndex*iBeatsPerMeasure
+        iBaseTime = iMeasureIndex * iBeatsPerMeasure
         iMeasureCount = iMeasureIndex + 1
 
-        beatScoreline "Kick", iBaseTime+0.0, 4, 4, .9
+        ; beatScoreline "AmenBreak", iBaseTime+0, iBeatsPerMeasure, 60, 1, 0
+        ; beatScoreline "RafflesiaBreak", iBaseTime+0, iBeatsPerMeasure, 60, 1, 0
+        ; beatScoreline "NothingIDontLikeBreak", iBaseTime+0, iBeatsPerMeasure, 60, 1, 0
+        ; beatScoreline "GettinHappyBreak", iBaseTime+0, iBeatsPerMeasure, 60, 1, 0
+        ; beatScoreline "FunkyDrummerBreak", iBaseTime+0, iBeatsPerMeasure, 60, 1, 0
+        ; beatScoreline "HandInTheHandBreak", iBaseTime+0, iBeatsPerMeasure, 60, 1, 0
+        ; beatScoreline "KissingMyLoveBreak", iBaseTime+0, iBeatsPerMeasure, 60, 1, 0
+        ; beatScoreline "ItsExpectedBreak", iBaseTime+0, iBeatsPerMeasure, 60, 1, 0
+        ; beatScoreline "JbShoutBreak", iBaseTime+0, iBeatsPerMeasure, 60, 1, 0
+        ; beatScoreline "LoserInTheEndBreak", iBaseTime+0, iBeatsPerMeasure, 60, 1, 0
+        ; beatScoreline "JohnnyTheFoxBreak", iBaseTime+0, iBeatsPerMeasure, 60, 1, 4.5
+        ; beatScoreline "ItsOnlyLoveBreak", iBaseTime+0, iBeatsPerMeasure, 60, 1, 0
+        ; beatScoreline "KissingMyLoveSpankyBreak", iBaseTime+0, iBeatsPerMeasure, 100, 1, 0
+
 
         iMeasureIndex += 1
       od
@@ -183,10 +197,9 @@
   </CsInstruments>
 
   <CsScore>
-    #define bpm # 100 #
-    t 0 [$bpm]
-    i "Metronome" 0 3600
     i "WorkingPattern" 0 3600
-
+    i "WarmDistortion" 0 3600
+    ; i "MultiStageDistortion" 0 3600
+    ; i "DistortionExamples" 0 3600
   </CsScore>
 </CsoundSynthesizer>

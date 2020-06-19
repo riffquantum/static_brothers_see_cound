@@ -72,22 +72,7 @@ instr WhoIsHeLoopMixerChannel
   aWhoIsHeLoopL inleta "InL"
   aWhoIsHeLoopR inleta "InR"
 
-  kWhoIsHeLoopFader = gkWhoIsHeLoopFader
-  kWhoIsHeLoopPan = gkWhoIsHeLoopPan
-  kWhoIsHeLoopEqBass = gkWhoIsHeLoopEqBass
-  kWhoIsHeLoopEqMid = gkWhoIsHeLoopEqMid
-  kWhoIsHeLoopEqHigh = gkWhoIsHeLoopEqHigh
-
-  aWhoIsHeLoopL, aWhoIsHeLoopR threeBandEqStereo aWhoIsHeLoopL, aWhoIsHeLoopR, kWhoIsHeLoopEqBass, kWhoIsHeLoopEqMid, kWhoIsHeLoopEqHigh
-
-  if kWhoIsHeLoopPan > 100 then
-      kWhoIsHeLoopPan = 100
-  elseif kWhoIsHeLoopPan < 0 then
-      kWhoIsHeLoopPan = 0
-  endif
-
-  aWhoIsHeLoopL = (aWhoIsHeLoopL * ((100 - kWhoIsHeLoopPan) * 2 / 100)) * kWhoIsHeLoopFader
-  aWhoIsHeLoopR = (aWhoIsHeLoopR * (kWhoIsHeLoopPan * 2 / 100)) * kWhoIsHeLoopFader
+  aWhoIsHeLoopL, aWhoIsHeLoopR mixerChannel aWhoIsHeLoopL, aWhoIsHeLoopR, gkWhoIsHeLoopFader, gkWhoIsHeLoopPan, gkWhoIsHeLoopEqBass, gkWhoIsHeLoopEqMid, gkWhoIsHeLoopEqHigh
 
   outleta "OutL", aWhoIsHeLoopL
   outleta "OutR", aWhoIsHeLoopR

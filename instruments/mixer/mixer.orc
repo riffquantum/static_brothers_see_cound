@@ -8,8 +8,8 @@ instr Mixer
 
     iSafetyMaxAmplitude = 0dbfs * 3
 
-    kHardLimitMinimum = iSafetyMaxAmplitude * -2
-    kHardLimitMaximum = iSafetyMaxAmplitude * 2
+    kHardLimitMinimum = iSafetyMaxAmplitude * -1.5
+    kHardLimitMaximum = iSafetyMaxAmplitude * 1.5
 
     aOutL clip aOutL, 1, iSafetyMaxAmplitude
     aOutR clip aOutR, 1, iSafetyMaxAmplitude

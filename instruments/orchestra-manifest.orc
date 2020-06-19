@@ -30,6 +30,20 @@
 
 #include "SyncloopSamplerTemplate/SyncloopSamplerTemplate.orc"
 
+#include "breakBeatInstruments/AmenBreak.orc"
+#include "breakBeatInstruments/RafflesiaBreak.orc"
+#include "breakBeatInstruments/FunkyDrummerBreak.orc"
+#include "breakBeatInstruments/HandInTheHandBreak.orc"
+#include "breakBeatInstruments/NothingIDontLikeBreak.orc"
+#include "breakBeatInstruments/KissingMyLoveBreak.orc"
+#include "breakBeatInstruments/KissingMyLoveSpankyBreak.orc"
+#include "breakBeatInstruments/GettinHappyBreak.orc"
+#include "breakBeatInstruments/itsExpectedBreak.orc"
+#include "breakBeatInstruments/JbShoutBreak.orc"
+#include "breakBeatInstruments/LoserInTheEndBreak.orc"
+#include "breakBeatInstruments/JohnnyTheFoxBreak.orc"
+#include "breakBeatInstruments/ItsOnlyLoveBreak.orc"
+
 #include "InTimeSamplerTemplate/InTimeSamplerTemplate.orc"
 
 #include "InTimeSndwarpSamplerTemplate/InTimeSndwarpSamplerTemplate.orc"
@@ -43,6 +57,8 @@
 #include "DisonantSynth/DisonantSynth.orc"
 
 #include "MultiStageDistortion/MultiStageDistortion.orc"
+
+#include "WarmDistortion/WarmDistortion.orc"
 
 #include "SyncLoopSamplerTemplate2/SyncLoopSamplerTemplate2.orc"
 

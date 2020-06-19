@@ -83,6 +83,7 @@ instr MetronomeMixerChannel
 
   aMetronomeL, aMetronomeR mixerChannel aMetronomeL, aMetronomeR, gkMetronomeFader, gkMetronomePan, gkMetronomeEqBass, gkMetronomeEqMid, gkMetronomeEqHigh
 
-  out aMetronomeL, aMetronomeR
+  outleta "OutL", aMetronomeL
+  outleta "OutR", aMetronomeR
 endin
 

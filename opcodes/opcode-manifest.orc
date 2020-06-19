@@ -21,7 +21,7 @@
   Audio Processors and Effects
 */
 
-#include "distortion.orc"
+#include "hansDistortion.orc"
 
 #include "threeBandEq.orc"
 
@@ -145,3 +145,5 @@
 */
 
 #include "drumSample.orc"
+
+#include "breakSampler.orc"

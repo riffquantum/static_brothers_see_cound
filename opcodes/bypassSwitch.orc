@@ -8,6 +8,7 @@ opcode bypassSwitch, aaaa, aakkS
   aOutWetR = aInR * kWetAmmount
 
   if kActiveEffectsInstruments > 0 then
+    ; kEnvelope = 1 - (linseg(1, 1, 0) * (1 - kDryAmmount))
     aOutDryL = aInL * kDryAmmount
     aOutDryR = aInR * kDryAmmount
   else

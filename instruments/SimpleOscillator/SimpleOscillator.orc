@@ -11,40 +11,44 @@ gkSimpleOscillatorFader init 1
 gkSimpleOscillatorPan init 50
 
 instr SimpleOscillator
-  if p4 != 0 then
-    iAmplitude = p4
-  else
-    iNoteVelocity veloc
-    iAmplitude = iNoteVelocity/127 * 0dbfs/10
+  iVelocity = p4
+  iPitch = p5
+  iWaveShape = p6
+
+  iAmplitude flexibleAmplitudeInput iVelocity
+
+  if iAmplitude == 0 then
+    goto skipNote
   endif
 
   kAmplitudeEnvelope madsr .005, .01, iAmplitude, .05, 0
 
-  if p5 != 0 then
-    ifreq = p5
-    ifreq = (p5 < 15 ? cpspch(p5) : p5)
-  else
-    ifreq   cpsmidi
-  endif
+  iFrequency flexiblePitchInput iPitch
 
   kPitchBend = 0
   midipitchbend kPitchBend, 0, 15
 
-  kfreq   linseg    ifreq*1.02, 0.3, ifreq
-  kfreq = kfreq * (1+kPitchBend)
+  kFrequency   linseg    iFrequency*1.02, 0.3, iFrequency
+  kFrequency = kFrequency * (1 + kPitchBend)
 
-  iSineTable sineWave
-  iSawTable sawtoothWaveUpAndDown
-  iTriangleTable triangleWave
-  iSquareTable squareWave
+  if iWaveShape == 0 then
+    iWaveTable sineWave
+  elseif iWaveShape == 1 then
+    iWaveTable sawtoothWaveUpAndDown
+  elseif iWaveShape == 2 then
+    iWaveTable triangleWave
+  elseif iWaveShape == 3 then
+    iWaveTable squareWave
+  endif
 
-
-  aSimpleOscillator1      oscil   kAmplitudeEnvelope,    kfreq,          iSineTable ; main oscillator
+  aSimpleOscillator1 oscil kAmplitudeEnvelope, kFrequency, iWaveTable ; main oscillator
 
   aOut = aSimpleOscillator1
 
-  outleta "OutL", aOut
-  outleta "OutR", aOut
+  outleta "OutL", aSimpleOscillator1
+  outleta "OutR", aSimpleOscillator1
+
+  skipNote:
 endin
 
 instr SimpleOscillatorBassKnob
