@@ -18,14 +18,10 @@ giRideSample ftgen 0, 0, 0, 1, gSRideSamplePath, 0, 0, 0
 
 
 instr Ride
-  iAmplitude = p4
-  kPitch = p5 == 0 ? 1 : p5
-  kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0
+  aOutL, aOutR drumSample giRideSample, p4, p5
 
-  aRideOut loscil kAmplitudeEnvelope, kPitch, giRideSample, 1
-
-  outleta "OutL", aRideOut
-  outleta "OutR", aRideOut
+  outleta "OutL", aOutL
+  outleta "OutR", aOutR
 endin
 
 instr RideBassKnob

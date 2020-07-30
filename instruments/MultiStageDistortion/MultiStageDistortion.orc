@@ -1,5 +1,4 @@
-bypassRoute "MultiStageDistortion", "Mixer"
-stereoRoute "MultiStageDistortionMixerChannel", "Mixer"
+bypassRoute "MultiStageDistortion", "Mixer", "Mixer"
 
 alwayson "MultiStageDistortionInput"
 alwayson "MultiStageDistortionMixerChannel"

@@ -1,6 +1,10 @@
-#include "TempoChanger/TempoChanger.orc"
+#include "NewInstrument/NewInstrument.orc"
+
+#include "NewEffect/NewEffect.orc"
 
 #include "BassSynth/BassSynth.orc"
+
+#include "BassPluck/BassPluck.orc"
 
 #include "chorusedSynth/chorusedSynth.orc"
 
@@ -44,6 +48,10 @@
 #include "breakBeatInstruments/JohnnyTheFoxBreak.orc"
 #include "breakBeatInstruments/ItsOnlyLoveBreak.orc"
 
+#include "FlowingTrumpetingOvertones/FlowingTrumpetingOvertones.orc"
+
+#include "TwistedUpKickExample/TwistedUpKickExample.orc"
+
 #include "InTimeSamplerTemplate/InTimeSamplerTemplate.orc"
 
 #include "InTimeSndwarpSamplerTemplate/InTimeSndwarpSamplerTemplate.orc"
@@ -62,8 +70,14 @@
 
 #include "SyncLoopSamplerTemplate2/SyncLoopSamplerTemplate2.orc"
 
+#include "PleasantFluteSynth/PleasantFluteSynth.orc"
+
 #include "Freezer/Freezer.orc"
 
 #include "PitchShifter/PitchShifter.orc"
+
+#include "RingMod/RingMod.orc"
+
+#include "Tremolo/Tremolo.orc"
 
 #include "Mixer/Mixer.orc"

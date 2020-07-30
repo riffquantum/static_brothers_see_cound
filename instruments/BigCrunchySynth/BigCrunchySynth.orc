@@ -7,11 +7,9 @@ gkBigCrunchySynthEqHigh init 1
 gkBigCrunchySynthFader init 1
 gkBigCrunchySynthPan init 50
 
-massign giBigCrunchySynthMidiChannel, "BigCrunchySynth"
-
 instr BigCrunchySynth
   iAmplitude flexibleAmplitudeInput p4
-  kAmplitudeEnvelope madsr .005, .01, iAmplitude, .5, 0
+  kAmplitudeEnvelope = madsr(.005, .01, 1, .5, 0) * iAmplitude
 
   ifreq flexiblePitchInput p5
   kfreq   linseg    ifreq*1.02, 0.3, ifreq

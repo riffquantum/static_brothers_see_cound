@@ -1,9 +1,8 @@
 opcode octaveUp, i, i
     iPitch xin
 
-    iRoot = (iPitch > 15 ? pchcps(iPitch) : iPitch)
+    iIntervalInSemitones = 12
+    iInterval = iPitch > 15 ? iPitch * centsToRatio(iIntervalInSemitones*100) : iPitch+(iIntervalInSemitones/100)
 
-    iOctave = iRoot+0.12
-
-    xout iOctave
+    xout iInterval
 endop

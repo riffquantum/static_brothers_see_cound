@@ -13,7 +13,6 @@ instr DrumKitBusBassKnob
 endin
 
 instr DrumKitBusMidKnob
-
   gkDrumKitBusEqMid linseg p4, p3, p5
 endin
 

@@ -7,9 +7,6 @@ instr sixteenthHats606
 
     iHatCount = 0
 
-    print p3
-    print itotalNotes
-
     until iHatCount >= itotalNotes do
         if iPitchQuotient == 0 then
             iHatPitch = 1

@@ -13,7 +13,6 @@ instr KickBusBassKnob
 endin
 
 instr KickBusMidKnob
-
   gkKickBusEqMid linseg p4, p3, p5
 endin
 

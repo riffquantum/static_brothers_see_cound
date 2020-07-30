@@ -17,7 +17,6 @@ instr KickBassKnob
 endin
 
 instr KickMidKnob
-
   gkKickEqMid linseg p4, p3, p5
 endin
 

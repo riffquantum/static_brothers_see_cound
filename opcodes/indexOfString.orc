@@ -1,4 +1,4 @@
-opcode indexOfString i, SS[]
+opcode indexOfString, i, SS[]
   SElement, SArray[] xin
   iIndex = 0
   iMatchFound = 0

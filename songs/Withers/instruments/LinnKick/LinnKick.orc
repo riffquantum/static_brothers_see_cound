@@ -22,7 +22,6 @@ instr LinnKickBassKnob
 endin
 
 instr LinnKickMidKnob
-
   gkLinnKickEqMid linseg p4, p3, p5
 endin
 

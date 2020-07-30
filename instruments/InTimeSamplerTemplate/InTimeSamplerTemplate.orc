@@ -8,9 +8,6 @@ gkInTimeSamplerTemplateEqHigh init 1
 gkInTimeSamplerTemplateFader init 1
 gkInTimeSamplerTemplatePan init 50
 
-/* MIDI Config Values */
-massign giInTimeSamplerTemplateMidiChannel, "InTimeSamplerTemplate"
-
 gSInTimeSamplerTemplateSamplePath = "instruments/breakBeatInstruments/AmenBreak.wav"
 giInTimeSamplerTemplateSampleChannels filenchnls gSInTimeSamplerTemplateSamplePath
 giInTimeSamplerTemplateSampleLength filelen gSInTimeSamplerTemplateSamplePath
@@ -26,7 +23,7 @@ instr InTimeSamplerTemplate
   iPitch = iPitch == 0 ? 1 : iPitch
   iStartBeat = p6
   iEndBeat = p7
-  kAmplitudeEnvelope madsr .005, .01, flexibleAmplitudeInput(p4), .01
+  kAmplitudeEnvelope = madsr(.005, .01, 1, .01) * iAmplitude
   iBasePitch = 1
   iLoopingMode = 1 ; 1: normal looping 2: forward & backward looping 0: no looping.
   iStartTimeInSamples = iStartBeat * giInTimeSamplerTemplateLengthOfBeat * sr

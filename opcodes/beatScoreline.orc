@@ -6,53 +6,51 @@
 ; scoreline_i opcode.
 
 opcode beatScoreline, 0, Siioooooooooo
-    SName, iStart, iDuration, iP1, iP2, iP3, iP4, iP5, iP6, iP7, iP8, iP9, iP10 xin
+  SName, iStart, iDuration, iP1, iP2, iP3, iP4, iP5, iP6, iP7, iP8, iP9, iP10 xin
+  iStart = iStart * 60 / i(gkBPM)
+  iDuration = iDuration * 60 / i(gkBPM)
 
-    iStart = iStart * 60 / i(gkBPM)
-    iDuration = iDuration * 60 / i(gkBPM)
+  SscorelineString sprintfk {{i "%s" %f %f %f %f %f %f %f %f %f %f %f %f }}, SName, iStart, iDuration, iP1, iP2, iP3, iP4, iP5, iP6, iP7, iP8, iP9, iP10
 
-    SscorelineString sprintfk {{i "%s" %f %f %f %f %f %f %f %f %f %f %f %f }}, SName, iStart, iDuration, iP1, iP2, iP3, iP4, iP5, iP6, iP7, iP8, iP9, iP10
-
-
-    ;schedule
-    schedule SName, iStart, iDuration, iP1, iP2, iP3, iP4, iP5, iP6, iP7, iP8, iP9, iP10
-    ;schedulewhen
-    ;schedwhen 1, SName, iStart, iDuration, iP1, iP2, iP3, iP4, iP5, iP6, iP7, iP8, iP9, iP10
-    ;scoreline
-    ;scoreline SscorelineString
-    ;scoreline_i
-    ;scoreline_i SscorelineString
-    ;event
-    ;event "i", SName, iStart, iDuration, iP1, iP2, iP3, iP4, iP5, iP6, iP7, iP8, iP9, iP10
-    ;event_is
-    ;event_i "i", SName, iStart, iDuration, iP1, iP2, iP3, iP4, iP5, iP6, iP7, iP8, iP9, iP10
+  ;schedule
+  schedule SName, iStart, iDuration, iP1, iP2, iP3, iP4, iP5, iP6, iP7, iP8, iP9, iP10
+  ;schedulewhen
+  ;schedwhen 1, SName, iStart, iDuration, iP1, iP2, iP3, iP4, iP5, iP6, iP7, iP8, iP9, iP10
+  ;scoreline
+  ;scoreline SscorelineString
+  ;scoreline_i
+  ;scoreline_i SscorelineString
+  ;event
+  ;event "i", SName, iStart, iDuration, iP1, iP2, iP3, iP4, iP5, iP6, iP7, iP8, iP9, iP10
+  ;event_is
+  ;event_i "i", SName, iStart, iDuration, iP1, iP2, iP3, iP4, iP5, iP6, iP7, iP8, iP9, iP10
 endop
 
 opcode beatScorelineS, 0, SiiS
-    SName, iStart, iDuration, SParams xin
+  SName, iStart, iDuration, SParams xin
 
-    iStart = iStart * 60 / i(gkBPM)
-    iDuration = iDuration * 60 / i(gkBPM)
+  iStart = iStart * 60 / i(gkBPM)
+  iDuration = iDuration * 60 / i(gkBPM)
 
-    SscorelineString sprintfk {{i "%s" %f %f }}, SName, iStart, iDuration
+  SscorelineString sprintfk {{i "%s" %f %f }}, SName, iStart, iDuration
 
-    SscorelineString strcat SscorelineString, SParams
+  SscorelineString strcat SscorelineString, SParams
 
-    scoreline_i SscorelineString
+  scoreline_i SscorelineString
 endop
 
 opcode beatScorelineA, 0, Siii[]
-    SName, iStart, iDuration, iParams[] xin
-    iStart = iStart * 60 / i(gkBPM)
-    iDuration = iDuration * 60 / i(gkBPM)
-    iIndex = 0
+  SName, iStart, iDuration, iParams[] xin
+  iStart = iStart * 60 / i(gkBPM)
+  iDuration = iDuration * 60 / i(gkBPM)
+  iIndex = 0
 
-    SscorelineString sprintfk {{i "%s" %f %f }}, SName, iStart, iDuration
+  SscorelineString sprintfk {{i "%s" %f %f }}, SName, iStart, iDuration
 
-    until iIndex >= lenarray(iParams) do
-      SscorelineString strcat SscorelineString, sprintfk("%i ", iParams[iIndex])
-      iIndex += 1
-    od
+  until iIndex >= lenarray(iParams) do
+    SscorelineString strcat SscorelineString, sprintfk("%i ", iParams[iIndex])
+    iIndex += 1
+  od
 
-    scoreline_i SscorelineString
+  scoreline_i SscorelineString
 endop

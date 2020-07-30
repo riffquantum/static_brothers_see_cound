@@ -1,9 +1,8 @@
 opcode flat, i, i
     iPitch xin
 
-    iRoot = (iPitch > 15 ? pchcps(iPitch) : iPitch)
+    iIntervalInSemitones = -1
+    iInterval = iPitch > 15 ? iPitch * centsToRatio(iIntervalInSemitones*100) : iPitch+(iIntervalInSemitones/100)
 
-    iFlat = iRoot-0.01
-
-    xout iFlat
+    xout iInterval
 endop

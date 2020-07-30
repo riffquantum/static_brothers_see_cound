@@ -1,9 +1,8 @@
 opcode thirteenth, i, i
     iPitch xin
 
-    iRoot = (iPitch > 15 ? pchcps(iPitch) : iPitch)
+    iIntervalInSemitones = 21
+    iInterval = iPitch > 15 ? iPitch * centsToRatio(iIntervalInSemitones*100) : iPitch+(iIntervalInSemitones/100)
 
-    iThirteenth = iRoot+0.21
-
-    xout iThirteenth
+    xout iInterval
 endop

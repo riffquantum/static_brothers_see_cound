@@ -7,7 +7,7 @@ gkSyncLoopSamplerTemplate2EqHigh init 1
 gkSyncLoopSamplerTemplate2Fader init 1
 gkSyncLoopSamplerTemplate2Pan init 50
 
-gSSyncLoopSamplerTemplate2SampleFilePath = "localSamples/Drums/Beatbox-Drums_Kick_EA7508.wav"
+gSSyncLoopSamplerTemplate2SampleFilePath = "localSamples/horrible flute tone.wav"
 giSyncLoopSamplerTemplate2NumberOfChannels filenchnls gSSyncLoopSamplerTemplate2SampleFilePath
 giSyncLoopSamplerTemplate2SampleLength filelen gSSyncLoopSamplerTemplate2SampleFilePath
 giSyncLoopSamplerTemplate2StartTime = 0
@@ -22,27 +22,28 @@ else
   giSyncLoopSamplerTemplate2SampleTable ftgenonce 0, 0, 0, 1, gSSyncLoopSamplerTemplate2SampleFilePath, giSyncLoopSamplerTemplate2StartTime, 0, 0
 endif
 
-/* MIDI Config Values */
-massign giSyncLoopSamplerTemplate2MidiChannel, "SyncLoopSamplerTemplate2"
-
 instr SyncLoopSamplerTemplate2
   ;p fields
   iAmplitude flexibleAmplitudeInput p4
-  kPitch = flexiblePitchInput(p5) / 261.6
-
+  iPitch = flexiblePitchInput(p5)
+  kPitch = iPitch / 261.6
   ;Amplitude Envelope
   iAttack = .01
   iDecay = .01
-  iSustain = iAmplitude
+  iSustain = 1
   iRelease = .5
-  kAmplitudeEnvelope madsr iAttack, iDecay, iSustain, iRelease
+  kAmplitudeEnvelope = madsr(iAttack, iDecay, iSustain, iRelease) * iAmplitude
+
+
+  kPitchBend = 0
+  midipitchbend kPitchBend, 0, 15
 
   ;Grain Parameter Adjustments
-  kTimeStretch = 1
-  kGrainSizeAdjustment = .4  + poscil(.005, .01)
-  kGrainFrequencyAdjustment = 1 + poscil(.1, .01)
-  kPitchAdjustment = 1 + poscil(.1, .1)
-  kGrainOverlapPercentageAdjustment = 1
+  kTimeStretch = 0 + poscil(1, .25) + poscil(.2, .3)
+  kGrainSizeAdjustment = 1 ;+ poscil(.04, .87) + poscil(.2, .3)
+  kGrainFrequencyAdjustment = 1 ;+ poscil(.04, .87) + poscil(.2, .3)
+  kPitchAdjustment = 1; + poscil(.1, .1) * (1 + kPitchBend)
+  kGrainOverlapPercentageAdjustment = 1 ;+ poscil(.04, .87) + poscil(.2, .3)
 
   ;Base settings for Granulizer
   kPitch *= kPitchAdjustment
@@ -53,14 +54,13 @@ instr SyncLoopSamplerTemplate2
   iMaxOverlaps = 1000
 
   if giSyncLoopSamplerTemplate2NumberOfChannels == 2 then
-    aSyncLoopSamplerTemplate2L syncloop 1, kGrainFrequency, kPitch, kGrainSize, kPointerRate, 0, giSyncLoopSamplerTemplate2EndTime, giSyncLoopSamplerTemplate2SampleTableL, giSyncLoopSamplerTemplate2EnvelopeTable, iMaxOverlaps
-
-    aSyncLoopSamplerTemplate2R syncloop 1, kGrainFrequency, kPitch, kGrainSize, kPointerRate, 0, giSyncLoopSamplerTemplate2EndTime, giSyncLoopSamplerTemplate2SampleTableR, giSyncLoopSamplerTemplate2EnvelopeTable, iMaxOverlaps
+    aSyncLoopSamplerTemplate2L syncloop 1, kGrainFrequency, kPitch, kGrainSize, kPointerRate, giSyncLoopSamplerTemplate2StartTime, giSyncLoopSamplerTemplate2EndTime, giSyncLoopSamplerTemplate2SampleTableL, giSyncLoopSamplerTemplate2EnvelopeTable, iMaxOverlaps
+    aSyncLoopSamplerTemplate2R syncloop 1, kGrainFrequency, kPitch, kGrainSize, kPointerRate, giSyncLoopSamplerTemplate2StartTime, giSyncLoopSamplerTemplate2EndTime, giSyncLoopSamplerTemplate2SampleTableR, giSyncLoopSamplerTemplate2EnvelopeTable, iMaxOverlaps
 
     aSyncLoopSamplerTemplate2L = aSyncLoopSamplerTemplate2L * kAmplitudeEnvelope
     aSyncLoopSamplerTemplate2R = aSyncLoopSamplerTemplate2R * kAmplitudeEnvelope
   else
-    aSyncLoopSamplerTemplate2L syncloop 1, kGrainFrequency, kPitch, kGrainSize, kPointerRate, 0, giSyncLoopSamplerTemplate2EndTime, giSyncLoopSamplerTemplate2SampleTable, giSyncLoopSamplerTemplate2EnvelopeTable, iMaxOverlaps
+    aSyncLoopSamplerTemplate2L syncloop 1, kGrainFrequency, kPitch, kGrainSize, kPointerRate, giSyncLoopSamplerTemplate2StartTime, giSyncLoopSamplerTemplate2EndTime, giSyncLoopSamplerTemplate2SampleTable, giSyncLoopSamplerTemplate2EnvelopeTable, iMaxOverlaps
 
     aSyncLoopSamplerTemplate2R = aSyncLoopSamplerTemplate2R * kAmplitudeEnvelope
 

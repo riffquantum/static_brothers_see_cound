@@ -28,7 +28,6 @@ instr OpenHatBassKnob
 endin
 
 instr OpenHatMidKnob
-
   gkOpenHatEqMid linseg p4, p3, p5
 endin
 

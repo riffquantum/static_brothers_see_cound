@@ -17,14 +17,10 @@ giSnareSample ftgen 0, 0, 0, 1, gSSnareSamplePath, 0, 0, 0
 
 
 instr Snare
-  iAmplitude = p4
-  kPitch = p5 == 0 ? 1 : p5
-  kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0
+  aOutL, aOutR drumSample giSnareSample, p4, p5
 
-  aSnareOut loscil kAmplitudeEnvelope, 1, giSnareSample, 1
-
-  outleta "OutL", aSnareOut
-  outleta "OutR", aSnareOut
+  outleta "OutL", aOutL
+  outleta "OutR", aOutR
 endin
 
 instr SnareBassKnob

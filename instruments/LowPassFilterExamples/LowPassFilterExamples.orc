@@ -1,8 +1,7 @@
 alwayson "LowPassFilterExamplesInput"
 alwayson "LowPassFilterExamplesMixerChannel"
 
-bypassRoute "LowPassFilterExamples", "Mixer"
-stereoRoute "LowPassFilterExamplesMixerChannel", "Mixer"
+bypassRoute "LowPassFilterExamples", "Mixer", "Mixer"
 
 gkLowPassFilterExamplesEqBass init 1
 gkLowPassFilterExamplesEqMid init 1

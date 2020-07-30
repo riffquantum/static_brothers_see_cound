@@ -7,9 +7,6 @@ gkWhoIsHeLoopEqHigh init 1
 gkWhoIsHeLoopFader init 1
 gkWhoIsHeLoopPan init 50
 
-/* MIDI Config Values */
-; massign giWhoIsHeLoopMidiChannel, "WhoIsHeLoop"
-
 gSWhoIsHeLoopSamplePath = "songs/Withers/instruments/WhoIsHeLoop/WhoIsHeLoop.wav"
 giWhoIsHeLoopSampleChannels filenchnls gSWhoIsHeLoopSamplePath
 giWhoIsHeLoopSampleLength filelen gSWhoIsHeLoopSamplePath
@@ -33,7 +30,7 @@ instr WhoIsHeLoop
 
   iStartBeat = p6
   iEndBeat = p7 == 0 ? giWhoIsHeLoopSampleLengthInBeats : p7
-  kAmplitudeEnvelope madsr .005, .01, iAmplitude, .1
+  kAmplitudeEnvelope = madsr(.005, .01, 1, .1) * iAmplitude
   iStartTime = iStartBeat / giWhoIsHeLoopSampleLengthInBeats
 
   if giWhoIsHeLoopSampleChannels = 2 then

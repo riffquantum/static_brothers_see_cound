@@ -10,8 +10,6 @@
   <CsInstruments>
     #include "config/defaultConfig.orc"
     #include "config/defaultMidiAssignments.orc"
-    gkBPM init 30
-
     #include "opcodes/opcode-manifest.orc"
     #include "instruments/orchestra-manifest.orc"
     #include "songs/Withers/instruments/orchestra-manifest.orc"
@@ -40,8 +38,8 @@
         beatScoreline "Kick", iBaseTime+3.25, .01, 70,  1.1
 
         beatScoreline "Snare", iBaseTime+.5, .01, 70,  .9
-        beatScoreline "Snare", iBaseTime+1.5, .01, 70,  .9
-        beatScoreline "Snare", iBaseTime+2.5, .01, 70,  .9
+        ; beatScoreline "Snare", iBaseTime+1.5, .01, 70,  .9
+        ; beatScoreline "Snare", iBaseTime+2.5, .01, 70,  .9
         beatScoreline "Snare", iBaseTime+3.5, .01, 70,  .9
 
         ; beatScoreline "Snare", iBaseTime+1, .01, 70,  .9
@@ -51,28 +49,28 @@
 
         beatScoreline "OpenHat", iBaseTime+0.0, 16, 80,  .25
 
-        ; beatScoreline "Freezer", iBaseTime+1, 3, 1
+        beatScoreline "Freezer", iBaseTime+.5, 1, 1/6, 1/6, 0, .75
 
-        ; beatScoreline "PitchShifter", iBaseTime+1, 3, 1.5, .5
+        beatScoreline "PitchShifter", iBaseTime+1, 3, 1.5, .5
 
-        ; beatScoreline "Freezer", iBaseTime+1.5, 4/8, .125, .125
+        beatScoreline "Freezer", iBaseTime+1.5, 4/8, .125, .125
 
-        ; beatScoreline "Freezer", iBaseTime+2.5, 4/8, 1/16, 2/16
+        beatScoreline "Freezer", iBaseTime+2.5, 4/8, 1/16, 2/16
 
         iMeasureCount += 1
       od
     endin
 
-
   </CsInstruments>
 
   <CsScore>
     m section1
-      i "WithersLoop1" 0 8
-      i "WithersLoop2" 8 8
-      i "WithersLoop1" 16 8
-      i "WithersLoop2" 24 8
+      ; i "WithersLoop1" 0 8
+      ; i "WithersLoop2" 8 8
+      ; i "WithersLoop1" 16 8
+      ; i "WithersLoop2" 24 8
       i "Pattern1" 0 32
+      i "BassLine" 0 32
     s
   </CsScore>
 </CsoundSynthesizer>

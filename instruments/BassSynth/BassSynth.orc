@@ -1,4 +1,4 @@
-instrumentRoute "BassSynth", "WarmDistortionInput"
+instrumentRoute "BassSynth", "Mixer"
 alwayson "BassSynthMixerChannel"
 
 gkBassSynthEqBass init 1
@@ -7,60 +7,54 @@ gkBassSynthEqHigh init 1
 gkBassSynthFader init 1
 gkBassSynthPan init 50
 
-/* MIDI Config Values */
-massign giBassSynthMidiChannel, "BassSynth"
-
 instr BassSynth
   iAmplitude flexibleAmplitudeInput p4
   iPitch flexiblePitchInput p5
+
   iSineTable sineWave
   iSawtooth sawtoothWaveDown
   iSawtoothUp sawtoothWaveUpAndDown
   iSquareWave squareWave
 
-
   iAttack = 0.01
   iDecay = 0.01
-  iSustain = iAmplitude
-  iRelease = 0.15
-  iEnvelopeDelay = 0
-  kAmplitudeEnvelope = madsr(iAttack, iDecay, iSustain, iRelease, iEnvelopeDelay)
+  iSustain = 0.9
+  iRelease = .08
+  aAmplitudeEnvelope = madsr(iAttack, iDecay, iSustain, iRelease)
 
-  kTremoloDepth = 0.1
-  kTremoloRate = 3
-  kTremolo = (1 - kTremoloDepth) + oscil(kTremoloDepth, kTremoloRate, iSineTable)
-  kAmplitudeEnvelope = kAmplitudeEnvelope * kTremolo
+  aTremoloDepth = 0.1
+  aTremoloRate = 3
+  aTremolo = (1 - aTremoloDepth) + poscil(aTremoloDepth, aTremoloRate, iSineTable)
+  aAmplitudeEnvelope *= aTremolo
 
-  aPrimaryOscillator = oscil(kAmplitudeEnvelope*(2/11), iPitch, iSineTable)
-  aOctaveDown = oscil(kAmplitudeEnvelope*(4/11), cpspch(pchcps(iPitch) - 1), iSineTable)
-  aOctaveDownSquare = oscil(kAmplitudeEnvelope*(1/11), cpspch(pchcps(iPitch) - 1), iSquareWave)
-  aTwoOctavesDownSaw = oscil(kAmplitudeEnvelope*(2/11), cpspch(pchcps(iPitch) - 2), iSawtooth)
-  aThreeOctavesDownSaw = oscil(kAmplitudeEnvelope*(2/11), cpspch(pchcps(iPitch) - 3), iSawtooth)
+  aPrimaryOscillator = poscil(iAmplitude*(2/11), iPitch, iSineTable)
+  aOctaveDown = poscil(iAmplitude*(4/11), cpspch(pchcps(iPitch) - 1), iSineTable)
+  aOctaveDownSquare = poscil(iAmplitude*(1/11), cpspch(pchcps(iPitch) - 1), iSquareWave)
+  aTwoOctavesDownSaw = poscil(iAmplitude*(2/11), cpspch(pchcps(iPitch) - 2), iSawtooth)
+  aThreeOctavesDownSaw = poscil(iAmplitude*(2/11), cpspch(pchcps(iPitch) - 3), iSawtooth)
+
+  aBassSynth = 0
+  aBassSynth = aPrimaryOscillator
+  aBassSynth += aOctaveDown
+  aBassSynth += aOctaveDownSquare
+  aBassSynth += aTwoOctavesDownSaw
+  aBassSynth += aThreeOctavesDownSaw
 
 
-  aBassSynthL = aPrimaryOscillator
-  aBassSynthL += aOctaveDown
-  aBassSynthL += aOctaveDownSquare
-  aBassSynthL += aTwoOctavesDownSaw
-  aBassSynthL += aThreeOctavesDownSaw
+  aBassSynth *= aAmplitudeEnvelope
+  kHalfPowerPointValue linseg 1500, .25, 150
+  kQ linsegr 0.0001, 1, 5.5, .01, 5.5, iRelease, 1
+  aBassSynth lowpass2 aBassSynth, kHalfPowerPointValue, kQ
 
-  aPrimaryOscillator *= kAmplitudeEnvelope
+  aBassSynth butterlp aBassSynth, 1000
 
-  kHalfPowerPointValue linseg 500, .25, 150
-  kQ linsegr 0.0001, 1, 5.5, iRelease, 5.5
-  aBassSynthL lowpass2 aBassSynthL, kHalfPowerPointValue, kQ
-
-  ; aBassSynthL *= kAmplitudeEnvelope
+  aBassSynth *= (261.1/iPitch)^.25
 
   ;Can I base the filter settings on the pitch to optimize sound at lower pitches?
   ;Also base the amplitude of the partials based on pitch?
 
-  aBassSynthL balance aBassSynthL, aPrimaryOscillator
-
-  aBassSynthR = aBassSynthL
-
-  outleta "OutL", aBassSynthL
-  outleta "OutR", aBassSynthR
+  outleta "OutL", aBassSynth
+  outleta "OutR", aBassSynth
 endin
 
 instr BassSynthBassKnob

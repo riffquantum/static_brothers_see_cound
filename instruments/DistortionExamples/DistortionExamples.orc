@@ -1,5 +1,4 @@
-bypassRoute "DistortionExamples", "Mixer"
-stereoRoute "DistortionExamplesMixerChannel", "Mixer"
+bypassRoute "DistortionExamples", "Mixer", "Mixer"
 
 alwayson "DistortionExamplesInput"
 alwayson "DistortionExamplesMixerChannel"

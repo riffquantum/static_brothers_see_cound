@@ -14,13 +14,13 @@ gkBigSynthPan init 50
 massign 2, "BigSynth"
 instr BigSynth
   if p4 != 0 then
-    iAmplitude = p4
+    iAmplitude = velocityToAmplitude(p4)
   else
     iNoteVelocity veloc
     iAmplitude = iNoteVelocity/127 * 0dbfs/10
   endif
 
-  kAmplitudeEnvelope madsr .005, .01, iAmplitude, .05, 0
+  kAmplitudeEnvelope = madsr(.005, .01, 1, .05, 0) * iAmplitude
 
   if p5 != 0 then
     ifreq = p5
@@ -28,7 +28,6 @@ instr BigSynth
   else
     ifreq   cpsmidi
   endif
-  print ifreq
 
   kfreq   linseg    ifreq*1.02, 0.3, ifreq
 

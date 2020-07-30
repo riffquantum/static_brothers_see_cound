@@ -1,0 +1,5 @@
+#include "drumFigure1.orc"
+#include "drumFigure2.orc"
+#include "drumPattern1.orc"
+#include "segue1.orc"
+#include "segue2.orc"

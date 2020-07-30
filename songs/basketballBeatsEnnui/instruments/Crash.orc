@@ -18,14 +18,10 @@ giCrashSample ftgen 0, 0, 0, 1, gSCrashSamplePath, 0, 0, 0
 
 
 instr Crash
-  iAmplitude = p4
-  kPitch = p5 == 0 ? 1 : p5
-  kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0
+  aOutL, aOutR drumSample giCrashSample, p4, p5
 
-  aCrashOut loscil kAmplitudeEnvelope, kPitch, giCrashSample, 1
-
-  outleta "OutL", aCrashOut
-  outleta "OutR", aCrashOut
+  outleta "OutL", aOutL
+  outleta "OutR", aOutR
 endin
 
 instr CrashBassKnob

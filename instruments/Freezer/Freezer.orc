@@ -1,5 +1,4 @@
-bypassRoute "Freezer", "Mixer"
-stereoRoute "FreezerMixerChannel", "PitchShifterInput"
+bypassRoute "Freezer", "Mixer", "PitchShifterInput"
 
 alwayson "FreezerInput"
 alwayson "FreezerMixerChannel"
@@ -32,17 +31,22 @@ instr Freezer
   iBeatsToLoopStart = p4
   iBeatsToLoopEnd = p5 != 0 ? p5 : p4
   iFreezerWetRelease = p6
+  iPanAmount = p7
   aTime = linseg(iBeatsToLoopStart, p3, iBeatsToLoopEnd) * 60/gkBPM
   kWetLevel madsr .001, .001, 1, iFreezerWetRelease
   iFeedbackAmmount = 1
   iFreezerBufferLength = 10
-  kInputEnvelope =linseg(1, iBeatsToLoopStart, 1, .1, 0)
+  kInputEnvelope = linseg(1, iBeatsToLoopStart, 1, .1, 0)
+
+  kPanOscillator = poscil(iPanAmount * 50, 1/(aTime*2), squareWave()) + 50
 
   aFreezerInL *= kInputEnvelope
   aFreezerInR *= kInputEnvelope
 
   aFreezerOutR delayBuffer aFreezerInR, iFeedbackAmmount, iFreezerBufferLength, aTime, kWetLevel
   aFreezerOutL delayBuffer aFreezerInL, iFeedbackAmmount, iFreezerBufferLength, aTime, kWetLevel
+
+  aFreezerOutL, aFreezerOutR pan aFreezerOutL, aFreezerOutR, kPanOscillator
 
   aFreezerOutR += aFreezerInR
   aFreezerOutL += aFreezerInL

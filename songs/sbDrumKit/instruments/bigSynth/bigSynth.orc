@@ -15,7 +15,7 @@ instr BigSynth
       iAmplitude = iNoteVelocity/127 * 0dbfs/10
     endif
 
-    kAmplitudeEnvelope madsr .005, .01, iAmplitude, .05, 0
+    kAmplitudeEnvelope = madsr(.005, .01, 1, .05, 0) * iAmplitude
 
     if p5 != 0 then
       ifreq = p5
@@ -23,7 +23,6 @@ instr BigSynth
     else
       ifreq   cpsmidi
     endif
-    print ifreq
 
     kfreq   linseg    ifreq*1.02, 0.3, ifreq
 

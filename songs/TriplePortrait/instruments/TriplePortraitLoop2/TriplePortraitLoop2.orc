@@ -7,10 +7,7 @@ gkTriplePortraitLoop2EqHigh init 1
 gkTriplePortraitLoop2Fader init 1
 gkTriplePortraitLoop2Pan init 50
 
-/* MIDI Config Values */
-; massign giTriplePortraitLoop2MidiChannel, "TriplePortraitLoop2"
-
-gSTriplePortraitLoop2SamplePath = "songs/TriplePortrait/instruments/TriplePortraitLoop2/TriplePortraitLoop2.wav"
+gSTriplePortraitLoop2SamplePath = "localSamples/TriplePortraitLoop2.wav"
 giTriplePortraitLoop2SampleChannels filenchnls gSTriplePortraitLoop2SamplePath
 giTriplePortraitLoop2SampleLength filelen gSTriplePortraitLoop2SamplePath
 giTriplePortraitLoop2SampleLengthInBeats = 2
@@ -33,7 +30,7 @@ instr TriplePortraitLoop2
 
   iStartBeat = p6
   iEndBeat = p7 == 0 ? giTriplePortraitLoop2SampleLengthInBeats : p7
-  kAmplitudeEnvelope madsr .005, .01, iAmplitude, .1
+  kAmplitudeEnvelope = madsr(.005, .01, 1, .1) * iAmplitude
   iStartTime = (iStartBeat / giTriplePortraitLoop2SampleLengthInBeats) + 0.17
 
   if giTriplePortraitLoop2SampleChannels = 2 then

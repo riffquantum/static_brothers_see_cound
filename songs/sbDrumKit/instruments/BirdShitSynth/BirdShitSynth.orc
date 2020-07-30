@@ -20,16 +20,12 @@ gSBirdShitSynthDistortionName = "BirdShitSynthDistortion"
 gSBirdShitSynthDistortionRoute = "Mixer"
 instrumentRoute gSBirdShitSynthDistortionName, gSBirdShitSynthDistortionRoute
 
-/* MIDI Config Values */
-;massign giBirdShitSynthMidiChannel, "BirdShitSynth"
-
-
 instr BirdShitSynth
     iAmplitude flexibleAmplitudeInput p4
     iPitch flexiblePitchInput p5
     iSineTable sineWave
     kTremolo = .75 + oscil(.25, 1.5, iSineTable)
-    kAmplitudeEnvelope = madsr(.005, .01, iAmplitude, .5, 0)
+    kAmplitudeEnvelope = madsr(.005, .01, 1, .5, 0) * iAmplitude
     kAmplitudeEnvelope = kAmplitudeEnvelope * kTremolo
 
 

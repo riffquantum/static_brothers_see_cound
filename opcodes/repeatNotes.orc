@@ -1,13 +1,12 @@
-opcode "repeatNotes", 0, Siiiiiooo
-  SInstrumentName, iStartTime, iTotalDuration, iNotesPerBeat, iNoteDuration, iVelocity, iPitchQuotient, iAccent, iSwing xin
+opcode "repeatNotes", 0, Siiiiipooo
+  SInstrumentName, iStartTime, iTotalDuration, iNotesPerBeat, iNoteDuration, iVelocity, iPitch, iPitchQuotient, iAccent, iSwing xin
 
   iTotalNotes = iTotalDuration * iNotesPerBeat
   iNoteCount = 0
 
   until iNoteCount >= iTotalNotes do
-    if iPitchQuotient == 0 then
-      iPitch = 1
-    else
+    iPitch = iPitch == 0 ? 1 : iPitch
+    if iPitchQuotient != 0 then
       iPitch = 1 - iNoteCount/iPitchQuotient
     endif
 

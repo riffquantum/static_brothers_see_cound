@@ -1,0 +1,11 @@
+#include "Kick/Kick.orc"
+#include "Snare/Snare.orc"
+#include "ClosedHat/ClosedHat.orc"
+#include "OpenHat/OpenHat.orc"
+#include "Crash/Crash.orc"
+#include "HatPedal/HatPedal.orc"
+
+#include "Photoshop/Photoshop.orc"
+#include "PhotoshopSamples/PhotoshopSamples.orc"
+#include "PunishmentAwaits/PunishmentAwaits.orc"
+#include "PunishYou/PunishYou.orc"

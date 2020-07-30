@@ -1,5 +1,5 @@
 opcode drumSample, aa, iipop
-  iSampleTable, iVelocity, iPitch, iShouldPlayWholeSample, iVelocityCurveDegree xin
+  iSampleTable, iVelocity, iPitch, iShouldRespectP3, iVelocityCurveDegree xin
 
   iAmplitude = velocityToAmplitude(iVelocity, iVelocityCurveDegree)
   iPitch = iPitch == 0 ? 1 : iPitch
@@ -7,7 +7,7 @@ opcode drumSample, aa, iipop
 
   iSampleLength = nsamp(iSampleTable) / sr
 
-  if iShouldPlayWholeSample == 0 then
+  if iShouldRespectP3 == 0 then
     xtratim limit(iSampleLength / iPitch - p3, 0, 100)
     kAmplitudeEnvelope linseg iAmplitude, iSampleLength/iPitch, iAmplitude
   else

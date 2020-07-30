@@ -8,15 +8,14 @@ opcode midiMonitor, 0, 0
 
     midiout kStatusCode, kChannel, kData1, kData2
 
-
     printks "-- MIDI Input -- %n%t Time: %f %n", 0, kTime
 
     if kStatusCode == 144 then
-      printks "%t Note On (%d)%n %t Channel: %d %n %t Note Number: %d %n %t Velocity: %d %n", 0, kStatusCode,  kChannel, kData1, kData2
+      printks "%t Note On (%d)%n %t Channel: %d %n %t Note Number: %d (%f) %n %t Velocity: %d %n", 0, kStatusCode,  kChannel, kData1, pchoct(octcps(mtof(kData1))), kData2
     elseif kStatusCode == 128 then
       SStatusCodeString sprintfk "%s", "Note Off"
 
-      printks "%t Note Off (%d) %n %t Channel: %d %n %t Note Number: %d %n %t Data 2: %d %n", 0, kStatusCode, kChannel, kData1, kData2
+      printks "%t Note Off (%d) %n %t Channel: %d %n %t Note Number: %d (%f) %n %t Data 2: %d %n", 0, kStatusCode, kChannel, kData1, pchoct(octcps(mtof(kData1))), kData2
     elseif kStatusCode == 224 then
       printks "%t Pitch Bend (%d) %n %t Channel: %d %n %t Pitch Wheel MSB: %d %n %t Pitch Wheel LSB: %d %n", 0, kStatusCode, kChannel, kData1, kData2
     elseif kStatusCode == 176 then

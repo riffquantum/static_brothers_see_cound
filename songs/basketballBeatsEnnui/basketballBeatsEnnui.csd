@@ -1,14 +1,14 @@
 <CsoundSynthesizer>
 
     <CsOptions>
-        -odac -m0 -t100
+        -odac -m0 -t160
     </CsOptions>
 
     <CsInstruments>
         #include "config/defaultConfig.orc"
-        #include "config/defaultMidiAssignments.orc"
+        ; #include "config/defaultMidiAssignments.orc"
 
-        gkBPM init 100
+        gkBPM init 160
 
         #include "opcodes/opcode-manifest.orc"
         #include "instruments/orchestra-manifest.orc"
@@ -18,8 +18,10 @@
 
     <CsScore>
         m section1
-          i "pattern2" 0 128
-          i "weirdBigCymbalPattern" 0 128
+          i "dBeat" 0 12
+          i "weirdBigCymbalPattern" 12 4
+          i "dBeat" 16 12
+          i "dBeatFill1" 28 4
         s
     </CsScore>
 </CsoundSynthesizer>

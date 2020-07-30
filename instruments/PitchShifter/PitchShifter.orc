@@ -10,8 +10,7 @@ gkPitchShifterEqHigh init 1
 gkPitchShifterFader init 1
 gkPitchShifterPan init 50
 
-bypassRoute "PitchShifter", "Mixer"
-stereoRoute "PitchShifterMixerChannel", "Mixer"
+bypassRoute "PitchShifter", "Mixer", "Mixer"
 
 instr PitchShifterInput
   aPitchShifterInL inleta "InL"

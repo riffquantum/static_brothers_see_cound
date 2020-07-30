@@ -1,9 +1,8 @@
 opcode second, i, i
     iPitch xin
 
-    iRoot = (iPitch > 15 ? pchcps(iPitch) : iPitch)
+    iIntervalInSemitones = 2
+    iInterval = iPitch > 15 ? iPitch * centsToRatio(iIntervalInSemitones*100) : iPitch+(iIntervalInSemitones/100)
 
-    iSecond = iRoot+0.02
-
-    xout iSecond
+    xout iInterval
 endop

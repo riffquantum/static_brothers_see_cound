@@ -12,19 +12,14 @@ gkTomMidFader init 1
 gkTomMidPan init 50
 
 gSTomMidSamplePath = "localSamples/Drums/R8-Drums_Tom_E7662.wav"
-
 giTomMidSample ftgen 0, 0, 0, 1, gSTomMidSamplePath, 0, 0, 0
 
 
 instr TomMid
-  iAmplitude = p4
-  kPitch = p5 == 0 ? 1 : p5
-  kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0
+  aOutL, aOutR drumSample giTomMidSample, p4, p5
 
-  aTomMidOut loscil kAmplitudeEnvelope, kPitch, giTomMidSample, 1
-
-  outleta "OutL", aTomMidOut
-  outleta "OutR", aTomMidOut
+  outleta "OutL", aOutL
+  outleta "OutR", aOutR
 endin
 
 instr TomMidBassKnob
@@ -48,32 +43,11 @@ instr TomMidPan
 endin
 
 instr TomMidMixerChannel
-    aTomMidL inleta "InL"
-    aTomMidR inleta "InR"
+  aTomMidL inleta "InL"
+  aTomMidR inleta "InR"
 
-    kpanvalue linseg 0, 1, 100
+  aTomMidL, aTomMidR mixerChannel aTomMidL, aTomMidR, gkTomMidFader, gkTomMidPan, gkTomMidEqBass, gkTomMidEqMid, gkTomMidEqHigh
 
-    kTomMidFader = gkTomMidFader
-    kTomMidPan = gkTomMidPan
-    kTomMidEqBass = gkTomMidEqBass
-    kTomMidEqMid = gkTomMidEqMid
-    kTomMidEqHigh = gkTomMidEqHigh
-
-    aTomMidL, aTomMidR threeBandEqStereo aTomMidL, aTomMidR, kTomMidEqBass, kTomMidEqMid, kTomMidEqHigh
-
-    if kTomMidPan > 100 then
-        kTomMidPan = 100
-    elseif kTomMidPan < 0 then
-        kTomMidPan = 0
-    endif
-
-    ;aTomMidL distort1 aTomMidL, 2, 1, .01, .01
-    ;aTomMidR distort1 aTomMidR, 2, 1, .01, .01
-
-    aTomMidL = (aTomMidL * ((100 - kTomMidPan) * 2 / 100)) * kTomMidFader
-    aTomMidR = (aTomMidR * (kTomMidPan * 2 / 100)) * kTomMidFader
-
-    outleta "OutL", aTomMidL
-    outleta "OutR", aTomMidR
-
+  outleta "OutL", aTomMidL
+  outleta "OutR", aTomMidR
 endin

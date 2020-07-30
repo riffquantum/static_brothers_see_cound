@@ -1,9 +1,8 @@
 opcode flatFifth, i, i
     iPitch xin
 
-    iRoot = (iPitch > 15 ? pchcps(iPitch) : iPitch)
+    iIntervalInSemitones = 6
+    iInterval = iPitch > 15 ? iPitch * centsToRatio(iIntervalInSemitones*100) : iPitch+(iIntervalInSemitones/100)
 
-    iFlatFifth = iRoot+0.06
-
-    xout iFlatFifth
+    xout iInterval
 endop

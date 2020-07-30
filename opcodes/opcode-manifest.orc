@@ -9,6 +9,8 @@
 
 #include "indexOf.orc"
 
+#include "indexOfString.orc"
+
 #include "printsBlock.orc"
 
 #include "printsBlockI.orc"
@@ -16,6 +18,20 @@
 #include "getTableSizeFromSample.orc"
 
 #include "randomVariation.orc"
+
+#include "noteNameToNumber.orc"
+
+#include "noteNumberToName.orc"
+
+#include "centsToRatio.orc"
+
+#include "equalTempermentFrequency.orc"
+
+#include "pythagoreanFrequency.orc"
+
+#include "customTuningFrequency.orc"
+
+#include "quarterCommaMeanToneFrequency.orc"
 
 /*
   Audio Processors and Effects
@@ -38,6 +54,8 @@
 #include "stereoRoute.orc"
 
 #include "instrumentRoute.orc"
+
+#include "effectRoute.orc"
 
 #include "bypassSwitch.orc"
 
@@ -79,6 +97,14 @@
 #include "interruptThenTrigger.orc"
 
 #include "velocityToAmplitude.orc"
+
+#include "equalTempermentMidiTuning.orc"
+
+#include "pythagoreanMidiTuning.orc"
+
+#include "customMidiTuning.orc"
+
+#include "quarterCommaMeanToneMidiTuning.orc"
 
 #include "flexibleAmplitudeInput.orc"
 

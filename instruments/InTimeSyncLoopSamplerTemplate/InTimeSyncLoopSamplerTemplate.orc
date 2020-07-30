@@ -21,7 +21,6 @@ giInTimeSyncloopSamplerTemplateGrainSpacingAdjustmentControl = 2
 giInTimeSyncloopSamplerTemplateWaveSpacingAdjustmentControl = 7
 giInTimeSyncloopSamplerTemplateFxDepthAdjustmentControl = 4
 giInTimeSyncloopSamplerTemplateFxSpeedAdjustmentControl = 5
-massign giInTimeSyncloopSamplerTemplateMidiChannel, "InTimeSyncloopSamplerTemplate"
 
 /* Sound File Data */
 gSInTimeSyncloopSamplerTemplatesampleFilePath = "instruments/breakBeatInstruments/AmenBreak.wav"
@@ -72,7 +71,7 @@ instr InTimeSyncloopSamplerTemplate
   iPitch flexiblePitchInput p5
   iPitch = iPitch / 261.6 ; Ratio of frequency to Middle C
   /* Below are two options for amplitude envelope. */
-  kAmplitudeEnvelope madsr .005, .01, iAmplitude, .01, 0, (giInTimeSyncloopSamplerTemplateFileLength) ;Sample plays for note duration
+  kAmplitudeEnvelope = madsr(.005, .01, 1, .01, 0, (giInTimeSyncloopSamplerTemplateFileLength)) * iAmplitude ;Sample plays for note duration
   ;kAmplitudeEnvelope linenr iAmplitude, .05, (giInTimeSyncloopSamplerTemplateFileLength * 1/iPitch), 1 ; Sample plays through entirely
 
   /* MIDI Pitchbend */
@@ -137,16 +136,6 @@ instr InTimeSyncloopSamplerTemplate
   aInTimeSyncloopSamplerTemplateL = aInTimeSyncloopSamplerTemplateL * kAmplitudeEnvelope
   aInTimeSyncloopSamplerTemplateR = aInTimeSyncloopSamplerTemplateR * kAmplitudeEnvelope
 
-  print i(kGrainFrequency)
-  print i(kPitch)
-  print i(kGrainSize)
-  print i(kPointerRate)
-  print giInTimeSyncloopSamplerTemplateEndTime
-  print giInTimeSyncloopSamplerTemplateSampleTable
-  print ienvelopeTable
-  print iMaxOverlaps
-
-
   outleta "OutL", aInTimeSyncloopSamplerTemplateL
   outleta "OutR", aInTimeSyncloopSamplerTemplateR
 endin
@@ -173,11 +162,12 @@ endin
 
 instr InTimeSyncloopSamplerTemplateMixerChannel
   /* Set MIDI Control default values here. This would be better in global space where we define our global variables for this instrument but it was not working there for some reason. The mixer channel, as an instrument-specific always-on instrument is a convenient (if not semantic) place to do it. */
-  initc7 giInTimeSyncloopSamplerTemplateMidiChannel, giInTimeSyncloopSamplerTemplateHoldAdjustmentControl, .5
-  initc7 giInTimeSyncloopSamplerTemplateMidiChannel, giInTimeSyncloopSamplerTemplateGrainSpacingAdjustmentControl, .5
-  initc7 giInTimeSyncloopSamplerTemplateMidiChannel, giInTimeSyncloopSamplerTemplateWaveSpacingAdjustmentControl, .5
-  initc7 giInTimeSyncloopSamplerTemplateMidiChannel, giInTimeSyncloopSamplerTemplateFxDepthAdjustmentControl, .5
-  initc7 giInTimeSyncloopSamplerTemplateMidiChannel, giInTimeSyncloopSamplerTemplateFxSpeedAdjustmentControl, .5
+  ; iInTimeSyncloopSamplerTemplateMidiChannel = 0
+  ; initc7 iInTimeSyncloopSamplerTemplateMidiChannel, giInTimeSyncloopSamplerTemplateHoldAdjustmentControl, .5
+  ; initc7 iInTimeSyncloopSamplerTemplateMidiChannel, giInTimeSyncloopSamplerTemplateGrainSpacingAdjustmentControl, .5
+  ; initc7 iInTimeSyncloopSamplerTemplateMidiChannel, giInTimeSyncloopSamplerTemplateWaveSpacingAdjustmentControl, .5
+  ; initc7 iInTimeSyncloopSamplerTemplateMidiChannel, giInTimeSyncloopSamplerTemplateFxDepthAdjustmentControl, .5
+  ; initc7 iInTimeSyncloopSamplerTemplateMidiChannel, giInTimeSyncloopSamplerTemplateFxSpeedAdjustmentControl, .5
   /* End MIDI control settings */
 
   aInTimeSyncloopSamplerTemplateL inleta "InL"

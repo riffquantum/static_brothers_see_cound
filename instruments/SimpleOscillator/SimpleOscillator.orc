@@ -21,10 +21,9 @@ instr SimpleOscillator
     goto skipNote
   endif
 
-  kAmplitudeEnvelope madsr .005, .01, iAmplitude, .05, 0
+  kAmplitudeEnvelope = madsr(.005, .01, 1, .05, 0) * iAmplitude
 
   iFrequency flexiblePitchInput iPitch
-
   kPitchBend = 0
   midipitchbend kPitchBend, 0, 15
 

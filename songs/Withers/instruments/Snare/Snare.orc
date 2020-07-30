@@ -23,7 +23,6 @@ instr SnareBassKnob
 endin
 
 instr SnareMidKnob
-
   gkSnareEqMid linseg p4, p3, p5
 endin
 

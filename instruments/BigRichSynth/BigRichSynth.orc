@@ -7,24 +7,12 @@ gkBigRichSynthEqHigh init 1
 gkBigRichSynthFader init 1
 gkBigRichSynthPan init 50
 
-massign giBigRichSynthMidiChannel, "BigRichSynth"
-
 instr BigRichSynth
-  if p4 != 0 then
-    iAmplitude = p4
-  else
-    iNoteVelocity veloc
-    iAmplitude = iNoteVelocity/127 * 0dbfs/10
-  endif
+  iAmplitude flexibleAmplitudeInput p4
 
-  kAmplitudeEnvelope madsr .005, .01, iAmplitude, .05, 0
+  kAmplitudeEnvelope = madsr(.005, .01, 1, .05, 0) * iAmplitude
 
-  if p5 != 0 then
-    ifreq = p5
-    ifreq = (p5 < 15 ? cpspch(p5) : p5)
-  else
-    ifreq   cpsmidi
-  endif
+  ifreq flexiblePitchInput p5
 
   kPitchBend = 0
   midipitchbend kPitchBend, 0, 15

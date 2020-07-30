@@ -17,14 +17,10 @@ giHiHatSample ftgen 0, 0, 0, 1, gSHiHatSamplePath, 0, 0, 0
 
 
 instr HiHat
-  iAmplitude = p4
-  kPitch = p5 == 0 ? 1 : p5
-  kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0
+  aOutL, aOutR drumSample giHiHatSample, p4, p5
 
-  aHiHatOut loscil kAmplitudeEnvelope, kPitch, giHiHatSample, 1
-
-  outleta "OutL", aHiHatOut
-  outleta "OutR", aHiHatOut
+  outleta "OutL", aOutL
+  outleta "OutR", aOutR
 endin
 
 instr HiHatBassKnob

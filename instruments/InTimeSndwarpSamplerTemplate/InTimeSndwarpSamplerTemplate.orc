@@ -8,9 +8,6 @@ gkInTimeSndwarpSamplerTemplateEqHigh init 1
 gkInTimeSndwarpSamplerTemplateFader init 1
 gkInTimeSndwarpSamplerTemplatePan init 50
 
-/* MIDI Config Values */
-massign giInTimeSndwarpSamplerTemplateMidiChannel, "InTimeSndwarpSamplerTemplate"
-
 gSInTimeSndwarpSamplerTemplateSamplePath = "instruments/breakBeatInstruments/AmenBreak.wav"
 giInTimeSndwarpSamplerTemplateChannels filenchnls gSInTimeSndwarpSamplerTemplateSamplePath
 giInTimeSndwarpSamplerTemplateSampleLength filelen gSInTimeSndwarpSamplerTemplateSamplePath
@@ -22,7 +19,8 @@ giInTimeSndwarpSamplerTemplateSample ftgen 0, 0, 0, 1, gSInTimeSndwarpSamplerTem
 giInTimeSndwarpSamplerTemplateEnvelopeTable ftgenonce 2, 0, 16384, 9, 0.5, 1, 0
 
 instr InTimeSndwarpSamplerTemplate
-  kAmplitudeEnvelope madsr .005, .01, flexibleAmplitudeInput(p4), .01
+  iAmplitude = flexibleAmplitudeInput(p4)
+  kAmplitudeEnvelope = madsr(.005, .01, 1, .01) * iAmplitude
   iFrequency = flexiblePitchInput(p5) / 261.6 ; Ratio of frequency to Middle C
   iGrainAmplitude = 1
   iStartTime = p6

@@ -7,8 +7,6 @@ gkBasicSamplerTemplateEqHigh init 1
 gkBasicSamplerTemplateFader init 1
 gkBasicSamplerTemplatePan init 50
 
-massign giBasicSamplerTemplateMidiChannel, "BasicSamplerTemplate"
-
 instr BasicSamplerTemplate
   SFilePath = "localSamples/bell.wav"
   iLengthOfSample filelen SFilePath
@@ -24,7 +22,7 @@ instr BasicSamplerTemplate
 
   iAmplitude flexibleAmplitudeInput p4
 
-  kAmplitudeEnvelope madsr .005, .01, iAmplitude, .05, 0, (iLengthOfSample) ;Sample plays for note duration
+  kAmplitudeEnvelope = madsr( .005, .01, 1, .05, 0, (iLengthOfSample)) * iAmplitude ;Sample plays for note duration
   ; kAmplitudeEnvelope linenr iAmplitude, .05, (iLengthOfSample * 1/ifreq), 1 ; Sample plays through entirely
 
   if iNumberOfChannels == 2 then

@@ -31,7 +31,6 @@ instr CbKickBassKnob
 endin
 
 instr CbKickMidKnob
-
   gkCbKickEqMid linseg p4, p3, p5
 endin
 

@@ -12,7 +12,7 @@ giMetronomeToneSample ftgen 0, 0, 0, 1, "instruments/Metronome/Dance-Kit_Clv_EA8
 gkMetronomeEqBass init 1
 gkMetronomeEqMid init .5
 gkMetronomeEqHigh init .5
-gkMetronomeFader init .8
+gkMetronomeFader init .2
 gkMetronomePan init 50
 
 instr MetronomeTone

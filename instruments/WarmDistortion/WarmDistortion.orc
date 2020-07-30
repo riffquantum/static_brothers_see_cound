@@ -1,5 +1,4 @@
-bypassRoute "WarmDistortion", "Mixer"
-stereoRoute "WarmDistortionMixerChannel", "Mixer"
+bypassRoute "WarmDistortion", "Mixer", "Mixer"
 
 alwayson "WarmDistortionInput"
 alwayson "WarmDistortionMixerChannel"

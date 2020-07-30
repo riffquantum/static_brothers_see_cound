@@ -4,7 +4,7 @@ opcode breakSampler, aa, ikiiiio
   iLengthOfBeat = iSampleLength / iSampleLengthInBeats
   iBreakBPM = 60 / iLengthOfBeat
 
-  kAmplitudeEnvelope madsr .005, .01, iAmplitude, .01
+  kAmplitudeEnvelope = madsr(.005, .01, 1, .01) * iAmplitude
   kPitch *= 1 / iSampleLength * gkBPM / iBreakBPM
   iStartTime = iStartBeat / iSampleLengthInBeats
 

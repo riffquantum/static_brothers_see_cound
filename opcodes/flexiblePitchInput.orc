@@ -3,10 +3,13 @@
 opcode flexiblePitchInput, i, i
   iPitch xin
 
-  if iPitch != 0 then
-    iFrequency = (iPitch < 15 ? cpspch(iPitch) : iPitch)
+  if iPitch != 0 && iPitch < 15 then
+    iFrequency equalTempermentFrequency floor(iPitch), (iPitch - floor(iPitch)) * 100
+  elseif iPitch > 15 then
+    iFrequency = iPitch
   else
-    iFrequency cpsmidi
+    iNoteNumber notnum
+    iFrequency equalTempermentMidiTuning iNoteNumber
   endif
 
   xout iFrequency

@@ -1,5 +1,5 @@
-opcode bypassRoute, 0, SS
-  SInstrumentName, SDryRoute xin
+opcode bypassRoute, 0, SSS
+  SInstrumentName, SDryRoute, SWetRoute xin
 
   SBypassSwitchName strcat SInstrumentName, "Input"
   SMixerChannelName strcat SInstrumentName, "MixerChannel"
@@ -12,4 +12,7 @@ opcode bypassRoute, 0, SS
 
   connect SInstrumentName, "OutL", SMixerChannelName, "InL"
   connect SInstrumentName, "OutR", SMixerChannelName, "InR"
+
+  connect SMixerChannelName, "OutL", SWetRoute, "InL"
+  connect SMixerChannelName, "OutR", SWetRoute, "InR"
 endop

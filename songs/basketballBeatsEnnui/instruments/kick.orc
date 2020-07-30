@@ -17,17 +17,14 @@ giKickSample1 ftgen 0, 0, 0, 1, gSKickSamplePath1, 0, 0, 0
 giKickSample2 ftgen 0, 0, 0, 1, gSKickSamplePath2, 0, 0, 0
 
 instr Kick
-  iAmplitude = p4
-  kPitch = p5 == 0 ? 1 : p5
-  kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0
+  aOut1L, aOut1R drumSample giKickSample1, p4, p5
+  aOut2L, aOut2R drumSample giKickSample2, p4, p5
 
-  aKickOut1 loscil kAmplitudeEnvelope, kPitch, giKickSample1, 1
-  aKickOut2 loscil kAmplitudeEnvelope, kPitch, giKickSample2, 1
+  aOutL = aOut1L + aOut2L
+  aOutR = aOut1R + aOut2R
 
-  aKickOut = aKickOut1 + aKickOut2
-
-  outleta "OutL", aKickOut
-  outleta "OutR", aKickOut
+  outleta "OutL", aOutL
+  outleta "OutR", aOutR
 endin
 
 instr KickBassKnob

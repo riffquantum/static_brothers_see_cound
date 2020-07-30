@@ -23,14 +23,10 @@ gSOpenHatSamplePath = "localSamples/Vinylistics vol.1/TcTools_additional_sounds/
 giOpenHatSample ftgen 0, 0, 0, 1, gSOpenHatSamplePath, 0, 0, 0
 
 instr OpenHat
-  iAmplitude = p4
-  kPitch = p5 == 0 ? 1 : p5
-  kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0
+  aOutL, aOutR drumSample giOpenHatSample, p4, p5, 1
 
-  aOpenHatOut loscil kAmplitudeEnvelope, kPitch, giOpenHatSample, 1
-
-  outleta "OutL", aOpenHatOut
-  outleta "OutR", aOpenHatOut
+  outleta "OutL", aOutL
+  outleta "OutR", aOutR
 endin
 
 instr OpenHatBassKnob

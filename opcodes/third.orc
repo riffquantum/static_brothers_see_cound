@@ -1,9 +1,8 @@
 opcode third, i, i
     iPitch xin
 
-    iRoot = (iPitch > 15 ? pchcps(iPitch) : iPitch)
+    iIntervalInSemitones = 4
+    iInterval = iPitch > 15 ? iPitch * centsToRatio(iIntervalInSemitones*100) : iPitch+(iIntervalInSemitones/100)
 
-    iThird = iRoot+0.04
-
-    xout iThird
+    xout iInterval
 endop

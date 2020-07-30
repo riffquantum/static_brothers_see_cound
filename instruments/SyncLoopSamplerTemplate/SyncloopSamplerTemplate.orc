@@ -20,7 +20,6 @@ giSyncloopSamplerTemplateGrainSpacingAdjustmentControl = 2
 giSyncloopSamplerTemplateWaveSpacingAdjustmentControl = 7
 giSyncloopSamplerTemplateFxDepthAdjustmentControl = 4
 giSyncloopSamplerTemplateFxSpeedAdjustmentControl = 5
-massign giSyncloopSamplerTemplateMidiChannel, "SyncloopSamplerTemplate"
 
 /* Sound File Data */
 gSSyncloopSamplerTemplatesampleFilePath = "instruments/breakBeatInstruments/AmenBreak.wav"
@@ -65,7 +64,7 @@ endin
 instr SyncloopSamplerTemplate
   iAmplitude flexibleAmplitudeInput p4
   iPitch = flexiblePitchInput(p5) / 261.6 ; Ratio of frequency to Middle C
-  kAmplitudeEnvelope madsr .005, .01, iAmplitude, .01, 0, (giSyncloopSamplerTemplateFileLength)
+  kAmplitudeEnvelope = madsr(.005, .01, 1, .01, 0, (giSyncloopSamplerTemplateFileLength)) * iAmplitude
 
   /* MIDI Pitchbend */
   kPitchBend = 0
@@ -130,15 +129,6 @@ instr SyncloopSamplerTemplate
       aSyncloopSamplerTemplateR = aSyncloopSamplerTemplateL
   endif
 
-  print i(kGrainFrequency)
-  print i(kPitch)
-  print i(kGrainSize)
-  print i(kPointerRate)
-  print giSyncloopSamplerTemplateEndTime
-  print giSyncloopSamplerTemplateSampleTableL
-  print ienvelopeTable
-  print iMaxOverlaps
-
   outleta "OutL", aSyncloopSamplerTemplateL
   outleta "OutR", aSyncloopSamplerTemplateR
 endin
@@ -165,11 +155,12 @@ endin
 
 instr SyncloopSamplerTemplateMixerChannel
   /* Set MIDI Control default values here. This would be better in global space where we define our global variables for this instrument but it was not working there for some reason. The mixer channel, as an instrument-specific always-on instrument is a convenient (if not semantic) place to do it. */
-  initc7 giSyncloopSamplerTemplateMidiChannel, giSyncloopSamplerTemplateHoldAdjustmentControl, .5
-  initc7 giSyncloopSamplerTemplateMidiChannel, giSyncloopSamplerTemplateGrainSpacingAdjustmentControl, .5
-  initc7 giSyncloopSamplerTemplateMidiChannel, giSyncloopSamplerTemplateWaveSpacingAdjustmentControl, .5
-  initc7 giSyncloopSamplerTemplateMidiChannel, giSyncloopSamplerTemplateFxDepthAdjustmentControl, .5
-  initc7 giSyncloopSamplerTemplateMidiChannel, giSyncloopSamplerTemplateFxSpeedAdjustmentControl, .5
+  ; iSyncloopSamplerTemplateMidiChannel = 0
+  ; initc7 iSyncloopSamplerTemplateMidiChannel, giSyncloopSamplerTemplateHoldAdjustmentControl, .5
+  ; initc7 iSyncloopSamplerTemplateMidiChannel, giSyncloopSamplerTemplateGrainSpacingAdjustmentControl, .5
+  ; initc7 iSyncloopSamplerTemplateMidiChannel, giSyncloopSamplerTemplateWaveSpacingAdjustmentControl, .5
+  ; initc7 iSyncloopSamplerTemplateMidiChannel, giSyncloopSamplerTemplateFxDepthAdjustmentControl, .5
+  ; initc7 iSyncloopSamplerTemplateMidiChannel, giSyncloopSamplerTemplateFxSpeedAdjustmentControl, .5
   /* End MIDI control settings */
 
   aSyncloopSamplerTemplateL inleta "InL"
