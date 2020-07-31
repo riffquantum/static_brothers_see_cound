@@ -106,6 +106,8 @@
 
 #include "quarterCommaMeanToneMidiTuning.orc"
 
+#include "bohlenPierceMidiTuning.orc"
+
 #include "flexibleAmplitudeInput.orc"
 
 #include "flexiblePitchInput.orc"

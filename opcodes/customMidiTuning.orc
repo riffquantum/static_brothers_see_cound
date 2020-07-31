@@ -1,7 +1,6 @@
-opcode customMidiTuning, i, ioo
-  iMidiNote, iRatios, iBaseFrequency xin
+opcode customMidiTuning, i, iooo
+  iMidiNote, iRatios, iBaseFrequency, iOctaveSize xin
   iRatios = iRatios == 0 ? giCustomTuningFrequencyDefaultRatios : iRatios
-  iBaseFrequency = iBaseFrequency == 0 ? 261.626 : iBaseFrequency
   iDivisions ftlen iRatios
 
   iMidiNoteNumnerOfRoot = 60
@@ -10,7 +9,7 @@ opcode customMidiTuning, i, ioo
 
   iNoteNumber = (iMidiNote - iMidiNoteNumnbrOfLowestRoot) % iDivisions
   iOctaveNumber = ((iMidiNote - iMidiNoteNumnbrOfLowestRoot - iNoteNumber) / iDivisions)
-  iFrequency customTuningFrequency iOctaveNumber, iNoteNumber, iRatios, iBaseFrequency
+  iFrequency customTuningFrequency iOctaveNumber, iNoteNumber, iRatios, iBaseFrequency, iOctaveSize
 
   xout iFrequency
 endop
