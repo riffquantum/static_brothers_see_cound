@@ -10,8 +10,6 @@
     #include "config/defaultConfig.orc"
     #include "config/defaultMidiAssignments.orc"
 
-    gkBPM init 85
-
     #include "opcodes/opcode-manifest.orc"
     #include "instruments/orchestra-manifest.orc"
     #include "songs/getDiluvian/instruments/orchestra-manifest.orc"
@@ -93,7 +91,7 @@
       beatScorelineS( "santanaSample1", 0, 4, "1" )
       beatScorelineS( "santanaSample2", 8, 4, "1.5" )
 
-      beatScorelineS("LoserInTheEndBreak", 0, 2, {{  12 }})
+      beatScorelineS("LoserInTheEndBreak", 0, 2, {{ 127 1 12 }})
       beatScorelineS( "drumPattern1", 0, 4, {{ 0 }})
       beatScorelineS( "drumPattern1", 4, 4, {{ 0 }})
       beatScorelineS( "drumPattern1", 8, 4, {{ 1 }})
@@ -142,12 +140,12 @@
       beatScorelineS( "santanaBell2", 28.666, 16, ".7 0 1.33" )
 
 
-      beatScorelineS( "ItsExpectedBreak", 8, 3, {{ 0 }})
-      beatScorelineS( "ItsExpectedBreak", 12, 3, {{ 0 }})
-      beatScorelineS( "ItsExpectedBreak", 16, 3, {{ 0 }})
-      beatScorelineS( "ItsExpectedBreak", 20, 3, {{ 0 }})
-      beatScorelineS( "ItsExpectedBreak", 24, 3, {{ 0 }})
-      beatScorelineS( "ItsExpectedBreak", 28, 3, {{ 0 }})
+      beatScorelineS( "ItsExpectedBreak", 8, 3, {{ 127 1 0 }})
+      beatScorelineS( "ItsExpectedBreak", 12, 3, {{ 127 1 0 }})
+      beatScorelineS( "ItsExpectedBreak", 16, 3, {{ 127 1 0 }})
+      beatScorelineS( "ItsExpectedBreak", 20, 3, {{ 127 1 0 }})
+      beatScorelineS( "ItsExpectedBreak", 24, 3, {{ 127 1 0 }})
+      beatScorelineS( "ItsExpectedBreak", 28, 3, {{ 127 1 0 }})
 
       beatScorelineS( "drumPattern2", 8, 4, "" )
       beatScorelineS( "drumPattern2", 12, 4, "" )
@@ -168,11 +166,7 @@
   </CsInstruments>
 
   <CsScore>
-    #define bpm # 85 #
-
     m section1
-      t 0 [$bpm]
-
       i "Intro" 0 24
       i "verse1" 24 48
 

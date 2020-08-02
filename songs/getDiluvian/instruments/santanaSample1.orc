@@ -20,7 +20,7 @@ instr santanaSample1
   ioverlap = 20
   iwindowSize = 10
 
-  SsampleFilePath = "samples/santana-repetitive-riff.wav"
+  SsampleFilePath = "localSamples/santana-repetitive-riff.wav"
   iFileNumChannels filenchnls SsampleFilePath
   isantanaSample1FileSampleRate filesr SsampleFilePath
   isantanaSample1TableLength getTableSizeFromSample SsampleFilePath

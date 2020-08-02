@@ -3,6 +3,9 @@ instr drumPattern1
   iBeatsPerMeasure = 4
   iMeasureIndex = 0
 
+  gkDefaultDrumKitDistortionWetAmmount = .55
+  gkDefaultDrumKitDistortionDryAmmount = .45
+
   until iMeasureIndex * iBeatsPerMeasure >= iPatternLength do
     iBaseTime = iMeasureIndex * iBeatsPerMeasure
     iMeasureCount = iMeasureIndex + 1

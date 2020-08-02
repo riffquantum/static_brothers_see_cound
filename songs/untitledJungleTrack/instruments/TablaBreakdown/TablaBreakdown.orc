@@ -16,7 +16,7 @@ instr TablaBreakdown
 
   kPitchFactor *= gkBPM / 153
 
-  STablaBreakdownFilePath init "songs/untitledJungleTrack/instruments/TablaBreakdown/tablabreakdown.wav"
+  STablaBreakdownFilePath init "localSamples/tablabreakdown.wav"
   iWrapAround = 1
   iFormat = 0
   iSkipInit = 0

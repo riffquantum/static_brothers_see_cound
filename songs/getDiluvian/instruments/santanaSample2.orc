@@ -19,7 +19,7 @@ instr santanaSample2
   iwindowSize = 10
 
 
-  SsampleFilePath = "samples/santanaGuitarLick2.wav"
+  SsampleFilePath = "localSamples/santanaGuitarLick2.wav"
   iFileNumChannels filenchnls SsampleFilePath
   isantanaSample2FileSampleRate filesr SsampleFilePath
   isantanaSample2TableLength getTableSizeFromSample SsampleFilePath

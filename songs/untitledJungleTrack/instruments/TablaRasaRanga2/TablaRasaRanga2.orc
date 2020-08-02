@@ -17,7 +17,7 @@ instr TablaRassaRanga2
   kPitchFactor *= gkBPM / 146
 
 
-  STablaRassaRanga2FilePath init "songs/untitledJungleTrack/instruments/TablaRassaRanga2/tablarasaranga2.wav"
+  STablaRassaRanga2FilePath init "localSamples/tablarasaranga2.wav"
   iWrapAround = 1
   iFormat = 0
   iSkipInit = 0

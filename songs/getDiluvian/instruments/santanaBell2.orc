@@ -18,7 +18,7 @@ instr santanaBell2
   ioverlap = 20
   iwindowSize = 10
 
-  SsampleFilePath = "samples/santanaChosenHourBell2.wav"
+  SsampleFilePath = "localSamples/santanaChosenHourBell2.wav"
   iFileNumChannels filenchnls SsampleFilePath
   isantanaBell2FileSampleRate filesr SsampleFilePath
   isantanaBell2TableLength getTableSizeFromSample SsampleFilePath

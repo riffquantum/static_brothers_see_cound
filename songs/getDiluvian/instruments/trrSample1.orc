@@ -18,7 +18,7 @@ instr trrSample1
   ioverlap = 20
   iwindowSize = 10
 
-  SsampleFilePath = "samples/tablasitarloop1.wav"
+  SsampleFilePath = "localSamples/tablasitarloop1.wav"
   iFileNumChannels filenchnls SsampleFilePath
   itrrSample1FileSampleRate filesr SsampleFilePath
   itrrSample1TableLength getTableSizeFromSample SsampleFilePath

@@ -19,8 +19,7 @@ instr santanaSample3
   ioverlap = 20
   iwindowSize = 10
 
-
-  SsampleFilePath = "samples/santanaChosenHourVocal.wav"
+  SsampleFilePath = "localSamples/santanaChosenHourVocal.wav"
   iFileNumChannels filenchnls SsampleFilePath
   isantanaSample3FileSampleRate filesr SsampleFilePath
   isantanaSample3TableLength getTableSizeFromSample SsampleFilePath

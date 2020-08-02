@@ -17,7 +17,7 @@ instr TablaLoop2
   kPitchFactor *= gkBPM / 146
 
 
-  STablaLoop2FilePath init "songs/untitledJungleTrack/instruments/TablaLoop2/tablaloop2.wav"
+  STablaLoop2FilePath init "localSamples/tablaloop2.wav"
   iWrapAround = 1
   iFormat = 0
   iSkipInit = 0
