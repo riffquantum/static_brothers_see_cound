@@ -83,6 +83,8 @@
 
 #include "repeatNotes.orc"
 
+#include "instrumentToggle.orc"
+
 /*
   MIDI Input Helpers
 */
