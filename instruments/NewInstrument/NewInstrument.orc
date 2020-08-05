@@ -5,38 +5,40 @@ gkNewInstrumentEqMid init 1
 gkNewInstrumentEqHigh init 1
 gkNewInstrumentFader init 1
 gkNewInstrumentPan init 50
-instrumentRoute "NewInstrument", "WarmDistortionInput"
+instrumentRoute "NewInstrument", "NewEffectInput"
 
 instr NewInstrument
   iAmplitude flexibleAmplitudeInput p4
   iFrequency flexiblePitchInput p5
 
-  ifn init 0
-  idecayMethod init 6
-  iformat init 0
-  iskipinit init 0
-  iParam1 = .05
-  iParam2 = .02
-
-  iPluckPoint = .05
-  kReflectionCoefficient = .5
-  kPickupPosition = .05
-
   aAmplitudeEnvelope madsr .01, .1, .8, .25
+  aSignalL = 0
 
-  aPlucker = 0
-  aPlucker += pluck(iAmplitude, iFrequency, iFrequency, ifn, idecayMethod, iParam1, iParam2)/2
-  aPlucker += wgpluck2(iPluckPoint, iAmplitude, iFrequency, kPickupPosition, kReflectionCoefficient)
-  aPlucker += poscil(iAmplitude, iFrequency)
+  iNumberOfStrings = 3
+  iDetuneInCents = 3
+  iStiffness = .01
+  iDecayTime = 10
+  iHighFrequencyAttentuation = .1
+  kBoundaryConditionLeft = 3
+  kBoundaryConditionRight = 3
+  iHammerMass = .05
+  iHammerFrequency = 440
+  iHammerStartPosition = .5
+  iStrikePoint = .01
+  iStrikeVelocity = 40
+  iScanningFrequency = 0
+  iScanningFrequencySpread = 0
 
-  aPlucker butterlp aPlucker, 1000
-  aPlucker butterlp aPlucker, 800
+  aSignalL prepiano iFrequency, iNumberOfStrings, iDetuneInCents, iStiffness, \
+    iDecayTime, iHighFrequencyAttentuation, kBoundaryConditionLeft, kBoundaryConditionRight, iHammerMass, iHammerFrequency, iHammerStartPosition, iStrikePoint, iStrikeVelocity, iScanningFrequency, iScanningFrequencySpread
 
-  aPlucker *= aAmplitudeEnvelope
-  aPlucker *= (261.1/iFrequency)^.25
+  ; asignal STKRhodey ifrequency, iamplitude, [kmod, kv1[, kcross, kv2[, klfo, kv3[, klfodepth, kv4[, kadsr, kv5]]]]]
 
-  outleta "OutL", aPlucker
-  outleta "OutR", aPlucker
+  aSignalL *= aAmplitudeEnvelope
+  aSignalR = aSignalL
+
+  outleta "OutL", aSignalL
+  outleta "OutR", aSignalR
 
   skipNote:
 endin

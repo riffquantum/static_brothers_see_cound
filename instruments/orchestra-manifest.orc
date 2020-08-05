@@ -2,6 +2,28 @@
 
 #include "NewEffect/NewEffect.orc"
 
+#include "DefaultEffectChain/DefaultEffectChain.orc"
+
+#include "DefaultEffectChain/DefaultEffectChainDelay.orc"
+
+#include "DefaultEffectChain/DefaultEffectChainDistortion.orc"
+
+#include "DefaultEffectChain/DefaultEffectChainFreezer.orc"
+
+#include "DefaultEffectChain/DefaultEffectChainLowPassFilter.orc"
+
+#include "DefaultEffectChain/DefaultEffectChainMultiStageDistortion.orc"
+
+#include "DefaultEffectChain/DefaultEffectChainPitchShifter.orc"
+
+#include "DefaultEffectChain/DefaultEffectChainReverb.orc"
+
+#include "DefaultEffectChain/DefaultEffectChainRingMod.orc"
+
+#include "DefaultEffectChain/DefaultEffectChainTremolo.orc"
+
+#include "DefaultEffectChain/DefaultEffectChainWarmDistortion.orc"
+
 #include "BassSynth/BassSynth.orc"
 
 #include "BassPluck/BassPluck.orc"
