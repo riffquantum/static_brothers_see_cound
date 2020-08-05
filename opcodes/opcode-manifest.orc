@@ -11,6 +11,10 @@
 
 #include "indexOfString.orc"
 
+#include "secondsToBeats.orc"
+
+#include "beatsToSeconds.orc"
+
 #include "printsBlock.orc"
 
 #include "printsBlockI.orc"
