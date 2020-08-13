@@ -10,7 +10,7 @@ gkCbKickEqHigh init 1
 gkCbKickFader init 1
 gkCbKickPan init 50
 
-gSCbKickSamplePath ="songs/sbDrumKit/instruments/CbKick/CB_Kick.wav"
+gSCbKickSamplePath ="localSamples/CB_Kick.wav"
 giCbKickSample ftgen 0, 0, 0, 1, gSCbKickSamplePath, 0, 0, 0
 
 instr CbKick

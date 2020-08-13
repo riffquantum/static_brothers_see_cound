@@ -1,49 +1,55 @@
-#include "bigSynth/bigSynth.orc"
-
-#include "BirdShitSynth/BirdShitSynth.orc"
-
-#include "BirdShitSynthSamples/BirdShitSynthSamples.orc"
-
-#include "CbKick/CbKick.orc"
-
-#include "ClosedHat/ClosedHat.orc"
-
-#include "Crash/Crash.orc"
-
-#include "FatTomLow/FatTomLow.orc"
-
-#include "FatTomMiddle/FatTomMiddle.orc"
-
-#include "LongDeepKick/LongDeepKick.orc"
-
 #include "midiRouter/midiRouter.orc"
 
-#include "OpenHat/OpenHat.orc"
+#include "bigSynth.orc"
 
-#include "Photoshop/Photoshop.orc"
+/* Default Drum Kit */
 
-#include "PhotoshopSamples/PhotoshopSamples.orc"
+#include "DefaultDrumKit/CbKick.orc"
 
-#include "PitchedDownCrash/PitchedDownCrash.orc"
+#include "DefaultDrumKit/ClosedHat.orc"
 
-#include "punishmentAwaits/punishmentAwaits.orc"
+#include "DefaultDrumKit/Crash.orc"
 
-#include "PunishYou/PunishYou.orc"
+#include "DefaultDrumKit/FatTomLow.orc"
 
-#include "ReverbForKick/ReverbForKick.orc"
+#include "DefaultDrumKit/FatTomMiddle.orc"
 
-#include "Ride/Ride.orc"
+#include "DefaultDrumKit/LongDeepKick.orc"
 
-#include "SharpKick/SharpKick.orc"
+#include "DefaultDrumKit/OpenHat.orc"
 
-#include "SharpSnare/SharpSnare.orc"
+#include "DefaultDrumKit/Ride.orc"
 
-#include "Snare/Snare.orc"
+#include "DefaultDrumKit/SharpKick.orc"
 
-#include "Busses/KickBus.orc"
+#include "DefaultDrumKit/SharpSnare.orc"
 
-#include "Busses/DrumKitBus.orc"
+#include "DefaultDrumKit/Snare.orc"
 
-#include "DelayForDrumKit/DelayForDrumKit.orc"
+#include "DefaultDrumKit/PitchedDownCrash.orc"
 
-#include "ReverbForDrumKit/ReverbForDrumKit.orc"
+#include "DefaultDrumKit/ReverbForKick.orc"
+
+#include "DefaultDrumKit/DelayForDrumKit.orc"
+
+#include "DefaultDrumKit/ReverbForDrumKit.orc"
+
+#include "DefaultDrumKit/KickBus.orc"
+
+#include "DefaultDrumKit/DrumKitBus.orc"
+
+/* BirdShit */
+
+#include "BirdShit/BirdShitSynth.orc"
+
+#include "BirdShit/BirdShitSynthSamples/BirdShitSynthSamples.orc"
+
+/* Avian Peter */
+
+#include "AvianPeter/Photoshop.orc"
+
+#include "AvianPeter/PhotoshopSamples/PhotoshopSamples.orc"
+
+#include "AvianPeter/punishmentAwaits/punishmentAwaits.orc"
+
+#include "AvianPeter/PunishYou/PunishYou.orc"

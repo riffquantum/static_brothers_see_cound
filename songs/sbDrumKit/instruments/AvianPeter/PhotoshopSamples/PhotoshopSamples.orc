@@ -11,55 +11,55 @@ gkPhotoshopSamplesPan init 50
 
 giPhotoshopSampleTables[] init 128
 
-gSPhotoshopSampleClosedHatPath = "songs/sbDrumKit/instruments/PhotoshopSamples/PhotoshopSampleClosedHat.wav"
+gSPhotoshopSampleClosedHatPath = "localSamples/PhotoshopSamples/PhotoshopSampleClosedHat.wav"
 giPhotoshopSampleClosedHatTableLength getTableSizeFromSample gSPhotoshopSampleClosedHatPath
 giPhotoshopSampleTables[giHatClosedNote] ftgen 0, 0, giPhotoshopSampleClosedHatTableLength, 1, gSPhotoshopSampleClosedHatPath, 0, 0, 0
 
-gSPhotoshopSampleCrashPath = "songs/sbDrumKit/instruments/PhotoshopSamples/PhotoshopSampleCrash.wav"
+gSPhotoshopSampleCrashPath = "localSamples/PhotoshopSamples/PhotoshopSampleCrash.wav"
 giPhotoshopSampleCrashTableLength getTableSizeFromSample gSPhotoshopSampleCrashPath
 giPhotoshopSampleTables[giCrashNote] ftgen 0, 0, giPhotoshopSampleCrashTableLength, 1, gSPhotoshopSampleCrashPath, 0, 0, 0
 
-gSPhotoshopSampleGreenPadPath = "songs/sbDrumKit/instruments/PhotoshopSamples/PhotoshopSampleGreenPad.wav"
+gSPhotoshopSampleGreenPadPath = "localSamples/PhotoshopSamples/PhotoshopSampleGreenPad.wav"
 giPhotoshopSampleGreenPadTableLength getTableSizeFromSample gSPhotoshopSampleGreenPadPath
 giPhotoshopSampleTables[giGreenPadNote] ftgen 0, 0, giPhotoshopSampleGreenPadTableLength, 1, gSPhotoshopSampleGreenPadPath, 0, 0, 0
 
-gSPhotoshopSampleHatPedalPath = "songs/sbDrumKit/instruments/PhotoshopSamples/PhotoshopSampleHatPedal.wav"
+gSPhotoshopSampleHatPedalPath = "localSamples/PhotoshopSamples/PhotoshopSampleHatPedal.wav"
 giPhotoshopSampleHatPedalTableLength getTableSizeFromSample gSPhotoshopSampleHatPedalPath
 giPhotoshopSampleTables[giHatPedalNote] ftgen 0, 0, giPhotoshopSampleHatPedalTableLength, 1, gSPhotoshopSampleHatPedalPath, 0, 0, 0
 
-gSPhotoshopSampleKickPath = "songs/sbDrumKit/instruments/PhotoshopSamples/PhotoshopSampleKick.wav"
+gSPhotoshopSampleKickPath = "localSamples/PhotoshopSamples/PhotoshopSampleKick.wav"
 giPhotoshopSampleKickTableLength getTableSizeFromSample gSPhotoshopSampleKickPath
 giPhotoshopSampleTables[giKickNote] ftgen 0, 0, giPhotoshopSampleKickTableLength, 1, gSPhotoshopSampleKickPath, 0, 0, 0
 
-gSPhotoshopSampleOpenHatPath = "songs/sbDrumKit/instruments/PhotoshopSamples/PhotoshopSampleOpenHat.wav"
+gSPhotoshopSampleOpenHatPath = "localSamples/PhotoshopSamples/PhotoshopSampleOpenHat.wav"
 giPhotoshopSampleOpenHatTableLength getTableSizeFromSample gSPhotoshopSampleOpenHatPath
 giPhotoshopSampleTables[giHatOpenNote] ftgen 0, 0, giPhotoshopSampleOpenHatTableLength, 1, gSPhotoshopSampleOpenHatPath, 0, 0, 0
 
-gSPhotoshopSampleRedPadPath = "songs/sbDrumKit/instruments/PhotoshopSamples/PhotoshopSampleRedPad.wav"
+gSPhotoshopSampleRedPadPath = "localSamples/PhotoshopSamples/PhotoshopSampleRedPad.wav"
 giPhotoshopSampleRedPadTableLength getTableSizeFromSample gSPhotoshopSampleRedPadPath
 giPhotoshopSampleTables[giRedPadNote] ftgen 0, 0, giPhotoshopSampleRedPadTableLength, 1, gSPhotoshopSampleRedPadPath, 0, 0, 0
 
-gSPhotoshopSampleRidePath = "songs/sbDrumKit/instruments/PhotoshopSamples/PhotoshopSampleRide.wav"
+gSPhotoshopSampleRidePath = "localSamples/PhotoshopSamples/PhotoshopSampleRide.wav"
 giPhotoshopSampleRideTableLength getTableSizeFromSample gSPhotoshopSampleRidePath
 giPhotoshopSampleTables[giRideNote] ftgen 0, 0, giPhotoshopSampleRideTableLength, 1, gSPhotoshopSampleRidePath, 0, 0, 0
 
-gSPhotoshopSampleSnarePath = "songs/sbDrumKit/instruments/PhotoshopSamples/PhotoshopSampleSnare.wav"
+gSPhotoshopSampleSnarePath = "localSamples/PhotoshopSamples/PhotoshopSampleSnare.wav"
 giPhotoshopSampleSnareTableLength getTableSizeFromSample gSPhotoshopSampleSnarePath
 giPhotoshopSampleTables[giSnareNote] ftgen 0, 0, giPhotoshopSampleSnareTableLength, 1, gSPhotoshopSampleSnarePath, 0, 0, 0
 
-gSPhotoshopSampleTom1Path = "songs/sbDrumKit/instruments/PhotoshopSamples/PhotoshopSampleTom1.wav"
+gSPhotoshopSampleTom1Path = "localSamples/PhotoshopSamples/PhotoshopSampleTom1.wav"
 giPhotoshopSampleTom1TableLength getTableSizeFromSample gSPhotoshopSampleTom1Path
 giPhotoshopSampleTables[giTom1Note] ftgen 0, 0, giPhotoshopSampleTom1TableLength, 1, gSPhotoshopSampleTom1Path, 0, 0, 0
 
-gSPhotoshopSampleTom2Path = "songs/sbDrumKit/instruments/PhotoshopSamples/PhotoshopSampleTom2.wav"
+gSPhotoshopSampleTom2Path = "localSamples/PhotoshopSamples/PhotoshopSampleTom2.wav"
 giPhotoshopSampleTom2TableLength getTableSizeFromSample gSPhotoshopSampleTom2Path
 giPhotoshopSampleTables[giTom2Note] ftgen 0, 0, giPhotoshopSampleTom2TableLength, 1, gSPhotoshopSampleTom2Path, 0, 0, 0
 
-gSPhotoshopSampleTomPad1Path = "songs/sbDrumKit/instruments/PhotoshopSamples/PhotoshopSampleTomPad1.wav"
+gSPhotoshopSampleTomPad1Path = "localSamples/PhotoshopSamples/PhotoshopSampleTomPad1.wav"
 giPhotoshopSampleTomPad1TableLength getTableSizeFromSample gSPhotoshopSampleTomPad1Path
 giPhotoshopSampleTables[giTomPad1Note] ftgen 0, 0, giPhotoshopSampleTomPad1TableLength, 1, gSPhotoshopSampleTomPad1Path, 0, 0, 0
 
-gSPhotoshopSampleTomPad2Path = "songs/sbDrumKit/instruments/PhotoshopSamples/PhotoshopSampleTomPad2.wav"
+gSPhotoshopSampleTomPad2Path = "localSamples/PhotoshopSamples/PhotoshopSampleTomPad2.wav"
 giPhotoshopSampleTomPad2TableLength getTableSizeFromSample gSPhotoshopSampleTomPad2Path
 giPhotoshopSampleTables[giTomPad2Note] ftgen 0, 0, giPhotoshopSampleTomPad2TableLength, 1, gSPhotoshopSampleTomPad2Path, 0, 0, 0
 

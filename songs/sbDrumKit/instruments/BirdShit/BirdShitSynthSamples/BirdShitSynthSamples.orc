@@ -9,11 +9,11 @@ gkBirdShitSynthSamplesEqHigh init 1
 gkBirdShitSynthSamplesFader init 1
 gkBirdShitSynthSamplesPan init 50
 
-gSBirdShitSynthSamplesPath1 ="songs/sbDrumKit/instruments/BirdShitSynthSamples/BirdShitSynthSample1.wav"
+gSBirdShitSynthSamplesPath1 ="localSamples/BirdShitSynthSample1.wav"
 giBirdShitSynthSamplesTableLength1 getTableSizeFromSample gSBirdShitSynthSamplesPath1
 giBirdShitSynthSamples1 ftgen 0, 0, giBirdShitSynthSamplesTableLength1, 1, gSBirdShitSynthSamplesPath1, 0, 0, 0
 
-gSBirdShitSynthSamplesPath2 ="songs/sbDrumKit/instruments/BirdShitSynthSamples/BirdShitSynthSample2.wav"
+gSBirdShitSynthSamplesPath2 ="localSamples/BirdShitSynthSample2.wav"
 giBirdShitSynthSamplesTableLength2 getTableSizeFromSample gSBirdShitSynthSamplesPath2
 giBirdShitSynthSamples2 ftgen 0, 0, giBirdShitSynthSamplesTableLength2, 1, gSBirdShitSynthSamplesPath2, 0, 0, 0
 
