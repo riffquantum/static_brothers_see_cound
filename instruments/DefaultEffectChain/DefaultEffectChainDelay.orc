@@ -5,7 +5,7 @@ giDefaultEffectChainDelayBufferLength init 5
 gaDefaultEffectChainDelayTime init 0.25
 gkDefaultEffectChainDelayFeedbackAmmount init 0.8
 gkDefaultEffectChainDelayLevel init 1
-gkStereoOffset init 0.0
+gkDefaultEffectCHainDelayStereoOffset init 0.0
 
 gkDefaultEffectChainDelayEqBass init 1
 gkDefaultEffectChainDelayEqMid init 1
@@ -43,8 +43,8 @@ instr DefaultEffectChainDelayLevelKnob
   gkDefaultEffectChainDelayLevel linseg p4, p3, p5
 endin
 
-instr StereoOffsetKnob
-  gkStereoOffset linseg p4, p3, p5
+instr DefaultEffectChainDelayStereoOffsetKnob
+  gkDefaultEffectCHainDelayStereoOffset linseg p4, p3, p5
 endin
 
 
@@ -52,8 +52,8 @@ instr DefaultEffectChainDelay
   aDefaultEffectChainDelayInL inleta "InL"
   aDefaultEffectChainDelayInR inleta "InR"
 
-  aDefaultEffectChainDelayTimeL = gaDefaultEffectChainDelayTime + gkStereoOffset
-  aDefaultEffectChainDelayTimeR = gaDefaultEffectChainDelayTime - gkStereoOffset
+  aDefaultEffectChainDelayTimeL = gaDefaultEffectChainDelayTime + gkDefaultEffectCHainDelayStereoOffset
+  aDefaultEffectChainDelayTimeR = gaDefaultEffectChainDelayTime - gkDefaultEffectCHainDelayStereoOffset
 
   aDefaultEffectChainDelayAudioL delayBuffer aDefaultEffectChainDelayInL, gkDefaultEffectChainDelayFeedbackAmmount, giDefaultEffectChainDelayBufferLength, aDefaultEffectChainDelayTimeL, gkDefaultEffectChainDelayLevel
   aDefaultEffectChainDelayAudioR delayBuffer aDefaultEffectChainDelayInR, gkDefaultEffectChainDelayFeedbackAmmount, giDefaultEffectChainDelayBufferLength, aDefaultEffectChainDelayTimeR, gkDefaultEffectChainDelayLevel

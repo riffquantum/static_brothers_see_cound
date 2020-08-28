@@ -6,7 +6,7 @@ giDelayBufferLength init 5
 gaDelayTime init 0.25
 gkDelayFeedbackAmmount init 0.8
 gkDelayLevel init 1
-gkStereoOffset init 0.0
+gkDelayStereoOffset init 0.0
 
 gkDelayEqBass init 1
 gkDelayEqMid init 1
@@ -26,8 +26,8 @@ instr DelayLevelKnob
   gkDelayLevel linseg p4, p3, p5
 endin
 
-instr StereoOffsetKnob
-  gkStereoOffset linseg p4, p3, p5
+instr DelayStereoOffsetKnob
+  gkDelayStereoOffset linseg p4, p3, p5
 endin
 
 
@@ -35,8 +35,8 @@ instr Delay
   aDelayInL inleta "InL"
   aDelayInR inleta "InR"
 
-  aDelayTimeL = gaDelayTime + gkStereoOffset
-  aDelayTimeR = gaDelayTime - gkStereoOffset
+  aDelayTimeL = gaDelayTime + gkDelayStereoOffset
+  aDelayTimeR = gaDelayTime - gkDelayStereoOffset
 
   aDelayAudioL delayBuffer aDelayInL, gkDelayFeedbackAmmount, giDelayBufferLength, aDelayTimeL, gkDelayLevel
   aDelayAudioR delayBuffer aDelayInR, gkDelayFeedbackAmmount, giDelayBufferLength, aDelayTimeR, gkDelayLevel
