@@ -8,7 +8,7 @@ gkLinnDrumRideEqHigh init 1
 gkLinnDrumRideFader init 1
 gkLinnDrumRidePan init 35
 
-gSLinnDrumRideSamplePath = "localSamples/Drums/R8-Drums_Ride_E741.wav"
+gSLinnDrumRideSamplePath = "localSamples/Drums/Linn-Drum_Ride_1.wav"
 giLinnDrumRideSample ftgen 0, 0, 0, 1, gSLinnDrumRideSamplePath, 0, 0, 0
 
 instr LinnDrumRide

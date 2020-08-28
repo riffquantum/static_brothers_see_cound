@@ -5,7 +5,6 @@ giLinnDrumKitReverbBufferLength init 5
 gaLinnDrumKitReverbTime init .3
 gkLinnDrumKitReverbFeedbackAmmount init 0.8
 gkLinnDrumKitReverbLevel init .2
-gkStereoOffset init 0.1
 
 gkLinnDrumKitReverbEqBass init 1
 gkLinnDrumKitReverbEqMid init 1

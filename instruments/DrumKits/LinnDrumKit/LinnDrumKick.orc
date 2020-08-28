@@ -8,7 +8,7 @@ gkLinnDrumKickEqHigh init 1
 gkLinnDrumKickFader init 1
 gkLinnDrumKickPan init 50
 
-gSLinnDrumKickSamplePath = "localsamples/CB_Kick.wav"
+gSLinnDrumKickSamplePath = "localSamples/Drums/Linn-Drum_Kick_1.wav"
 giLinnDrumKickSample ftgen 0, 0, 0, 1, gSLinnDrumKickSamplePath, 0, 0, 0
 
 instr LinnDrumKick

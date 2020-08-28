@@ -8,11 +8,18 @@ gkLinnDrumClosedHatEqHigh init 1
 gkLinnDrumClosedHatFader init 1
 gkLinnDrumClosedHatPan init 50
 
-gSLinnDrumClosedHatSamplePath = "localSamples/Drums/R8-Drums_Closed-Hat_E703.wav"
-giLinnDrumClosedHatSample ftgen 0, 0, 0, 1, gSLinnDrumClosedHatSamplePath, 0, 0, 0
+giLinnDrumClosedHatSamples[] fillarray \
+ftgen( 0, 0, 0, 1, "localSamples/Drums/Linn-Drum_Closed-Hat_1.wav", 0, 0, 0 ), \
+ftgen( 0, 0, 0, 1, "localSamples/Drums/Linn-Drum_Closed-Hat_2.wav", 0, 0, 0 ), \
+ftgen( 0, 0, 0, 1, "localSamples/Drums/Linn-Drum_Closed-Hat_3.wav", 0, 0, 0 ), \
+ftgen( 0, 0, 0, 1, "localSamples/Drums/Linn-Drum_Closed-Hat_4.wav", 0, 0, 0 ), \
+ftgen( 0, 0, 0, 1, "localSamples/Drums/Linn-Drum_Closed-Hat_5.wav", 0, 0, 0 ), \
+ftgen( 0, 0, 0, 1, "localSamples/Drums/Linn-Drum_Closed-Hat_6.wav", 0, 0, 0 ), \
+ftgen( 0, 0, 0, 1, "localSamples/Drums/Linn-Drum_Closed-Hat_7.wav", 0, 0, 0 )
 
 instr LinnDrumClosedHat
-  aLinnDrumClosedHatL, aLinnDrumClosedHatR drumSample giLinnDrumClosedHatSample, p4, p5
+  iSampleNumber = p6
+  aLinnDrumClosedHatL, aLinnDrumClosedHatR drumSample giLinnDrumClosedHatSamples[iSampleNumber], p4, p5
 
   outleta "OutL", aLinnDrumClosedHatL
   outleta "OutR", aLinnDrumClosedHatR

@@ -6,13 +6,27 @@ gkLinnDrumSnareEqBass init 1.3
 gkLinnDrumSnareEqMid init 1
 gkLinnDrumSnareEqHigh init 1
 gkLinnDrumSnareFader init 1
-gkLinnDrumSnarePan init 45
+gkLinnDrumSnarePan init 50
 
-gSLinnDrumSnareSamplePath = "localSamples/Drums/Mixed-Drums_Snare_EA8512.wav"
-giLinnDrumSnareSample ftgen 0, 0, 0, 1, gSLinnDrumSnareSamplePath, 0, 0, 0
+giLinnDrumSnareSamples[] fillarray \
+ftgen( 0, 0, 0, 1, "localSamples/Drums/Linn-Drum_Snare_8.wav", 0, 0, 0 ), \
+ftgen( 0, 0, 0, 1, "localSamples/Drums/Linn-Drum_Snare_9.wav", 0, 0, 0 ), \
+ftgen( 0, 0, 0, 1, "localSamples/Drums/Linn-Drum_Snare_10.wav", 0, 0, 0 ), \
+ftgen( 0, 0, 0, 1, "localSamples/Drums/Linn-Drum_Snare_11.wav", 0, 0, 0 ), \
+ftgen( 0, 0, 0, 1, "localSamples/Drums/Linn-Drum_Snare_12.wav", 0, 0, 0 ), \
+ftgen( 0, 0, 0, 1, "localSamples/Drums/Linn-Drum_Snare_13.wav", 0, 0, 0 ), \
+ftgen( 0, 0, 0, 1, "localSamples/Drums/Linn-Drum_Snare_14.wav", 0, 0, 0 ), \
+ftgen( 0, 0, 0, 1, "localSamples/Drums/Linn-Drum_Snare_1.wav", 0, 0, 0 ), \
+ftgen( 0, 0, 0, 1, "localSamples/Drums/Linn-Drum_Snare_2.wav", 0, 0, 0 ), \
+ftgen( 0, 0, 0, 1, "localSamples/Drums/Linn-Drum_Snare_3.wav", 0, 0, 0 ), \
+ftgen( 0, 0, 0, 1, "localSamples/Drums/Linn-Drum_Snare_4.wav", 0, 0, 0 ), \
+ftgen( 0, 0, 0, 1, "localSamples/Drums/Linn-Drum_Snare_5.wav", 0, 0, 0 ), \
+ftgen( 0, 0, 0, 1, "localSamples/Drums/Linn-Drum_Snare_6.wav", 0, 0, 0 ), \
+ftgen( 0, 0, 0, 1, "localSamples/Drums/Linn-Drum_Snare_7.wav", 0, 0, 0 )
 
 instr LinnDrumSnare
-  aLinnDrumSnareL, aLinnDrumSnareR drumSample giLinnDrumSnareSample, p4, p5
+  iSampleNumber = p6
+  aLinnDrumSnareL, aLinnDrumSnareR drumSample giLinnDrumSnareSamples[iSampleNumber], p4, p5
 
   outleta "OutL", aLinnDrumSnareL
   outleta "OutR", aLinnDrumSnareR

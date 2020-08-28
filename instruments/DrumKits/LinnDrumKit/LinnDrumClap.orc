@@ -8,7 +8,7 @@ gkLinnDrumClapEqHigh init 1
 gkLinnDrumClapFader init 1
 gkLinnDrumClapPan init 50
 
-gSLinnDrumClapSamplePath = "localSamples/Drums/FL-Studio-LinnDrums_Clap_1.wav"
+gSLinnDrumClapSamplePath = "localSamples/Drums/Linn-Drum_Clap_1.wav"
 giLinnDrumClapSample ftgen 0, 0, 0, 1, gSLinnDrumClapSamplePath, 0, 0, 0
 
 instr LinnDrumClap

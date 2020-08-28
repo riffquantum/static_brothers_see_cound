@@ -8,7 +8,7 @@ gkLinnDrumCrashEqHigh init 1
 gkLinnDrumCrashFader init 1
 gkLinnDrumCrashPan init 60
 
-gSLinnDrumCrashSamplePath = "localSamples/Drums/R8-Drums_Crash_E715.wav"
+gSLinnDrumCrashSamplePath = "localSamples/Drums/Linn-Drum_Crash_1.wav"
 giLinnDrumCrashSample ftgen 0, 0, 0, 1, gSLinnDrumCrashSamplePath, 0, 0, 0
 
 instr LinnDrumCrash

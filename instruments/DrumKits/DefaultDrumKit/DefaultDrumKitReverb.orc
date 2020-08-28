@@ -5,7 +5,6 @@ giDefaultDrumKitReverbBufferLength init 5
 gaDefaultDrumKitReverbTime init .3
 gkDefaultDrumKitReverbFeedbackAmmount init 0.8
 gkDefaultDrumKitReverbLevel init .2
-gkStereoOffset init 0.1
 
 gkDefaultDrumKitReverbEqBass init 1
 gkDefaultDrumKitReverbEqMid init 1

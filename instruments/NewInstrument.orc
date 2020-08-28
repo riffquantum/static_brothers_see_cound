@@ -14,25 +14,18 @@ instr NewInstrument
   aAmplitudeEnvelope madsr .01, .1, .8, .25
   aSignalL = 0
 
-  iNumberOfStrings = 3
-  iDetuneInCents = 3
-  iStiffness = .01
-  iDecayTime = 10
-  iHighFrequencyAttentuation = .1
-  kBoundaryConditionLeft = 3
-  kBoundaryConditionRight = 3
-  iHammerMass = .05
-  iHammerFrequency = 440
-  iHammerStartPosition = .5
-  iStrikePoint = .01
-  iStrikeVelocity = 40
-  iScanningFrequency = 0
-  iScanningFrequencySpread = 0
+  kMod1 = 2
+  kV1 = 80
+  kCross = 4
+  kV2 = 10
+  kLFO = 11
+  kV3 = 100
+  kLFODepth = 1
+  kD4 = 3
+  kADSR = 128
+  kV5 = 80
 
-  aSignalL prepiano iFrequency, iNumberOfStrings, iDetuneInCents, iStiffness, \
-    iDecayTime, iHighFrequencyAttentuation, kBoundaryConditionLeft, kBoundaryConditionRight, iHammerMass, iHammerFrequency, iHammerStartPosition, iStrikePoint, iStrikeVelocity, iScanningFrequency, iScanningFrequencySpread
-
-  ; asignal STKRhodey ifrequency, iamplitude, [kmod, kv1[, kcross, kv2[, klfo, kv3[, klfodepth, kv4[, kadsr, kv5]]]]]
+  ; aSignalL STKRhodey iFrequency, iAmplitude, kMod1, kV1, kCross, kV2, kLFO, kV3, kLFODepth, kD4, kADSR, kV5
 
   aSignalL *= aAmplitudeEnvelope
   aSignalR = aSignalL

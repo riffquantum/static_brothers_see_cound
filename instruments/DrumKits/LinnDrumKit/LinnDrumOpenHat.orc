@@ -8,7 +8,7 @@ gkLinnDrumOpenHatEqHigh init 1
 gkLinnDrumOpenHatFader init 1
 gkLinnDrumOpenHatPan init 40
 
-gSLinnDrumOpenHatSamplePath = "localSamples/Drums/R8-Drums_Open-Hat_E704.wav"
+gSLinnDrumOpenHatSamplePath = "localSamples/Drums/Linn-Drum_Open-Hat_1.wav"
 giLinnDrumOpenHatSample ftgen 0, 0, 0, 1, gSLinnDrumOpenHatSamplePath, 0, 0, 0
 
 instr LinnDrumOpenHat

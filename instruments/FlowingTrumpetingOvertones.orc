@@ -7,7 +7,7 @@ gkFlowingTrumpetingOvertonesEqHigh init 1
 gkFlowingTrumpetingOvertonesFader init 1
 gkFlowingTrumpetingOvertonesPan init 50
 
-gSFlowingTrumpetingOvertonesSampleFilePath = "localSamples/blueangel5.wav"
+gSFlowingTrumpetingOvertonesSampleFilePath = "localSamples/Roy Orbison - Blue Angel/blueangel5.wav"
 giFlowingTrumpetingOvertonesNumberOfChannels filenchnls gSFlowingTrumpetingOvertonesSampleFilePath
 giFlowingTrumpetingOvertonesSampleLength filelen gSFlowingTrumpetingOvertonesSampleFilePath
 giFlowingTrumpetingOvertonesStartTime = 0

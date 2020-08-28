@@ -1,4 +1,4 @@
-instrumentRoute "SyncLoopSamplerTemplate2", "Mixer"
+instrumentRoute "SyncLoopSamplerTemplate2", "DefaultEffectChain"
 alwayson "SyncLoopSamplerTemplate2MixerChannel"
 
 gkSyncLoopSamplerTemplate2EqBass init 1
@@ -7,7 +7,7 @@ gkSyncLoopSamplerTemplate2EqHigh init 1
 gkSyncLoopSamplerTemplate2Fader init 1
 gkSyncLoopSamplerTemplate2Pan init 50
 
-gSSyncLoopSamplerTemplate2SampleFilePath = "localSamples/horrible flute tone.wav"
+gSSyncLoopSamplerTemplate2SampleFilePath = "localSamples/gloria4ia.wav"
 giSyncLoopSamplerTemplate2NumberOfChannels filenchnls gSSyncLoopSamplerTemplate2SampleFilePath
 giSyncLoopSamplerTemplate2SampleLength filelen gSSyncLoopSamplerTemplate2SampleFilePath
 giSyncLoopSamplerTemplate2StartTime = 0
@@ -31,19 +31,24 @@ instr SyncLoopSamplerTemplate2
   iAttack = .01
   iDecay = .01
   iSustain = 1
-  iRelease = .5
+  iRelease = .1
   kAmplitudeEnvelope = madsr(iAttack, iDecay, iSustain, iRelease) * iAmplitude
 
+  kTimeStretch = p6 == 0 ? 1 : p6
+  kGrainSizeAdjustment = p8 == 0 ? 1 : p8
+  kGrainFrequencyAdjustment = p9 == 0 ? 1 : p9
+  kPitchAdjustment = p10 == 0 ? 1 : p10
+  kGrainOverlapPercentageAdjustment = p11 == 0 ? 1 : p11
 
   kPitchBend = 0
-  midipitchbend kPitchBend, 0, 15
+  midipitchbend kPitchBend, 0, 100
 
   ;Grain Parameter Adjustments
-  kTimeStretch = 0 + poscil(1, .25) + poscil(.2, .3)
-  kGrainSizeAdjustment = 1 ;+ poscil(.04, .87) + poscil(.2, .3)
-  kGrainFrequencyAdjustment = 1 ;+ poscil(.04, .87) + poscil(.2, .3)
-  kPitchAdjustment = 1; + poscil(.1, .1) * (1 + kPitchBend)
-  kGrainOverlapPercentageAdjustment = 1 ;+ poscil(.04, .87) + poscil(.2, .3)
+  kTimeStretch *= .3 * (1 + kPitchBend) ; - poscil(1, .25) + poscil(.2, .3)
+  kGrainSizeAdjustment *= .3 + poscil(.04, .87) + poscil(.2, .3)
+  kGrainFrequencyAdjustment *= 1 + poscil(.04, .87) + poscil(.2, .3)
+  kPitchAdjustment *= 1 + poscil(.1, .1) * (1 + kPitchBend)
+  kGrainOverlapPercentageAdjustment *= .99 ;+ poscil(.04, .87) + poscil(.2, .3)
 
   ;Base settings for Granulizer
   kPitch *= kPitchAdjustment

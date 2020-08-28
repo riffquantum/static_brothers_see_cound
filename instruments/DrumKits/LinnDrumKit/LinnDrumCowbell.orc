@@ -8,7 +8,7 @@ gkLinnDrumCowbellEqHigh init 1
 gkLinnDrumCowbellFader init 1
 gkLinnDrumCowbellPan init 25
 
-gSLinnDrumCowbellSamplePath = "localSamples/Drums/Qdrums_Cowbell_EA9012.wav"
+gSLinnDrumCowbellSamplePath = "localSamples/Drums/Linn-Drum_Cowbell_1.wav"
 giLinnDrumCowbellSample ftgen 0, 0, 0, 1, gSLinnDrumCowbellSamplePath, 0, 0, 0
 
 instr LinnDrumCowbell
