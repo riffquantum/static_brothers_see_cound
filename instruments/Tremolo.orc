@@ -12,7 +12,10 @@ gkTremoloPan init 50
 gkTremoloDryAmmount init 0
 gkTremoloWetAmmount init 1
 
-gkTremoloRate init 20
+giTremoloWaveShapes[] fillarray sineWave(), triangleWave()
+giTremoloWaveShape init 1
+gaTremoloWaveSquareness init 0
+gkTremoloRate init 2
 gkTremoloDepth init 1
 
 
@@ -34,11 +37,17 @@ instr Tremolo
   aTremoloInL inleta "InL"
   aTremoloInR inleta "InR"
 
+  kTremoloDepth = limit(gkTremoloDepth, 0, 1)
+  aSquareness = (((gaTremoloWaveSquareness/100)^(1/.3))*20) + 1
+  aTremoloWave = (poscil(.5, gkTremoloRate, giTremoloWaveShapes[giTremoloWaveShape])) * aSquareness
+  aTremoloWave = limit(aTremoloWave, -0.5, 0.5) + 0.5
+  aTremoloWave = 1 - (aTremoloWave*kTremoloDepth)
+
+  ; optional monitor
+  ; printk .01, k(aTremoloWave)
+
   aTremoloOutL = aTremoloInL
   aTremoloOutR = aTremoloInR
-
-  gkTremoloDepth = limit(gkTremoloDepth, 0, 1)
-  aTremoloWave = poscil(gkTremoloDepth, gkTremoloRate) + (1 - gkTremoloDepth)
 
   aTremoloOutL *= aTremoloWave
   aTremoloOutR *= aTremoloWave

@@ -12,7 +12,10 @@ gkDefaultEffectChainTremoloPan init 50
 gkDefaultEffectChainTremoloDryAmmount init 0
 gkDefaultEffectChainTremoloWetAmmount init 1
 
-gkDefaultEffectChainTremoloRate init 5
+giDefaultEffectChainTremoloWaveShapes[] fillarray sineWave(), triangleWave()
+giDefaultEffectChainTremoloWaveShape init 1
+gaDefaultEffectChainTremoloWaveSquareness init 0
+gkDefaultEffectChainTremoloRate init 2
 gkDefaultEffectChainTremoloDepth init 1
 
 
@@ -34,11 +37,17 @@ instr DefaultEffectChainTremolo
   aDefaultEffectChainTremoloInL inleta "InL"
   aDefaultEffectChainTremoloInR inleta "InR"
 
+  kDefaultEffectChainTremoloDepth = limit(gkDefaultEffectChainTremoloDepth, 0, 1)
+  aSquareness = (((gaDefaultEffectChainTremoloWaveSquareness/100)^(1/.3))*20) + 1
+  aDefaultEffectChainTremoloWave = (poscil(.5, gkDefaultEffectChainTremoloRate, giDefaultEffectChainTremoloWaveShapes[giDefaultEffectChainTremoloWaveShape])) * aSquareness
+  aDefaultEffectChainTremoloWave = limit(aDefaultEffectChainTremoloWave, -0.5, 0.5) + 0.5
+  aDefaultEffectChainTremoloWave = 1 - (aDefaultEffectChainTremoloWave*kDefaultEffectChainTremoloDepth)
+
+  ; optional monitor
+  ; printk .01, k(aDefaultEffectChainTremoloWave)
+
   aDefaultEffectChainTremoloOutL = aDefaultEffectChainTremoloInL
   aDefaultEffectChainTremoloOutR = aDefaultEffectChainTremoloInR
-
-  gkDefaultEffectChainTremoloDepth = limit(gkDefaultEffectChainTremoloDepth, 0, 1)
-  aDefaultEffectChainTremoloWave = poscil(gkDefaultEffectChainTremoloDepth, gkDefaultEffectChainTremoloRate) + (1 - gkDefaultEffectChainTremoloDepth)
 
   aDefaultEffectChainTremoloOutL *= aDefaultEffectChainTremoloWave
   aDefaultEffectChainTremoloOutR *= aDefaultEffectChainTremoloWave
