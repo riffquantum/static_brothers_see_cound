@@ -62,8 +62,7 @@ instr FlowingTrumpetingOvertones
     aFlowingTrumpetingOvertonesR = aFlowingTrumpetingOvertonesR * kAmplitudeEnvelope
   else
     aFlowingTrumpetingOvertonesL syncloop 1, kGrainFrequency, kPitch, kGrainSize, kPointerRate, 0, giFlowingTrumpetingOvertonesEndTime, giFlowingTrumpetingOvertonesSampleTable, giFlowingTrumpetingOvertonesEnvelopeTable, iMaxOverlaps
-
-    aFlowingTrumpetingOvertonesR = aFlowingTrumpetingOvertonesR * kAmplitudeEnvelope
+    aFlowingTrumpetingOvertonesL *= kAmplitudeEnvelope
 
     aFlowingTrumpetingOvertonesR = aFlowingTrumpetingOvertonesL
   endif

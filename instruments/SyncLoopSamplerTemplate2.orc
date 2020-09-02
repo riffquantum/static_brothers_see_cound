@@ -66,8 +66,7 @@ instr SyncLoopSamplerTemplate2
     aSyncLoopSamplerTemplate2R = aSyncLoopSamplerTemplate2R * kAmplitudeEnvelope
   else
     aSyncLoopSamplerTemplate2L syncloop 1, kGrainFrequency, kPitch, kGrainSize, kPointerRate, giSyncLoopSamplerTemplate2StartTime, giSyncLoopSamplerTemplate2EndTime, giSyncLoopSamplerTemplate2SampleTable, giSyncLoopSamplerTemplate2EnvelopeTable, iMaxOverlaps
-
-    aSyncLoopSamplerTemplate2R = aSyncLoopSamplerTemplate2R * kAmplitudeEnvelope
+    aSyncLoopSamplerTemplate2L *= kAmplitudeEnvelope
 
     aSyncLoopSamplerTemplate2R = aSyncLoopSamplerTemplate2L
   endif

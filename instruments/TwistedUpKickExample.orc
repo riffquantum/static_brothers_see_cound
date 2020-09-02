@@ -61,8 +61,7 @@ instr TwistedUpKickExample
     aTwistedUpKickExampleR = aTwistedUpKickExampleR * kAmplitudeEnvelope
   else
     aTwistedUpKickExampleL syncloop 1, kGrainFrequency, kPitch, kGrainSize, kPointerRate, giTwistedUpKickExampleStartTime, giTwistedUpKickExampleEndTime, giTwistedUpKickExampleSampleTable, giTwistedUpKickExampleEnvelopeTable, iMaxOverlaps
-
-    aTwistedUpKickExampleR = aTwistedUpKickExampleR * kAmplitudeEnvelope
+    aTwistedUpKickExampleL *= kAmplitudeEnvelope
 
     aTwistedUpKickExampleR = aTwistedUpKickExampleL
   endif
