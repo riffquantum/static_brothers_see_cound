@@ -22,6 +22,13 @@ else
   giDescentTwinkleSampleTable ftgenonce 0, 0, 0, 1, gSDescentTwinkleSampleFilePath, giDescentTwinkleStartTime, 0, 0
 endif
 
+gkDescentTwinkleTimeStretch init 1
+gkDescentTwinkleGrainSizeAdjustment init 1
+gkDescentTwinkleGrainFrequencyAdjustment init 1
+gkDescentTwinklePitchAdjustment init 1
+gkDescentTwinkleGrainOverlapPercentageAdjustment init 1
+
+
 instr DescentTwinkle
   ;p fields
   iAmplitude flexibleAmplitudeInput p4
@@ -45,6 +52,12 @@ instr DescentTwinkle
   kPitchAdjustment = 1 + line(0, 1, -.01) * (1 + kPitchBend)
   kGrainOverlapPercentageAdjustment = 2 ;+ poscil(.04, .87) + poscil(.2, .3)
 
+  kTimeStretch *= gkDescentTwinkleTimeStretch
+  kGrainSizeAdjustment *= gkDescentTwinkleGrainSizeAdjustment
+  kGrainFrequencyAdjustment *= gkDescentTwinkleGrainFrequencyAdjustment
+  kPitchAdjustment *= gkDescentTwinklePitchAdjustment
+  kGrainOverlapPercentageAdjustment *= gkDescentTwinkleGrainOverlapPercentageAdjustment
+
   ;Base settings for Granulizer
   kPitch *= kPitchAdjustment
   kGrainOverlapPercentage = 50 * kGrainOverlapPercentageAdjustment
@@ -62,7 +75,7 @@ instr DescentTwinkle
   else
     aDescentTwinkleL syncloop 1, kGrainFrequency, kPitch, kGrainSize, kPointerRate, giDescentTwinkleStartTime, giDescentTwinkleEndTime, giDescentTwinkleSampleTable, giDescentTwinkleEnvelopeTable, iMaxOverlaps
 
-    aDescentTwinkleR = aDescentTwinkleR * kAmplitudeEnvelope
+    aDescentTwinkleL *= kAmplitudeEnvelope
 
     aDescentTwinkleR = aDescentTwinkleL
   endif

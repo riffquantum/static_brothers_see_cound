@@ -7,7 +7,7 @@ gkGrowlOnEqHigh init 1
 gkGrowlOnFader init 1
 gkGrowlOnPan init 50
 
-gSGrowlOnSampleFilePath = "localSamples/blueangel5.wav"
+gSGrowlOnSampleFilePath = "localSamples/Roy Orbison - Blue Angel/blueangel5.wav"
 giGrowlOnNumberOfChannels filenchnls gSGrowlOnSampleFilePath
 giGrowlOnSampleLength filelen gSGrowlOnSampleFilePath
 giGrowlOnStartTime = 0.05
@@ -62,7 +62,7 @@ instr GrowlOn
   else
     aGrowlOnL syncloop 1, kGrainFrequency, kPitch, kGrainSize, kPointerRate, giGrowlOnStartTime, giGrowlOnEndTime, giGrowlOnSampleTable, giGrowlOnEnvelopeTable, iMaxOverlaps
 
-    aGrowlOnR = aGrowlOnR * kAmplitudeEnvelope
+    aGrowlOnL *= kAmplitudeEnvelope
 
     aGrowlOnR = aGrowlOnL
   endif

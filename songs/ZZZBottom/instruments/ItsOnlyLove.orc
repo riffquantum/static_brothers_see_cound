@@ -7,6 +7,12 @@ gkItsOnlyLoveEqHigh init 1
 gkItsOnlyLoveFader init 1
 gkItsOnlyLovePan init 50
 
+gkItsOnlyLoveTimeStretch init 1
+gkItsOnlyLoveGrainSizeAdjustment init 1
+gkItsOnlyLoveGrainFrequencyAdjustment init 1
+gkItsOnlyLovePitchAdjustment init 1
+gkItsOnlyLoveGrainOverlapPercentageAdjustment init 1
+
 gSItsOnlyLoveSampleFilePath = "localSamples/itsOnlyLoveBreak.wav"
 giItsOnlyLoveNumberOfChannels filenchnls gSItsOnlyLoveSampleFilePath
 giItsOnlyLoveSampleLength filelen gSItsOnlyLoveSampleFilePath
@@ -45,6 +51,12 @@ instr ItsOnlyLove
   kPitchAdjustment = 1; + poscil(.1, .1) * (1 + kPitchBend)
   kGrainOverlapPercentageAdjustment = 1 ;+ poscil(.04, .87) + poscil(.2, .3)
 
+  kTimeStretch *= gkItsOnlyLoveTimeStretch
+  kGrainSizeAdjustment *= gkItsOnlyLoveGrainSizeAdjustment
+  kGrainFrequencyAdjustment *= gkItsOnlyLoveGrainFrequencyAdjustment
+  kPitchAdjustment *= gkItsOnlyLovePitchAdjustment
+  kGrainOverlapPercentageAdjustment *= gkItsOnlyLoveGrainOverlapPercentageAdjustment
+
   ;Base settings for Granulizer
   kPitch *= kPitchAdjustment
   kGrainOverlapPercentage = 50 * kGrainOverlapPercentageAdjustment
@@ -61,8 +73,7 @@ instr ItsOnlyLove
     aItsOnlyLoveR = aItsOnlyLoveR * kAmplitudeEnvelope
   else
     aItsOnlyLoveL syncloop 1, kGrainFrequency, kPitch, kGrainSize, kPointerRate, giItsOnlyLoveStartTime, giItsOnlyLoveEndTime, giItsOnlyLoveSampleTable, giItsOnlyLoveEnvelopeTable, iMaxOverlaps
-
-    aItsOnlyLoveR = aItsOnlyLoveR * kAmplitudeEnvelope
+    aItsOnlyLoveL *= kAmplitudeEnvelope
 
     aItsOnlyLoveR = aItsOnlyLoveL
   endif

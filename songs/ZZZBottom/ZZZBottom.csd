@@ -2,10 +2,10 @@
   <CsOptions>
     -m0
     -Ma
-    -t57.6
+    -t57.61
     ; -t72 ;and it's in 5
     -odac
-    ; -W -o "ZZZBottom.wav" -m0
+    ; -W -o "songs/ZZZBottom/ZZZBottom-v0.2.wav" -m0
   </CsOptions>
 
   <CsInstruments>
@@ -17,151 +17,191 @@
     #include "songs/ZZZBottom/patterns/pattern-manifest.orc"
 
     instr config
+      gkPreClipMixerFader = .5
+      gkPostClipMixerFader = 1
+
       gkItsOnlyLoveFader = 1.5
       gkKickFader = .5
-      gkBassPluckFader = .25
       gkGrowlOnFader = .8
-      gkDescentTwinkleFader = .7
+
+      gkBassToneEqBass = .8
+      gkBassToneFader = 1
+      gkBassTonePan = 48
+
+      gkDistorted808KickPan = 53
+      gkDistorted808KickFader = 1
+      giDistorted808KickFinalGainAmmount = .4
+
+      gkDescentTwinkleFader = .5
+      gkDescentTwinklePan = 40
+
+      gkDescentTwinkle2Pan = 75
+      gkDescentTwinkle2Fader = .6
+
+      gkSnarePan = 45
+      gkClosedHatPan = 43
+      gkOpenHatPan = 52
     endin
 
-    instr Pattern1
-      iPatternLength = p3 * i(gkBPM)/60
-      iBeatsPerMeasure = 4
+    instr Intro
+      beatScoreline "DescentTwinkle", 0, 48, 100, 3.05
+      beatScoreline "DescentTwinkle", 0, 48, 100, 2.05
+      beatScoreline "GrowlOn", 0, 24, 100,  2.02
+
+      beatScoreline "GrowlOnPattern1", 8, 40
+      beatScoreline "DrumPattern1", 16, 32
+      beatScoreline "BassLine1", 32, 16
+    endin
+
+    instr Verse
+      iPatternLength = secondsToBeats(p3)
+      iIncludeCounterMelody = p4
+      iBeatsPerMeasure = 32
       iMeasureCount = 0
-      iSampleMode = 0
 
       until iMeasureCount * iBeatsPerMeasure >= iPatternLength do
         iBaseTime = iMeasureCount*iBeatsPerMeasure
 
-        beatScoreline "ItsOnlyLove", iBaseTime+0, iBeatsPerMeasure, 100,  3.09
+        beatScoreline "GrowlOnPattern1", iBaseTime, iBeatsPerMeasure
+        beatScoreline "DrumPattern1", iBaseTime, iBeatsPerMeasure
+        beatScoreline "BassLine1", iBaseTime, iBeatsPerMeasure
 
-        if iMeasureCount > 1 then
-          beatScoreline "GrowlOn", iBaseTime+0, 2, 100,  2.02
-          beatScoreline "GrowlOn", iBaseTime+2, 1, 100,  2.01
-        endif
-        beatScoreline "ClosedHat", iBaseTime+0, 1, 100,  1.1
-        beatScoreline "ClosedHat", iBaseTime+.25, 1, 60,  1.1
-        beatScoreline "ClosedHat", iBaseTime+.5, 1, 60,  1.1
-        beatScoreline "OpenHat", iBaseTime+1.333, 4, 50,  1.1
+        beatScoreline "TwinkleMelodyShort", iBaseTime, 16
+        beatScoreline "TwinkleMelodyLong", iBaseTime+16, 16, iMeasureCount
 
-        beatScoreline "Kick", iBaseTime+0, 1, 100,  1.1
-        beatScoreline "Kick", iBaseTime+1/3, 1, 100,  1.1
-        beatScoreline "Kick", iBaseTime+2, 1, 100,  1.1
-        beatScoreline "Kick", iBaseTime+2.25, 1, 100,  1.1
-        beatScoreline "Kick", iBaseTime+2.5, 1, 100,  1.1
-        beatScoreline "Kick", iBaseTime+3, 1, 100,  1.1
-
-        beatScoreline "ClosedHat", iBaseTime+2.25, 1, 100,  1.2
-        beatScoreline "ClosedHat", iBaseTime+3.25, 1, 100,  1.2
-        beatScoreline "OpenHat", iBaseTime+3, 4, 50,  1.1
-
-
-        iMeasureCount += 1
-      od
-    endin
-
-    instr TwinklePattern
-      iPatternLength = p3 * i(gkBPM)/60
-      iBeatsPerMeasure = 8
-      iMeasureCount = 0
-      iSampleMode = 0
-
-      until iMeasureCount * iBeatsPerMeasure >= iPatternLength do
-        iBaseTime = iMeasureCount*iBeatsPerMeasure
-
-        ; beatScoreline "DescentTwinkle", iBaseTime+0, .75, 100,  5.03
-        ; beatScoreline "DescentTwinkle", iBaseTime+.5, 2, 100,  5.02
-
-        beatScoreline "DescentTwinkle", iBaseTime+0, 8, 50,  3.07
-
-        iMeasureCount += 1
-      od
-    endin
-
-    instr TwinklePattern2
-      iPatternLength = p3 * i(gkBPM)/60
-      iBeatsPerMeasure = 8
-      iMeasureCount = 0
-      iSampleMode = 0
-
-      until iMeasureCount * iBeatsPerMeasure >= iPatternLength do
-        iBaseTime = iMeasureCount*iBeatsPerMeasure
-
-        if iMeasureCount == 2 then
-          beatScoreline "DescentTwinkle", iBaseTime+3.92, 4, 70,  4.06
-          beatScoreline "DescentTwinkle", iBaseTime+2.92, 1, 74,  5.06
-        endif
-
-        if iMeasureCount > 2 then
-          beatScoreline "DescentTwinkle", iBaseTime+-.05, .69, 70,  5.03
-          beatScoreline "DescentTwinkle", iBaseTime+.69, 3.25, 70,  5.02
-
-          beatScoreline "DescentTwinkle", iBaseTime+3.92, 4, 70,  4.06
+        if iIncludeCounterMelody == 1 then
+          beatScoreline "Twinkle2CounterMelodyShort", iBaseTime, 32
         endif
 
         iMeasureCount += 1
       od
     endin
 
-    instr TwinklePattern3
-      iPatternLength = p3 * i(gkBPM)/60
+    instr Bridge
+      beatScoreline "DescentTwinkle2", 0, 2, 70,  4.02
+      beatScoreline "DescentTwinkle2", 2.05, 2, 70,  4.05
+      beatScoreline "DescentTwinkle2", 4, 4, 70,  3.02
+      beatScoreline "DescentTwinkle", 0, 4, 100, 3.05
+
+      beatScoreline "DescentTwinkle2", 4.35, 16, 100,  4.09
+      beatScoreline "DescentTwinkle", 4.35, 16, 100, 3.05
+      beatScoreline "DescentTwinkle", 16.35, 4, 30, 5.05
+      beatScoreline "DescentTwinkle", 14.35, 6, 40, 4.09
+
+      beatScoreline "ItsOnlyLove2", 0.35, 20, 40, 5.02
+      beatScoreline "ItsOnlyLove2", 16.85, 1.5, 40, 4.02
+      beatScoreline "ItsOnlyLove2", 11.35, 9, 40, 3.07
+
+      gkDescentTwinkle2PitchAdjustment = linseg(1, beatsToSeconds(6), 1, beatsToSeconds(8), 1.01, beatsToSeconds(6), 2, 0, 1)
+      gkDescentTwinklePitchAdjustment = linseg(1, beatsToSeconds(4), 1, beatsToSeconds(6), 1.3, beatsToSeconds(8), 2, 0, 1)
+    endin
+
+    instr Chorus
+      iPatternLength = secondsToBeats(p3)
       iBeatsPerMeasure = 8
       iMeasureCount = 0
-      iSampleMode = 0
+
+      gkDescentTwinkle2PitchAdjustment = 1
+      gkDescentTwinklePitchAdjustment = 1
+
+
+      ; beatScoreline "ItsOnlyLove", 0, secondsToBeats(p3), 80, 3.09
+      gkItsOnlyLove2Pan = oscil(25, .05) + 50
+      beatScoreline "ItsOnlyLove2", 0, secondsToBeats(p3), 40, 5.02
 
       until iMeasureCount * iBeatsPerMeasure >= iPatternLength do
         iBaseTime = iMeasureCount*iBeatsPerMeasure
 
-          beatScoreline "DescentTwinkle", iBaseTime+0, 1/3, 70,  5.10
-          beatScoreline "DescentTwinkle", iBaseTime+2/3, 1/3, 74,  6.09
-          beatScoreline "DescentTwinkle", iBaseTime+4/3, 1/3, 74,  6.10
-          beatScoreline "DescentTwinkle", iBaseTime+3.75, 2, 74,  5.06
+
+        beatScoreline "DescentTwinkle2", iBaseTime+0, .1, 50,  4.07
+        beatScoreline "Distorted808Kick", iBaseTime+0, 1, 120, .5
+
+        if iMeasureCount % 2 == 0 then
+          beatScoreline "DescentTwinkle2", iBaseTime+0.75, .1, 50,  4.07
+          beatScoreline "Distorted808Kick", iBaseTime+0.75, 1, 120, .5
+        else
+          beatScoreline "DescentTwinkle2", iBaseTime+0.5, .1, 50,  4.07
+          beatScoreline "Distorted808Kick", iBaseTime+0.5, 1, 120, .5
+        endif
+
+        beatScoreline "DescentTwinkle2", iBaseTime+1, .1, 50,  4.07
+        beatScoreline "Distorted808Kick", iBaseTime+1, 1, 120, .5
+
+        beatScoreline "DescentTwinkle2", iBaseTime+0, 8, 30,  5.09
+        beatScoreline "DescentTwinkle", iBaseTime+0, 8, 30,  6.09
+
+
+        beatScoreline "OpenHat", iBaseTime+0.0, 1, 100,  1.1
+        beatScoreline "ClosedHat", iBaseTime+0.5, 1, 100,  1.1
+        beatScoreline "ClosedHat", iBaseTime+0.75, 1, 100,  1.1
+
+        beatScoreline "OpenHat", iBaseTime+1.0, 1, 100,  1.1
+        beatScoreline "ClosedHat", iBaseTime+1.5, 1, 100,  1.1
+        beatScoreline "ClosedHat", iBaseTime+1.75, 1, 100,  1.1
+
+        beatScoreline "OpenHat", iBaseTime+2.0, 1, 100,  1.1
+        beatScoreline "ClosedHat", iBaseTime+2.5, 1, 100,  1.1
+        beatScoreline "ClosedHat", iBaseTime+2.75, 1, 100,  1.1
+
+        beatScoreline "OpenHat", iBaseTime+3.0, 1, 100,  1.1
+        beatScoreline "ClosedHat", iBaseTime+3.5, 1, 100,  1.1
+        beatScoreline "ClosedHat", iBaseTime+3.75, 1, 100,  1.1
+
+        beatScoreline "OpenHat", iBaseTime+4.0, 1, 100,  1.1
+        beatScoreline "ClosedHat", iBaseTime+4.5, 1, 100,  1.1
+        beatScoreline "ClosedHat", iBaseTime+4.75, 1, 100,  1.1
+
+        beatScoreline "OpenHat", iBaseTime+5.0, 1, 100,  1.1
+        beatScoreline "ClosedHat", iBaseTime+5.5, 1, 100,  1.1
+        beatScoreline "ClosedHat", iBaseTime+5.75, 1, 100,  1.1
+
+        beatScoreline "Snare", iBaseTime+4, 1, 100,  .6
+        beatScoreline "Snare", iBaseTime+4, 1, 100,  1
+
+        beatScoreline "OpenHat", iBaseTime+6.0, 1, 100,  1.1
+        beatScoreline "ClosedHat", iBaseTime+6.5, 1, 100,  1.1
+        beatScoreline "ClosedHat", iBaseTime+6.75, 1, 100,  1.1
+
+        beatScoreline "OpenHat", iBaseTime+7.0, 1, 100,  1.1
+        beatScoreline "ClosedHat", iBaseTime+7.5, 1, 100,  1.1
+        beatScoreline "ClosedHat", iBaseTime+7.75, 1, 100,  1.1
+
+
 
         iMeasureCount += 1
       od
-    endin
 
-    instr BassLine1
-      iPatternLength = p3 * i(gkBPM)/60
-      iBeatsPerMeasure = 8
-      iMeasureCount = 0
-      iSampleMode = 0
-
-      until iMeasureCount * iBeatsPerMeasure >= iPatternLength do
-        iBaseTime = iMeasureCount*iBeatsPerMeasure
-
-        beatScoreline "BassPluck", iBaseTime+0, 2, 100,  2.01
-        beatScoreline "BassPluck", iBaseTime+2, 1, 100,  2.00
-        beatScoreline "BassPluck", iBaseTime+3, 5, 100,  1.08
-        beatScoreline "BassPluck", iBaseTime+4, 4, 100,  2.08
-
-        iMeasureCount += 1
-      od
-    endin
-
-
-    instr PatternRecorder
-      iPatternLength = p4
-      kTimeSinceStart timeinsts
-
-
-      ;instrument event
 
     endin
 
+    ; beatScoreline "DrumPattern1", 0, 4
+
+      beatScoreline "config", 0, -1
   </CsInstruments>
 
   <CsScore>
-    m section1
-      i "config" 0 .1
-      ; i "Pattern1" 0 128
-      ; i "TwinklePattern3" 0 128
-      i "Pattern1" 0 56
-      i "TwinklePattern2" 0 56
-      i "TwinklePattern" 56 8
-      i "Pattern1" 64 56
-      i "TwinklePattern2" 40 80
-      ; i "BassLine1" 0 128
-    s
+    ; m section1
+
+      ; i "Chorus" 0 100
+      ; i "Verse" 0 100
+      ; i "DrumPattern1" 0 100
+
+      i "Intro" 0 48
+      i "Verse" 48 64
+      i "TwinklePattern1" 112 8
+      i "Verse" 120 64 1
+      i "Bridge" 184 20
+      i "Chorus" 204 64
+      i "Verse" 270 64
+
+      ; i "Bridge" 0 20
+      ; i "Chorus" 20 32
+
+      ; i "Verse" 0 32 1
+      ; i "Bridge" 32 16
+      ; i "Chorus" 48 32
+      ; i "Verse" 80 32 1
+
+    ; s
   </CsScore>
 </CsoundSynthesizer>
