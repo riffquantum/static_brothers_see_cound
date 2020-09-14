@@ -2,11 +2,17 @@
 
 alwayson "Mixer"
 
+gkPreClipMixerFader init 1
+gkPostClipMixerFader init 1
+
 instr Mixer
     aOutL inleta "InL"
     aOutR inleta "InR"
 
     iSafetyMaxAmplitude = 0dbfs * 3
+
+    aOutL *= gkPreClipMixerFader
+    aOutR *= gkPreClipMixerFader
 
     kHardLimitMinimum = iSafetyMaxAmplitude * -1.5
     kHardLimitMaximum = iSafetyMaxAmplitude * 1.5
@@ -16,6 +22,9 @@ instr Mixer
 
     aOutR limit aOutR, kHardLimitMinimum, kHardLimitMaximum
     aOutL limit aOutL, kHardLimitMinimum, kHardLimitMaximum
+
+    aOutL *= gkPostClipMixerFader
+    aOutR *= gkPostClipMixerFader
 
     out aOutL, aOutR
 endin
