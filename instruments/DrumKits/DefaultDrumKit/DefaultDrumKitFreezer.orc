@@ -3,8 +3,8 @@ bypassRoute "DefaultDrumKitFreezer", "DefaultDrumKitReverb", "DefaultDrumKitReve
 alwayson "DefaultDrumKitFreezerInput"
 alwayson "DefaultDrumKitFreezerMixerChannel"
 
-gkDefaultDrumKitFreezerWetAmmount init 1
-gkDefaultDrumKitFreezerDryAmmount init 0
+gkDefaultDrumKitFreezerWetAmount init 1
+gkDefaultDrumKitFreezerDryAmount init 0
 
 gkDefaultDrumKitFreezerEqBass init 1
 gkDefaultDrumKitFreezerEqMid init 1
@@ -16,7 +16,7 @@ instr DefaultDrumKitFreezerInput
   aDefaultDrumKitFreezerInL inleta "InL"
   aDefaultDrumKitFreezerInR inleta "InR"
 
-  aDefaultDrumKitFreezerOutWetL, aDefaultDrumKitFreezerOutWetR, aDefaultDrumKitFreezerOutDryL, aDefaultDrumKitFreezerOutDryR bypassSwitch aDefaultDrumKitFreezerInL, aDefaultDrumKitFreezerInR, gkDefaultDrumKitFreezerDryAmmount, gkDefaultDrumKitFreezerWetAmmount, "DefaultDrumKitFreezer"
+  aDefaultDrumKitFreezerOutWetL, aDefaultDrumKitFreezerOutWetR, aDefaultDrumKitFreezerOutDryL, aDefaultDrumKitFreezerOutDryR bypassSwitch aDefaultDrumKitFreezerInL, aDefaultDrumKitFreezerInR, gkDefaultDrumKitFreezerDryAmount, gkDefaultDrumKitFreezerWetAmount, "DefaultDrumKitFreezer"
 
   outleta "OutWetL", aDefaultDrumKitFreezerOutWetL
   outleta "OutWetR", aDefaultDrumKitFreezerOutWetR
@@ -34,7 +34,7 @@ instr DefaultDrumKitFreezer
   iPanAmount = p7
   aTime = linseg(iBeatsToLoopStart, p3, iBeatsToLoopEnd) * 60/gkBPM
   kWetLevel madsr .001, .001, 1, iDefaultDrumKitFreezerWetRelease
-  iFeedbackAmmount = 1
+  iFeedbackAmount = 1
   iDefaultDrumKitFreezerBufferLength = 10
   kInputEnvelope = linseg(1, iBeatsToLoopStart, 1, .1, 0)
 
@@ -43,8 +43,8 @@ instr DefaultDrumKitFreezer
   aDefaultDrumKitFreezerInL *= kInputEnvelope
   aDefaultDrumKitFreezerInR *= kInputEnvelope
 
-  aDefaultDrumKitFreezerOutR delayBuffer aDefaultDrumKitFreezerInR, iFeedbackAmmount, iDefaultDrumKitFreezerBufferLength, aTime, kWetLevel
-  aDefaultDrumKitFreezerOutL delayBuffer aDefaultDrumKitFreezerInL, iFeedbackAmmount, iDefaultDrumKitFreezerBufferLength, aTime, kWetLevel
+  aDefaultDrumKitFreezerOutR delayBuffer aDefaultDrumKitFreezerInR, iFeedbackAmount, iDefaultDrumKitFreezerBufferLength, aTime, kWetLevel
+  aDefaultDrumKitFreezerOutL delayBuffer aDefaultDrumKitFreezerInL, iFeedbackAmount, iDefaultDrumKitFreezerBufferLength, aTime, kWetLevel
 
   aDefaultDrumKitFreezerOutL, aDefaultDrumKitFreezerOutR pan aDefaultDrumKitFreezerOutL, aDefaultDrumKitFreezerOutR, kPanOscillator
 

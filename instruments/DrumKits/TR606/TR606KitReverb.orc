@@ -3,7 +3,7 @@ alwayson "TR606KitReverbMixerChannel"
 
 giTR606KitReverbBufferLength init 5
 gaTR606KitReverbTime init .3
-gkTR606KitReverbFeedbackAmmount init 0.8
+gkTR606KitReverbFeedbackAmount init 0.8
 gkTR606KitReverbLevel init .2
 
 gkTR606KitReverbEqBass init 1

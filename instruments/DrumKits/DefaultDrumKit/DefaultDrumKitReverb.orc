@@ -3,7 +3,7 @@ alwayson "DefaultDrumKitReverbMixerChannel"
 
 giDefaultDrumKitReverbBufferLength init 5
 gaDefaultDrumKitReverbTime init .3
-gkDefaultDrumKitReverbFeedbackAmmount init 0.8
+gkDefaultDrumKitReverbFeedbackAmount init 0.8
 gkDefaultDrumKitReverbLevel init .2
 
 gkDefaultDrumKitReverbEqBass init 1

@@ -1,5 +1,5 @@
 instr drumFigure2
-  iPatternLength = p3 * i(gkBPM)/60
+  iPatternLength = secondsToBeats(p3)
   iSegueLenth = p4 != 0 ? p4 : 3
   iBeatsPerMeasure = 6
   iMeasureCount = 0

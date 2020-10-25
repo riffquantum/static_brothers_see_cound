@@ -4,7 +4,7 @@ opcode randomVariation, i, 0
 endop
 
 instr machineGunTriplets
-  iPatternLength = p3 * i(gkBPM)/60
+  iPatternLength = secondsToBeats(p3)
 
   iBeatsPerMeasure = 8
   iMeasureCount = 0

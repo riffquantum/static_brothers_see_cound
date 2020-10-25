@@ -16,7 +16,7 @@ instr TablaBreakdown
 
   kPitchFactor *= gkBPM / 153
 
-  STablaBreakdownFilePath init "localSamples/tablabreakdown.wav"
+  STablaBreakdownFilePath init "localSamples/Ravi Shankar - Tabla Rassa Ranga/tablabreakdown.wav"
   iWrapAround = 1
   iFormat = 0
   iSkipInit = 0

@@ -10,8 +10,8 @@ gkNewEffectEqHigh init 1
 gkNewEffectFader init 1
 gkNewEffectPan init 50
 
-gkNewEffectDryAmmount init 0
-gkNewEffectWetAmmount init 1
+gkNewEffectDryAmount init 0
+gkNewEffectWetAmount init 1
 
 gkNewEffectRate init 20
 gkNewEffectDepth init 1
@@ -20,7 +20,7 @@ instr NewEffectInput
   aNewEffectInL inleta "InL"
   aNewEffectInR inleta "InR"
 
-  aNewEffectOutWetL, aNewEffectOutWetR, aNewEffectOutDryL, aNewEffectOutDryR bypassSwitch aNewEffectInL, aNewEffectInR, gkNewEffectDryAmmount, gkNewEffectWetAmmount, "NewEffect"
+  aNewEffectOutWetL, aNewEffectOutWetR, aNewEffectOutDryL, aNewEffectOutDryR bypassSwitch aNewEffectInL, aNewEffectInR, gkNewEffectDryAmount, gkNewEffectWetAmount, "NewEffect"
 
   outleta "OutWetL", aNewEffectOutWetL
   outleta "OutWetR", aNewEffectOutWetR

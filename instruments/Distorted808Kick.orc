@@ -11,15 +11,15 @@ gSDistorted808KickSamplePath = "localSamples/Drums/TR-808_Kick_005.wav"
 gSDistorted808KickSamplePath = "localSamples/Drums/TR-808_Kick_41.wav"
 giDistorted808KickSample ftgen 0, 0, 0, 1, gSDistorted808KickSamplePath, 0, 0, 0
 
-gkDistorted808KickDryAmmount init 0
-gkDistorted808KickWetAmmount init 1
+gkDistorted808KickDryAmount init 0
+gkDistorted808KickWetAmount init 1
 
 gkDistorted808KickPreGain init 10
 gkDistorted808KickPostGain init 1
 gkDistorted808KickDutyOffset init .01
 gkDistorted808KickSlopeShift init .01
 giDistorted808KickStage2ClipLevel init 0dbfs/2
-giDistorted808KickFinalGainAmmount init .25
+giDistorted808KickFinalGainAmount init .25
 
 gkDistorted808KickPitch init 1
 
@@ -73,15 +73,15 @@ instr Distorted808Kick
   aDistorted808KickOutL butterlp aDistorted808KickOutL, 5000
   aDistorted808KickOutR butterlp aDistorted808KickOutR, 5000
 
-  aDistorted808KickOutL *= giDistorted808KickFinalGainAmmount
-  aDistorted808KickOutR *= giDistorted808KickFinalGainAmmount
+  aDistorted808KickOutL *= giDistorted808KickFinalGainAmount
+  aDistorted808KickOutR *= giDistorted808KickFinalGainAmount
 
   aDistorted808KickOutL *= kDeclick
   aDistorted808KickOutR *= kDeclick
 
 
-  aDistorted808KickOutL = (aDistorted808KickOutL * gkDistorted808KickWetAmmount) + (aDistorted808KickSampleL * gkDistorted808KickDryAmmount)
-  aDistorted808KickOutR = (aDistorted808KickOutR * gkDistorted808KickWetAmmount) + (aDistorted808KickSampleR * gkDistorted808KickDryAmmount)
+  aDistorted808KickOutL = (aDistorted808KickOutL * gkDistorted808KickWetAmount) + (aDistorted808KickSampleL * gkDistorted808KickDryAmount)
+  aDistorted808KickOutR = (aDistorted808KickOutR * gkDistorted808KickWetAmount) + (aDistorted808KickSampleR * gkDistorted808KickDryAmount)
 
 
   outleta "OutL", aDistorted808KickOutL

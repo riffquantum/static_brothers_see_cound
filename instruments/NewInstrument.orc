@@ -7,33 +7,26 @@ gkNewInstrumentFader init 1
 gkNewInstrumentPan init 50
 instrumentRoute "NewInstrument", "NewEffectInput"
 
+gSNewInstrumentSamplePath = "localSamples/Drums/R8-Drums_Crash_E715.wav"
+giNewInstrumentSample ftgen 0, 0, 0, 1, gSNewInstrumentSamplePath, 0, 0, 0
+
+
 instr NewInstrument
-  iAmplitude flexibleAmplitudeInput p4
-  iFrequency flexiblePitchInput p5
+  ; iAmplitude flexibleAmplitudeInput p4
+  ; iFrequency flexiblePitchInput p5
 
-  aAmplitudeEnvelope madsr .01, .1, .8, .25
-  aSignalL = 0
+  ; aAmplitudeEnvelope madsr .01, .01, 1, .01
+  ; aSignalL = 0
 
-  kMod1 = 2
-  kV1 = 80
-  kCross = 4
-  kV2 = 10
-  kLFO = 11
-  kV3 = 100
-  kLFODepth = 1
-  kD4 = 3
-  kADSR = 128
-  kV5 = 80
 
-  ; aSignalL STKRhodey iFrequency, iAmplitude, kMod1, kV1, kCross, kV2, kLFO, kV3, kLFODepth, kD4, kADSR, kV5
+  ; print iAmplitude
+  ; aSignalL *= aAmplitudeEnvelope
+  ; aSignalR *= aAmplitudeEnvelope
 
-  aSignalL *= aAmplitudeEnvelope
-  aSignalR = aSignalL
+  aDefaultCrashL, aDefaultCrashR drumSample giNewInstrumentSample, p4, p5
 
-  outleta "OutL", aSignalL
-  outleta "OutR", aSignalR
-
-  skipNote:
+  outleta "OutL", aDefaultCrashL
+  outleta "OutR", aDefaultCrashR
 endin
 
 instr NewInstrumentBassKnob

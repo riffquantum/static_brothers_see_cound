@@ -1,8 +1,8 @@
 alwayson "PitchShifterInput"
 alwayson "PitchShifterMixerChannel"
 
-gkPitchShifterWetAmmount init 1
-gkPitchShifterDryAmmount init 0
+gkPitchShifterWetAmount init 1
+gkPitchShifterDryAmount init 0
 
 gkPitchShifterEqBass init 1
 gkPitchShifterEqMid init 1
@@ -16,7 +16,7 @@ instr PitchShifterInput
   aPitchShifterInL inleta "InL"
   aPitchShifterInR inleta "InR"
 
-  aPitchShifterOutWetL, aPitchShifterOutWetR, aPitchShifterOutDryL, aPitchShifterOutDryR bypassSwitch aPitchShifterInL, aPitchShifterInR, gkPitchShifterDryAmmount, gkPitchShifterWetAmmount, "PitchShifter"
+  aPitchShifterOutWetL, aPitchShifterOutWetR, aPitchShifterOutDryL, aPitchShifterOutDryR bypassSwitch aPitchShifterInL, aPitchShifterInR, gkPitchShifterDryAmount, gkPitchShifterWetAmount, "PitchShifter"
 
   outleta "OutWetL", aPitchShifterOutWetL
   outleta "OutWetR", aPitchShifterOutWetR

@@ -13,14 +13,16 @@
 
     if iMeasureCount % 2 == 0 then
       beatScoreline "BassTone", iBaseTime+2, 1.5, 100, 2.09
+      beatScoreline "BassTone", iBaseTime+4, 4, 70, 2.03
+
       beatScoreline "Distorted808Kick", iBaseTime+3.5, 2, 120, .75
       beatScoreline "Distorted808Kick", iBaseTime+4, 2, 120, .8125
-      beatScoreline "BassTone", iBaseTime+3.5, 4, 100, 2.04
     else
       beatScoreline "BassTone", iBaseTime+2, 1.5, 100, 2.07
+      beatScoreline "BassTone", iBaseTime+4, 4, 70, 2.03
+
       beatScoreline "Distorted808Kick", iBaseTime+3.5, 2, 120, .6
       beatScoreline "Distorted808Kick", iBaseTime+4, 2, 120, .7625
-      beatScoreline "BassTone", iBaseTime+3.5, 4, 100, 2.03
     endif
 
 

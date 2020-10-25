@@ -7,7 +7,7 @@ gkSyncLoopSamplerTemplate2EqHigh init 1
 gkSyncLoopSamplerTemplate2Fader init 1
 gkSyncLoopSamplerTemplate2Pan init 50
 
-gSSyncLoopSamplerTemplate2SampleFilePath = "localSamples/gloria4ia.wav"
+gSSyncLoopSamplerTemplate2SampleFilePath = "localSamples/gloria8.wav"
 giSyncLoopSamplerTemplate2NumberOfChannels filenchnls gSSyncLoopSamplerTemplate2SampleFilePath
 giSyncLoopSamplerTemplate2SampleLength filelen gSSyncLoopSamplerTemplate2SampleFilePath
 giSyncLoopSamplerTemplate2StartTime = 0
@@ -22,11 +22,18 @@ else
   giSyncLoopSamplerTemplate2SampleTable ftgenonce 0, 0, 0, 1, gSSyncLoopSamplerTemplate2SampleFilePath, giSyncLoopSamplerTemplate2StartTime, 0, 0
 endif
 
+gkSyncLoopSamplerTemplate2TimeStretch init 1
+gkSyncLoopSamplerTemplate2GrainSizeAdjustment init 1
+gkSyncLoopSamplerTemplate2GrainFrequencyAdjustment init 1
+gkSyncLoopSamplerTemplate2PitchAdjustment init 1
+gkSyncLoopSamplerTemplate2GrainOverlapPercentageAdjustment init 1
+
 instr SyncLoopSamplerTemplate2
   ;p fields
   iAmplitude flexibleAmplitudeInput p4
   iPitch = flexiblePitchInput(p5)
-  kPitch = iPitch / 261.6
+  kPitch = iPitch / 261.626
+
   ;Amplitude Envelope
   iAttack = .01
   iDecay = .01
@@ -43,12 +50,19 @@ instr SyncLoopSamplerTemplate2
   kPitchBend = 0
   midipitchbend kPitchBend, 0, 100
 
-  ;Grain Parameter Adjustments
-  kTimeStretch *= .3 * (1 + kPitchBend) ; - poscil(1, .25) + poscil(.2, .3)
-  kGrainSizeAdjustment *= .3 + poscil(.04, .87) + poscil(.2, .3)
-  kGrainFrequencyAdjustment *= 1 + poscil(.04, .87) + poscil(.2, .3)
-  kPitchAdjustment *= 1 + poscil(.1, .1) * (1 + kPitchBend)
-  kGrainOverlapPercentageAdjustment *= .99 ;+ poscil(.04, .87) + poscil(.2, .3)
+  ;Grain Parameter Adjustments - Set these all to 1 for basic functionality
+  kTimeStretch *= 5 - poscil(1, .25) + poscil(.2, .3)
+  kGrainSizeAdjustment *= .1 + poscil(.04, .87) + poscil(.2, .3)
+  kGrainFrequencyAdjustment *= 1 ;+ poscil(.04, .87) + poscil(.2, .3)
+  kPitchAdjustment *= 1 ;+ poscil(.1, .1) * (1 + kPitchBend)
+  kGrainOverlapPercentageAdjustment *= 1 ; + poscil(.04, .87) + poscil(.2, .3)
+
+  ;Global Variables for K Rate Changes
+  kTimeStretch *= gkSyncLoopSamplerTemplate2TimeStretch
+  kGrainSizeAdjustment *= gkSyncLoopSamplerTemplate2GrainSizeAdjustment
+  kGrainFrequencyAdjustment *= gkSyncLoopSamplerTemplate2GrainFrequencyAdjustment
+  kPitchAdjustment *= gkSyncLoopSamplerTemplate2PitchAdjustment
+  kGrainOverlapPercentageAdjustment *= gkSyncLoopSamplerTemplate2GrainOverlapPercentageAdjustment
 
   ;Base settings for Granulizer
   kPitch *= kPitchAdjustment

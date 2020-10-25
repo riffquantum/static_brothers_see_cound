@@ -4,7 +4,7 @@ opcode randomVariation, i, 0
 endop
 
 instr dBeatFill1
-  iPatternLength = p3 * i(gkBPM)/60
+  iPatternLength = secondsToBeats(p3)
   iBeatsPerMeasure = 4
   iMeasureCount = 0
 
@@ -20,7 +20,7 @@ instr dBeatFill1
     beatScorelineS("Snare", iBaseTime + 1, 1, "3.3")
 
     beatScoreline("TomLow", iBaseTime + 2, 1, 4.2)
-    
+
     beatScoreline("TomLow", iBaseTime + 3, 1, 4.2)
     ; beatScorelineS("Snare", iBaseTime + 1.333, 1, "3.3")
 

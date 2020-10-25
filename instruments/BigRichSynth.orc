@@ -1,10 +1,10 @@
-instrumentRoute "BigRichSynth", "Mixer"
+instrumentRoute "BigRichSynth", "DefaultEffectChain"
 alwayson "BigRichSynthMixerChannel"
 
 gkBigRichSynthEqBass init 1
 gkBigRichSynthEqMid init 1
 gkBigRichSynthEqHigh init 1
-gkBigRichSynthFader init 1
+gkBigRichSynthFader init .2
 gkBigRichSynthPan init 50
 
 instr BigRichSynth

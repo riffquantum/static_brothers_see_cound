@@ -7,27 +7,27 @@ gkDefaultEffectChainRingModEqHigh init 1
 gkDefaultEffectChainRingModFader init 1
 gkDefaultEffectChainRingModPan init 50
 
-bypassRoute "DefaultEffectChainRingMod", "DefaultEffectChainTremoloInput", "DefaultEffectChainTremoloInput"
+bypassRoute "DefaultEffectChainRingMod", "DefaultEffectChainChorusInput", "DefaultEffectChainTremoloInput"
 
-gkDefaultEffectChainRingModDryAmmount init 1
-gkDefaultEffectChainRingModWetAmmount init 1
+gkDefaultEffectChainRingModDryAmount init 1
+gkDefaultEffectChainRingModWetAmount init 1
 
 gkDefaultEffectChainRingModModulator1Frequency init 2000
-gkDefaultEffectChainRingModModulator1Ammount init 1
+gkDefaultEffectChainRingModModulator1Amount init 1
 gkDefaultEffectChainRingModModulator2Frequency init 1200
-gkDefaultEffectChainRingModModulator2Ammount init 0
+gkDefaultEffectChainRingModModulator2Amount init 0
 gkDefaultEffectChainRingModModulator3Frequency init 800
-gkDefaultEffectChainRingModModulator3Ammount init 0
+gkDefaultEffectChainRingModModulator3Amount init 0
 gkDefaultEffectChainRingModModulator4Frequency init 440
-gkDefaultEffectChainRingModModulator4Ammount init 0
+gkDefaultEffectChainRingModModulator4Amount init 0
 gkDefaultEffectChainRingModModulator5Frequency init 263
-gkDefaultEffectChainRingModModulator5Ammount init 0
+gkDefaultEffectChainRingModModulator5Amount init 0
 
 instr DefaultEffectChainRingModInput
   aDefaultEffectChainRingModInL inleta "InL"
   aDefaultEffectChainRingModInR inleta "InR"
 
-  aDefaultEffectChainRingModOutWetL, aDefaultEffectChainRingModOutWetR, aDefaultEffectChainRingModOutDryL, aDefaultEffectChainRingModOutDryR bypassSwitch aDefaultEffectChainRingModInL, aDefaultEffectChainRingModInR, gkDefaultEffectChainRingModDryAmmount, gkDefaultEffectChainRingModWetAmmount, "DefaultEffectChainRingMod"
+  aDefaultEffectChainRingModOutWetL, aDefaultEffectChainRingModOutWetR, aDefaultEffectChainRingModOutDryL, aDefaultEffectChainRingModOutDryR bypassSwitch aDefaultEffectChainRingModInL, aDefaultEffectChainRingModInR, gkDefaultEffectChainRingModDryAmount, gkDefaultEffectChainRingModWetAmount, "DefaultEffectChainRingMod"
 
   outleta "OutWetL", aDefaultEffectChainRingModOutWetL
   outleta "OutWetR", aDefaultEffectChainRingModOutWetR
@@ -44,11 +44,11 @@ instr DefaultEffectChainRingMod
   aDefaultEffectChainRingModOutR = aDefaultEffectChainRingModInR
 
   aModulator = 0
-  aModulator += oscil(gkDefaultEffectChainRingModModulator1Ammount, gkDefaultEffectChainRingModModulator1Frequency)
-  aModulator += oscil(gkDefaultEffectChainRingModModulator2Ammount, gkDefaultEffectChainRingModModulator2Frequency)
-  aModulator += oscil(gkDefaultEffectChainRingModModulator3Ammount, gkDefaultEffectChainRingModModulator3Frequency)
-  aModulator += oscil(gkDefaultEffectChainRingModModulator4Ammount, gkDefaultEffectChainRingModModulator4Frequency)
-  aModulator += oscil(gkDefaultEffectChainRingModModulator5Ammount, gkDefaultEffectChainRingModModulator5Frequency)
+  aModulator += oscil(gkDefaultEffectChainRingModModulator1Amount, gkDefaultEffectChainRingModModulator1Frequency)
+  aModulator += oscil(gkDefaultEffectChainRingModModulator2Amount, gkDefaultEffectChainRingModModulator2Frequency)
+  aModulator += oscil(gkDefaultEffectChainRingModModulator3Amount, gkDefaultEffectChainRingModModulator3Frequency)
+  aModulator += oscil(gkDefaultEffectChainRingModModulator4Amount, gkDefaultEffectChainRingModModulator4Frequency)
+  aModulator += oscil(gkDefaultEffectChainRingModModulator5Amount, gkDefaultEffectChainRingModModulator5Frequency)
 
   aDefaultEffectChainRingModOutL *= aModulator
   aDefaultEffectChainRingModOutR *= aModulator

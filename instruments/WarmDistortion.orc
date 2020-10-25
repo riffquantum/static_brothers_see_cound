@@ -9,21 +9,21 @@ gkWarmDistortionEqHigh init 1
 gkWarmDistortionFader init 1
 gkWarmDistortionPan init 50
 
-gkWarmDistortionDryAmmount init 0
-gkWarmDistortionWetAmmount init 1
+gkWarmDistortionDryAmount init 0
+gkWarmDistortionWetAmount init 1
 
 gkWarmDistortionPreGain init 10
 gkWarmDistortionPostGain init 1
 gkWarmDistortionDutyOffset init .01
 gkWarmDistortionSlopeShift init .01
 giWarmDistortionStage2ClipLevel init 0dbfs/2
-giWarmDistortionFinalGainAmmount init .25
+giWarmDistortionFinalGainAmount init .25
 
 instr WarmDistortionInput
   aWarmDistortionInL inleta "InL"
   aWarmDistortionInR inleta "InR"
 
-  aWarmDistortionOutWetL, aWarmDistortionOutWetR, aWarmDistortionOutDryL, aWarmDistortionOutDryR bypassSwitch aWarmDistortionInL, aWarmDistortionInR, gkWarmDistortionDryAmmount, gkWarmDistortionWetAmmount, "WarmDistortion"
+  aWarmDistortionOutWetL, aWarmDistortionOutWetR, aWarmDistortionOutDryL, aWarmDistortionOutDryR bypassSwitch aWarmDistortionInL, aWarmDistortionInR, gkWarmDistortionDryAmount, gkWarmDistortionWetAmount, "WarmDistortion"
 
   outleta "OutWetL", aWarmDistortionOutWetL
   outleta "OutWetR", aWarmDistortionOutWetR
@@ -70,8 +70,8 @@ instr WarmDistortion
   aWarmDistortionOutL butterlp aWarmDistortionOutL, 5000
   aWarmDistortionOutR butterlp aWarmDistortionOutR, 5000
 
-  aWarmDistortionOutL *= giWarmDistortionFinalGainAmmount
-  aWarmDistortionOutR *= giWarmDistortionFinalGainAmmount
+  aWarmDistortionOutL *= giWarmDistortionFinalGainAmount
+  aWarmDistortionOutR *= giWarmDistortionFinalGainAmount
 
   aWarmDistortionOutL *= kDeclick
   aWarmDistortionOutR *= kDeclick

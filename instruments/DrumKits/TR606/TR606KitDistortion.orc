@@ -9,21 +9,21 @@ gkTR606KitDistortionEqHigh init 1
 gkTR606KitDistortionFader init 1
 gkTR606KitDistortionPan init 50
 
-gkTR606KitDistortionDryAmmount init 0
-gkTR606KitDistortionWetAmmount init 1
+gkTR606KitDistortionDryAmount init 0
+gkTR606KitDistortionWetAmount init 1
 
 gkTR606KitDistortionPreGain init 10
 gkTR606KitDistortionPostGain init 1
 gkTR606KitDistortionDutyOffset init .01
 gkTR606KitDistortionSlopeShift init .01
 giTR606KitDistortionStage2ClipLevel init 0dbfs/2
-giTR606KitDistortionFinalGainAmmount init .25
+giTR606KitDistortionFinalGainAmount init .25
 
 instr TR606KitDistortionInput
   aTR606KitDistortionInL inleta "InL"
   aTR606KitDistortionInR inleta "InR"
 
-  aTR606KitDistortionOutWetL, aTR606KitDistortionOutWetR, aTR606KitDistortionOutDryL, aTR606KitDistortionOutDryR bypassSwitch aTR606KitDistortionInL, aTR606KitDistortionInR, gkTR606KitDistortionDryAmmount, gkTR606KitDistortionWetAmmount, "TR606KitDistortion"
+  aTR606KitDistortionOutWetL, aTR606KitDistortionOutWetR, aTR606KitDistortionOutDryL, aTR606KitDistortionOutDryR bypassSwitch aTR606KitDistortionInL, aTR606KitDistortionInR, gkTR606KitDistortionDryAmount, gkTR606KitDistortionWetAmount, "TR606KitDistortion"
 
   outleta "OutWetL", aTR606KitDistortionOutWetL
   outleta "OutWetR", aTR606KitDistortionOutWetR
@@ -70,8 +70,8 @@ instr TR606KitDistortion
   aTR606KitDistortionOutL butterlp aTR606KitDistortionOutL, 5000
   aTR606KitDistortionOutR butterlp aTR606KitDistortionOutR, 5000
 
-  aTR606KitDistortionOutL *= giTR606KitDistortionFinalGainAmmount
-  aTR606KitDistortionOutR *= giTR606KitDistortionFinalGainAmmount
+  aTR606KitDistortionOutL *= giTR606KitDistortionFinalGainAmount
+  aTR606KitDistortionOutR *= giTR606KitDistortionFinalGainAmount
 
   aTR606KitDistortionOutL *= kDeclick
   aTR606KitDistortionOutR *= kDeclick

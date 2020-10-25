@@ -3,8 +3,8 @@ bypassRoute "Freezer", "Mixer", "PitchShifterInput"
 alwayson "FreezerInput"
 alwayson "FreezerMixerChannel"
 
-gkFreezerWetAmmount init 1
-gkFreezerDryAmmount init 0
+gkFreezerWetAmount init 1
+gkFreezerDryAmount init 0
 
 gkFreezerEqBass init 1
 gkFreezerEqMid init 1
@@ -16,7 +16,7 @@ instr FreezerInput
   aFreezerInL inleta "InL"
   aFreezerInR inleta "InR"
 
-  aFreezerOutWetL, aFreezerOutWetR, aFreezerOutDryL, aFreezerOutDryR bypassSwitch aFreezerInL, aFreezerInR, gkFreezerDryAmmount, gkFreezerWetAmmount, "Freezer"
+  aFreezerOutWetL, aFreezerOutWetR, aFreezerOutDryL, aFreezerOutDryR bypassSwitch aFreezerInL, aFreezerInR, gkFreezerDryAmount, gkFreezerWetAmount, "Freezer"
 
   outleta "OutWetL", aFreezerOutWetL
   outleta "OutWetR", aFreezerOutWetR
@@ -34,7 +34,7 @@ instr Freezer
   iPanAmount = p7
   aTime = linseg(iBeatsToLoopStart, p3, iBeatsToLoopEnd) * 60/gkBPM
   kWetLevel madsr .001, .001, 1, iFreezerWetRelease
-  iFeedbackAmmount = 1
+  iFeedbackAmount = 1
   iFreezerBufferLength = 10
   kInputEnvelope = linseg(1, iBeatsToLoopStart, 1, .1, 0)
 
@@ -43,8 +43,8 @@ instr Freezer
   aFreezerInL *= kInputEnvelope
   aFreezerInR *= kInputEnvelope
 
-  aFreezerOutR delayBuffer aFreezerInR, iFeedbackAmmount, iFreezerBufferLength, aTime, kWetLevel
-  aFreezerOutL delayBuffer aFreezerInL, iFeedbackAmmount, iFreezerBufferLength, aTime, kWetLevel
+  aFreezerOutR delayBuffer aFreezerInR, iFeedbackAmount, iFreezerBufferLength, aTime, kWetLevel
+  aFreezerOutL delayBuffer aFreezerInL, iFeedbackAmount, iFreezerBufferLength, aTime, kWetLevel
 
   aFreezerOutL, aFreezerOutR pan aFreezerOutL, aFreezerOutR, kPanOscillator
 

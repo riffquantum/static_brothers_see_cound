@@ -3,7 +3,7 @@ alwayson "LinnDrumKitReverbMixerChannel"
 
 giLinnDrumKitReverbBufferLength init 5
 gaLinnDrumKitReverbTime init .3
-gkLinnDrumKitReverbFeedbackAmmount init 0.8
+gkLinnDrumKitReverbFeedbackAmount init 0.8
 gkLinnDrumKitReverbLevel init .2
 
 gkLinnDrumKitReverbEqBass init 1

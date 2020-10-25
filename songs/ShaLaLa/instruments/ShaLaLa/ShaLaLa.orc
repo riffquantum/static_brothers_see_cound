@@ -7,7 +7,7 @@ gkShaLaLaEqHigh init 1
 gkShaLaLaFader init 1
 gkShaLaLaPan init 50
 
-gSShaLaLaSampleFilePath = "localSamples/blueangel5.wav"
+gSShaLaLaSampleFilePath = "localSamples/Roy Orbison - Blue Angel/blueangel5.wav"
 giShaLaLaNumberOfChannels filenchnls gSShaLaLaSampleFilePath
 giShaLaLaSampleLength filelen gSShaLaLaSampleFilePath
 giShaLaLaStartTime = 0
@@ -63,7 +63,7 @@ instr ShaLaLa
   else
     aShaLaLaL syncloop 1, kGrainFrequency, kPitch, kGrainSize, kPointerRate, 0, giShaLaLaEndTime, giShaLaLaSampleTable, giShaLaLaEnvelopeTable, iMaxOverlaps
 
-    aShaLaLaR = aShaLaLaR * kAmplitudeEnvelope
+    aShaLaLaL *= kAmplitudeEnvelope
 
     aShaLaLaR = aShaLaLaL
   endif

@@ -1,5 +1,5 @@
 instr goofyFiveGroove
-  iPatternLength = p3 * i(gkBPM)/60
+  iPatternLength = secondsToBeats(p3)
   iBeatsPerMeasure = 5
   iMeasureIndex = 0
 

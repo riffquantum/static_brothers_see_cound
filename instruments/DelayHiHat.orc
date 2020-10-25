@@ -36,9 +36,9 @@ instr DelayHiHat
   aDelayTimeR = limit(aDelayTime - gkDelayHiHatStereoOffset, 0.001, 100)
   iBufferLength = 5
   kDelayLevel = 1
-  kFeedbackAmmount = 1
-  aSignalL += delayBuffer(aSignalL, kFeedbackAmmount, iBufferLength, aDelayTimeL, kDelayLevel)
-  aSignalR += delayBuffer(aSignalR, kFeedbackAmmount, iBufferLength, aDelayTimeR, kDelayLevel)
+  kFeedbackAmount = 1
+  aSignalL += delayBuffer(aSignalL, kFeedbackAmount, iBufferLength, aDelayTimeL, kDelayLevel)
+  aSignalR += delayBuffer(aSignalR, kFeedbackAmount, iBufferLength, aDelayTimeR, kDelayLevel)
 
   outleta "OutL", aSignalL
   outleta "OutR", aSignalR

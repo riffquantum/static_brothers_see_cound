@@ -3,8 +3,8 @@ bypassRoute "DefaultEffectChainFreezer", "DefaultEffectChainDelayInput", "Defaul
 alwayson "DefaultEffectChainFreezerInput"
 alwayson "DefaultEffectChainFreezerMixerChannel"
 
-gkDefaultEffectChainFreezerWetAmmount init 1
-gkDefaultEffectChainFreezerDryAmmount init 0
+gkDefaultEffectChainFreezerWetAmount init 1
+gkDefaultEffectChainFreezerDryAmount init 0
 
 gkDefaultEffectChainFreezerEqBass init 1
 gkDefaultEffectChainFreezerEqMid init 1
@@ -16,7 +16,7 @@ instr DefaultEffectChainFreezerInput
   aDefaultEffectChainFreezerInL inleta "InL"
   aDefaultEffectChainFreezerInR inleta "InR"
 
-  aDefaultEffectChainFreezerOutWetL, aDefaultEffectChainFreezerOutWetR, aDefaultEffectChainFreezerOutDryL, aDefaultEffectChainFreezerOutDryR bypassSwitch aDefaultEffectChainFreezerInL, aDefaultEffectChainFreezerInR, gkDefaultEffectChainFreezerDryAmmount, gkDefaultEffectChainFreezerWetAmmount, "DefaultEffectChainFreezer"
+  aDefaultEffectChainFreezerOutWetL, aDefaultEffectChainFreezerOutWetR, aDefaultEffectChainFreezerOutDryL, aDefaultEffectChainFreezerOutDryR bypassSwitch aDefaultEffectChainFreezerInL, aDefaultEffectChainFreezerInR, gkDefaultEffectChainFreezerDryAmount, gkDefaultEffectChainFreezerWetAmount, "DefaultEffectChainFreezer"
 
   outleta "OutWetL", aDefaultEffectChainFreezerOutWetL
   outleta "OutWetR", aDefaultEffectChainFreezerOutWetR
@@ -34,7 +34,7 @@ instr DefaultEffectChainFreezer
   iPanAmount = p7
   aTime = linseg(iBeatsToLoopStart, p3, iBeatsToLoopEnd) * 60/gkBPM
   kWetLevel madsr .001, .001, 1, iDefaultEffectChainFreezerWetRelease
-  iFeedbackAmmount = 1
+  iFeedbackAmount = 1
   iDefaultEffectChainFreezerBufferLength = 10
   kInputEnvelope = linseg(1, iBeatsToLoopStart, 1, .1, 0)
 
@@ -43,8 +43,8 @@ instr DefaultEffectChainFreezer
   aDefaultEffectChainFreezerInL *= kInputEnvelope
   aDefaultEffectChainFreezerInR *= kInputEnvelope
 
-  aDefaultEffectChainFreezerOutR delayBuffer aDefaultEffectChainFreezerInR, iFeedbackAmmount, iDefaultEffectChainFreezerBufferLength, aTime, kWetLevel
-  aDefaultEffectChainFreezerOutL delayBuffer aDefaultEffectChainFreezerInL, iFeedbackAmmount, iDefaultEffectChainFreezerBufferLength, aTime, kWetLevel
+  aDefaultEffectChainFreezerOutR delayBuffer aDefaultEffectChainFreezerInR, iFeedbackAmount, iDefaultEffectChainFreezerBufferLength, aTime, kWetLevel
+  aDefaultEffectChainFreezerOutL delayBuffer aDefaultEffectChainFreezerInL, iFeedbackAmount, iDefaultEffectChainFreezerBufferLength, aTime, kWetLevel
 
   aDefaultEffectChainFreezerOutL, aDefaultEffectChainFreezerOutR pan aDefaultEffectChainFreezerOutL, aDefaultEffectChainFreezerOutR, kPanOscillator
 

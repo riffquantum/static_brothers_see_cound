@@ -1,0 +1,5 @@
+#include "DrumPattern1.orc"
+#include "HatPattern1.orc"
+#include "HatPattern2.orc"
+#include "GrainStabPattern1.orc"
+#include "BreakPattern1.orc"

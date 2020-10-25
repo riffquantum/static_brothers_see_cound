@@ -1,0 +1,39 @@
+Ambisonic impulse responses
+===========================
+
+In the ambisonic files the start of the file corresponds
+exactly to the direct sound impulse. This has been removed,
+assuming the dry sound will be mixed in separately. So the
+first few ms will be silent.
+
+Measurements in the outer cylinder
+----------------------------------
+
+For all IRs, the source was in the front direction, near
+the wall and close to the ground. 
+
+#11: Mic near the wall to the right.
+#12: Mic at the center.
+#14: Mic at the back.
+
+In all cases the front side of the mic was towards
+the speaker
+
+
+Measurements in the sphere
+--------------------------
+
+Inside the sphere a grid is installed at about 1/4 of the
+height, providing a floor to walk on, with an aperture at
+the center allowing entry. For all IRs the mic was held
+on a boom near the center of the sphere, facing a random
+horizontal direction.
+
+#16: Speaker on the grid i.e. below the mic, facing up.
+#17: Speaker at about half height, near the wall, facing
+the mic.
+#18: Speaker at about half height, near the wall, facing
+the wall.
+
+
+

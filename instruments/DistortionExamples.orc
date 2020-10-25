@@ -15,14 +15,14 @@ gkDutyCycleOffset init .01
 gkSlopeOffset init .01
 giDistortionExamplesMode init 5
 
-gkDistortionExamplesWetAmmount init 1
-gkDistortionExamplesDryAmmount init 0
+gkDistortionExamplesWetAmount init 1
+gkDistortionExamplesDryAmount init 0
 
 instr DistortionExamplesInput
   aDistortionExamplesInL inleta "InL"
   aDistortionExamplesInR inleta "InR"
 
-  aDistortionExamplesOutWetL, aDistortionExamplesOutWetR, aDistortionExamplesOutDryL, aDistortionExamplesOutDryR bypassSwitch aDistortionExamplesInL, aDistortionExamplesInR, gkDistortionExamplesDryAmmount, gkDistortionExamplesWetAmmount, "DistortionExamples"
+  aDistortionExamplesOutWetL, aDistortionExamplesOutWetR, aDistortionExamplesOutDryL, aDistortionExamplesOutDryR bypassSwitch aDistortionExamplesInL, aDistortionExamplesInR, gkDistortionExamplesDryAmount, gkDistortionExamplesWetAmount, "DistortionExamples"
 
   outleta "OutWetL", aDistortionExamplesOutWetL
   outleta "OutWetR", aDistortionExamplesOutWetR

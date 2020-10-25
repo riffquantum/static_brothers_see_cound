@@ -9,19 +9,19 @@ gkDrumKitLPFEqHigh init 1
 gkDrumKitLPFFader init 1
 gkDrumKitLPFPan init 50
 
-gkDrumKitLPFDryAmmount init 0
-gkDrumKitLPFWetAmmount init 1
+gkDrumKitLPFDryAmount init 0
+gkDrumKitLPFWetAmount init 1
 gkDrumKitLPFAmount init 1
 giDrumKitLPFMode init 3
 
-gkDrumKitLPFHalfPowerPoint = 1000
-gkDrumKitLPFQ = 1
+gkDrumKitLPFHalfPowerPoint init 1000
+gkDrumKitLPFQ init 1
 
 instr DrumKitLPFInput
   aDrumKitLPFInL inleta "InL"
   aDrumKitLPFInR inleta "InR"
 
-  aDrumKitLPFOutWetL, aDrumKitLPFOutWetR, aDrumKitLPFOutDryL, aDrumKitLPFOutDryR bypassSwitch aDrumKitLPFInL, aDrumKitLPFInR, gkDrumKitLPFDryAmmount, gkDrumKitLPFWetAmmount, "DrumKitLPF"
+  aDrumKitLPFOutWetL, aDrumKitLPFOutWetR, aDrumKitLPFOutDryL, aDrumKitLPFOutDryR bypassSwitch aDrumKitLPFInL, aDrumKitLPFInR, gkDrumKitLPFDryAmount, gkDrumKitLPFWetAmount, "DrumKitLPF"
 
   outleta "OutWetL", aDrumKitLPFOutWetL
   outleta "OutWetR", aDrumKitLPFOutWetR

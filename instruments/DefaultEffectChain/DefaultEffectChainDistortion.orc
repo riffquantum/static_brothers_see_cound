@@ -15,14 +15,14 @@ gkDutyCycleOffset init .01
 gkSlopeOffset init .01
 giDefaultEffectChainDistortionMode init 5
 
-gkDefaultEffectChainDistortionWetAmmount init 1
-gkDefaultEffectChainDistortionDryAmmount init 0
+gkDefaultEffectChainDistortionWetAmount init 1
+gkDefaultEffectChainDistortionDryAmount init 0
 
 instr DefaultEffectChainDistortionInput
   aDefaultEffectChainDistortionInL inleta "InL"
   aDefaultEffectChainDistortionInR inleta "InR"
 
-  aDefaultEffectChainDistortionOutWetL, aDefaultEffectChainDistortionOutWetR, aDefaultEffectChainDistortionOutDryL, aDefaultEffectChainDistortionOutDryR bypassSwitch aDefaultEffectChainDistortionInL, aDefaultEffectChainDistortionInR, gkDefaultEffectChainDistortionDryAmmount, gkDefaultEffectChainDistortionWetAmmount, "DefaultEffectChainDistortion"
+  aDefaultEffectChainDistortionOutWetL, aDefaultEffectChainDistortionOutWetR, aDefaultEffectChainDistortionOutDryL, aDefaultEffectChainDistortionOutDryR bypassSwitch aDefaultEffectChainDistortionInL, aDefaultEffectChainDistortionInR, gkDefaultEffectChainDistortionDryAmount, gkDefaultEffectChainDistortionWetAmount, "DefaultEffectChainDistortion"
 
   outleta "OutWetL", aDefaultEffectChainDistortionOutWetL
   outleta "OutWetR", aDefaultEffectChainDistortionOutWetR

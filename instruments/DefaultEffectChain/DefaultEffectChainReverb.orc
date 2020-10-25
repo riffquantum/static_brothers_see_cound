@@ -9,16 +9,16 @@ gkDefaultEffectChainReverbPan init 50
 
 giDefaultEffectChainReverbMode init 3
 
-gkDefaultEffectChainReverbWetAmmount init .3
-gkDefaultEffectChainReverbDryAmmount init 1
+gkDefaultEffectChainReverbWetAmount init .3
+gkDefaultEffectChainReverbDryAmount init 1
 
-bypassRoute "DefaultEffectChainReverb", "Mixer", "Mixer"
+bypassRoute "DefaultEffectChainReverb", "DefaultEffectChainMixerChannel", "DefaultEffectChainMixerChannel"
 
 instr DefaultEffectChainReverbInput
   aDefaultEffectChainReverbInL inleta "InL"
   aDefaultEffectChainReverbInR inleta "InR"
 
-  aDefaultEffectChainReverbOutWetL, aDefaultEffectChainReverbOutWetR, aDefaultEffectChainReverbOutDryL, aDefaultEffectChainReverbOutDryR bypassSwitch aDefaultEffectChainReverbInL, aDefaultEffectChainReverbInR, gkDefaultEffectChainReverbDryAmmount, gkDefaultEffectChainReverbWetAmmount, "DefaultEffectChainReverb"
+  aDefaultEffectChainReverbOutWetL, aDefaultEffectChainReverbOutWetR, aDefaultEffectChainReverbOutDryL, aDefaultEffectChainReverbOutDryR bypassSwitch aDefaultEffectChainReverbInL, aDefaultEffectChainReverbInR, gkDefaultEffectChainReverbDryAmount, gkDefaultEffectChainReverbWetAmount, "DefaultEffectChainReverb"
 
   outleta "OutWetL", aDefaultEffectChainReverbOutWetL
   outleta "OutWetR", aDefaultEffectChainReverbOutWetR
@@ -192,8 +192,8 @@ instr DefaultEffectChainReverb
     aDefaultEffectChainReverbWetR = aDefaultEffectChainReverbWetLR + aDefaultEffectChainReverbWetRR
   endif
 
-  aDefaultEffectChainReverbL = aDefaultEffectChainReverbWetL
-  aDefaultEffectChainReverbR = aDefaultEffectChainReverbWetR
+  aDefaultEffectChainReverbL = aDefaultEffectChainReverbWetL * madsr(0.01, 0.01, 1, .5)
+  aDefaultEffectChainReverbR = aDefaultEffectChainReverbWetR * madsr(0.01, 0.01, 1, .5)
 
   outleta "OutL", aDefaultEffectChainReverbL
   outleta "OutR", aDefaultEffectChainReverbR

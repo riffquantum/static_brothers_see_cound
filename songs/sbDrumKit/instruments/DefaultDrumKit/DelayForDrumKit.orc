@@ -4,7 +4,7 @@ alwayson "DelayForDrumKitMixerChannel"
 
 giDelayForDrumKitBufferLength init 5
 gaDelayForDrumKitTime init .3
-gkDelayForDrumKitFeedbackAmmount init 0.8
+gkDelayForDrumKitFeedbackAmount init 0.8
 gkDelayForDrumKitWetLevel init .2
 gkDelayForDrumKitDryLevel init 0
 gkDelayForDrumKitStereoOffset init 0.1
@@ -19,8 +19,8 @@ instr DelayForDrumKitTimeKnob
   gaDelayForDrumKitTime linseg p4, p3, p5
 endin
 
-instr DelayForDrumKitFeedbackAmmountKnob
-  gkDelayForDrumKitFeedbackAmmount linseg p4, p3, p5
+instr DelayForDrumKitFeedbackAmountKnob
+  gkDelayForDrumKitFeedbackAmount linseg p4, p3, p5
 endin
 
 instr DelayForDrumKitLevelKnob
@@ -41,8 +41,8 @@ instr DelayForDrumKit
 
   kWetLevel = madsr(.01, .01, 1, .01) * gkDelayForDrumKitWetLevel
 
-  aDelayForDrumKitWetL delayBuffer aDelayForDrumKitInL, gkDelayForDrumKitFeedbackAmmount, giDelayForDrumKitBufferLength, aDelayForDrumKitTimeL + oscil(0.025, .1) + oscil(0.025, .05), gkDelayForDrumKitWetLevel
-  aDelayForDrumKitWetR delayBuffer aDelayForDrumKitInR, gkDelayForDrumKitFeedbackAmmount, giDelayForDrumKitBufferLength, aDelayForDrumKitTimeR + oscil(0.025, .1) + oscil(0.025, .05), gkDelayForDrumKitWetLevel
+  aDelayForDrumKitWetL delayBuffer aDelayForDrumKitInL, gkDelayForDrumKitFeedbackAmount, giDelayForDrumKitBufferLength, aDelayForDrumKitTimeL + oscil(0.025, .1) + oscil(0.025, .05), gkDelayForDrumKitWetLevel
+  aDelayForDrumKitWetR delayBuffer aDelayForDrumKitInR, gkDelayForDrumKitFeedbackAmount, giDelayForDrumKitBufferLength, aDelayForDrumKitTimeR + oscil(0.025, .1) + oscil(0.025, .05), gkDelayForDrumKitWetLevel
 
   aDelayForDrumKitOutL = (aDelayForDrumKitInL * gkDelayForDrumKitDryLevel) + aDelayForDrumKitWetL
   aDelayForDrumKitOutR = (aDelayForDrumKitInR * gkDelayForDrumKitDryLevel) + aDelayForDrumKitWetR

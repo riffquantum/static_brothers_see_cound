@@ -67,6 +67,8 @@
 
 #include "mixerChannel.orc"
 
+#include "m_chorus.orc"
+
 /*
   Table Generators
 */

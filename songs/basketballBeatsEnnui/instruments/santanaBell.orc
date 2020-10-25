@@ -193,7 +193,7 @@ instr santanaBellSndwarp
       iWaveFrequencyStartTable = -1
       iWaveFrequencyEndTable = -1
       aFrequencyModulationWave = 1
-      iFrequencyModulationAmmountTable = -1
+      iFrequencyModulationAmountTable = -1
       kFrequencyModulationEnvelopeTable = iSineTable
       iCosineTable = 0
       kTrainletFundamentalFrequency = 1000
@@ -217,7 +217,7 @@ instr santanaBellSndwarp
       iMaxGrainsPerKPeriod = 100
       iOpcodeId = 0
 
-      asantanaBellL partikkel kGrainFrequency, kGrainDistribution, iGrainDisplacementTable, aSyncInput, kSecondaryEnvelopeAmount, iSecondaryEnvelopeTable, iEnvelopeAttackTable, iEnvelopeDecayTable, kSustainTime, kAttackDecayRatio, kGrainDuration, kamplitude, iGainMaskTable, kWaveFrequency, kSweepShape, iWaveFrequencyStartTable, iWaveFrequencyEndTable, aFrequencyModulationWave, iFrequencyModulationAmmountTable, kFrequencyModulationEnvelopeTable, iCosineTable, kTrainletFundamentalFrequency, kNumberOfPartials, kChroma, iChannelMasksTable, kRandomMasking, kwaveform1, kwaveform2, kwaveform3, kwaveform4, iwaveamptab, aSampleStartPosition1, aSampleStartPosition2, aSampleStartPosition3, aSampleStartPosition4, kwavekey1, kwavekey2, kwavekey3, kwavekey4, iMaxGrainsPerKPeriod, iOpcodeId
+      asantanaBellL partikkel kGrainFrequency, kGrainDistribution, iGrainDisplacementTable, aSyncInput, kSecondaryEnvelopeAmount, iSecondaryEnvelopeTable, iEnvelopeAttackTable, iEnvelopeDecayTable, kSustainTime, kAttackDecayRatio, kGrainDuration, kamplitude, iGainMaskTable, kWaveFrequency, kSweepShape, iWaveFrequencyStartTable, iWaveFrequencyEndTable, aFrequencyModulationWave, iFrequencyModulationAmountTable, kFrequencyModulationEnvelopeTable, iCosineTable, kTrainletFundamentalFrequency, kNumberOfPartials, kChroma, iChannelMasksTable, kRandomMasking, kwaveform1, kwaveform2, kwaveform3, kwaveform4, iwaveamptab, aSampleStartPosition1, aSampleStartPosition2, aSampleStartPosition3, aSampleStartPosition4, kwavekey1, kwavekey2, kwavekey3, kwavekey4, iMaxGrainsPerKPeriod, iOpcodeId
       asantanaBellR = asantanaBellL
 
     endif

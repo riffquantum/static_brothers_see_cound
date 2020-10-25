@@ -1,5 +1,5 @@
 instr synthLead1
-  iPatternLength = p3 * i(gkBPM)/60
+  iPatternLength = secondsToBeats(p3)
 
   iBeatsPerMeasure = 16
   iMeasureIndex = 0

@@ -24,15 +24,15 @@
       gkRingModForLeadSynthFader = .5
       gkLeadSynthFader = .5
       gkRingModForLeadSynthModulator1Frequency = oscil(10, .1) + 2000
-      gkRingModForLeadSynthModulator1Ammount = oscil(.4, .07) + .4
+      gkRingModForLeadSynthModulator1Amount = oscil(.4, .07) + .4
       gkRingModForLeadSynthModulator2Frequency = oscil(100, .01) + 500
-      gkRingModForLeadSynthModulator2Ammount = oscil(.25, .3) + .25
+      gkRingModForLeadSynthModulator2Amount = oscil(.25, .3) + .25
       gkRingModForLeadSynthModulator3Frequency = 0
-      gkRingModForLeadSynthModulator3Ammount = 0
+      gkRingModForLeadSynthModulator3Amount = 0
       gkRingModForLeadSynthModulator4Frequency = 0
-      gkRingModForLeadSynthModulator4Ammount = 0
+      gkRingModForLeadSynthModulator4Amount = 0
       gkRingModForLeadSynthModulator5Frequency = 0
-      gkRingModForLeadSynthModulator5Ammount = 0
+      gkRingModForLeadSynthModulator5Amount = 0
       gkDefaultDrumKitReverbWet = oscil(.0005, .1) + 0.01
       gkDefaultDrumKitBusFader = 1.3
     endin

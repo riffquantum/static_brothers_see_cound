@@ -1,10 +1,10 @@
 gSMidiChannelAssignments[] fillarray "", \
   "BassTone", \
+  "SyncLoopSamplerTemplate2", \
   "DescentTwinkle2", \
   "ItsOnlyLove2", \
   "DisonantSynth", \
   "GrowlOn", \
-  "SyncLoopSamplerTemplate2", \
   "BassPluck", \
   "NewInstrument", \
   "BigCrunchySynth", \

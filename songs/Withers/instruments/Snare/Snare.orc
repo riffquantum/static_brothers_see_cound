@@ -4,10 +4,10 @@ alwayson "SnareMixerChannel"
 gkSnareEqBass init 1
 gkSnareEqMid init 1
 gkSnareEqHigh init 1
-gkSnareFader init 1
+gkSnareFader init 2
 gkSnarePan init 50
-
-gSSnareSamplePath ="localSamples/Drums/Mixed-Drums_Snare_EA8529.wav"
+gSSnareSamplePath = "localSamples/Drums/R8-Drums_Snare_E7743.wav"
+gSSnareSamplePath = "localSamples/Drums/Mixed-Drums_Snare_EA8529.wav"
 
 giSnareSample ftgen 0, 0, 0, 1, gSSnareSamplePath, 0, 0, 0
 

@@ -16,7 +16,7 @@ instr TablaSitarLoop1
 
   kPitchFactor *= (gkBPM / 149.5)
 
-  STablaSitarLoop1FilePath init "localSamples/tablasitarloop1.wav"
+  STablaSitarLoop1FilePath init "localSamples/Ravi Shankar - Tabla Rassa Ranga/tablasitarloop1.wav"
 
   iWrapAround = 1
   iFormat = 0

@@ -9,8 +9,8 @@ gkTremoloEqHigh init 1
 gkTremoloFader init 1
 gkTremoloPan init 50
 
-gkTremoloDryAmmount init 0
-gkTremoloWetAmmount init 1
+gkTremoloDryAmount init 0
+gkTremoloWetAmount init 1
 
 giTremoloWaveShapes[] fillarray sineWave(), triangleWave()
 giTremoloWaveShape init 1
@@ -23,7 +23,7 @@ instr TremoloInput
   aTremoloInL inleta "InL"
   aTremoloInR inleta "InR"
 
-  aTremoloOutWetL, aTremoloOutWetR, aTremoloOutDryL, aTremoloOutDryR bypassSwitch aTremoloInL, aTremoloInR, gkTremoloDryAmmount, gkTremoloWetAmmount, "Tremolo"
+  aTremoloOutWetL, aTremoloOutWetR, aTremoloOutDryL, aTremoloOutDryR bypassSwitch aTremoloInL, aTremoloInR, gkTremoloDryAmount, gkTremoloWetAmount, "Tremolo"
 
   outleta "OutWetL", aTremoloOutWetL
   outleta "OutWetR", aTremoloOutWetR
@@ -38,7 +38,7 @@ instr Tremolo
   aTremoloInR inleta "InR"
 
   kTremoloDepth = limit(gkTremoloDepth, 0, 1)
-  aSquareness = (((gaTremoloWaveSquareness/100)^(1/.3))*20) + 1
+  aSquareness = (((gaTremoloWaveSquareness/100)^(1/.3))*20) + 1 ; NOTE: the opcode squinewave may be a better option for this.
   aTremoloWave = (poscil(.5, gkTremoloRate, giTremoloWaveShapes[giTremoloWaveShape])) * aSquareness
   aTremoloWave = limit(aTremoloWave, -0.5, 0.5) + 0.5
   aTremoloWave = 1 - (aTremoloWave*kTremoloDepth)

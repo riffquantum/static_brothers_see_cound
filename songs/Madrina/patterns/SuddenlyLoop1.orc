@@ -1,5 +1,5 @@
 instr SuddenlyLoop1
-    iPatternLength = p3 * i(gkBPM)/60
+    iPatternLength = secondsToBeats(p3)
     iBeatsPerMeasure = 4
     iMeasureCount = 0
 

@@ -1,5 +1,5 @@
 instr drumPattern1
-  iPatternLength = p3 * i(gkBPM)/60
+  iPatternLength = secondsToBeats(p3)
   iBeatsPerMeasure = 21
   iMeasureCount = 0
   iSampleMode = 0

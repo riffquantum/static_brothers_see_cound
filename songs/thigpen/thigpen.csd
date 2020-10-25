@@ -12,6 +12,7 @@
         gkBPM init 100
 
         #include "opcodes/opcode-manifest.orc"
+        #include "instruments/orchestra-manifest.orc"
         #include "songs/thigpen/instruments/orchestra-manifest.orc"
 
 

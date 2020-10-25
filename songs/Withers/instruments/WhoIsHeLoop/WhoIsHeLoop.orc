@@ -4,7 +4,7 @@ alwayson "WhoIsHeLoopMixerChannel"
 gkWhoIsHeLoopEqBass init 1
 gkWhoIsHeLoopEqMid init 1
 gkWhoIsHeLoopEqHigh init 1
-gkWhoIsHeLoopFader init 1
+gkWhoIsHeLoopFader init 2
 gkWhoIsHeLoopPan init 50
 
 gSWhoIsHeLoopSamplePath = "songs/Withers/instruments/WhoIsHeLoop/WhoIsHeLoop.wav"

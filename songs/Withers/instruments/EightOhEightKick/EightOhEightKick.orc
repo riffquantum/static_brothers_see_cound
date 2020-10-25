@@ -1,10 +1,10 @@
 instrumentRoute "EightOhEightKick", "KickMixerChannel"
 alwayson "EightOhEightKickMixerChannel"
 
-gkEightOhEightKickEqBass init 1
-gkEightOhEightKickEqMid init 1
+gkEightOhEightKickEqBass init .8
+gkEightOhEightKickEqMid init .75
 gkEightOhEightKickEqHigh init 1
-gkEightOhEightKickFader init 1
+gkEightOhEightKickFader init .75
 gkEightOhEightKickPan init 50
 
 gSEightOhEightKickSamplePath = "localSamples/Drums/TR-808_Kick_005.wav"

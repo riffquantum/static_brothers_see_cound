@@ -9,21 +9,21 @@ gkDefaultDrumKitDistortionEqHigh init 1
 gkDefaultDrumKitDistortionFader init 1
 gkDefaultDrumKitDistortionPan init 50
 
-gkDefaultDrumKitDistortionDryAmmount init 0
-gkDefaultDrumKitDistortionWetAmmount init 1
+gkDefaultDrumKitDistortionDryAmount init 0
+gkDefaultDrumKitDistortionWetAmount init 1
 
 gkDefaultDrumKitDistortionPreGain init 10
 gkDefaultDrumKitDistortionPostGain init 1
 gkDefaultDrumKitDistortionDutyOffset init .01
 gkDefaultDrumKitDistortionSlopeShift init .01
 giDefaultDrumKitDistortionStage2ClipLevel init 0dbfs/2
-giDefaultDrumKitDistortionFinalGainAmmount init .25
+giDefaultDrumKitDistortionFinalGainAmount init .25
 
 instr DefaultDrumKitDistortionInput
   aDefaultDrumKitDistortionInL inleta "InL"
   aDefaultDrumKitDistortionInR inleta "InR"
 
-  aDefaultDrumKitDistortionOutWetL, aDefaultDrumKitDistortionOutWetR, aDefaultDrumKitDistortionOutDryL, aDefaultDrumKitDistortionOutDryR bypassSwitch aDefaultDrumKitDistortionInL, aDefaultDrumKitDistortionInR, gkDefaultDrumKitDistortionDryAmmount, gkDefaultDrumKitDistortionWetAmmount, "DefaultDrumKitDistortion"
+  aDefaultDrumKitDistortionOutWetL, aDefaultDrumKitDistortionOutWetR, aDefaultDrumKitDistortionOutDryL, aDefaultDrumKitDistortionOutDryR bypassSwitch aDefaultDrumKitDistortionInL, aDefaultDrumKitDistortionInR, gkDefaultDrumKitDistortionDryAmount, gkDefaultDrumKitDistortionWetAmount, "DefaultDrumKitDistortion"
 
   outleta "OutWetL", aDefaultDrumKitDistortionOutWetL
   outleta "OutWetR", aDefaultDrumKitDistortionOutWetR
@@ -70,8 +70,8 @@ instr DefaultDrumKitDistortion
   aDefaultDrumKitDistortionOutL butterlp aDefaultDrumKitDistortionOutL, 5000
   aDefaultDrumKitDistortionOutR butterlp aDefaultDrumKitDistortionOutR, 5000
 
-  aDefaultDrumKitDistortionOutL *= giDefaultDrumKitDistortionFinalGainAmmount
-  aDefaultDrumKitDistortionOutR *= giDefaultDrumKitDistortionFinalGainAmmount
+  aDefaultDrumKitDistortionOutL *= giDefaultDrumKitDistortionFinalGainAmount
+  aDefaultDrumKitDistortionOutR *= giDefaultDrumKitDistortionFinalGainAmount
 
   aDefaultDrumKitDistortionOutL *= kDeclick
   aDefaultDrumKitDistortionOutR *= kDeclick

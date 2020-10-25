@@ -4,7 +4,7 @@ opcode randomVariation, i, 0
 endop
 
 instr weirdBigCymbalPattern
-  iPatternLength = p3 * i(gkBPM)/60
+  iPatternLength = secondsToBeats(p3)
 
   iBeatsPerMeasure = 4
   iMeasureCount = 0

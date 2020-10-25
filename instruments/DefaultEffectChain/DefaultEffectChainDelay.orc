@@ -3,9 +3,10 @@ alwayson "DefaultEffectChainDelayMixerChannel"
 
 giDefaultEffectChainDelayBufferLength init 5
 gaDefaultEffectChainDelayTime init 0.25
-gkDefaultEffectChainDelayFeedbackAmmount init 0.8
+gkDefaultEffectChainDelayFeedbackAmount init 0.8
 gkDefaultEffectChainDelayLevel init 1
 gkDefaultEffectCHainDelayStereoOffset init 0.0
+giDefaultEffectChainDelayReleaseTime init .1
 
 gkDefaultEffectChainDelayEqBass init 1
 gkDefaultEffectChainDelayEqMid init 1
@@ -13,8 +14,8 @@ gkDefaultEffectChainDelayEqHigh init 1
 gkDefaultEffectChainDelayFader init 1
 gkDefaultEffectChainDelayPan init 50
 
-gkDefaultEffectChainDelayWetAmmount init 1
-gkDefaultEffectChainDelayDryAmmount init 1
+gkDefaultEffectChainDelayWetAmount init 1
+gkDefaultEffectChainDelayDryAmount init 1
 
 bypassRoute "DefaultEffectChainDelay", "DefaultEffectChainReverbInput", "DefaultEffectChainReverbInput"
 
@@ -22,7 +23,7 @@ instr DefaultEffectChainDelayInput
   aDefaultEffectChainDelayInL inleta "InL"
   aDefaultEffectChainDelayInR inleta "InR"
 
-  aDefaultEffectChainDelayOutWetL, aDefaultEffectChainDelayOutWetR, aDefaultEffectChainDelayOutDryL, aDefaultEffectChainDelayOutDryR bypassSwitch aDefaultEffectChainDelayInL, aDefaultEffectChainDelayInR, gkDefaultEffectChainDelayDryAmmount, gkDefaultEffectChainDelayWetAmmount, "DefaultEffectChainDelay"
+  aDefaultEffectChainDelayOutWetL, aDefaultEffectChainDelayOutWetR, aDefaultEffectChainDelayOutDryL, aDefaultEffectChainDelayOutDryR bypassSwitch aDefaultEffectChainDelayInL, aDefaultEffectChainDelayInR, gkDefaultEffectChainDelayDryAmount, gkDefaultEffectChainDelayWetAmount, "DefaultEffectChainDelay"
 
   outleta "OutWetL", aDefaultEffectChainDelayOutWetL
   outleta "OutWetR", aDefaultEffectChainDelayOutWetR
@@ -35,8 +36,8 @@ instr DefaultEffectChainDelayTimeKnob
   gaDefaultEffectChainDelayTime linseg p4, p3, p5
 endin
 
-instr DefaultEffectChainDelayFeedbackAmmountKnob
-  gkDefaultEffectChainDelayFeedbackAmmount linseg p4, p3, p5
+instr DefaultEffectChainDelayFeedbackAmountKnob
+  gkDefaultEffectChainDelayFeedbackAmount linseg p4, p3, p5
 endin
 
 instr DefaultEffectChainDelayLevelKnob
@@ -55,11 +56,11 @@ instr DefaultEffectChainDelay
   aDefaultEffectChainDelayTimeL = gaDefaultEffectChainDelayTime + gkDefaultEffectCHainDelayStereoOffset
   aDefaultEffectChainDelayTimeR = gaDefaultEffectChainDelayTime - gkDefaultEffectCHainDelayStereoOffset
 
-  aDefaultEffectChainDelayAudioL delayBuffer aDefaultEffectChainDelayInL, gkDefaultEffectChainDelayFeedbackAmmount, giDefaultEffectChainDelayBufferLength, aDefaultEffectChainDelayTimeL, gkDefaultEffectChainDelayLevel
-  aDefaultEffectChainDelayAudioR delayBuffer aDefaultEffectChainDelayInR, gkDefaultEffectChainDelayFeedbackAmmount, giDefaultEffectChainDelayBufferLength, aDefaultEffectChainDelayTimeR, gkDefaultEffectChainDelayLevel
+  aDefaultEffectChainDelayAudioL delayBuffer aDefaultEffectChainDelayInL, gkDefaultEffectChainDelayFeedbackAmount, giDefaultEffectChainDelayBufferLength, aDefaultEffectChainDelayTimeL, gkDefaultEffectChainDelayLevel
+  aDefaultEffectChainDelayAudioR delayBuffer aDefaultEffectChainDelayInR, gkDefaultEffectChainDelayFeedbackAmount, giDefaultEffectChainDelayBufferLength, aDefaultEffectChainDelayTimeR, gkDefaultEffectChainDelayLevel
 
-  aDefaultEffectChainDelayOutL = aDefaultEffectChainDelayInL + aDefaultEffectChainDelayAudioL
-  aDefaultEffectChainDelayOutR = aDefaultEffectChainDelayInR + aDefaultEffectChainDelayAudioR
+  aDefaultEffectChainDelayOutL = aDefaultEffectChainDelayAudioL * madsr(.01, .01, 1, giDefaultEffectChainDelayReleaseTime)
+  aDefaultEffectChainDelayOutR = aDefaultEffectChainDelayAudioR * madsr(.01, .01, 1, giDefaultEffectChainDelayReleaseTime)
 
   outleta "OutL", aDefaultEffectChainDelayOutL
   outleta "OutR", aDefaultEffectChainDelayOutR

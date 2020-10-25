@@ -55,7 +55,7 @@
 
     instr Config
       gkKickFader = .55
-      gkDrumKitReverbWetAmmount = poscil(.025, .15) + .05
+      gkDrumKitReverbWetAmount = poscil(.025, .15) + .05
       gkDrumKitLPFHalfPowerPoint = poscil(1000, .05) + 5500
       gkDrumKitLPFAmount = limit(poscil(.1, .1) + .75, 0, 1)
     endin

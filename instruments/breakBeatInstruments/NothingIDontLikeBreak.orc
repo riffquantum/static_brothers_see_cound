@@ -7,6 +7,8 @@ gkNothingIDontLikeBreakEqHigh init 1
 gkNothingIDontLikeBreakFader init 1
 gkNothingIDontLikeBreakPan init 50
 
+gkNothingIDontLikeBreakPitch init 1
+
 gSNothingIDontLikeBreakSamplePath = "instruments/breakBeatInstruments/nothingIDontLikeBreakMono.wav"
 giNothingIDontLikeBreakSampleChannels filenchnls gSNothingIDontLikeBreakSamplePath
 giNothingIDontLikeBreakSampleLength filelen gSNothingIDontLikeBreakSamplePath
@@ -21,7 +23,7 @@ endif
 
 instr NothingIDontLikeBreak
   iAmplitude = velocityToAmplitude(p4)
-  kPitch = p5
+  kPitch = p5 * gkNothingIDontLikeBreakPitch
   iStartBeat = p6
 
   iSampleLengthInBeats = 8

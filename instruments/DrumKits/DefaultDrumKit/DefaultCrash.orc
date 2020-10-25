@@ -2,7 +2,7 @@ instrumentRoute "DefaultCrash", "DefaultDrumKitBus"
 
 alwayson "DefaultCrashMixerChannel"
 
-gkDefaultCrashEqBass init 1.3
+gkDefaultCrashEqBass init 1
 gkDefaultCrashEqMid init 1
 gkDefaultCrashEqHigh init 1
 gkDefaultCrashFader init 1

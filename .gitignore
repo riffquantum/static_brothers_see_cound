@@ -8,3 +8,7 @@ examples
 
 audioOut.wav
 midiout.mid
+
+*.wav
+*.mp3
+*.aif

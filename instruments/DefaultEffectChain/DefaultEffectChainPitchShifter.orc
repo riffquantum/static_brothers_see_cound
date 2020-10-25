@@ -1,8 +1,8 @@
 alwayson "DefaultEffectChainPitchShifterInput"
 alwayson "DefaultEffectChainPitchShifterMixerChannel"
 
-gkDefaultEffectChainPitchShifterWetAmmount init 1
-gkDefaultEffectChainPitchShifterDryAmmount init 0
+gkDefaultEffectChainPitchShifterWetAmount init 1
+gkDefaultEffectChainPitchShifterDryAmount init 0
 
 gkDefaultEffectChainPitchShifterEqBass init 1
 gkDefaultEffectChainPitchShifterEqMid init 1
@@ -16,7 +16,7 @@ instr DefaultEffectChainPitchShifterInput
   aDefaultEffectChainPitchShifterInL inleta "InL"
   aDefaultEffectChainPitchShifterInR inleta "InR"
 
-  aDefaultEffectChainPitchShifterOutWetL, aDefaultEffectChainPitchShifterOutWetR, aDefaultEffectChainPitchShifterOutDryL, aDefaultEffectChainPitchShifterOutDryR bypassSwitch aDefaultEffectChainPitchShifterInL, aDefaultEffectChainPitchShifterInR, gkDefaultEffectChainPitchShifterDryAmmount, gkDefaultEffectChainPitchShifterWetAmmount, "DefaultEffectChainPitchShifter"
+  aDefaultEffectChainPitchShifterOutWetL, aDefaultEffectChainPitchShifterOutWetR, aDefaultEffectChainPitchShifterOutDryL, aDefaultEffectChainPitchShifterOutDryR bypassSwitch aDefaultEffectChainPitchShifterInL, aDefaultEffectChainPitchShifterInR, gkDefaultEffectChainPitchShifterDryAmount, gkDefaultEffectChainPitchShifterWetAmount, "DefaultEffectChainPitchShifter"
 
   outleta "OutWetL", aDefaultEffectChainPitchShifterOutWetL
   outleta "OutWetR", aDefaultEffectChainPitchShifterOutWetR

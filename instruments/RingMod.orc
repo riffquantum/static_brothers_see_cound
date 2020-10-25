@@ -9,25 +9,25 @@ gkRingModPan init 50
 
 bypassRoute "RingMod", "Mixer", "Mixer"
 
-gkRingModDryAmmount init 1
-gkRingModWetAmmount init 1
+gkRingModDryAmount init 1
+gkRingModWetAmount init 1
 
 gkRingModModulator1Frequency init 2000
-gkRingModModulator1Ammount init 1
+gkRingModModulator1Amount init 1
 gkRingModModulator2Frequency init 1200
-gkRingModModulator2Ammount init 0
+gkRingModModulator2Amount init 0
 gkRingModModulator3Frequency init 800
-gkRingModModulator3Ammount init 0
+gkRingModModulator3Amount init 0
 gkRingModModulator4Frequency init 440
-gkRingModModulator4Ammount init 0
+gkRingModModulator4Amount init 0
 gkRingModModulator5Frequency init 263
-gkRingModModulator5Ammount init 0
+gkRingModModulator5Amount init 0
 
 instr RingModInput
   aRingModInL inleta "InL"
   aRingModInR inleta "InR"
 
-  aRingModOutWetL, aRingModOutWetR, aRingModOutDryL, aRingModOutDryR bypassSwitch aRingModInL, aRingModInR, gkRingModDryAmmount, gkRingModWetAmmount, "RingMod"
+  aRingModOutWetL, aRingModOutWetR, aRingModOutDryL, aRingModOutDryR bypassSwitch aRingModInL, aRingModInR, gkRingModDryAmount, gkRingModWetAmount, "RingMod"
 
   outleta "OutWetL", aRingModOutWetL
   outleta "OutWetR", aRingModOutWetR
@@ -44,11 +44,11 @@ instr RingMod
   aRingModOutR = aRingModInR
 
   aModulator = 0
-  aModulator += oscil(gkRingModModulator1Ammount, gkRingModModulator1Frequency)
-  aModulator += oscil(gkRingModModulator2Ammount, gkRingModModulator2Frequency)
-  aModulator += oscil(gkRingModModulator3Ammount, gkRingModModulator3Frequency)
-  aModulator += oscil(gkRingModModulator4Ammount, gkRingModModulator4Frequency)
-  aModulator += oscil(gkRingModModulator5Ammount, gkRingModModulator5Frequency)
+  aModulator += oscil(gkRingModModulator1Amount, gkRingModModulator1Frequency)
+  aModulator += oscil(gkRingModModulator2Amount, gkRingModModulator2Frequency)
+  aModulator += oscil(gkRingModModulator3Amount, gkRingModModulator3Frequency)
+  aModulator += oscil(gkRingModModulator4Amount, gkRingModModulator4Frequency)
+  aModulator += oscil(gkRingModModulator5Amount, gkRingModModulator5Frequency)
 
   aRingModOutL *= aModulator
   aRingModOutR *= aModulator

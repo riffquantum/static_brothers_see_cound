@@ -4,7 +4,7 @@ opcode randomVariation, i, 0
 endop
 
 instr pattern1
-  iPatternLength = p3 * i(gkBPM)/60
+  iPatternLength = secondsToBeats(p3)
 
   iBeatsPerMeasure = 4
   iMeasureIndex = 0
@@ -21,13 +21,13 @@ instr pattern1
       beatScoreline "Kick", iBaseTime+0.5, 4, 4, .9
       beatScoreline "Kick", iBaseTime+1.75, 4, 5, .9
     endif
-    
+
 
     beatScoreline "Kick", iBaseTime+2.5, 4, 5, .9
 
     beatScoreline "Snare", iBaseTime+1, 4, 4, .09
     beatScoreline "Snare", iBaseTime+3, 4, 4, 1.1
-    
+
     if iMeasureCount % 4 != 0 then
       if iMeasureCount % 2 == 1 then
         beatScoreline "OpenHat", iBaseTime+0, 0.5, 2.3, 1

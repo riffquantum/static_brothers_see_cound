@@ -9,8 +9,8 @@ gkDefaultEffectChainTremoloEqHigh init 1
 gkDefaultEffectChainTremoloFader init 1
 gkDefaultEffectChainTremoloPan init 50
 
-gkDefaultEffectChainTremoloDryAmmount init 0
-gkDefaultEffectChainTremoloWetAmmount init 1
+gkDefaultEffectChainTremoloDryAmount init 0
+gkDefaultEffectChainTremoloWetAmount init 1
 
 giDefaultEffectChainTremoloWaveShapes[] fillarray sineWave(), triangleWave()
 giDefaultEffectChainTremoloWaveShape init 1
@@ -23,7 +23,7 @@ instr DefaultEffectChainTremoloInput
   aDefaultEffectChainTremoloInL inleta "InL"
   aDefaultEffectChainTremoloInR inleta "InR"
 
-  aDefaultEffectChainTremoloOutWetL, aDefaultEffectChainTremoloOutWetR, aDefaultEffectChainTremoloOutDryL, aDefaultEffectChainTremoloOutDryR bypassSwitch aDefaultEffectChainTremoloInL, aDefaultEffectChainTremoloInR, gkDefaultEffectChainTremoloDryAmmount, gkDefaultEffectChainTremoloWetAmmount, "DefaultEffectChainTremolo"
+  aDefaultEffectChainTremoloOutWetL, aDefaultEffectChainTremoloOutWetR, aDefaultEffectChainTremoloOutDryL, aDefaultEffectChainTremoloOutDryR bypassSwitch aDefaultEffectChainTremoloInL, aDefaultEffectChainTremoloInR, gkDefaultEffectChainTremoloDryAmount, gkDefaultEffectChainTremoloWetAmount, "DefaultEffectChainTremolo"
 
   outleta "OutWetL", aDefaultEffectChainTremoloOutWetL
   outleta "OutWetR", aDefaultEffectChainTremoloOutWetR

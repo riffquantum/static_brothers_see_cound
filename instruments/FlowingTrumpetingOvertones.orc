@@ -1,4 +1,4 @@
-instrumentRoute "FlowingTrumpetingOvertones", "Mixer"
+instrumentRoute "FlowingTrumpetingOvertones", "DefaultEffectChain"
 alwayson "FlowingTrumpetingOvertonesMixerChannel"
 
 gkFlowingTrumpetingOvertonesEqBass init 1

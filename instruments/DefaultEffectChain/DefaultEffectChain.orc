@@ -1,8 +1,14 @@
 alwayson "DefaultEffectChain"
 alwayson "DefaultEffectChainMixerChannel"
 
-stereoRoute "DefaultEffectChain", "DefaultEffectChainPitchShifterInput"
+stereoRoute "DefaultEffectChain", "DefaultEffectChainCompressorInput"
 stereoRoute "DefaultEffectChainMixerChannel", "Mixer"
+
+gkDefaultEffectChainEqBass init 1
+gkDefaultEffectChainEqMid init 1
+gkDefaultEffectChainEqHigh init 1
+gkDefaultEffectChainFader init 1
+gkDefaultEffectChainPan init 50
 
 instr DefaultEffectChain
   aSignalInL inleta "InL"
@@ -14,7 +20,6 @@ instr DefaultEffectChain
   outleta "OutL", aSignalOutL
   outleta "OutR", aSignalOutR
 endin
-
 
 instr DefaultEffectChainBassKnob
   gkDefaultEffectChainEqBass linseg p4, p3, p5

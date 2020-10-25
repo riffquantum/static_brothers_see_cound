@@ -9,25 +9,25 @@ gkRingModForLeadSynthPan init 50
 
 bypassRoute "RingModForLeadSynth", "Mixer", "Mixer"
 
-gkRingModForLeadSynthDryAmmount init 1
-gkRingModForLeadSynthWetAmmount init 1
+gkRingModForLeadSynthDryAmount init 1
+gkRingModForLeadSynthWetAmount init 1
 
 gkRingModForLeadSynthModulator1Frequency init 2000
-gkRingModForLeadSynthModulator1Ammount init 1
+gkRingModForLeadSynthModulator1Amount init 1
 gkRingModForLeadSynthModulator2Frequency init 1200
-gkRingModForLeadSynthModulator2Ammount init 0
+gkRingModForLeadSynthModulator2Amount init 0
 gkRingModForLeadSynthModulator3Frequency init 800
-gkRingModForLeadSynthModulator3Ammount init 0
+gkRingModForLeadSynthModulator3Amount init 0
 gkRingModForLeadSynthModulator4Frequency init 440
-gkRingModForLeadSynthModulator4Ammount init 0
+gkRingModForLeadSynthModulator4Amount init 0
 gkRingModForLeadSynthModulator5Frequency init 263
-gkRingModForLeadSynthModulator5Ammount init 0
+gkRingModForLeadSynthModulator5Amount init 0
 
 instr RingModForLeadSynthInput
   aRingModForLeadSynthInL inleta "InL"
   aRingModForLeadSynthInR inleta "InR"
 
-  aRingModForLeadSynthOutWetL, aRingModForLeadSynthOutWetR, aRingModForLeadSynthOutDryL, aRingModForLeadSynthOutDryR bypassSwitch aRingModForLeadSynthInL, aRingModForLeadSynthInR, gkRingModForLeadSynthDryAmmount, gkRingModForLeadSynthWetAmmount, "RingModForLeadSynth"
+  aRingModForLeadSynthOutWetL, aRingModForLeadSynthOutWetR, aRingModForLeadSynthOutDryL, aRingModForLeadSynthOutDryR bypassSwitch aRingModForLeadSynthInL, aRingModForLeadSynthInR, gkRingModForLeadSynthDryAmount, gkRingModForLeadSynthWetAmount, "RingModForLeadSynth"
 
   outleta "OutWetL", aRingModForLeadSynthOutWetL
   outleta "OutWetR", aRingModForLeadSynthOutWetR
@@ -44,11 +44,11 @@ instr RingModForLeadSynth
   aRingModForLeadSynthOutR = aRingModForLeadSynthInR
 
   aModulator = 0
-  aModulator += oscil(gkRingModForLeadSynthModulator1Ammount, gkRingModForLeadSynthModulator1Frequency)
-  aModulator += oscil(gkRingModForLeadSynthModulator2Ammount, gkRingModForLeadSynthModulator2Frequency)
-  aModulator += oscil(gkRingModForLeadSynthModulator3Ammount, gkRingModForLeadSynthModulator3Frequency)
-  aModulator += oscil(gkRingModForLeadSynthModulator4Ammount, gkRingModForLeadSynthModulator4Frequency)
-  aModulator += oscil(gkRingModForLeadSynthModulator5Ammount, gkRingModForLeadSynthModulator5Frequency)
+  aModulator += oscil(gkRingModForLeadSynthModulator1Amount, gkRingModForLeadSynthModulator1Frequency)
+  aModulator += oscil(gkRingModForLeadSynthModulator2Amount, gkRingModForLeadSynthModulator2Frequency)
+  aModulator += oscil(gkRingModForLeadSynthModulator3Amount, gkRingModForLeadSynthModulator3Frequency)
+  aModulator += oscil(gkRingModForLeadSynthModulator4Amount, gkRingModForLeadSynthModulator4Frequency)
+  aModulator += oscil(gkRingModForLeadSynthModulator5Amount, gkRingModForLeadSynthModulator5Frequency)
 
   aRingModForLeadSynthOutL *= aModulator
   aRingModForLeadSynthOutR *= aModulator

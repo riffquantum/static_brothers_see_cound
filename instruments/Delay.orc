@@ -4,7 +4,7 @@ alwayson "DelayMixerChannel"
 
 giDelayBufferLength init 5
 gaDelayTime init 0.25
-gkDelayFeedbackAmmount init 0.8
+gkDelayFeedbackAmount init 0.8
 gkDelayLevel init 1
 gkDelayStereoOffset init 0.0
 
@@ -18,8 +18,8 @@ instr DelayTimeKnob
   gaDelayTime linseg p4, p3, p5
 endin
 
-instr DelayFeedbackAmmountKnob
-  gkDelayFeedbackAmmount linseg p4, p3, p5
+instr DelayFeedbackAmountKnob
+  gkDelayFeedbackAmount linseg p4, p3, p5
 endin
 
 instr DelayLevelKnob
@@ -38,8 +38,8 @@ instr Delay
   aDelayTimeL = gaDelayTime + gkDelayStereoOffset
   aDelayTimeR = gaDelayTime - gkDelayStereoOffset
 
-  aDelayAudioL delayBuffer aDelayInL, gkDelayFeedbackAmmount, giDelayBufferLength, aDelayTimeL, gkDelayLevel
-  aDelayAudioR delayBuffer aDelayInR, gkDelayFeedbackAmmount, giDelayBufferLength, aDelayTimeR, gkDelayLevel
+  aDelayAudioL delayBuffer aDelayInL, gkDelayFeedbackAmount, giDelayBufferLength, aDelayTimeL, gkDelayLevel
+  aDelayAudioR delayBuffer aDelayInR, gkDelayFeedbackAmount, giDelayBufferLength, aDelayTimeR, gkDelayLevel
 
   aDelayOutL = aDelayInL + aDelayAudioL
   aDelayOutR = aDelayInR + aDelayAudioR

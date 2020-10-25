@@ -9,8 +9,8 @@ gkLowPassFilterExamplesEqHigh init 1
 gkLowPassFilterExamplesFader init 1
 gkLowPassFilterExamplesPan init 50
 
-gkLowPassFilterExamplesDryAmmount init 0
-gkLowPassFilterExamplesWetAmmount init 1
+gkLowPassFilterExamplesDryAmount init 0
+gkLowPassFilterExamplesWetAmount init 1
 gkLowPassFilterExamplesAmount init .1
 giLowPassFilterExamplesMode init 5
 
@@ -18,7 +18,7 @@ instr LowPassFilterExamplesInput
   aLowPassFilterExamplesInL inleta "InL"
   aLowPassFilterExamplesInR inleta "InR"
 
-  aLowPassFilterExamplesOutWetL, aLowPassFilterExamplesOutWetR, aLowPassFilterExamplesOutDryL, aLowPassFilterExamplesOutDryR bypassSwitch aLowPassFilterExamplesInL, aLowPassFilterExamplesInR, gkLowPassFilterExamplesDryAmmount, gkLowPassFilterExamplesWetAmmount, "LowPassFilterExamples"
+  aLowPassFilterExamplesOutWetL, aLowPassFilterExamplesOutWetR, aLowPassFilterExamplesOutDryL, aLowPassFilterExamplesOutDryR bypassSwitch aLowPassFilterExamplesInL, aLowPassFilterExamplesInR, gkLowPassFilterExamplesDryAmount, gkLowPassFilterExamplesWetAmount, "LowPassFilterExamples"
 
   outleta "OutWetL", aLowPassFilterExamplesOutWetL
   outleta "OutWetR", aLowPassFilterExamplesOutWetR

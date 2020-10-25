@@ -9,21 +9,21 @@ gkLinnDrumKitDistortionEqHigh init 1
 gkLinnDrumKitDistortionFader init 1
 gkLinnDrumKitDistortionPan init 50
 
-gkLinnDrumKitDistortionDryAmmount init 0
-gkLinnDrumKitDistortionWetAmmount init 1
+gkLinnDrumKitDistortionDryAmount init 0
+gkLinnDrumKitDistortionWetAmount init 1
 
 gkLinnDrumKitDistortionPreGain init 10
 gkLinnDrumKitDistortionPostGain init 1
 gkLinnDrumKitDistortionDutyOffset init .01
 gkLinnDrumKitDistortionSlopeShift init .01
 giLinnDrumKitDistortionStage2ClipLevel init 0dbfs/2
-giLinnDrumKitDistortionFinalGainAmmount init .25
+giLinnDrumKitDistortionFinalGainAmount init .25
 
 instr LinnDrumKitDistortionInput
   aLinnDrumKitDistortionInL inleta "InL"
   aLinnDrumKitDistortionInR inleta "InR"
 
-  aLinnDrumKitDistortionOutWetL, aLinnDrumKitDistortionOutWetR, aLinnDrumKitDistortionOutDryL, aLinnDrumKitDistortionOutDryR bypassSwitch aLinnDrumKitDistortionInL, aLinnDrumKitDistortionInR, gkLinnDrumKitDistortionDryAmmount, gkLinnDrumKitDistortionWetAmmount, "LinnDrumKitDistortion"
+  aLinnDrumKitDistortionOutWetL, aLinnDrumKitDistortionOutWetR, aLinnDrumKitDistortionOutDryL, aLinnDrumKitDistortionOutDryR bypassSwitch aLinnDrumKitDistortionInL, aLinnDrumKitDistortionInR, gkLinnDrumKitDistortionDryAmount, gkLinnDrumKitDistortionWetAmount, "LinnDrumKitDistortion"
 
   outleta "OutWetL", aLinnDrumKitDistortionOutWetL
   outleta "OutWetR", aLinnDrumKitDistortionOutWetR
@@ -70,8 +70,8 @@ instr LinnDrumKitDistortion
   aLinnDrumKitDistortionOutL butterlp aLinnDrumKitDistortionOutL, 5000
   aLinnDrumKitDistortionOutR butterlp aLinnDrumKitDistortionOutR, 5000
 
-  aLinnDrumKitDistortionOutL *= giLinnDrumKitDistortionFinalGainAmmount
-  aLinnDrumKitDistortionOutR *= giLinnDrumKitDistortionFinalGainAmmount
+  aLinnDrumKitDistortionOutL *= giLinnDrumKitDistortionFinalGainAmount
+  aLinnDrumKitDistortionOutR *= giLinnDrumKitDistortionFinalGainAmount
 
   aLinnDrumKitDistortionOutL *= kDeclick
   aLinnDrumKitDistortionOutR *= kDeclick

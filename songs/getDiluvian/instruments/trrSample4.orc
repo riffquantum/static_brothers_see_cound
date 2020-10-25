@@ -17,7 +17,7 @@ instr trrSample4
   ioverlap = 20
   iwindowSize = 10
 
-  SsampleFilePath = "localSamples/tablarasaranga1.wav"
+  SsampleFilePath = "localSamples/Ravi Shankar - Tabla Rassa Ranga/tablarasaranga1.wav"
   iFileNumChannels filenchnls SsampleFilePath
   itrrSample4FileSampleRate filesr SsampleFilePath
   itrrSample4TableLength getTableSizeFromSample SsampleFilePath

@@ -9,14 +9,14 @@ gkMultiStageDistortionEqHigh init 1
 gkMultiStageDistortionFader init 1
 gkMultiStageDistortionPan init 50
 
-gkMultiStageDistortionDryAmmount init 0
-gkMultiStageDistortionWetAmmount init 1
+gkMultiStageDistortionDryAmount init 0
+gkMultiStageDistortionWetAmount init 1
 
 instr MultiStageDistortionInput
   aMultiStageDistortionInL inleta "InL"
   aMultiStageDistortionInR inleta "InR"
 
-  aMultiStageDistortionOutWetL, aMultiStageDistortionOutWetR, aMultiStageDistortionOutDryL, aMultiStageDistortionOutDryR bypassSwitch aMultiStageDistortionInL, aMultiStageDistortionInR, gkMultiStageDistortionDryAmmount, gkMultiStageDistortionWetAmmount, "MultiStageDistortion"
+  aMultiStageDistortionOutWetL, aMultiStageDistortionOutWetR, aMultiStageDistortionOutDryL, aMultiStageDistortionOutDryR bypassSwitch aMultiStageDistortionInL, aMultiStageDistortionInR, gkMultiStageDistortionDryAmount, gkMultiStageDistortionWetAmount, "MultiStageDistortion"
 
   outleta "OutWetL", aMultiStageDistortionOutWetL
   outleta "OutWetR", aMultiStageDistortionOutWetR

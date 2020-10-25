@@ -9,8 +9,8 @@ gkDrumKitReverbPan init 50
 
 giDrumKitReverbMode init 7
 
-gkDrumKitReverbWetAmmount init .05
-gkDrumKitReverbDryAmmount init 1
+gkDrumKitReverbWetAmount init .05
+gkDrumKitReverbDryAmount init 1
 
 bypassRoute "DrumKitReverb", "Mixer", "Mixer"
 
@@ -18,7 +18,7 @@ instr DrumKitReverbInput
   aDrumKitReverbInL inleta "InL"
   aDrumKitReverbInR inleta "InR"
 
-  aDrumKitReverbOutWetL, aDrumKitReverbOutWetR, aDrumKitReverbOutDryL, aDrumKitReverbOutDryR bypassSwitch aDrumKitReverbInL, aDrumKitReverbInR, gkDrumKitReverbDryAmmount, gkDrumKitReverbWetAmmount, "DrumKitReverb"
+  aDrumKitReverbOutWetL, aDrumKitReverbOutWetR, aDrumKitReverbOutDryL, aDrumKitReverbOutDryR bypassSwitch aDrumKitReverbInL, aDrumKitReverbInR, gkDrumKitReverbDryAmount, gkDrumKitReverbWetAmount, "DrumKitReverb"
 
   outleta "OutWetL", aDrumKitReverbOutWetL
   outleta "OutWetR", aDrumKitReverbOutWetR

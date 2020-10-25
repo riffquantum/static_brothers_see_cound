@@ -18,7 +18,7 @@
     #include "songs/TriplePortrait/patterns/pattern-manifest.orc"
 
     instr Pattern1
-      iPatternLength = p3 * i(gkBPM)/60
+      iPatternLength = secondsToBeats(p3)
       iBeatsPerMeasure = 8
       iMeasureCount = 0
       iSampleMode = 0

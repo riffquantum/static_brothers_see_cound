@@ -1,4 +1,4 @@
-instrumentRoute "PleasantFluteSynth", "Mixer"
+instrumentRoute "PleasantFluteSynth", "k35LowPassFilterInput"
 alwayson "PleasantFluteSynthMixerChannel"
 
 gkPleasantFluteSynthEqBass init 1

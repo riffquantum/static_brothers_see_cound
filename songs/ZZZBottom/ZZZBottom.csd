@@ -21,7 +21,9 @@
       gkPostClipMixerFader = 1
 
       gkItsOnlyLoveFader = 1.5
+
       gkKickFader = .5
+
       gkGrowlOnFader = .8
 
       gkBassToneEqBass = .8
@@ -30,7 +32,7 @@
 
       gkDistorted808KickPan = 53
       gkDistorted808KickFader = 1
-      giDistorted808KickFinalGainAmmount = .4
+      giDistorted808KickFinalGainAmount = .4
 
       gkDescentTwinkleFader = .5
       gkDescentTwinklePan = 40
@@ -39,8 +41,8 @@
       gkDescentTwinkle2Fader = .6
 
       gkSnarePan = 45
-      gkClosedHatPan = 43
-      gkOpenHatPan = 52
+      gkClosedHatPan = 40
+      gkOpenHatPan = 60
     endin
 
     instr Intro
@@ -187,12 +189,12 @@
       ; i "DrumPattern1" 0 100
 
       i "Intro" 0 48
-      i "Verse" 48 64
-      i "TwinklePattern1" 112 8
-      i "Verse" 120 64 1
-      i "Bridge" 184 20
-      i "Chorus" 204 64
-      i "Verse" 270 64
+      i "Verse" 48 32
+      i "TwinklePattern1" 80 8
+      i "Verse" 88 32 1
+      i "Bridge" 120 20
+      i "Chorus" 140 64
+      i "Verse" 204 32
 
       ; i "Bridge" 0 20
       ; i "Chorus" 20 32

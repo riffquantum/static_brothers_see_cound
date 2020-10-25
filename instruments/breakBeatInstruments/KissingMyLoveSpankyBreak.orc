@@ -1,4 +1,4 @@
-instrumentRoute "KissingMyLoveSpankyBreak", "FreezerInput"
+instrumentRoute "KissingMyLoveSpankyBreak", "DefaultEffectChain"
 alwayson "KissingMyLoveSpankyBreakMixerChannel"
 
 gkKissingMyLoveSpankyBreakEqBass init 1

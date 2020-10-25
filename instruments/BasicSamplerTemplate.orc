@@ -1,4 +1,4 @@
-instrumentRoute "BasicSamplerTemplate", "Delay"
+instrumentRoute "BasicSamplerTemplate", "DefaultEffectChain"
 alwayson "BasicSamplerTemplateMixerChannel"
 
 gkBasicSamplerTemplateEqBass init 1
@@ -8,7 +8,7 @@ gkBasicSamplerTemplateFader init 1
 gkBasicSamplerTemplatePan init 50
 
 instr BasicSamplerTemplate
-  SFilePath = "localSamples/bell.wav"
+  SFilePath = "localSamples/noam-cat-worth.wav"
   iLengthOfSample filelen SFilePath
   iNumberOfChannels filenchnls SFilePath
 
@@ -26,7 +26,7 @@ instr BasicSamplerTemplate
   ; kAmplitudeEnvelope linenr iAmplitude, .05, (iLengthOfSample * 1/ifreq), 1 ; Sample plays through entirely
 
   if iNumberOfChannels == 2 then
-    aOutL, aOutR diskin SFilePath, kfreq, 0, 0
+    aOutL, aOutR diskin SFilePath, kfreq, p6, 0
 
     aOutL = kAmplitudeEnvelope * aOutL
     aOutR = kAmplitudeEnvelope * aOutR

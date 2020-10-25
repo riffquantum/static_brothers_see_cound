@@ -4,7 +4,7 @@ alwayson "KickMixerChannel"
 gkKickEqBass init 1
 gkKickEqMid init 1
 gkKickEqHigh init 1
-gkKickFader init .75
+gkKickFader init 1
 gkKickPan init 50
 
 instr Kick
