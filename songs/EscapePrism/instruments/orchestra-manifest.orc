@@ -2,3 +2,5 @@
 #include "KickHelix.orc"
 #include "HatWarp.orc"
 #include "EscapePrism.orc"
+#include "EscapePrism2.orc"
+#include "EscapePrism3.orc"

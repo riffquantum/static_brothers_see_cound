@@ -1,17 +1,17 @@
 gSMidiChannelAssignments[] fillarray "", \
-  "YiSynth3", \
+  "BassSynth", \
+  "EscapePrism3", \
+  "YiHarp", \
   "SimpleOscillator", \
   "FlowingTrumpetingOvertones", \
   "NewInstrument", \
   "DisonantSynth", \
-  "BassSynth", \
   "SyncLoopSamplerTemplate2", \
   "TwistedUpHatExample", \
   "BassPluck", \
   "BasicSamplerTemplate", \
   "BigCrunchySynth", \
   "SyncloopSamplerTemplate", \
-  "BassPluck", \
   "BassPluck", \
   "BassPluck", \
   "BassPluck"

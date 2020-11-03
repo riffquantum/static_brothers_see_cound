@@ -22,7 +22,7 @@ instr YiSynth1
 
   aSignal = zdf_ladder(aSignal, cpsoct(10 + lfo(2, .1)), .5)
 
-  aSignal *= madsr(.001, .001, 1, .01) * iAmplitude * .2
+  aSignal *= madsr(.005, .001, 1, .01) * iAmplitude * .2
 
   outleta "OutL", aSignal
   outleta "OutR", aSignal

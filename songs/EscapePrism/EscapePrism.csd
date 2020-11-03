@@ -14,7 +14,7 @@
 
   <CsInstruments>
     #include "config/defaultConfig.orc"
-    #include "config/defaultMidiAssignments.orc"
+    #include "songs/EscapePrism/config/MidiAssignments.orc"
     #include "opcodes/opcode-manifest.orc"
     #include "instruments/orchestra-manifest.orc"
     #include "instruments/DrumKits/DefaultDrumKit/DefaultDrumKit-manifest.orc"
@@ -46,7 +46,7 @@
 
   </CsInstruments>
   <CsScore>
-    i "Pattern1_dnb" 0 128
+    i "Pattern1" 0 128
 
   </CsScore>
 </CsoundSynthesizer>

@@ -17,28 +17,34 @@ gkDarkside50ReverbRate init 20
 gkDarkside50ReverbDepth init 1
 
 instr Darkside50ReverbInput
-  aDarkside50ReverbInL inleta "InL"
-  aDarkside50ReverbInR inleta "InR"
+  aInL inleta "InL"
+  aInR inleta "InR"
 
-  aDarkside50ReverbOutWetL, aDarkside50ReverbOutWetR, aDarkside50ReverbOutDryL, aDarkside50ReverbOutDryR bypassSwitch aDarkside50ReverbInL, aDarkside50ReverbInR, gkDarkside50ReverbDryAmount, gkDarkside50ReverbWetAmount, "Darkside50Reverb"
+  aOutWetL, aOutWetR, aOutDryL, aOutDryR bypassSwitch aInL, aInR, gkDarkside50ReverbDryAmount, gkDarkside50ReverbWetAmount, "Darkside50Reverb"
 
-  outleta "OutWetL", aDarkside50ReverbOutWetL
-  outleta "OutWetR", aDarkside50ReverbOutWetR
+  outleta "OutWetL", aOutWetL
+  outleta "OutWetR", aOutWetR
 
-  outleta "OutDryL", aDarkside50ReverbOutDryL
-  outleta "OutDryR", aDarkside50ReverbOutDryR
+  outleta "OutDryL", aOutDryL
+  outleta "OutDryR", aOutDryR
 endin
 
-
 instr Darkside50Reverb
-  aDarkside50ReverbInL inleta "InL"
-  aDarkside50ReverbInR inleta "InR"
+  aInL inleta "InL"
+  aInR inleta "InR"
 
-  aDarkside50ReverbOutL = aDarkside50ReverbInL
-  aDarkside50ReverbOutR = aDarkside50ReverbInR
+  ; http://www.rwdobson.com/sspaces/sciencespaces.html
+  SImpulseResponseFiles[] fillarray "darksideIRs/cylinder11A_amb.wav","darksideIRs/cylinder11B_amb.wav", "darksideIRs/cylinder12A_amb.wav", "darksideIRs/cylinder12B_amb.wav", "darksideIRs/cylinder14A_amb.wav","darksideIRs/cylinder14B_amb.wav", "darksideIRs/sphere16A_amb.wav", "darksideIRs/sphere16B_amb.wav", "darksideIRs/sphere17A_amb.wav", "darksideIRs/sphere17B_amb.wav", "darksideIRs/sphere18A_amb.wav", "darksideIRs/sphere18B_amb.wav"
 
-  outleta "OutL", aDarkside50ReverbOutL
-  outleta "OutR", aDarkside50ReverbOutR
+  iPartitionSize = 1024
+  iChannelL = 1
+  iChannelR = 2
+
+  aOutL pconvolve aInL, SImpulseResponseFile[p4], iPartitionSize, iChannelL
+  aOutR pconvolve aInR, SImpulseResponseFile[p4], iPartitionSize, iChannelR
+
+  outleta "OutL", aOutL
+  outleta "OutR", aOutR
 endin
 
 instr Darkside50ReverbBassKnob
@@ -62,11 +68,11 @@ instr Darkside50ReverbPan
 endin
 
 instr Darkside50ReverbMixerChannel
-  aDarkside50ReverbL inleta "InL"
-  aDarkside50ReverbR inleta "InR"
+  aL inleta "InL"
+  aR inleta "InR"
 
-  aDarkside50ReverbL, aDarkside50ReverbR mixerChannel aDarkside50ReverbL, aDarkside50ReverbR, gkDarkside50ReverbFader, gkDarkside50ReverbPan, gkDarkside50ReverbEqBass, gkDarkside50ReverbEqMid, gkDarkside50ReverbEqHigh
+  aL, aR mixerChannel aL, aR, gkDarkside50ReverbFader, gkDarkside50ReverbPan, gkDarkside50ReverbEqBass, gkDarkside50ReverbEqMid, gkDarkside50ReverbEqHigh
 
-  outleta "OutL", aDarkside50ReverbL
-  outleta "OutR", aDarkside50ReverbR
+  outleta "OutL", aL
+  outleta "OutR", aR
 endin

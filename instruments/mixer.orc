@@ -6,25 +6,25 @@ gkPreClipMixerFader init 1
 gkPostClipMixerFader init 1
 
 instr Mixer
-    aOutL inleta "InL"
-    aOutR inleta "InR"
+  aOutL inleta "InL"
+  aOutR inleta "InR"
 
-    iSafetyMaxAmplitude = 0dbfs * 3
+  iSafetyMaxAmplitude = 0dbfs * 3
 
-    aOutL *= gkPreClipMixerFader
-    aOutR *= gkPreClipMixerFader
+  aOutL *= gkPreClipMixerFader
+  aOutR *= gkPreClipMixerFader
 
-    kHardLimitMinimum = iSafetyMaxAmplitude * -1.5
-    kHardLimitMaximum = iSafetyMaxAmplitude * 1.5
+  kHardLimitMinimum = iSafetyMaxAmplitude * -1.5
+  kHardLimitMaximum = iSafetyMaxAmplitude * 1.5
 
-    aOutL clip aOutL, 1, iSafetyMaxAmplitude
-    aOutR clip aOutR, 1, iSafetyMaxAmplitude
+  aOutL clip aOutL, 1, iSafetyMaxAmplitude
+  aOutR clip aOutR, 1, iSafetyMaxAmplitude
 
-    aOutR limit aOutR, kHardLimitMinimum, kHardLimitMaximum
-    aOutL limit aOutL, kHardLimitMinimum, kHardLimitMaximum
+  aOutR limit aOutR, kHardLimitMinimum, kHardLimitMaximum
+  aOutL limit aOutL, kHardLimitMinimum, kHardLimitMaximum
 
-    aOutL *= gkPostClipMixerFader
-    aOutR *= gkPostClipMixerFader
+  aOutL *= gkPostClipMixerFader
+  aOutR *= gkPostClipMixerFader
 
-    out aOutL, aOutR
+  out aOutL, aOutR
 endin

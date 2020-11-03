@@ -23,6 +23,9 @@ gkRingModModulator4Amount init 0
 gkRingModModulator5Frequency init 263
 gkRingModModulator5Amount init 0
 
+; Idea: switch this to an array of any length?
+; gkRingModModulators[] fillarray [2000, 1, 1200, 0, 800, 0, 440, 0, 263, 0]
+
 instr RingModInput
   aRingModInL inleta "InL"
   aRingModInR inleta "InR"

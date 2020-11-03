@@ -3,13 +3,8 @@
       -Ma
       -m0
       -odac
-      ; -W -o "Charybdisv0.1.wav" -m0
-      ; -iadc
-      -B512 -b60
       -t100
-      ;--midioutfile=midiout.mid
-      ;-F midiout.mid
-      ;-+rtmidi=virtual
+      ; -W -o "Charybdisv0.1.wav" -m0
   </CsOptions>
 
   <CsInstruments>

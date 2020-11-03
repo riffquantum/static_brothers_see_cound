@@ -49,7 +49,7 @@ instr HatWarp
   kTimeStretch = .1 + poscil(.4, beatsToSeconds(1)) + poscil(.2, .3)
   kGrainSizeAdjustment = .3 ;+ poscil(.04, .87) + poscil(.2, .3)
   kGrainFrequencyAdjustment = iGrainFrequencyForInstance + poscil(.4, beatsToSeconds(4)) + poscil(.2, .3)
-  kPitchAdjustment = 1 + linseg(0, beatsToSeconds(4), .15, beatsToSeconds(4), 0);+ poscil(.01, .5) * (1 + kPitchBend)
+  kPitchAdjustment = 1 + linseg(0, beatsToSeconds(4), .025, beatsToSeconds(4), 0);+ poscil(.01, .5) * (1 + kPitchBend)
   kGrainOverlapPercentageAdjustment = 2+ poscil(.04, .87) + poscil(.2, .3)
 
   kTimeStretch *= gkHatWarpTimeStretch

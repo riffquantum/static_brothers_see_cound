@@ -3,7 +3,7 @@
       -Ma
       -m0
       -odac
-      ; -W -o "VileArcv0.1.wav" -m0
+      ; -W -o "VileArcv1.0.wav" -m0
       -iadc
       ; -B512 -b60
       -t80

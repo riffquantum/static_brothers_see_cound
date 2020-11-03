@@ -67,39 +67,39 @@
 
         iMeasureIndex += 1
 
-        beatScoreline "SimpleOscillator", iBaseTime, 8, 120, 2.11
-        beatScoreline "SimpleOscillator", iBaseTime+1, 7, 100, 4.03
-        beatScoreline "SimpleOscillator", iBaseTime+2, 6, 100, 5.01
-        beatScoreline "SimpleOscillator", iBaseTime+4, 1, 100, 3.04
-        beatScoreline "SimpleOscillator", iBaseTime+6, 1, 100, 3.04
+        ; beatScoreline "SimpleOscillator", iBaseTime, 8, 120, 2.11
+        ; beatScoreline "SimpleOscillator", iBaseTime+1, 7, 100, 4.03
+        ; beatScoreline "SimpleOscillator", iBaseTime+2, 6, 100, 5.01
+        ; beatScoreline "SimpleOscillator", iBaseTime+4, 1, 100, 3.04
+        ; beatScoreline "SimpleOscillator", iBaseTime+6, 1, 100, 3.04
 
-        beatScoreline "DefaultCrash", iBaseTime, 1, 80, 1
-        beatScoreline "DefaultKick", iBaseTime, 1, 100, 1
-        beatScoreline "DefaultKick", iBaseTime+0.5, 1, 100, 1
-        beatScoreline "DefaultKick", iBaseTime+1.5, 1, 100, 1
+        ; beatScoreline "DefaultCrash", iBaseTime, 1, 80, 1
+        ; beatScoreline "DefaultKick", iBaseTime, 1, 100, 1
+        ; beatScoreline "DefaultKick", iBaseTime+0.5, 1, 100, 1
+        ; beatScoreline "DefaultKick", iBaseTime+1.5, 1, 100, 1
 
-        beatScoreline "DefaultSnare", iBaseTime+2, 1, 80, 1
-        beatScoreline "DefaultKick", iBaseTime+4, 1, 100, 1
-        beatScoreline "DefaultSnare", iBaseTime+6, 1, 80, 1
-        beatScoreline "DefaultKick", iBaseTime+7, 1, 100, 1
+        ; beatScoreline "DefaultSnare", iBaseTime+2, 1, 80, 1
+        ; beatScoreline "DefaultKick", iBaseTime+4, 1, 100, 1
+        ; beatScoreline "DefaultSnare", iBaseTime+6, 1, 80, 1
+        ; beatScoreline "DefaultKick", iBaseTime+7, 1, 100, 1
 
-        beatScoreline "DefaultClosedHat", iBaseTime+0.00, 1, 100, 1
-        beatScoreline "DefaultClosedHat", iBaseTime+0.50, 1, 80, 1
-        beatScoreline "DefaultClosedHat", iBaseTime+1.00, 1, 100, 1
-        beatScoreline "DefaultClosedHat", iBaseTime+1.50, 1, 80, 1
-        beatScoreline "DefaultClosedHat", iBaseTime+2.00, 1, 100, 1
-        beatScoreline "DefaultClosedHat", iBaseTime+2.50, 1, 80, 1
-        beatScoreline "DefaultClosedHat", iBaseTime+3.00, 1, 100, 1
-        beatScoreline "DefaultClosedHat", iBaseTime+3.50, 1, 80, 1
+        ; beatScoreline "DefaultClosedHat", iBaseTime+0.00, 1, 100, 1
+        ; beatScoreline "DefaultClosedHat", iBaseTime+0.50, 1, 80, 1
+        ; beatScoreline "DefaultClosedHat", iBaseTime+1.00, 1, 100, 1
+        ; beatScoreline "DefaultClosedHat", iBaseTime+1.50, 1, 80, 1
+        ; beatScoreline "DefaultClosedHat", iBaseTime+2.00, 1, 100, 1
+        ; beatScoreline "DefaultClosedHat", iBaseTime+2.50, 1, 80, 1
+        ; beatScoreline "DefaultClosedHat", iBaseTime+3.00, 1, 100, 1
+        ; beatScoreline "DefaultClosedHat", iBaseTime+3.50, 1, 80, 1
 
-        beatScoreline "DefaultClosedHat", iBaseTime+4.00, 1, 100, 1
-        beatScoreline "DefaultClosedHat", iBaseTime+4.50, 1, 80, 1
-        beatScoreline "DefaultClosedHat", iBaseTime+5.00, 1, 100, 1
-        beatScoreline "DefaultClosedHat", iBaseTime+5.50, 1, 80, 1
-        beatScoreline "DefaultClosedHat", iBaseTime+6.00, 1, 100, 1
-        beatScoreline "DefaultClosedHat", iBaseTime+6.50, 1, 80, 1
-        beatScoreline "DefaultClosedHat", iBaseTime+7.00, 1, 100, 1
-        beatScoreline "DefaultClosedHat", iBaseTime+7.50, 1, 80, 1
+        ; beatScoreline "DefaultClosedHat", iBaseTime+4.00, 1, 100, 1
+        ; beatScoreline "DefaultClosedHat", iBaseTime+4.50, 1, 80, 1
+        ; beatScoreline "DefaultClosedHat", iBaseTime+5.00, 1, 100, 1
+        ; beatScoreline "DefaultClosedHat", iBaseTime+5.50, 1, 80, 1
+        ; beatScoreline "DefaultClosedHat", iBaseTime+6.00, 1, 100, 1
+        ; beatScoreline "DefaultClosedHat", iBaseTime+6.50, 1, 80, 1
+        ; beatScoreline "DefaultClosedHat", iBaseTime+7.00, 1, 100, 1
+        ; beatScoreline "DefaultClosedHat", iBaseTime+7.50, 1, 80, 1
 
       od
     endin
