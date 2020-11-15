@@ -53,6 +53,7 @@
 #include "MultiStageDistortion.orc"
 #include "NewEffect.orc"
 #include "NewInstrument.orc"
+#include "PatternWriter.orc"
 #include "PitchShifter.orc"
 #include "PleasantFluteSynth.orc"
 #include "ReverbExamples.orc"
