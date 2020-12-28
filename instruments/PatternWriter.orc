@@ -4,6 +4,14 @@ instr PatternWriter
 
   prints "%n%n******************%nPattern Writer Active%n******************%n%n"
 
+  SOpeningString sprintf "instr %sPattern \n  iPatternLength = secondsToBeats(p3)\n  iBeatsPerMeasure = %i\n  iMeasureIndex = 0\n  until iMeasureIndex * iBeatsPerMeasure >= iPatternLength do\n    iBaseTime = iMeasureIndex * iBeatsPerMeasure\n     iMeasureCount = iMeasureIndex + 1\n", gSMidiChannelAssignments[1], iMeasureLength
+
+  SClosingString = {{%n    iMeasureIndex += 1%n  od%nendin%n%n%n }}
+
+  printks SClosingString, beatsToSeconds(iMeasureLength)
+  printks "%n%n ;Measure Break %n%n", beatsToSeconds(iMeasureLength)
+  printks SOpeningString, beatsToSeconds(iMeasureLength)
+
   kStatusCode, kChannel, kNoteNumber, kVelocity midiin
   ktrigger  changed  kStatusCode, kChannel, kNoteNumber, kVelocity
 
@@ -28,7 +36,7 @@ instr PatternWriter
       kPitchClassOctave = (kNoteNumber - 12 - kPitchClassNote)/12
       kPitchClass = kPitchClassOctave + (kPitchClassNote/100)
 
-      printks "%nbeatScoreline \"%s\", iBaseTime+%f, %f, %d, %f", 0, SInstrumentName, kActiveNotes[kChannel][kNoteNumber][1], kDuration, kActiveNotes[kChannel][kNoteNumber][0], kPitchClass
+      printks "%n    beatScoreline \"%s\", iBaseTime+%f, %f, %d, %f", 0, SInstrumentName, kActiveNotes[kChannel][kNoteNumber][1], kDuration, kActiveNotes[kChannel][kNoteNumber][0], kPitchClass
     endif
   endif
 endin
