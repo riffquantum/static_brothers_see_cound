@@ -15,9 +15,10 @@
   <CsInstruments>
     #include "config/defaultConfig.orc"
     #include "songs/VileArc/config/midiAssignments.orc"
+    #include "config/defaultMidiRouterMapping.orc"
     #include "opcodes/opcode-manifest.orc"
     #include "instruments/orchestra-manifest.orc"
-    #include "instruments/DrumKits/DefaultDrumKit/DefaultDrumKit-manifest.orc"
+    #include "instruments/DrumKits/DefaultDrumKit.orc"
     #include "patterns/pattern-manifest.orc"
     #include "songs/VileArc/instruments/orchestra-manifest.orc"
     #include "songs/VileArc/patterns/pattern-manifest.orc"
@@ -52,6 +53,7 @@
     beatScoreline "GlobalReverb", 0, -1
 
   </CsInstruments>
+
   <CsScore>
     ; i "Pattern2" 0 128
     ; i "VersePattern1" 0 128
@@ -59,7 +61,9 @@
     i "Intro" 0 8
     i "Bridge" 8 16
     i "VersePattern1" 24 64 ; Quinn's Verse here
+
     i "Bridge" 88 16 1
-    i "Pattern2" 104 64 ; Take it out with scratching and No-Input Mixer
+    i "VersePattern1" 104 64
+    i "Pattern2" 168 64 ; Take it out with scratching and No-Input Mixer
   </CsScore>
 </CsoundSynthesizer>

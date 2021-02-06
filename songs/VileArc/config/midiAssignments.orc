@@ -5,7 +5,7 @@ gSMidiChannelAssignments[] fillarray "", \
   "BassSynth", \
   "BassPluck", \
   "NewInstrument", \
-  "BasicSamplerTemplate", \
+  "SimpleOscillator", \
   "BigRichSynth", \
   "BigCrunchySynth", \
   "FlowingTrumpetingOvertones", \

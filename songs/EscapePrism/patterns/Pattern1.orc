@@ -1,18 +1,7 @@
 instr Pattern1
-  iPatternLength = secondsToBeats(p3)
-  iBeatsPerMeasure = 8
-  iMeasureIndex = 0
-
-  gkEscapePrismFader = .1
-
-  until iMeasureIndex * iBeatsPerMeasure >= iPatternLength do
-    iBaseTime = iMeasureIndex * iBeatsPerMeasure
-    iMeasureCount = iMeasureIndex + 1
-
-
+  $PATTERN_LOOP(8)
 
     ; beatScoreline "EscapePrism", iBaseTime, 3.65, 120, 5.05
-    beatScoreline "EscapePrism2", iBaseTime, 2, 120, 5.07, 1, 1, 1, 1, 1, 1, 1
     ; beatScoreline "EscapePrism3", iBaseTime+2, 2, 120, 5.07, 1, 1, 1, 1, 1, 1, 1
 
     ; beatScoreline "EscapePrism3", iBaseTime, 3.65, 120, 5.05
@@ -21,53 +10,18 @@ instr Pattern1
     ; beatScoreline "EscapePrism3", iBaseTime+0, 1, 120, 5.07
     ; beatScoreline "EscapePrism3", iBaseTime+4, 1, 120, 5.06
 
-    if iMeasureCount > 1 then
-      beatScoreline "EscapePrism", iBaseTime+4, 3.65, 120, 5.07
-    endif
-    if iMeasureCount > 3 then
+    beatScoreline "EscapePrism2", iBaseTime, 2, 120, 5.07, 1, 1, 1, 1, 1, 1, 1
+    beatScoreline "EscapePrism", iBaseTime+4, 3.65, 120, 5.07
+
+    if iMeasureCount % 2 == 1 then
       beatScoreline "EscapePrism", iBaseTime+6, 1.65, 120, 5.06
-
-      ; beatScoreline "DefaultSnare", iBaseTime+0.5, 1, 127, 1
-      ; beatScoreline "DefaultSnare", iBaseTime+1.5, 1, 127, 1
-      ; beatScoreline "DefaultSnare", iBaseTime+2.5, 1, 127, 1
-      ; beatScoreline "DefaultSnare", iBaseTime+3.5, 1, 127, 1
-      ; beatScoreline "DefaultSnare", iBaseTime+4.5, 1, 127, 1
-      ; beatScoreline "DefaultSnare", iBaseTime+5.5, 1, 127, 1
-      ; beatScoreline "DefaultSnare", iBaseTime+6.5, 1, 127, 1
-      ; beatScoreline "DefaultSnare", iBaseTime+7.5, 1, 127, 1
-
-      ; beatScoreline "DefaultKick", iBaseTime+1.25, 2, 127, 1
-      ; beatScoreline "DefaultKick", iBaseTime+4, 2, 127, 1
-      ; beatScoreline "DefaultKick", iBaseTime+5.25, 2, 127, 1
-
-      beatScoreline "DefaultSnare", iBaseTime+1, 1, 127, 1
-      beatScoreline "DefaultSnare", iBaseTime+3, 1, 127, 1
-      beatScoreline "DefaultSnare", iBaseTime+5, 1, 127, 1
-      beatScoreline "DefaultSnare", iBaseTime+7, 1, 127, 1
-    endif
-
-    if iMeasureCount < 4 then
-      beatScoreline "HatWarp", iBaseTime+0, 8, 50, 3.05, .5
     else
-      beatScoreline "HatWarp", iBaseTime+0, 8, 100, 3.057, 3
+      beatScoreline "EscapePrism", iBaseTime+6, 1.65, 120, 5.065
     endif
 
-    beatScoreline "DefaultKick", iBaseTime+0, 2, 127, 1
-    beatScoreline "Distorted808Kick", iBaseTime+0, 2, 127, .5
-
-    beatScoreline "DefaultKick", iBaseTime+4, 2, 127, 1
-    beatScoreline "Distorted808Kick", iBaseTime+4, .5, 127, .35
-
-    beatScoreline "DefaultKick", iBaseTime+4.5, 2, 127, 1
-    beatScoreline "Distorted808Kick", iBaseTime+4.5, 2, 127, .38
-
-
-    if iMeasureCount > 3 then
-      beatScoreline "DefaultKick", iBaseTime+2.5, 2, 127, 1
+    if iMeasureCount % 4 == 0 then
+      beatScoreline "EscapePrism", iBaseTime+6.5, 1.65, 100, 5.065
     endif
 
-    ; beatScoreline "KickHelix", iBaseTime+0, 4, 100, 3.05
-
-    iMeasureIndex += 1
-  od
+  $END_PATTERN_LOOP
 endin

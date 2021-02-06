@@ -1,13 +1,4 @@
-instrumentRoute "BassSynth", "Mixer"
-alwayson "BassSynthMixerChannel"
-
-gkBassSynthEqBass init 1
-gkBassSynthEqMid init 1
-gkBassSynthEqHigh init 1
-gkBassSynthFader init 1
-gkBassSynthPan init 50
-
-instr BassSynth
+#define BASS_SYNTH_BODY #
   iAmplitude flexibleAmplitudeInput p4
   iPitch flexiblePitchInput p5
 
@@ -55,34 +46,7 @@ instr BassSynth
 
   outleta "OutL", aBassSynth
   outleta "OutR", aBassSynth
-endin
+#
 
-instr BassSynthBassKnob
-  gkBassSynthEqBass linseg p4, p3, p5
-endin
-
-instr BassSynthMidKnob
-  gkBassSynthEqMid linseg p4, p3, p5
-endin
-
-instr BassSynthHighKnob
-  gkBassSynthEqHigh linseg p4, p3, p5
-endin
-
-instr BassSynthFader
-  gkBassSynthFader linseg p4, p3, p5
-endin
-
-instr BassSynthPan
-  gkBassSynthPan linseg p4, p3, p5
-endin
-
-instr BassSynthMixerChannel
-  aBassSynthL inleta "InL"
-  aBassSynthR inleta "InR"
-
-  aBassSynthL, aBassSynthR mixerChannel aBassSynthL, aBassSynthR, gkBassSynthFader, gkBassSynthPan, gkBassSynthEqBass, gkBassSynthEqMid, gkBassSynthEqHigh
-
-  outleta "OutL", aBassSynthL
-  outleta "OutR", aBassSynthR
-endin
+$NEW_INSTRUMENT(BassSynth'BassSynthFx''$BASS_SYNTH_BODY)
+$EFFECT_CHAIN(BassSynthFx'Mixer)

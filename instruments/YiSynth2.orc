@@ -1,12 +1,4 @@
-alwayson "YiSynth2MixerChannel"
-
-gkYiSynth2EqBass init 1
-gkYiSynth2EqMid init 1
-gkYiSynth2EqHigh init 1
-gkYiSynth2Fader init 1
-gkYiSynth2Pan init 50
 instrumentRoute "YiSynth2", "DefaultEffectChain"
-
 
 instr YiSynth2
   ; An adaptation of code by Steven Yi
@@ -28,12 +20,4 @@ instr YiSynth2
   outleta "OutR", aSignal
 endin
 
-instr YiSynth2MixerChannel
-  aYiSynth2L inleta "InL"
-  aYiSynth2R inleta "InR"
-
-  aYiSynth2L, aYiSynth2R mixerChannel aYiSynth2L, aYiSynth2R, gkYiSynth2Fader, gkYiSynth2Pan, gkYiSynth2EqBass, gkYiSynth2EqMid, gkYiSynth2EqHigh
-
-  outleta "OutL", aYiSynth2L
-  outleta "OutR", aYiSynth2R
-endin
+$MIXER_CHANNEL(YiSynth2)

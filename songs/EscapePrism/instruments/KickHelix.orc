@@ -22,6 +22,12 @@ else
   giKickHelixSampleTable ftgenonce 0, 0, 0, 1, gSKickHelixSampleFilePath, giKickHelixStartTime, 0, 0
 endif
 
+gkKickHelixTimeStretch init 1
+gkKickHelixGrainSizeAdjustment init 1
+gkKickHelixGrainFrequencyAdjustment init 1
+gkKickHelixPitchAdjustment init 1
+gkKickHelixGrainOverlapPercentageAdjustment init 1
+
 instr KickHelix
   ;p fields
   iAmplitude flexibleAmplitudeInput p4
@@ -44,6 +50,18 @@ instr KickHelix
   kGrainFrequencyAdjustment = 3 + poscil(.04, .87) + poscil(.2, .3)
   kPitchAdjustment = 1 + poscil(.1, .1) * (1 + kPitchBend)
   kGrainOverlapPercentageAdjustment = 2+ poscil(.04, .87) + poscil(.2, .3)
+
+  kTimeStretch *= gkKickHelixTimeStretch
+  kGrainSizeAdjustment *= gkKickHelixGrainSizeAdjustment
+  kGrainFrequencyAdjustment *= gkKickHelixGrainFrequencyAdjustment
+  kPitchAdjustment *= gkKickHelixPitchAdjustment
+  kGrainOverlapPercentageAdjustment *= gkKickHelixGrainOverlapPercentageAdjustment
+
+  kTimeStretch *= p6 == 0 ? 1 : p6
+  kGrainSizeAdjustment *= p8 == 0 ? 1 : p8
+  kGrainFrequencyAdjustment *= p9 == 0 ? 1 : p9
+  kPitchAdjustment *= p10 == 0 ? 1 : p10
+  kGrainOverlapPercentageAdjustment *= p11 == 0 ? 1 : p11
 
   ;Base settings for Granulizer
   kPitch *= kPitchAdjustment

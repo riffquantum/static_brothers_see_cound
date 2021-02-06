@@ -1,12 +1,4 @@
-alwayson "YiBanjoMixerChannel"
-
-gkYiBanjoEqBass init 1
-gkYiBanjoEqMid init 1
-gkYiBanjoEqHigh init 1
-gkYiBanjoFader init 1
-gkYiBanjoPan init 50
 instrumentRoute "YiBanjo", "DefaultEffectChain"
-
 
 instr YiBanjo
   ; An adaptation of code by Steven Yi
@@ -40,32 +32,4 @@ instr YiBanjo
   outleta "OutR", aSignal
 endin
 
-instr YiBanjoBassKnob
-  gkYiBanjoEqBass linseg p4, p3, p5
-endin
-
-instr YiBanjoMidKnob
-  gkYiBanjoEqMid linseg p4, p3, p5
-endin
-
-instr YiBanjoHighKnob
-  gkYiBanjoEqHigh linseg p4, p3, p5
-endin
-
-instr YiBanjoFader
-  gkYiBanjoFader linseg p4, p3, p5
-endin
-
-instr YiBanjoPan
-  gkYiBanjoPan linseg p4, p3, p5
-endin
-
-instr YiBanjoMixerChannel
-  aYiBanjoL inleta "InL"
-  aYiBanjoR inleta "InR"
-
-  aYiBanjoL, aYiBanjoR mixerChannel aYiBanjoL, aYiBanjoR, gkYiBanjoFader, gkYiBanjoPan, gkYiBanjoEqBass, gkYiBanjoEqMid, gkYiBanjoEqHigh
-
-  outleta "OutL", aYiBanjoL
-  outleta "OutR", aYiBanjoR
-endin
+$MIXER_CHANNEL(YiBanjo)

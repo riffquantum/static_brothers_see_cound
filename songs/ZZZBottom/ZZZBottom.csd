@@ -11,6 +11,7 @@
   <CsInstruments>
     #include "config/defaultConfig.orc"
     #include "songs/ZZZBottom/config/midiAssignments.orc"
+    #include "config/defaultMidiRouterMapping.orc"
     #include "opcodes/opcode-manifest.orc"
     #include "instruments/orchestra-manifest.orc"
     #include "songs/ZZZBottom/instruments/orchestra-manifest.orc"

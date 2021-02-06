@@ -1,11 +1,4 @@
-instrumentRoute "PleasantFluteSynth", "k35LowPassFilterInput"
-alwayson "PleasantFluteSynthMixerChannel"
-
-gkPleasantFluteSynthEqBass init 1
-gkPleasantFluteSynthEqMid init 1
-gkPleasantFluteSynthEqHigh init 1
-gkPleasantFluteSynthFader init 1
-gkPleasantFluteSynthPan init 50
+instrumentRoute "PleasantFluteSynth", "Mixer"
 
 instr PleasantFluteSynth
   iAmplitude flexibleAmplitudeInput  p4
@@ -48,32 +41,4 @@ instr PleasantFluteSynth
   skipNote:
 endin
 
-instr PleasantFluteSynthBassKnob
-  gkPleasantFluteSynthEqBass linseg p4, p3, p5
-endin
-
-instr PleasantFluteSynthMidKnob
-  gkPleasantFluteSynthEqMid linseg p4, p3, p5
-endin
-
-instr PleasantFluteSynthHighKnob
-  gkPleasantFluteSynthEqHigh linseg p4, p3, p5
-endin
-
-instr PleasantFluteSynthFader
-  gkPleasantFluteSynthFader linseg p4, p3, p5
-endin
-
-instr PleasantFluteSynthPan
-  gkPleasantFluteSynthPan linseg p4, p3, p5
-endin
-
-instr PleasantFluteSynthMixerChannel
-  aPleasantFluteSynthL inleta "InL"
-  aPleasantFluteSynthR inleta "InR"
-
-  aPleasantFluteSynthL, aPleasantFluteSynthR mixerChannel aPleasantFluteSynthL, aPleasantFluteSynthR, gkPleasantFluteSynthFader, gkPleasantFluteSynthPan, gkPleasantFluteSynthEqBass, gkPleasantFluteSynthEqMid, gkPleasantFluteSynthEqHigh
-
-  outleta "OutL", aPleasantFluteSynthL
-  outleta "OutR", aPleasantFluteSynthR
-endin
+$MIXER_CHANNEL(PleasantFluteSynth)

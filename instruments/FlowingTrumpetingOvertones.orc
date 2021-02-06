@@ -1,11 +1,4 @@
 instrumentRoute "FlowingTrumpetingOvertones", "DefaultEffectChain"
-alwayson "FlowingTrumpetingOvertonesMixerChannel"
-
-gkFlowingTrumpetingOvertonesEqBass init 1
-gkFlowingTrumpetingOvertonesEqMid init 1
-gkFlowingTrumpetingOvertonesEqHigh init 1
-gkFlowingTrumpetingOvertonesFader init 1
-gkFlowingTrumpetingOvertonesPan init 50
 
 gSFlowingTrumpetingOvertonesSampleFilePath = "localSamples/Roy Orbison - Blue Angel/blueangel5.wav"
 giFlowingTrumpetingOvertonesNumberOfChannels filenchnls gSFlowingTrumpetingOvertonesSampleFilePath
@@ -71,32 +64,4 @@ instr FlowingTrumpetingOvertones
   outleta "OutR", aFlowingTrumpetingOvertonesR
 endin
 
-instr FlowingTrumpetingOvertonesBassKnob
-  gkFlowingTrumpetingOvertonesEqBass linseg p4, p3, p5
-endin
-
-instr FlowingTrumpetingOvertonesMidKnob
-  gkFlowingTrumpetingOvertonesEqMid linseg p4, p3, p5
-endin
-
-instr FlowingTrumpetingOvertonesHighKnob
-  gkFlowingTrumpetingOvertonesEqHigh linseg p4, p3, p5
-endin
-
-instr FlowingTrumpetingOvertonesFader
-  gkFlowingTrumpetingOvertonesFader linseg p4, p3, p5
-endin
-
-instr FlowingTrumpetingOvertonesPan
-  gkFlowingTrumpetingOvertonesPan linseg p4, p3, p5
-endin
-
-instr FlowingTrumpetingOvertonesMixerChannel
-  aFlowingTrumpetingOvertonesL inleta "InL"
-  aFlowingTrumpetingOvertonesR inleta "InR"
-
-  aFlowingTrumpetingOvertonesL, aFlowingTrumpetingOvertonesR mixerChannel aFlowingTrumpetingOvertonesL, aFlowingTrumpetingOvertonesR, gkFlowingTrumpetingOvertonesFader, gkFlowingTrumpetingOvertonesPan, gkFlowingTrumpetingOvertonesEqBass, gkFlowingTrumpetingOvertonesEqMid, gkFlowingTrumpetingOvertonesEqHigh
-
-  outleta "OutL", aFlowingTrumpetingOvertonesL
-  outleta "OutR", aFlowingTrumpetingOvertonesR
-endin
+$MIXER_CHANNEL(FlowingTrumpetingOvertones)

@@ -6,7 +6,8 @@
 
     <CsInstruments>
         #include "config/defaultConfig.orc"
-        ; #include "config/defaultMidiAssignments.orc"
+        #include "config/defaultMidiAssignments.orc"
+        #include "config/defaultMidiRouterMapping.orc"
 
         gkBPM init 160
 

@@ -1,2 +1,5 @@
-#include "TriplePortraitLoop1/TriplePortraitLoop1.orc"
-#include "TriplePortraitLoop2/TriplePortraitLoop2.orc"
+#include "TriplePortraitLoop1.orc"
+#include "TriplePortraitLoop2.orc"
+#include "DustyBass.orc"
+#include "ItsExpected.orc"
+#include "santanaBell2.orc"

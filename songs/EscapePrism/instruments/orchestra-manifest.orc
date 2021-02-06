@@ -1,6 +1,8 @@
 #include "PainSpiral.orc"
 #include "KickHelix.orc"
 #include "HatWarp.orc"
+#include "HatWarp2.orc"
 #include "EscapePrism.orc"
 #include "EscapePrism2.orc"
 #include "EscapePrism3.orc"
+#include "DrumKit.orc"

@@ -1,12 +1,4 @@
-alwayson "YiHarpMixerChannel"
-
-gkYiHarpEqBass init 1
-gkYiHarpEqMid init 1
-gkYiHarpEqHigh init 1
-gkYiHarpFader init 1
-gkYiHarpPan init 50
 instrumentRoute "YiHarp", "DefaultEffectChain"
-
 
 instr YiHarp
   ; An adaptation of code by Steven Yi
@@ -31,32 +23,4 @@ instr YiHarp
   outleta "OutR", aSignal
 endin
 
-instr YiHarpBassKnob
-  gkYiHarpEqBass linseg p4, p3, p5
-endin
-
-instr YiHarpMidKnob
-  gkYiHarpEqMid linseg p4, p3, p5
-endin
-
-instr YiHarpHighKnob
-  gkYiHarpEqHigh linseg p4, p3, p5
-endin
-
-instr YiHarpFader
-  gkYiHarpFader linseg p4, p3, p5
-endin
-
-instr YiHarpPan
-  gkYiHarpPan linseg p4, p3, p5
-endin
-
-instr YiHarpMixerChannel
-  aYiHarpL inleta "InL"
-  aYiHarpR inleta "InR"
-
-  aYiHarpL, aYiHarpR mixerChannel aYiHarpL, aYiHarpR, gkYiHarpFader, gkYiHarpPan, gkYiHarpEqBass, gkYiHarpEqMid, gkYiHarpEqHigh
-
-  outleta "OutL", aYiHarpL
-  outleta "OutR", aYiHarpR
-endin
+$MIXER_CHANNEL(YiHarp)

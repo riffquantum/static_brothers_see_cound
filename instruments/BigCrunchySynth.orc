@@ -1,11 +1,4 @@
 instrumentRoute "BigCrunchySynth", "Mixer"
-alwayson "BigCrunchySynthMixerChannel"
-
-gkBigCrunchySynthEqBass init 1
-gkBigCrunchySynthEqMid init 1
-gkBigCrunchySynthEqHigh init 1
-gkBigCrunchySynthFader init 1
-gkBigCrunchySynthPan init 50
 
 instr BigCrunchySynth
   iAmplitude flexibleAmplitudeInput p4
@@ -47,32 +40,4 @@ instr BigCrunchySynth
   outleta "OutR", aOutBalanced
 endin
 
-instr BigCrunchySynthBassKnob
-  gkBigCrunchySynthEqBass linseg p4, p3, p5
-endin
-
-instr BigCrunchySynthMidKnob
-  gkBigCrunchySynthEqMid linseg p4, p3, p5
-endin
-
-instr BigCrunchySynthHighKnob
-  gkBigCrunchySynthEqHigh linseg p4, p3, p5
-endin
-
-instr BigCrunchySynthFader
-  gkBigCrunchySynthFader linseg p4, p3, p5
-endin
-
-instr BigCrunchySynthPan
-  gkBigCrunchySynthPan linseg p4, p3, p5
-endin
-
-instr BigCrunchySynthMixerChannel
-  aBigCrunchySynthL inleta "InL"
-  aBigCrunchySynthR inleta "InR"
-
-  aBigCrunchySynthL, aBigCrunchySynthR mixerChannel aBigCrunchySynthL, aBigCrunchySynthR, gkBigCrunchySynthFader, gkBigCrunchySynthPan, gkBigCrunchySynthEqBass, gkBigCrunchySynthEqMid, gkBigCrunchySynthEqHigh
-
-  outleta "OutL", aBigCrunchySynthL
-  outleta "OutR", aBigCrunchySynthR
-endin
+$MIXER_CHANNEL(BigCrunchySynth)

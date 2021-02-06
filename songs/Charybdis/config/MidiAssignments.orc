@@ -8,7 +8,7 @@ gSMidiChannelAssignments[] fillarray "", \
   "BassSynth", \
   "SyncLoopSamplerTemplate2", \
   "BassPluck", \
-  "BasicSamplerTemplate", \
+  "SimpleOscillator", \
   "BigCrunchySynth", \
   "SyncloopSamplerTemplate", \
   "BassPluck", \

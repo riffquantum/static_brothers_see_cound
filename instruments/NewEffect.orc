@@ -1,72 +1,37 @@
-bypassRoute "NewEffect", "DefaultEffectChain", "DefaultEffectChain"
+#define NEW_EFFECT(INSTRUMENT_NAME'DRY_ROUTE'WET_ROUTE) #
+  $EFFECT_BYPASS($INSTRUMENT_NAME'$DRY_ROUTE'$WET_ROUTE'0'1)
 
-alwayson "NewEffectInput"
-alwayson "NewEffectMixerChannel"
-alwayson "NewEffect"
+  gi$INSTRUMENT_NAME.BaseDelayTime init .2
+  gk$INSTRUMENT_NAME.WobbleAmount init .05
+  gk$INSTRUMENT_NAME.WobbleSpeed init .1
 
-gkNewEffectEqBass init 1
-gkNewEffectEqMid init 1
-gkNewEffectEqHigh init 1
-gkNewEffectFader init 1
-gkNewEffectPan init 50
+  instr $INSTRUMENT_NAME
+    aSignalInL inleta "InL"
+    aSignalInR inleta "InR"
 
-gkNewEffectDryAmount init 0
-gkNewEffectWetAmount init 1
+    iDelayAttackTime = .2
+    iBufferLength = 100
+    iMinimumDelayTime = 50/sr
 
-gkNewEffectRate init 20
-gkNewEffectDepth init 1
+    aDelayTime = iMinimumDelayTime + (linseg(0, iDelayAttackTime, 1) * poscil(gk$INSTRUMENT_NAME.WobbleAmount, gk$INSTRUMENT_NAME.WobbleSpeed, -1, 0.5))
+    aDelayTime = limit(aDelayTime, iMinimumDelayTime, iBufferLength)
 
-instr NewEffectInput
-  aNewEffectInL inleta "InL"
-  aNewEffectInR inleta "InR"
+    aDelayBufferOutL delayr iBufferLength
+    aDelayOutL       deltapi aDelayTime
+                     delayw aSignalInL
 
-  aNewEffectOutWetL, aNewEffectOutWetR, aNewEffectOutDryL, aNewEffectOutDryR bypassSwitch aNewEffectInL, aNewEffectInR, gkNewEffectDryAmount, gkNewEffectWetAmount, "NewEffect"
+    aDelayBufferOutR delayr iBufferLength
+    aDelayOutR       deltapi aDelayTime
+                     delayw aSignalInR
 
-  outleta "OutWetL", aNewEffectOutWetL
-  outleta "OutWetR", aNewEffectOutWetR
+    aSignalOutL = aDelayOutL
+    aSignalOutR = aDelayOutR
 
-  outleta "OutDryL", aNewEffectOutDryL
-  outleta "OutDryR", aNewEffectOutDryR
-endin
+    outleta "OutL", aSignalOutL
+    outleta "OutR", aSignalOutR
+  endin
 
+  $MIXER_CHANNEL($INSTRUMENT_NAME)
+#
 
-instr NewEffect
-  aNewEffectInL inleta "InL"
-  aNewEffectInR inleta "InR"
-
-  aNewEffectOutL = aNewEffectInL
-  aNewEffectOutR = aNewEffectInR
-
-  outleta "OutL", aNewEffectOutL
-  outleta "OutR", aNewEffectOutR
-endin
-
-instr NewEffectBassKnob
-  gkNewEffectEqBass linseg p4, p3, p5
-endin
-
-instr NewEffectMidKnob
-  gkNewEffectEqMid linseg p4, p3, p5
-endin
-
-instr NewEffectHighKnob
-  gkNewEffectEqHigh linseg p4, p3, p5
-endin
-
-instr NewEffectFader
-  gkNewEffectFader linseg p4, p3, p5
-endin
-
-instr NewEffectPan
-  gkNewEffectPan linseg p4, p3, p5
-endin
-
-instr NewEffectMixerChannel
-  aNewEffectL inleta "InL"
-  aNewEffectR inleta "InR"
-
-  aNewEffectL, aNewEffectR mixerChannel aNewEffectL, aNewEffectR, gkNewEffectFader, gkNewEffectPan, gkNewEffectEqBass, gkNewEffectEqMid, gkNewEffectEqHigh
-
-  outleta "OutL", aNewEffectL
-  outleta "OutR", aNewEffectR
-endin
+$NEW_EFFECT(NewEffect'Mixer'Mixer)

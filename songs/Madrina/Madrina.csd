@@ -4,12 +4,13 @@
     -Ma
     -t30
     -odac
-    ; -W -o "Madrina.wav" -m0
+    ; -W -o "Madrina-v1.0.wav" -m0
   </CsOptions>
 
   <CsInstruments>
     #include "config/defaultConfig.orc"
     #include "config/defaultMidiAssignments.orc"
+    #include "config/defaultMidiRouterMapping.orc"
     #include "opcodes/opcode-manifest.orc"
     #include "instruments/orchestra-manifest.orc"
     #include "songs/Madrina/instruments/orchestra-manifest.orc"

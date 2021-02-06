@@ -11,6 +11,7 @@
 
       #include "opcodes/opcode-manifest.orc"
       #include "config/defaultMidiAssignments.orc"
+      #include "config/defaultMidiRouterMapping.orc"
       #include "instruments/orchestra-manifest.orc"
       #include "songs/sbDrumKit/instruments/midiRouter/midiNoteMapping.orc"
       #include "songs/sbDrumKit/instruments/orchestra-manifest.orc"

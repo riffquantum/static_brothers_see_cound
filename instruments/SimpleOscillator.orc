@@ -2,14 +2,6 @@ gSSimpleOscillatorName = "SimpleOscillator"
 gSSimpleOscillatorRoute = "K35LowPassFilterInput"
 instrumentRoute gSSimpleOscillatorName, gSSimpleOscillatorRoute
 
-alwayson "SimpleOscillatorMixerChannel"
-
-gkSimpleOscillatorEqBass init 1
-gkSimpleOscillatorEqMid init 1
-gkSimpleOscillatorEqHigh init 1
-gkSimpleOscillatorFader init 1
-gkSimpleOscillatorPan init 50
-
 instr SimpleOscillator
   iVelocity = p4
   iPitch = p5
@@ -50,32 +42,4 @@ instr SimpleOscillator
   skipNote:
 endin
 
-instr SimpleOscillatorBassKnob
-  gkSimpleOscillatorEqBass linseg p4, p3, p5
-endin
-
-instr SimpleOscillatorMidKnob
-  gkSimpleOscillatorEqMid linseg p4, p3, p5
-endin
-
-instr SimpleOscillatorHighKnob
-  gkSimpleOscillatorEqHigh linseg p4, p3, p5
-endin
-
-instr SimpleOscillatorFader
-  gkSimpleOscillatorFader linseg p4, p3, p5
-endin
-
-instr SimpleOscillatorPan
-  gkSimpleOscillatorPan linseg p4, p3, p5
-endin
-
-instr SimpleOscillatorMixerChannel
-  aSimpleOscillatorL inleta "InL"
-  aSimpleOscillatorR inleta "InR"
-
-  aSimpleOscillatorL, aSimpleOscillatorR mixerChannel aSimpleOscillatorL, aSimpleOscillatorR, gkSimpleOscillatorFader, gkSimpleOscillatorPan, gkSimpleOscillatorEqBass, gkSimpleOscillatorEqMid, gkSimpleOscillatorEqHigh
-
-  outleta "OutL", aSimpleOscillatorL
-  outleta "OutR", aSimpleOscillatorR
-endin
+$MIXER_CHANNEL(SimpleOscillator)

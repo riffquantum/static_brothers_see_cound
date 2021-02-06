@@ -1,0 +1,8 @@
+#include "DrumPattern.orc"
+#include "OffBreeze.orc"
+#include "BubblingNudge.orc"
+#include "Clatter.orc"
+#include "CloudDrift1.orc"
+#include "TurbineLoop1.orc"
+#include "EmContent.orc"
+#include "VerseOutline.orc"

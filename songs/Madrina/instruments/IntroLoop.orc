@@ -26,8 +26,6 @@ instr IntroLoop
   iAmplitude = velocityToAmplitude(p4)
   kPitch = 1 / giIntroLoopSampleLength * p5 * giIntroLoopLengthOfBeatFactor
 
-  ; kPitch += oscil(.0025, p3/2 )
-
   iStartBeat = p6
   iEndBeat = p7 == 0 ? giIntroLoopSampleLengthInBeats : p7
   kAmplitudeEnvelope = madsr(.005, .01, 1, .1) * iAmplitude

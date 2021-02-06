@@ -10,9 +10,10 @@
   <CsInstruments>
     #include "config/defaultConfig.orc"
     #include "songs/Charybdis/config/MidiAssignments.orc"
+    #include "config/defaultMidiRouterMapping.orc"
     #include "opcodes/opcode-manifest.orc"
     #include "instruments/orchestra-manifest.orc"
-    #include "instruments/DrumKits/DefaultDrumKit/DefaultDrumKit-manifest.orc"
+    #include "instruments/DrumKits/DefaultDrumKit.orc"
     #include "patterns/pattern-manifest.orc"
     #include "songs/Charybdis/instruments/orchestra-manifest.orc"
     #include "songs/Charybdis/patterns/pattern-manifest.orc"

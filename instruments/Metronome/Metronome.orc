@@ -3,7 +3,7 @@ stereoRoute "MetronomeMixerChannel", "Mixer"
 
 alwayson "MetronomeMixerChannel"
 
-giMetronomeIsOn = 0
+giMetronomeIsOn = 1
 giMetronomeCount = 1
 giMetronomeBeatsPerMeasure = 4
 giMetronomeAccents[] fillarray 1

@@ -1,10 +1,3 @@
-alwayson "BassPluckMixerChannel"
-
-gkBassPluckEqBass init 1
-gkBassPluckEqMid init 1
-gkBassPluckEqHigh init 1
-gkBassPluckFader init 1
-gkBassPluckPan init 50
 instrumentRoute "BassPluck", "Mixer"
 
 instr BassPluck
@@ -40,32 +33,4 @@ instr BassPluck
   skipNote:
 endin
 
-instr BassPluckBassKnob
-  gkBassPluckEqBass linseg p4, p3, p5
-endin
-
-instr BassPluckMidKnob
-  gkBassPluckEqMid linseg p4, p3, p5
-endin
-
-instr BassPluckHighKnob
-  gkBassPluckEqHigh linseg p4, p3, p5
-endin
-
-instr BassPluckFader
-  gkBassPluckFader linseg p4, p3, p5
-endin
-
-instr BassPluckPan
-  gkBassPluckPan linseg p4, p3, p5
-endin
-
-instr BassPluckMixerChannel
-  aBassPluckL inleta "InL"
-  aBassPluckR inleta "InR"
-
-  aBassPluckL, aBassPluckR mixerChannel aBassPluckL, aBassPluckR, gkBassPluckFader, gkBassPluckPan, gkBassPluckEqBass, gkBassPluckEqMid, gkBassPluckEqHigh
-
-  outleta "OutL", aBassPluckL
-  outleta "OutR", aBassPluckR
-endin
+$MIXER_CHANNEL(BassPluck)

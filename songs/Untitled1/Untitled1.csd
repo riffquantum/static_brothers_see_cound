@@ -4,7 +4,7 @@
     -Ma
     -t60
     -odac
-    ; -W -o "Untitled1.wav" -m0
+    -W -o "Untitled1-v0.1.wav" -m0
   </CsOptions>
 
   <CsInstruments>
@@ -12,7 +12,7 @@
     #include "songs/Untitled1/config/midiAssignments.orc"
     #include "opcodes/opcode-manifest.orc"
     #include "instruments/orchestra-manifest.orc"
-    #include "instruments/DrumKits/DefaultDrumKit/DefaultDrumKit-manifest.orc"
+    #include "instruments/DrumKits/DefaultDrumKit.orc"
     #include "songs/Untitled1/instruments/orchestra-manifest.orc"
     #include "songs/Untitled1/patterns/pattern-manifest.orc"
 

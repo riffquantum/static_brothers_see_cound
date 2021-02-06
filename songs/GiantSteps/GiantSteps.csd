@@ -10,7 +10,8 @@
 
   <CsInstruments>
     #include "config/defaultConfig.orc"
-    ; #include "config/defaultMidiAssignments.orc"
+    #include "config/defaultMidiAssignments.orc"
+    #include "config/defaultMidiRouterMapping.orc"
     #include "opcodes/opcode-manifest.orc"
     #include "instruments/orchestra-manifest.orc"
     instr MainRiff

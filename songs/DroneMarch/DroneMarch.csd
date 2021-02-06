@@ -11,10 +11,11 @@
   <CsInstruments>
     #include "config/defaultConfig.orc"
     #include "config/defaultMidiAssignments.orc"
+    #include "config/defaultMidiRouterMapping.orc"
     ; #include "config/guitarMidiAssignments.orc"
     #include "opcodes/opcode-manifest.orc"
     #include "instruments/orchestra-manifest.orc"
-    ; #include "instruments/DrumKits/DefaultDrumKit/DefaultDrumKit-manifest.orc"
+    ; #include "instruments/DrumKits/DefaultDrumKit.orc"
     #include "instruments/DrumKits/TR606/TR606-manifest.orc"
     #include "patterns/pattern-manifest.orc"
 
@@ -61,36 +62,36 @@
         beatScoreline "BassSynth", iBaseTime+2, 6, 60, 6.00
         beatScoreline "BassSynth", iBaseTime+3.5, 5, 60, 5.04
 
-        beatScoreline "TR606Kick", iBaseTime+0, 1, 120, 1
-        beatScoreline "TR606Kick", iBaseTime+1, 1, 120, 1
-        beatScoreline "TR606Kick", iBaseTime+2, 1, 120, 1
-        beatScoreline "TR606Kick", iBaseTime+3, 1, 120, 1
-        beatScoreline "TR606Kick", iBaseTime+4, 1, 120, 1
-        beatScoreline "TR606Kick", iBaseTime+5, 1, 120, 1
-        beatScoreline "TR606Kick", iBaseTime+6, 1, 120, 1
-        beatScoreline "TR606Kick", iBaseTime+7, 1, 120, 1
+        beatScoreline "TR606Kick", iBaseTime+0, 1, 120, 3.00
+        beatScoreline "TR606Kick", iBaseTime+1, 1, 120, 3.00
+        beatScoreline "TR606Kick", iBaseTime+2, 1, 120, 3.00
+        beatScoreline "TR606Kick", iBaseTime+3, 1, 120, 3.00
+        beatScoreline "TR606Kick", iBaseTime+4, 1, 120, 3.00
+        beatScoreline "TR606Kick", iBaseTime+5, 1, 120, 3.00
+        beatScoreline "TR606Kick", iBaseTime+6, 1, 120, 3.00
+        beatScoreline "TR606Kick", iBaseTime+7, 1, 120, 3.00
 
-        beatScoreline "TR606Snare", iBaseTime+1, 1, 60, 1
-        beatScoreline "TR606Snare", iBaseTime+3, 1, 60, 1
-        beatScoreline "TR606Snare", iBaseTime+5, 1, 60, 1
-        beatScoreline "TR606Snare", iBaseTime+7, 1, 60, 1
+        beatScoreline "TR606Snare", iBaseTime+1, 1, 60, 3.00
+        beatScoreline "TR606Snare", iBaseTime+3, 1, 60, 3.00
+        beatScoreline "TR606Snare", iBaseTime+5, 1, 60, 3.00
+        beatScoreline "TR606Snare", iBaseTime+7, 1, 60, 3.00
 
-        beatScoreline "TR606ClosedHat", iBaseTime+0.0, 1, 50, 1
-        beatScoreline "TR606ClosedHat", iBaseTime+0.5, 1, 50, 1
-        beatScoreline "TR606ClosedHat", iBaseTime+1.0, 1, 50, 1
-        beatScoreline "TR606ClosedHat", iBaseTime+1.5, 1, 50, 1
-        beatScoreline "TR606ClosedHat", iBaseTime+2.0, 1, 50, 1
-        beatScoreline "TR606ClosedHat", iBaseTime+2.5, 1, 50, 1
-        beatScoreline "TR606ClosedHat", iBaseTime+3.0, 1, 50, 1
-        beatScoreline "TR606ClosedHat", iBaseTime+3.5, 1, 50, 1
-        beatScoreline "TR606ClosedHat", iBaseTime+4.0, 1, 50, 1
-        beatScoreline "TR606ClosedHat", iBaseTime+4.5, 1, 50, 1
-        beatScoreline "TR606ClosedHat", iBaseTime+5.0, 1, 50, 1
-        beatScoreline "TR606ClosedHat", iBaseTime+5.5, 1, 50, 1
-        beatScoreline "TR606ClosedHat", iBaseTime+6.0, 1, 50, 1
-        beatScoreline "TR606ClosedHat", iBaseTime+6.5, 1, 50, 1
-        beatScoreline "TR606ClosedHat", iBaseTime+7.0, 1, 50, 1
-        beatScoreline "TR606ClosedHat", iBaseTime+7.5, 1, 50, 1
+        beatScoreline "TR606ClosedHat", iBaseTime+0.0, 1, 50, 3.00
+        beatScoreline "TR606ClosedHat", iBaseTime+0.5, 1, 50, 3.00
+        beatScoreline "TR606ClosedHat", iBaseTime+1.0, 1, 50, 3.00
+        beatScoreline "TR606ClosedHat", iBaseTime+1.5, 1, 50, 3.00
+        beatScoreline "TR606ClosedHat", iBaseTime+2.0, 1, 50, 3.00
+        beatScoreline "TR606ClosedHat", iBaseTime+2.5, 1, 50, 3.00
+        beatScoreline "TR606ClosedHat", iBaseTime+3.0, 1, 50, 3.00
+        beatScoreline "TR606ClosedHat", iBaseTime+3.5, 1, 50, 3.00
+        beatScoreline "TR606ClosedHat", iBaseTime+4.0, 1, 50, 3.00
+        beatScoreline "TR606ClosedHat", iBaseTime+4.5, 1, 50, 3.00
+        beatScoreline "TR606ClosedHat", iBaseTime+5.0, 1, 50, 3.00
+        beatScoreline "TR606ClosedHat", iBaseTime+5.5, 1, 50, 3.00
+        beatScoreline "TR606ClosedHat", iBaseTime+6.0, 1, 50, 3.00
+        beatScoreline "TR606ClosedHat", iBaseTime+6.5, 1, 50, 3.00
+        beatScoreline "TR606ClosedHat", iBaseTime+7.0, 1, 50, 3.00
+        beatScoreline "TR606ClosedHat", iBaseTime+7.5, 1, 50, 3.00
 
         if iMeasureCount % 4 == 3 then
           beatScoreline "SimpleOscillator", iBaseTime+0.0, 1, 60, 6.02
@@ -103,6 +104,7 @@
 
         iMeasureIndex += 1
       od
+
       beatScoreline "FlowingTrumpetingOvertones", 0, beatsToSeconds(p3), 120, 1.10
       beatScoreline "FlowingTrumpetingOvertones", 0.01, beatsToSeconds(p3), 120, 1.10
       gkBassSynthFader = .75
@@ -113,6 +115,7 @@
     beatScoreline "config", 0, -1
     beatScoreline "DefaultEffectChainReverb", 0, -1
     beatScoreline "WorkingPattern", 0, 128
+    beatScoreline "GlobalFxTapeWobble", 0, -1
 
   </CsInstruments>
   <CsScore>

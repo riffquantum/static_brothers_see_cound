@@ -10,6 +10,7 @@
   <CsInstruments>
   #include "config/defaultConfig.orc"
     #include "config/defaultMidiAssignments.orc"
+    #include "config/defaultMidiRouterMapping.orc"
     #include "opcodes/opcode-manifest.orc"
     #include "instruments/orchestra-manifest.orc"
     #include "songs/DrumPerfection/instruments/orchestra-manifest.orc"
@@ -20,7 +21,7 @@
     instr Config
       gkDrumKitReverbEqBass = 0
       gkDrumKitReverbEqMid = .25 + poscil(.25, 1/beatsToSeconds(16))
-      gkDrumKitReverbWetAmount = .05;poscil(.01, 1/beatsToSeconds(8), -1, 1) + .03
+      gkDrumKitReverbWetAmount = .1;poscil(.01, 1/beatsToSeconds(8), -1, 1) + .03
 
       ; gkDrumKitLPFAmount = poscil(.5, 1/beatsToSeconds(16), -1, 1) + .5
       gkDrumKitLPFHalfPowerPoint = poscil(1000, 1/beatsToSeconds(16)) + 1100
@@ -52,8 +53,8 @@
 
     beatScoreline "DrumKitReverb", 0, -1
     beatScoreline "Config", 0, -1
-    beatScoreline "DrumKitKickLPF", 0, -1
-    beatScoreline "DrumKitLPF", 0, -1
+    ; beatScoreline "DrumKitKickLPF", 0, -1
+    ; beatScoreline "DrumKitLPF", 0, -1
     ; beatScoreline "DrumKitChorus", 0, -1
     beatScoreline "DrumPattern1", 1, 128
   </CsInstruments>

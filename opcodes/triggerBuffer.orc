@@ -22,7 +22,7 @@ opcode triggerBuffer, i, iii
   giTiggerBufferLastVelocityForNote[iNoteNumber] = iVelocity
   gitriggerBufferLastTimeForNote[iNoteNumber] = iCurrentTime
 
-  prints sprintf(" [V: %i T: %f ], ", iVelocity, iTimeSinceLastNote)
+  ; prints sprintf(" [V: %i T: %f ], ", iVelocity, iTimeSinceLastNote)
 
   xout iTriggerNote
 endop

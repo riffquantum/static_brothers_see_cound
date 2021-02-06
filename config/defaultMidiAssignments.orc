@@ -1,19 +1,19 @@
 gSMidiChannelAssignments[] fillarray "", \
+  "NewInstrument", \
+  "PleasantFluteSynth", \
+  "NewInstrument", \
+  "BassSynth", \
+  "BassSynth", \
   "YiSynth3", \
+  "TwistedUpHatExample", \
+  "SyncLoopSamplerTemplate2", \
   "SimpleOscillator", \
   "FlowingTrumpetingOvertones", \
-  "NewInstrument", \
   "DisonantSynth", \
-  "BassSynth", \
-  "SyncLoopSamplerTemplate2", \
-  "TwistedUpHatExample", \
   "BassPluck", \
-  "BasicSamplerTemplate", \
+  "SimpleOscillator", \
   "BigCrunchySynth", \
   "SyncloopSamplerTemplate", \
-  "BassPluck", \
-  "BassPluck", \
-  "BassPluck", \
   "BassPluck"
 
 massign  1, gSMidiChannelAssignments[1]

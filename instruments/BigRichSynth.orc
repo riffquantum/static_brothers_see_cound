@@ -1,11 +1,4 @@
 instrumentRoute "BigRichSynth", "DefaultEffectChain"
-alwayson "BigRichSynthMixerChannel"
-
-gkBigRichSynthEqBass init 1
-gkBigRichSynthEqMid init 1
-gkBigRichSynthEqHigh init 1
-gkBigRichSynthFader init .2
-gkBigRichSynthPan init 50
 
 instr BigRichSynth
   iAmplitude flexibleAmplitudeInput p4
@@ -43,32 +36,4 @@ instr BigRichSynth
   outleta "OutR", aOut
 endin
 
-instr BigRichSynthBassKnob
-  gkBigRichSynthEqBass linseg p4, p3, p5
-endin
-
-instr BigRichSynthMidKnob
-  gkBigRichSynthEqMid linseg p4, p3, p5
-endin
-
-instr BigRichSynthHighKnob
-  gkBigRichSynthEqHigh linseg p4, p3, p5
-endin
-
-instr BigRichSynthFader
-  gkBigRichSynthFader linseg p4, p3, p5
-endin
-
-instr BigRichSynthPan
-  gkBigRichSynthPan linseg p4, p3, p5
-endin
-
-instr BigRichSynthMixerChannel
-  aBigRichSynthL inleta "InL"
-  aBigRichSynthR inleta "InR"
-
-  aBigRichSynthL, aBigRichSynthR mixerChannel aBigRichSynthL, aBigRichSynthR, gkBigRichSynthFader, gkBigRichSynthPan, gkBigRichSynthEqBass, gkBigRichSynthEqMid, gkBigRichSynthEqHigh
-
-  outleta "OutL", aBigRichSynthL
-  outleta "OutR", aBigRichSynthR
-endin
+$MIXER_CHANNEL(BigRichSynth)

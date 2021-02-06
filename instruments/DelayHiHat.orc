@@ -1,13 +1,6 @@
 stereoRoute "DelayHiHatSound", "DelayHiHat"
 stereoRoute "DelayHiHatSound", "Mixer"
 instrumentRoute "DelayHiHat", "WarmDistortionInput"
-alwayson "DelayHiHatMixerChannel"
-
-gkDelayHiHatEqBass init 1
-gkDelayHiHatEqMid init 1
-gkDelayHiHatEqHigh init 1
-gkDelayHiHatFader init 1
-gkDelayHiHatPan init 50
 
 giDelayHiHatSamples[] fillarray \
   ftgen( 0, 0, 0, 1, "localSamples/Drums/House-Drums_Closed-Hat_EA8820.wav", 0, 0, 0), \
@@ -44,33 +37,4 @@ instr DelayHiHat
   outleta "OutR", aSignalR
 endin
 
-
-instr DelayHiHatBassKnob
-  gkDelayHiHatEqBass linseg p4, p3, p5
-endin
-
-instr DelayHiHatMidKnob
-  gkDelayHiHatEqMid linseg p4, p3, p5
-endin
-
-instr DelayHiHatHighKnob
-  gkDelayHiHatEqHigh linseg p4, p3, p5
-endin
-
-instr DelayHiHatFader
-  gkDelayHiHatFader linseg p4, p3, p5
-endin
-
-instr DelayHiHatPan
-  gkDelayHiHatPan linseg p4, p3, p5
-endin
-
-instr DelayHiHatMixerChannel
-  aDelayHiHatL inleta "InL"
-  aDelayHiHatR inleta "InR"
-
-  aDelayHiHatL, aDelayHiHatR mixerChannel aDelayHiHatL, aDelayHiHatR, gkDelayHiHatFader, gkDelayHiHatPan, gkDelayHiHatEqBass, gkDelayHiHatEqMid, gkDelayHiHatEqHigh
-
-  outleta "OutL", aDelayHiHatL
-  outleta "OutR", aDelayHiHatR
-endin
+$MIXER_CHANNEL(DelayHiHat)

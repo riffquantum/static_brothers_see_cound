@@ -6,6 +6,6 @@
 #include "TR606TomLow.orc"
 #include "TR606TomHigh.orc"
 
-#include "TR606KitBus.orc"
-#include "TR606KitReverb.orc"
-#include "TR606KitDistortion.orc"
+$BUS(TR606Bus'TR606Fx)
+
+$EFFECT_CHAIN(TR606Fx'Mixer)

@@ -1,11 +1,24 @@
 ; Mixer
 
 alwayson "Mixer"
+alwayson "MixerOutput"
+
+stereoRoute "Mixer", "GlobalFx"
 
 gkPreClipMixerFader init 1
 gkPostClipMixerFader init 1
 
 instr Mixer
+  aOutL inleta "InL"
+  aOutR inleta "InR"
+
+  outleta "OutL", aOutL
+  outleta "OutR", aOutR
+endin
+
+$EFFECT_CHAIN(GlobalFx'MixerOutput)
+
+instr MixerOutput
   aOutL inleta "InL"
   aOutR inleta "InR"
 

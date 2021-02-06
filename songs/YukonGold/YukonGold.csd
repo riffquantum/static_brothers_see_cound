@@ -13,10 +13,11 @@
   <CsInstruments>
     #include "config/defaultConfig.orc"
     #include "config/defaultMidiAssignments.orc"
+    #include "config/defaultMidiRouterMapping.orc"
     #include "opcodes/opcode-manifest.orc"
     #include "instruments/orchestra-manifest.orc"
 
-    #include "instruments/DrumKits/DefaultDrumKit/DefaultDrumKit-manifest.orc"
+    #include "instruments/DrumKits/DefaultDrumKit.orc"
     #include "songs/YukonGold/instruments/orchestra-manifest.orc"
     #include "songs/YukonGold/patterns/pattern-manifest.orc"
 
