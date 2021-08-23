@@ -12,8 +12,8 @@ opcode pythagoreanFrequency, i, iio
   iOctaveCorrection = floor(iNotePositionOnCircleOfFifths * 7 / 12) * -1
   iFrequencyInCorrectOctave = iFrequency * 2^iOctaveCorrection * 2^(iOctaveNumber - 4)
 
-  ; Note: As this is written the wolf interval (1.4798101778) occurs between F and C
-  ; in the next octave up. One possible improvement would be to add an argument for
+  ; Note: As this is written the wolf interval (1.4798101778) occurs from F to C.
+  ; One possible improvement would be to add an argument for
   ; where to tune from so you could put that wolf interval somewhere out of the way.
 
   xout iFrequencyInCorrectOctave

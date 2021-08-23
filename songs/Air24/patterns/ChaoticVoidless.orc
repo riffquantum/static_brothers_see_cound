@@ -1,0 +1,10 @@
+beatScoreline "Voidlessness", iBaseTime+1.872109, 16.666364, 34, 2.030000
+beatScoreline "Voidlessness", iBaseTime+22.915193, 19.672865, 91, 2.060000
+beatScoreline "Voidlessness", iBaseTime+21.104762, 21.485714, 99, 2.100000
+beatScoreline "Voidlessness", iBaseTime+0.193500, 18.401814, 89, 2.080000
+beatScoreline "Voidlessness", iBaseTime+0.221315, 18.403023, 78, 3.100000
+beatScoreline "Voidlessness", iBaseTime+11.455178, 7.176417, 120, 2.110000
+beatScoreline "Voidlessness", iBaseTime+20.093726, 22.576568, 120, 3.080000
+beatScoreline "Voidlessness", iBaseTime+3.183069, 15.492063, 89, 4.030000
+beatScoreline "Voidlessness", iBaseTime+22.892215, 19.793802, 81, 4.010000
+beatScoreline "Voidlessness", iBaseTime+7.002268, 11.710355, 45, 3.070000

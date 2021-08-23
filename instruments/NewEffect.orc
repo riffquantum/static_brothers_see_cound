@@ -5,27 +5,25 @@
   gk$INSTRUMENT_NAME.WobbleAmount init .05
   gk$INSTRUMENT_NAME.WobbleSpeed init .1
 
+  gk$INSTRUMENT_NAME.Q init 4
+  gk$INSTRUMENT_NAME.Shift init 750
+  gk$INSTRUMENT_NAME.IntNoise init 0
+  gk$INSTRUMENT_NAME.Mode init 0
+
   instr $INSTRUMENT_NAME
     aSignalInL inleta "InL"
     aSignalInR inleta "InR"
 
-    iDelayAttackTime = .2
-    iBufferLength = 100
-    iMinimumDelayTime = 50/sr
+    aCarrierL inleta "CarrierInL"
+    aCarrierR inleta "CarrierInR"
 
-    aDelayTime = iMinimumDelayTime + (linseg(0, iDelayAttackTime, 1) * poscil(gk$INSTRUMENT_NAME.WobbleAmount, gk$INSTRUMENT_NAME.WobbleSpeed, -1, 0.5))
-    aDelayTime = limit(aDelayTime, iMinimumDelayTime, iBufferLength)
+    kQ = gk$INSTRUMENT_NAME.Q
+    kShift = gk$INSTRUMENT_NAME.Shift
+    kIntNoise = gk$INSTRUMENT_NAME.IntNoise
+    kMode = gk$INSTRUMENT_NAME.Mode
 
-    aDelayBufferOutL delayr iBufferLength
-    aDelayOutL       deltapi aDelayTime
-                     delayw aSignalInL
-
-    aDelayBufferOutR delayr iBufferLength
-    aDelayOutR       deltapi aDelayTime
-                     delayw aSignalInR
-
-    aSignalOutL = aDelayOutL
-    aSignalOutR = aDelayOutR
+    aSignalOutL m_vc110 aCarrierL, aSignalInL, kQ, kShift, kIntNoise, kMode
+    aSignalOutR m_vc110 aCarrierR, aSignalInR, kQ, kShift, kIntNoise, kMode
 
     outleta "OutL", aSignalOutL
     outleta "OutR", aSignalOutR

@@ -1,7 +1,7 @@
 opcode centsToRatio, i, i
   iCents xin
 
-  iRatio = 2^(1/1200)^iCents
+  iRatio = 2^(iCents/1200)
 
   xout iRatio
 endop

@@ -1,0 +1,8 @@
+#include "BassLineVerse.orc"
+#include "DrumLoop.orc"
+#include "VibeLoop.orc"
+#include "VibeLoop2.orc"
+#include "VibeLoop3.orc"
+#include "VibeLoop4.orc"
+#include "VibeLoop5.orc"
+#include "VibeLoop6.orc"

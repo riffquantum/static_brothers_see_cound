@@ -1,7 +1,7 @@
 <CsoundSynthesizer>
 
     <CsOptions>
-        -odac -m0 -t160
+        -odac -m0 -t161
     </CsOptions>
 
     <CsInstruments>
@@ -11,7 +11,7 @@
 
 
 
-        gkBPM init (60/(filelen("localSamples/GodRootUntitledSong/riff1.wav")/3))
+        ; gkBPM init (60/(filelen("localSamples/GodRootUntitledSong/riff1.wav")/3))
 
         #include "opcodes/opcode-manifest.orc"
         #include "config/defaultMidiAssignments.orc"
@@ -67,13 +67,11 @@
           iMeasureCount += 1
         od
       endin
-
-
     </CsInstruments>
 
     <CsScore>
         m section1
-          i "Riff1Pattern" 0 328
+          i "dBeat" 0 328
         s
     </CsScore>
 </CsoundSynthesizer>

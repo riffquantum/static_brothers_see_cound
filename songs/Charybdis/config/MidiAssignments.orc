@@ -5,7 +5,7 @@ gSMidiChannelAssignments[] fillarray "", \
   "FlowingTrumpetingOvertones", \
   "NewInstrument", \
   "DisonantSynth", \
-  "BassSynth", \
+  "LayeredBassSynth", \
   "SyncLoopSamplerTemplate2", \
   "BassPluck", \
   "SimpleOscillator", \

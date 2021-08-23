@@ -6,6 +6,7 @@
   gk$INSTRUMENT_NAME.FeedbackAmount init $FEEDBACK_AMOUNT
   gk$INSTRUMENT_NAME.Level init $LEVEL
   gk$INSTRUMENT_NAME.StereoOffset init $STEREO_OFFSET
+  gi$INSTRUMENT_NAME.Release init .1
 
   instr $INSTRUMENT_NAME
     aSignalInL inleta "InL"
@@ -17,8 +18,10 @@
     aDelaySignalL delayBuffer aSignalInL, gk$INSTRUMENT_NAME.FeedbackAmount, gi$INSTRUMENT_NAME.BufferLength, aDelayTimeL, gk$INSTRUMENT_NAME.Level
     aDelaySignalR delayBuffer aSignalInR, gk$INSTRUMENT_NAME.FeedbackAmount, gi$INSTRUMENT_NAME.BufferLength, aDelayTimeR, gk$INSTRUMENT_NAME.Level
 
-    aSignalOutL = aSignalInL + aDelaySignalL
-    aSignalOutR = aSignalInR + aDelaySignalR
+    kEnvelope = madsr(.01, .01, 1, gi$INSTRUMENT_NAME.Release)
+
+    aSignalOutL = aSignalInL + aDelaySignalL * kEnvelope
+    aSignalOutR = aSignalInR + aDelaySignalR * kEnvelope
 
     outleta "OutL", aSignalOutL
     outleta "OutR", aSignalOutR

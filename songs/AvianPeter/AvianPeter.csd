@@ -3,9 +3,9 @@
     -m0
     ; -Ma
     -t190
-    -odac
-    --realtime
-    ; -W -o "AvianPeter.wav" -m0
+    ; -odac
+    ; --realtime
+    -W -o "AvianPeter.wav" -m0
   </CsOptions>
 
   <CsInstruments>
@@ -47,7 +47,7 @@
 
     instr Verse1
       beatScoreline "drumPattern1", 0, 126
-      beatScoreline "VerseOne", 0, 120, 100, 1
+      ; beatScoreline "VerseOne", 0, 120, 100, 1
       gkVocalEffectChainPitchShifterPitch = oscil(.5, .3) + 1
       gkVocalEffectChainPitchShifterPan = oscil(50, .1) + 50
       beatScoreline "VocalEffectChainDelay", 0, .25
@@ -61,7 +61,7 @@
 
     instr Verse2
       beatScoreline "drumPattern1", 0, 126
-      beatScoreline "VerseTwo", 0, 95, 127, 1
+      ; beatScoreline "VerseTwo", 0, 95, 127, 1
 
       beatScoreline "VocalEffectChainDelay", 0, .25
       beatScoreline "VocalEffectChainDelay", 21, .25

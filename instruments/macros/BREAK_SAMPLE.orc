@@ -4,6 +4,7 @@
   gS$INSTRUMENT_NAME.SamplePath = "$SAMPLE_PATH"
   gi$INSTRUMENT_NAME.SampleChannels filenchnls gS$INSTRUMENT_NAME.SamplePath
   gi$INSTRUMENT_NAME.SampleLength filelen gS$INSTRUMENT_NAME.SamplePath
+  gk$INSTRUMENT_NAME.Tuning init 1
 
   if gi$INSTRUMENT_NAME.SampleChannels = 2 then
     gi$INSTRUMENT_NAME.SampleL ftgen 0, 0, 0, 1, gS$INSTRUMENT_NAME.SamplePath, 0, 0, 1
@@ -15,7 +16,7 @@
 
   instr $INSTRUMENT_NAME
     iAmplitude = velocityToAmplitude(p4)
-    kPitch = p5
+    kPitch = p5 * gk$INSTRUMENT_NAME.Tuning
     iStartBeat = p6
 
     aOutL, aOutR breakSampler iAmplitude, kPitch, iStartBeat, gi$INSTRUMENT_NAME.SampleLength, $LENGTH_OF_SAMPLE_IN_BEATS, gi$INSTRUMENT_NAME.SampleL, gi$INSTRUMENT_NAME.SampleR

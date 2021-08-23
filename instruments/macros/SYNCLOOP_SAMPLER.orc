@@ -1,3 +1,11 @@
+; #define EXAMPLE_SETTINGS #
+;   kTimeStretch = 1
+;   kGrainSizeAdjustment = 1
+;   kGrainFrequencyAdjustment = 1
+;   kPitchAdjustment = 1
+;   kGrainOverlapPercentageAdjustment = 1
+; #
+
 #define SYNCLOOP_SAMPLER(INSTRUMENT_NAME'ROUTE'SAMPLE_PATH'GRAIN_SETTINGS'LENGTH_SAMPLE_IN_BEATS) #
   instrumentRoute "$INSTRUMENT_NAME.", "$ROUTE"
 
@@ -35,18 +43,11 @@
 
     iBeatsInSample = $LENGTH_SAMPLE_IN_BEATS
 
-    ; SSettingsString = {{$GRAIN_SETTINGS}} ; This defaulting scheme doesn't work currently because '$' returns the parent macro name instead of the value
-    ; prints "%n%nSettings String: "
-    ; prints SSettingsString
-    ; if strcmp("", SSettingsString) == 0 then
-    ;   kTimeStretch = 1
-    ;   kGrainSizeAdjustment = 1
-    ;   kGrainFrequencyAdjustment = 1
-    ;   kPitchAdjustment = 1
-    ;   kGrainOverlapPercentageAdjustment = 1
-    ; else
-    ;   $GRAIN_SETTINGS
-    ; endif
+    kTimeStretch = 1
+    kGrainSizeAdjustment = 1
+    kGrainFrequencyAdjustment = 1
+    kPitchAdjustment = 1
+    kGrainOverlapPercentageAdjustment = 1
 
     $GRAIN_SETTINGS
 

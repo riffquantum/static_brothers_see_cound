@@ -1,6 +1,6 @@
 gSMidiChannelAssignments[] fillarray "", \
   "santanaBell2", \
-  "BassSynth", \
+  "LayeredBassSynth", \
   "SimpleOscillator", \
   "MidiRouter", \
   "SyncLoopSamplerTemplate2", \

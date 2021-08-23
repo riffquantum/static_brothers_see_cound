@@ -110,7 +110,7 @@ giXSessionFaderLeftControlNumber = 40
 giXSessionFaderRightControlNumber = 50
 
 giXSessionKnobC1ControlNumber = 105
-giXSessionKnobC2ControlNumber = 104
+giXSessionKnobC2ControlNumber = 106
 giXSessionKnobC3ControlNumber = 107
 giXSessionKnobC4ControlNumber = 108
 giXSessionKnobC5ControlNumber = 110

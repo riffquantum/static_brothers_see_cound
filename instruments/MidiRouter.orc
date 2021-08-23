@@ -1,10 +1,10 @@
-giMidiNoteInterruptList[][] init 20, 128
-giEventsForNoteInstruments[][][] init 20, 128, 20
+giMidiNoteInterruptList[/* song number */][/* midi note */] init 20, 128
+giEventsForNoteInstruments[/* song number */][/* midi note */][/* event index*/] init 20, 128, 20
+giGlobalEvents[/* song number */][/* event index */] init 20, 20
 giCurrentSong = 0
 
 opcode handleNoteInterupts, 0, i
   iInterruptList xin
-
   if iInterruptList != 0 then
     iInterruptCounter = 0
     interruptLoop:
@@ -14,18 +14,64 @@ opcode handleNoteInterupts, 0, i
   endif
 endop
 
-opcode twelveToneEqualTempermentPitchToMidiNoteNumber, i, i
-  iPitch xin
+opcode triggerEventFromTable, 0, ioo
+  iEventTable, iNoteVelocity, iNotePitch xin
 
-  iNoteOctave = floor(iPitch)
-  iNoteDecimal = iPitch - iNoteOctave
+  iInterruptSelf table 0, iEventTable
+  iEventInstrumentNumber table 1, iEventTable
+  iEventStartTime table 2, iEventTable
+  iEventDuration table 3, iEventTable
 
-  iMidiNoteNumnbrOfC0 = 12
-  iNoteNumber = round(iNoteOctave * 12 + iMidiNoteNumnbrOfC0 + iNoteDecimal * 100)
+  iEventVelocity table 4, iEventTable
+  iEventVelocity = iEventVelocity == 0 ? iNoteVelocity : iEventVelocity
 
-  xout iNoteNumber
+  iEventPitch table 5, iEventTable
+  iEventPitch = iEventPitch == 0 ? iNotePitch : iEventPitch
+
+  iEventP6 table 6, iEventTable
+  iEventP7 table 7, iEventTable
+  iEventP8 table 8, iEventTable
+  iEventP9 table 9, iEventTable
+  iEventP10 table 10, iEventTable
+
+  if iInterruptSelf == 0 then
+    event_i "i", iEventInstrumentNumber, iEventStartTime, iEventDuration, iEventVelocity, iEventPitch, iEventP6, iEventP7, iEventP8, iEventP9, iEventP10
+  else
+    interruptThenTrigger iEventInstrumentNumber, iEventDuration, iEventVelocity, iEventPitch, iEventP6, iEventP7, iEventP8, iEventP9, iEventP10
+  endif
 endop
 
+opcode triggerEventsForNoteNumber, 0, ii
+  iNoteNumber, iNoteVelocity xin
+  iEventsIndex = 0
+  eventsLoop:
+    iIndexToUse = lenarray(giGlobalEvents, 2) - 1 - iEventsIndex
+    iEventTable = giEventsForNoteInstruments[giCurrentSong][iNoteNumber][iIndexToUse]
+
+    if iEventTable != 0 then
+      triggerEventFromTable(iEventTable, iNoteVelocity)
+    endif
+  loop_lt iEventsIndex, 1, lenarray(giEventsForNoteInstruments, 3), eventsLoop
+endop
+
+opcode triggerGlobalEvents, 0, ii
+  iNoteNumber, iNoteVelocity xin
+  iEventsIndex = 0
+
+  giTestArray1[] init 1
+  giTestArray1[0] = 1
+
+  giTestArray2[][] init 1, 1
+  giTestArray2[0][0] = 1
+
+  eventsLoop:
+    iEventTable = giGlobalEvents[giCurrentSong][iEventsIndex]
+
+    if iEventTable != 0 then
+      triggerEventFromTable(iEventTable, iNoteVelocity, midiNoteNumberToPitchClassValue(iNoteNumber))
+    endif
+  loop_lt iEventsIndex, 1, lenarray(giGlobalEvents, 2), eventsLoop
+endop
 
 instr MidiRouter
   iNoteNumber notnum
@@ -36,37 +82,12 @@ instr MidiRouter
 
   ; Convert Pitch values to midi notes
   if iNoteNumber == 0 && p5 != 0 then
-    iNoteNumber = twelveToneEqualTempermentPitchToMidiNoteNumber(p5)
+    iNoteNumber = pitchClassToIntegerNote(p5)
   endif
 
   iNoteNumber = iNoteNumber < 27 ? giTestNotes[iNoteNumber] : iNoteNumber
 
+  triggerEventsForNoteNumber(iNoteNumber, iNoteVelocity)
   handleNoteInterupts(giMidiNoteInterruptList[giCurrentSong][iNoteNumber])
-
-
-  iEventsIndex = 0
-  until iEventsIndex == lenarray(giEventsForNoteInstruments, 3) do
-    iMidiEventTable = giEventsForNoteInstruments[giCurrentSong][iNoteNumber][iEventsIndex]
-    if iMidiEventTable != 0 then
-      iEventInstrumentNumber table 0, iMidiEventTable
-      iEventStartTime table 1, iMidiEventTable
-      iEventDuration table 2, iMidiEventTable
-
-      iEventVelocity table 3, iMidiEventTable
-      iEventVelocity = iEventVelocity == 0 ? iNoteVelocity : iEventVelocity
-
-      iEventPitch table 4, iMidiEventTable
-      iEventP6 table 5, iMidiEventTable
-      iEventP7 table 6, iMidiEventTable
-      iEventP8 table 7, iMidiEventTable
-      iEventP9 table 8, iMidiEventTable
-      iEventP10 table 9, iMidiEventTable
-
-      event_i "i", iEventInstrumentNumber, iEventStartTime, iEventDuration, iEventVelocity, iEventPitch, iEventP6, iEventP7, iEventP8, iEventP9, iEventP10
-    endif
-
-    iEventsIndex = iEventsIndex + 1
-  od
-
-  skipNote:
+  triggerGlobalEvents(iNoteNumber, iNoteVelocity)
 endin

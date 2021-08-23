@@ -11,3 +11,6 @@ kr = 1378.125
 nchnls = 2
 0dbfs = 10
 gkBPM miditempo
+
+giGlobalTuningSystem init 1
+giDivisionsInTuningSystem init 12

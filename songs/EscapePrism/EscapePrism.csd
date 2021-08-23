@@ -78,10 +78,10 @@
       gkKickTuning = .8
       gkKickFader = 1.5
 
-      gkBassSynthFxWarmDistortionPreGain = 1.2
-      gkBassSynthFxWarmDistortionPostGain = 1.75
-      gkBassSynthFxWarmDistortionDutyOffset = .001
-      gkBassSynthFxWarmDistortionSlopeShift = .001
+      gkLayeredBassSynthFxWarmDistortionPreGain = 1.2
+      gkLayeredBassSynthFxWarmDistortionPostGain = 1.75
+      gkLayeredBassSynthFxWarmDistortionDutyOffset = .001
+      gkLayeredBassSynthFxWarmDistortionSlopeShift = .001
     endin
 
     instr Intro
@@ -111,9 +111,9 @@
     ; beatScoreline "GlobalFxTapeWobble", 0, -1
     beatScoreline "GlobalFxK35Lpf", 0, -1
     ; beatScoreline "PatternWriter", 0, -1, 8
-    beatScoreline "BassSynthFxWarmDistortion", 0, -1
-    beatScoreline "BassSynthFxReverb", 0, -1
-    beatScoreline "BassSynthFxChorus", 0, -1
+    beatScoreline "LayeredBassSynthFxWarmDistortion", 0, -1
+    beatScoreline "LayeredBassSynthFxReverb", 0, -1
+    beatScoreline "LayeredBassSynthFxChorus", 0, -1
   </CsInstruments>
   <CsScore>
     ; good scratch sample souce - April in Pris by Australian Jazz Quartet

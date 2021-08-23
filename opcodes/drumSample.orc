@@ -24,16 +24,18 @@ opcode drumSample, aa, iikop
   xout aSampleL, aSampleR
 endop
 
-opcode drumSample2, aa, ikpop
-  iSampleTable, iVelocity, iFrequency, iShouldRespectP3, iVelocityCurveDegree xin
+opcode drumSample2, aa, ikiopp
+  iVelocity, kFrequency, iSampleTableL, iSampleTableR, iShouldRespectP3, iVelocityCurveDegree xin
+
+  print i(kFrequency)
 
   iAmplitude = velocityToAmplitude(iVelocity, iVelocityCurveDegree)
-  iFrequency = iFrequency == 0 ? 261.626 : iFrequency
-  kPitch = iFrequency/261.626
+  kFrequency = kFrequency == 0 ? 261.626 : kFrequency
+  kPitch = kFrequency/261.626
 
   iReleaseTime = 0.01
 
-  iSampleLength = nsamp(iSampleTable) / sr
+  iSampleLength = nsamp(iSampleTableL) / sr
 
   if iShouldRespectP3 == 0 then
     xtratim limit(iSampleLength / i(kPitch) - p3, 0, 100)
@@ -42,11 +44,12 @@ opcode drumSample2, aa, ikpop
     kAmplitudeEnvelope linsegr iAmplitude, iSampleLength/i(kPitch), iAmplitude, iReleaseTime, 0
   endif
 
-  if ftchnls(iSampleTable) == 1 then
-    aSampleL loscil kAmplitudeEnvelope, kPitch, iSampleTable, 1, 0
-    aSampleR = aSampleL
+  if iSampleTableR != 0 then
+    aSampleL poscil kAmplitudeEnvelope, 1/iSampleLength, iSampleTableL, 0
+    aSampleR poscil kAmplitudeEnvelope, 1/iSampleLength, iSampleTableR, 0
   else
-    aSampleL, aSampleR loscil kAmplitudeEnvelope, kPitch, iSampleTable, 1, 0
+    aSampleL poscil kAmplitudeEnvelope, 1/iSampleLength, iSampleTableL, 0
+    aSampleR = aSampleL
   endif
 
   xout aSampleL, aSampleR

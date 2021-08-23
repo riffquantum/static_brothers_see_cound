@@ -55,12 +55,12 @@
 
         ; beatScoreline "DefaultKick", iBaseTime+0, 1, 100, 1
 
-        beatScoreline "BassSynth", iBaseTime+0, 8, 60, 4.02
-        beatScoreline "BassSynth", iBaseTime+0, 8, 60, 4.09
-        beatScoreline "BassSynth", iBaseTime+1, 7, 60, 5.02
-        beatScoreline "BassSynth", iBaseTime+1, 1, 60, 5.09
-        beatScoreline "BassSynth", iBaseTime+2, 6, 60, 6.00
-        beatScoreline "BassSynth", iBaseTime+3.5, 5, 60, 5.04
+        beatScoreline "LayeredBassSynth", iBaseTime+0, 8, 60, 4.02
+        beatScoreline "LayeredBassSynth", iBaseTime+0, 8, 60, 4.09
+        beatScoreline "LayeredBassSynth", iBaseTime+1, 7, 60, 5.02
+        beatScoreline "LayeredBassSynth", iBaseTime+1, 1, 60, 5.09
+        beatScoreline "LayeredBassSynth", iBaseTime+2, 6, 60, 6.00
+        beatScoreline "LayeredBassSynth", iBaseTime+3.5, 5, 60, 5.04
 
         beatScoreline "TR606Kick", iBaseTime+0, 1, 120, 3.00
         beatScoreline "TR606Kick", iBaseTime+1, 1, 120, 3.00
@@ -107,7 +107,7 @@
 
       beatScoreline "FlowingTrumpetingOvertones", 0, beatsToSeconds(p3), 120, 1.10
       beatScoreline "FlowingTrumpetingOvertones", 0.01, beatsToSeconds(p3), 120, 1.10
-      gkBassSynthFader = .75
+      gkLayeredBassSynthFader = .75
       gkKissingMyLoveSpankyBreakFader = .1
       gkFlowingTrumpetingOvertonesFader = .15
     endin

@@ -49,7 +49,8 @@
     kDutyOffset = (gk$INSTRUMENT_NAME.DutyOffset + iDutyOffsetModifier) * (oscil(9.9, .25) + .1)
     kSlopeShift = (gk$INSTRUMENT_NAME.SlopeShift + iSlopeShiftOffsetModifier) * (oscil(9.9, .25) + .1)
 
-    kDeclick madsr .005, .01, 1, .01
+    ; kDeclick madsr .005, .01, 1, .03
+    kDeclick = linsegr(1, .1, 0)
 
     aSignalOutL hansDistortion aSampleSignalL, kPreGain, kPostGain, kDutyOffset, kSlopeShift, iDistortionTable
     aSignalOutR hansDistortion aSampleSignalR, kPreGain, kPostGain, kDutyOffset, kSlopeShift, iDistortionTable

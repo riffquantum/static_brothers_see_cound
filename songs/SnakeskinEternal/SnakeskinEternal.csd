@@ -1,9 +1,10 @@
 <CsoundSynthesizer>
   <CsOptions>
-      -odac
+      ; -odac
       -Ma
       -m0
-      -iadc
+      -W -o "Jormungandrv0.1.wav"
+      ; -iadc
       ; --realtime
       ; -B512 -b60
       -t105
@@ -14,14 +15,14 @@
 
   <CsInstruments>
     #include "config/defaultConfig.orc"
-    #include "config/defaultMidiAssignments.orc"
+    #include "songs/SnakeskinEternal/config/midiAssignments.orc"
     #include "config/defaultMidiRouterMapping.orc"
     ; #include "config/guitarMidiAssignments.orc"
     #include "opcodes/opcode-manifest.orc"
     #include "instruments/orchestra-manifest.orc"
 
     #include "instruments/DrumKits/DefaultDrumKit.orc"
-    #include "instruments/DrumKits/TR606/TR606-manifest.orc"
+    ; #include "instruments/DrumKits/TR606/TR606-manifest.orc"
     #include "config/defaultMidiRouterEvents.orc"
     #include "patterns/pattern-manifest.orc"
 
@@ -35,15 +36,16 @@
     $SYNCLOOP_SAMPLER(ScaleFlow'ScaleFlowEffectChain'localSamples/ZZ Top - Asleep In The Desert/asleepInTheDesertLoop1.wav'$SCALE_FLOW_GRAIN'0)
     $EFFECT_CHAIN(ScaleFlowEffectChain'Mixer)
 
-    instr config
-      ; midiMonitor
-      ; gkDefaultEffectChainReverbWetAmount = .03
-      ; gkSyncLoopSamplerTemplate2Fader = .5
+    #define SCALE_FLOW_GRAIN2 #
+      kTimeStretch = 1 * (.1 - poscil(10, .25) + poscil(.2, .3))
+      kGrainSizeAdjustment = 1 * poscil(.2, .25)
+      kGrainFrequencyAdjustment = 1 ;*(.1 - poscil(10, .25) + poscil(.2, .3))
+      kPitchAdjustment = 1
+      kGrainOverlapPercentageAdjustment = 1
+    #
+    $SYNCLOOP_SAMPLER(ScaleFlow2'ScaleFlowEffectChain'localSamples/ZZ Top - Asleep In The Desert/asleepInTheDesertLoop2.wav'$SCALE_FLOW_GRAIN2'0)
 
-      ; gkDefaultEffectChainChorusAmount = oscil(2, .5) + 1
-      ; gkDefaultEffectChainChorusWetAmount = .5
-      ; gkDefaultEffectChainChorusDryAmount = 1
-      ; giMetronomeIsOn = 1
+    instr config
       beatScoreline "ScaleFlowEffectChainReverb", 0, -1
     endin
 
@@ -134,7 +136,15 @@
 
         beatScoreline "DrumPattern1", 0+8, secondsToBeats(p3)-8
 
-        beatScoreline "ScaleFlowMelody", 0+32, secondsToBeats(p3)-32
+        beatScoreline "ScaleFlowMelody", 0+40, secondsToBeats(p3)-32
+    endin
+
+    instr Chorus
+      $PATTERN_LOOP(8)
+        beatScoreline "ScaleFlow", iBaseTime+0, 3, 89, 6.050000
+        beatScoreline "ScaleFlow", iBaseTime+0, 5, 89, 4.050000
+        beatScoreline "ScaleFlow", iBaseTime+5, 3, 89, 4.020000
+      $END_PATTERN_LOOP
     endin
 
     beatScoreline "config", 0, -1
@@ -147,6 +157,7 @@
   </CsInstruments>
   <CsScore>
     ; i "Metronome" 0 3600
+    ; i "Chorus" 0 64
     i "ScaleFlow" 0 12 60 3.06
     i "ScaleFlowPattern2" 12 42
     i "Verse" 54 300

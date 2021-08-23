@@ -1,5 +1,5 @@
 gSMidiChannelAssignments[] fillarray "", \
-  "BassSynth", \
+  "LayeredBassSynth", \
   "DisonantSynth", \
   "SimpleOscillator", \
   "SyncLoopSamplerTemplate2", \

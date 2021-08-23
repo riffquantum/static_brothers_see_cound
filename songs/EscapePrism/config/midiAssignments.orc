@@ -1,7 +1,7 @@
 gSMidiChannelAssignments[] fillarray "", \
-  "BassSynth", \
-  "NewInst", \
   "MidiRouter", \
+  "LayeredBassSynth", \
+  "NewInst", \
   "YiHarp", \
   "SimpleOscillator", \
   "FlowingTrumpetingOvertones", \

@@ -1,9 +1,10 @@
 <CsoundSynthesizer>
   <CsOptions>
-      -odac
+      ; -odac
       -Ma
       -m0
       -iadc
+      -W -o "AsleepBeforeDessertv0.1"
       ; --realtime
       ; -B512 -b60
       -t73.5

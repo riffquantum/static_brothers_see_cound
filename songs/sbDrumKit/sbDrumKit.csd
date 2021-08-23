@@ -23,15 +23,15 @@
       giHatClutchIsOpen = 1
       giMetronomeIsOn = 1
 
-      instr Dummy
+      instr Config
         ;printk 0.5, gkTriggersLastVelocity[73]
         ; midiMonitor
       endin
     </CsInstruments>
 
     <CsScore>
-        i "Metronome" 0 3600 .100 300
-        i "Dummy" 0 3600 .100 300
+        ; i "Metronome" 0 -1 .100 300
+        i "Config" 0 4000
 
     </CsScore>
 </CsoundSynthesizer>

@@ -17,6 +17,7 @@
     iDutyOffsetModifier = p6
     iSlopeShiftOffsetModifier = p7
     iStage2ClipLevelInstanceModifier = p8
+    iFinalGainAmountInstanceModifier = p9
 
     aSignalOutL = aSignalInL
     aSignalOutR = aSignalInR
@@ -45,8 +46,8 @@
     aSignalOutL butterlp aSignalOutL, 5000
     aSignalOutR butterlp aSignalOutR, 5000
 
-    aSignalOutL *= gi$INSTRUMENT_NAME.FinalGainAmount
-    aSignalOutR *= gi$INSTRUMENT_NAME.FinalGainAmount
+    aSignalOutL *= gi$INSTRUMENT_NAME.FinalGainAmount + iFinalGainAmountInstanceModifier
+    aSignalOutR *= gi$INSTRUMENT_NAME.FinalGainAmount + iFinalGainAmountInstanceModifier
 
     aSignalOutL *= kDeclick
     aSignalOutR *= kDeclick

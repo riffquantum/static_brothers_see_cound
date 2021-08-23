@@ -1,10 +1,10 @@
 gSMidiChannelAssignments[] fillarray "", \
+  "BreezeNudge", \
+  "CloudThoughts", \
   "Voidlessness", \
-  "FlowingTrumpetingOvertones", \
   "MachineSickness", \
-  "NewInstrument", \
-  "MidiRouter", \
-  "BassSynth", \
+  "FlowingTrumpetingOvertones", \
+  "LayeredBassSynth", \
   "SyncLoopSamplerTemplate2", \
   "YiSynth3", \
   "SimpleOscillator", \

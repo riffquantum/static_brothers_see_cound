@@ -36,6 +36,8 @@ $DRUM_SAMPLE(Rim'DrumKitPreBus'localSamples/Drums/Electro-Drums_Rim_A8043.wav'0'
 $DRUM_SAMPLE(Snare'DrumKitPreBus'localSamples/Drums/Mixed-Drums_Snare_EA8535.wav'0'1)
 
 $DRUM_SAMPLE(Kick'DrumKitPreBus'localSamples/Drums/TR-909_Kick_EA7411.wav'0'1)
+; $DRUM_SAMPLE(Kick'DrumKitPreBus'localSamples/Drums/Beatbox-Drums_Kick_EA7538.wav'1'1)
+
 
 $BUS(DrumKitPreBus'DrumKitEffectChain)
 $EFFECT_CHAIN(DrumKitEffectChain'DrumKitPostBus)

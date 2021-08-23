@@ -12,8 +12,8 @@ instr Pattern2
       beatScoreline "EscapePrism3", iBaseTime+0, 7.895752, 120, 4.110000
     endif
 
-    ; beatScoreline "BassSynth", iBaseTime+3.983673, 4.107997, 89, 4.03
-    ; beatScoreline "BassSynth", iBaseTime+4.019471, 4.099289, 81, 4.08
+    ; beatScoreline "LayeredBassSynth", iBaseTime+3.983673, 4.107997, 89, 4.03
+    ; beatScoreline "LayeredBassSynth", iBaseTime+4.019471, 4.099289, 81, 4.08
 
   $END_PATTERN_LOOP
 endin

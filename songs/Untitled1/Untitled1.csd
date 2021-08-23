@@ -16,7 +16,6 @@
     #include "songs/Untitled1/instruments/orchestra-manifest.orc"
     #include "songs/Untitled1/patterns/pattern-manifest.orc"
 
-
     instr config
       gaDelayForGrainStabTime = (poscil(1/8, 1) + .25) * (poscil(2.5, .5) + 2.6) * (poscil(.1, .1) + 1)
       gkGrainStabFader = .25

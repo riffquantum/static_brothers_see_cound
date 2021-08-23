@@ -1,20 +1,20 @@
 gSMidiChannelAssignments[] fillarray "", \
+  "MidiRouter", \
   "NewInstrument", \
-  "PleasantFluteSynth", \
   "NewInstrument", \
-  "BassSynth", \
-  "BassSynth", \
+  "LayeredBassSynth", \
+  "NewInstrument", \
+  "FlowingTrumpetingOvertones", \
+  "Arpeggiator", \
+  "SimpleOscillator", \
   "YiSynth3", \
   "TwistedUpHatExample", \
   "SyncLoopSamplerTemplate2", \
   "SimpleOscillator", \
-  "FlowingTrumpetingOvertones", \
   "DisonantSynth", \
-  "BassPluck", \
   "SimpleOscillator", \
   "BigCrunchySynth", \
-  "SyncloopSamplerTemplate", \
-  "BassPluck"
+  "SyncloopSamplerTemplate"
 
 massign  1, gSMidiChannelAssignments[1]
 massign  2, gSMidiChannelAssignments[2]

@@ -14,11 +14,15 @@
 #include "randomVariation.orc"
 #include "noteNameToNumber.orc"
 #include "noteNumberToName.orc"
+#include "splitPitchClass.orc"
+#include "pitchClassToIntegerNote.orc"
+#include "integerNoteToPitchClass.orc"
 #include "centsToRatio.orc"
 #include "equalTempermentFrequency.orc"
 #include "pythagoreanFrequency.orc"
 #include "customTuningFrequency.orc"
 #include "quarterCommaMeanToneFrequency.orc"
+#include "selectTuningSystemAndReturnFrequency.orc"
 
 /*
   Audio Processors and Effects
@@ -38,6 +42,7 @@
 #include "bypassRoute.orc"
 #include "mixerChannel.orc"
 #include "m_chorus.orc"
+#include "m_vc110.orc"
 
 /*
   Table Generators
@@ -65,11 +70,7 @@
 #include "triggerBuffer.orc"
 #include "interruptThenTrigger.orc"
 #include "velocityToAmplitude.orc"
-#include "equalTempermentMidiTuning.orc"
-#include "pythagoreanMidiTuning.orc"
-#include "customMidiTuning.orc"
-#include "quarterCommaMeanToneMidiTuning.orc"
-#include "bohlenPierceMidiTuning.orc"
+#include "midiNoteNumberToPitchClassValue.orc"
 #include "flexibleAmplitudeInput.orc"
 #include "flexiblePitchInput.orc"
 

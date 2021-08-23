@@ -1,5 +1,5 @@
-opcode "repeatNotes", 0, Siiiiipooo
-  SInstrumentName, iStartTime, iTotalDuration, iNotesPerBeat, iNoteDuration, iVelocity, iPitch, iPitchQuotient, iAccent, iSwing xin
+opcode "repeatNotes", 0, Siiiiipoooooooo
+  SInstrumentName, iStartTime, iTotalDuration, iNotesPerBeat, iNoteDuration, iVelocity, iPitch, iPitchQuotient, iAccent, iSwing, iP6, iP7, iP8, iP9, iP10 xin
 
   iTotalNotes = iTotalDuration * iNotesPerBeat
   iNoteCount = 0
@@ -7,7 +7,7 @@ opcode "repeatNotes", 0, Siiiiipooo
   until iNoteCount >= iTotalNotes do
     iPitch = iPitch == 0 ? 1 : iPitch
     if iPitchQuotient != 0 then
-      iPitch = 1 - iNoteCount/iPitchQuotient
+      iPitch *= (1 - iNoteCount/iPitchQuotient)
     endif
 
     if (iAccent == 0) then
@@ -21,7 +21,7 @@ opcode "repeatNotes", 0, Siiiiipooo
     iNoteVelocity = iAccented == 1 ?  iVelocity * 1.5 :  iVelocity
     iNotePitch = iAccented == 1 ? iPitch * 1.02 : iPitch
 
-    SNoteParams sprintfk {{ %f %f }}, iNoteVelocity, iNotePitch
+    SNoteParams sprintfk {{ %f %f %f %f %f %f %f}}, iNoteVelocity, iNotePitch, iP6, iP7, iP8, iP9, iP10
 
     if (iNoteCount % 2 == 0) then
       beatScorelineS( SInstrumentName, iStartTime + iNoteCount*(1/iNotesPerBeat), iNoteDuration, SNoteParams )

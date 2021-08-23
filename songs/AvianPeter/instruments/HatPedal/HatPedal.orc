@@ -10,8 +10,6 @@ gkHatPedalPan init 50
 instr HatPedal
   iSupressNoise = p6
 
-
-
   event_i "i", "DefaultClosedHat", 0, p3, p4, p5
   event_i "i", "DefaultKick", 0, p3, p4, p5
 

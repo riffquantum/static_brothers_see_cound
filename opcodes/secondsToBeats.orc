@@ -1,7 +1,8 @@
-opcode secondsToBeats, i, i
-  iSeconds xin
+opcode secondsToBeats, i, io
+  iSeconds, iBPM xin
+  iBPM = iBPM != 0 ? iBPM : i(gkBPM)
 
-  iBeats = iSeconds * i(gkBPM)/60
+  iBeats = iSeconds * iBPM/60
 
   xout iBeats
 endop

@@ -2,7 +2,7 @@ gSMidiChannelAssignments[] fillarray "", \
   "PainSpiral2", \
   "SimpleOscillator", \
   "TwistedUpHatExample", \
-  "BassSynth", \
+  "LayeredBassSynth", \
   "BassPluck", \
   "NewInstrument", \
   "SimpleOscillator", \

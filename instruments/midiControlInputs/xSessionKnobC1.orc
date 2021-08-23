@@ -1,8 +1,6 @@
 gkXSessionKnobC1Value ctrl7 1, giXSessionKnobC1ControlNumber, 0, 127
 gkXSessionKnobC1Trigger changed gkXSessionKnobC1Value
 
-
-
 if gkXSessionKnobC1Trigger == 1 then
   gkBPMAdjustment = (gkXSessionKnobC1Value+1)/128 * 500
   gkBPM = gkBPMAdjustment

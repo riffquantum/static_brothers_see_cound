@@ -31,10 +31,7 @@ instr PatternWriter
         kDuration = (iMeasureLength - kActiveNotes[kChannel][kNoteNumber][1]) + kTimeInBeatsInMeasure
       endif
 
-      ; For 12 tone equal temperment
-      kPitchClassNote = (kNoteNumber - 12) % 12
-      kPitchClassOctave = (kNoteNumber - 12 - kPitchClassNote)/12
-      kPitchClass = kPitchClassOctave + (kPitchClassNote/100)
+      kPitchClass midiNoteNumberToPitchClassValueK kNoteNumber, 0
 
       printks "%n    beatScoreline \"%s\", iBaseTime+%f, %f, %d, %f", 0, SInstrumentName, kActiveNotes[kChannel][kNoteNumber][1], kDuration, kActiveNotes[kChannel][kNoteNumber][0], kPitchClass
     endif
