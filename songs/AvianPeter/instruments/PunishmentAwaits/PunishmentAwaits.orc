@@ -15,7 +15,7 @@ giPunishmentAwaitsSample1 ftgen 0, 0, giPunishmentAwaitsSample1TableLength, 1, g
 instr PunishmentAwaits
   iAmplitude velocityToAmplitude p4
 
-   event_i "i", "PhotoshopSamples", 0, 1, p4, 6
+  ;  event_i "i", "PhotoshopSamples", 0, 1, p4, 6
 
   kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0
 

@@ -1,9 +1,9 @@
 <CsoundSynthesizer>
   <CsOptions>
       -odac
-      -Ma
+      ; -Ma
       -m0
-      -iadc
+      ; -iadc
       ; --realtime
       ; -B512 -b60
       -t160

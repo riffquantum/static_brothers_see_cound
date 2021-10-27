@@ -1,10 +1,10 @@
 <CsoundSynthesizer>
   <CsOptions>
-      -Ma
+      ; -Ma
       -m0
       -odac
       ; -W -o "VileArcv1.0.wav" -m0
-      -iadc
+      ; -iadc
       ; -B512 -b60
       -t80
       ;--midioutfile=midiout.mid

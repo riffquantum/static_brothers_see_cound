@@ -19,9 +19,9 @@ giBirdShitSynthSamples2 ftgen 0, 0, giBirdShitSynthSamplesTableLength2, 1, gSBir
 
 
 instr BirdShitSynthSamples
-  iAmplitude = p4
+  iAmplitude = flexibleAmplitudeInput(p4)
   iSampleNumber = p5
-  kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 0.1, 0
+  kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, 1, 0
   iSample = iSampleNumber == 1 ? giBirdShitSynthSamples1 : giBirdShitSynthSamples2
 
   aBirdShitSynthSample loscil kAmplitudeEnvelope, 1, iSample, 1

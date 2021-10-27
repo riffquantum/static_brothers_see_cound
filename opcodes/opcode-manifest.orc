@@ -40,6 +40,7 @@
 #include "effectRoute.orc"
 #include "bypassSwitch.orc"
 #include "bypassRoute.orc"
+#include "lowpassByDistance.orc"
 #include "mixerChannel.orc"
 #include "m_chorus.orc"
 #include "m_vc110.orc"

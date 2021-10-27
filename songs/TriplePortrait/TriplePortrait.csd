@@ -1,7 +1,7 @@
 <CsoundSynthesizer>
   <CsOptions>
     -m0
-    -Ma
+    ; -Ma
     -t87.5
     -odac
     ; -W -o "TriplePortrait.wav" -m0

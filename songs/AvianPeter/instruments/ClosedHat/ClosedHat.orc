@@ -10,8 +10,6 @@ gkClosedHatPan init 50
 instr ClosedHat
   iSupressNoise = p6
 
-
-
   event_i "i", "DefaultClosedHat", 0, p3, p4, p5
 
   if iSupressNoise == 0 then

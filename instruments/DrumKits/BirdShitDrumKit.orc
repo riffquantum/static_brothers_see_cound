@@ -3,13 +3,28 @@ $DRUM_SAMPLE(BirdshitCbKick'BirdshitKickBus'localSamples/CB_Kick.wav'1'1)
 $DRUM_SAMPLE(BirdshitLongDeepKick'BirdshitKickBus'localSamples/Drums/R8-Drums_Kick_EA7604.wav'1'1)
 
 $DRUM_SAMPLE(BirdshitSharpKick'BirdshitReverbForSharpKick'localSamples/Drums/R8-Drums_Kick_EA7614.wav'1'1)
+
+$DRUM_SAMPLE(NoamCatSample'Mixer'localSamples/noam-cat-worth.wav'0'1)
+
+; $DRUM_SAMPLE(BirdShitSynth1'BirdshitBus'localSamples/Birdshit/BirdShitSynthSample1.wav'0'1)
+; $DRUM_SAMPLE(BirdShitSynth2'BirdshitBus'localSamples/Birdshit/BirdShitSynthSample1.wav'0'1)
+
+#include "../../songs/sbDrumKit/instruments/BirdShit/BirdShitSynthSamples/BirdShitSynthSamples.orc"
+
+instr BirdshitConfig
+
+endin
+
+alwayson "BirdshitReverbForSharpKick"
+stereoRoute "BirdshitReverbForSharpKick", "BirdshitKickBus"
+
 gkBirdshitReverbForSharpKickWetAmount init .2
 gkBirdshitReverbForSharpKickDry init 1
 gkBirdshitReverbForSharpKickDelay init .9
 gkBirdshitReverbForSharpKickCutoff init sr/2-100
+gkBirdshitPitchedDownCrashTuning init .5
 
-alwayson "BirdshitReverbForSharpKick"
-stereoRoute "BirdshitReverbForSharpKick", "BirdshitKickBus"
+
 instr BirdshitReverbForSharpKick
   aSignalL inleta "InL"
   aSignalR inleta "InR"
@@ -32,7 +47,7 @@ instr BirdshitKick
   event_i "i", "BirdshitSharpKick", 0, p3, p4, p5
 endin
 
-$BUS(BirdshitKickBus'BirdshitBus)
+$BUS(BirdshitKickBus'Mixer)
 
 ;Snares
 $DRUM_SAMPLE(BirdshitSnare'BirdshitSnareBus'localSamples/Drums/R8-Drums_Snare_EA7741.wav'1'1)
@@ -52,7 +67,7 @@ $BUS(BirdshitSnareBus'BirdshitBus)
 $DRUM_SAMPLE(BirdshitCrash'BirdshitBus'localSamples/Drums/R8-Drums_Crash_EA7847.wav'1'1) ; missing from localsamples
 
 $DRUM_SAMPLE(BirdshitPitchedDownCrash'BirdshitBus'localSamples/Drums/R8-Drums_Crash_EA7847.wav'1'1)
-gkBirdshitPitchedDownCrashTuning init .5
+
 
 $DRUM_SAMPLE(BirdshitClosedHat'BirdshitBus'localSamples/Drums/R8-Drums_Closed-Hat_EA7803.wav'1'1)
 $DRUM_SAMPLE(BirdshitOpenHat'BirdshitBus'localSamples/Drums/R8-Drums_Open-Hat_EA7804.wav'1'1)
@@ -118,33 +133,38 @@ $MIXER_CHANNEL(BirdshitSynthDistortion)
 
 
 ; Midi Controller Setup
-giBirshitSongIndex init 1
-giEventsForNoteInstruments[giBirshitSongIndex][giKickNote][0] ftgen 0, 0, 0, -2, 0, nstrnum("BirdshitKick"), 0, 1, 0, 1
-giEventsForNoteInstruments[giBirshitSongIndex][giHatPedalNote][0] ftgen 0, 0, 0, -2, 0, nstrnum("BirdshitKick"), 0, 1, 0, 1
+giBirdshitSongIndex init 0
+giEventsForNoteInstruments[giBirdshitSongIndex][giKickNote][0] ftgen 0, 0, 0, -2, 0, nstrnum("BirdshitKick"), 0, 1, 0, 1
+giEventsForNoteInstruments[giBirdshitSongIndex][giHatPedalNote][0] ftgen 0, 0, 0, -2, 0, nstrnum("BirdshitKick"), 0, 1, 0, 1
 
-giEventsForNoteInstruments[giBirshitSongIndex][giSnareNote][0] ftgen 0, 0, 0, -2, 0, nstrnum("BirdshitSnare"), 0, 1, 0, 1
+giEventsForNoteInstruments[giBirdshitSongIndex][giSnareNote][0] ftgen 0, 0, 0, -2, 0, nstrnum("BirdshitSnare"), 0, 1, 0, 1
 
-giEventsForNoteInstruments[giBirshitSongIndex][giOrangePadNote][0] ftgen 0, 0, 0, -2, 1, nstrnum("BirdshitPitchedDownCrash"), 0, 2, 0, 1
-giEventsForNoteInstruments[giBirshitSongIndex][giCrashNote][0] ftgen 0, 0, 0, -2, 0, nstrnum("BirdshitCrash"), 0, 1, 0, 1
+giEventsForNoteInstruments[giBirdshitSongIndex][giSpd30Pad4Note][0] ftgen 0, 0, 0, -2, 1, nstrnum("BirdshitPitchedDownCrash"), 0, 2, 0, 1
+giEventsForNoteInstruments[giBirdshitSongIndex][giCrashNote][0] ftgen 0, 0, 0, -2, 0, nstrnum("BirdshitCrash"), 0, 1, 0, 1
 
-giEventsForNoteInstruments[giBirshitSongIndex][giHatClosedNote][0] ftgen 0, 0, 0, -2, 0, nstrnum("BirdshitClosedHat"), 0, 1, 0, 1
-giEventsForNoteInstruments[giBirshitSongIndex][giHatPedalNote][1] ftgen 0, 0, 0, -2, 0, nstrnum("BirdshitClosedHat"), 0, 1, 0, 1
+giEventsForNoteInstruments[giBirdshitSongIndex][giHatClosedNote][0] ftgen 0, 0, 0, -2, 0, nstrnum("BirdshitClosedHat"), 0, 1, 0, 1
+giEventsForNoteInstruments[giBirdshitSongIndex][giHatPedalNote][1] ftgen 0, 0, 0, -2, 0, nstrnum("BirdshitClosedHat"), 0, 1, 0, 1
 
-giEventsForNoteInstruments[giBirshitSongIndex][giHatOpenNote][0] ftgen 0, 0, 0, -2, 0, nstrnum("BirdshitOpenHat"), 0, 1, 0, 1
+giEventsForNoteInstruments[giBirdshitSongIndex][giHatOpenNote][0] ftgen 0, 0, 0, -2, 0, nstrnum("BirdshitOpenHat"), 0, 1, 0, 1
 
-giEventsForNoteInstruments[giBirshitSongIndex][giRideNote][0] ftgen 0, 0, 0, -2, 1, nstrnum("BirdshitRide"), 0, 1, 0, 1
+giEventsForNoteInstruments[giBirdshitSongIndex][giRideNote][0] ftgen 0, 0, 0, -2, 1, nstrnum("BirdshitRide"), 0, 1, 0, 1
 
-giEventsForNoteInstruments[giBirshitSongIndex][giTom1Note][0] ftgen 0, 0, 0, -2, 1, nstrnum("BirdshitTomLow"), 0, 1, 0, 1
-giEventsForNoteInstruments[giBirshitSongIndex][giTom2Note][0] ftgen 0, 0, 0, -2, 1, nstrnum("BirdshitTomMid"), 0, 1, 0, 1
-giEventsForNoteInstruments[giBirshitSongIndex][giTomPad1Note][0] ftgen 0, 0, 0, -2, 1, nstrnum("Distorted808Kick"), 0, 2, 0, 0.5
+giEventsForNoteInstruments[giBirdshitSongIndex][giTom1Note][0] ftgen 0, 0, 0, -2, 1, nstrnum("BirdshitTomLow"), 0, 1, 0, 1
+giEventsForNoteInstruments[giBirdshitSongIndex][giTom2Note][0] ftgen 0, 0, 0, -2, 1, nstrnum("BirdshitTomMid"), 0, 1, 0, 1
+giEventsForNoteInstruments[giBirdshitSongIndex][giTomPad1Note][0] ftgen 0, 0, 0, -2, 1, nstrnum("Distorted808Kick"), 0, 2, 0, 0.5
 
-giBirdshitGreenNoteFrequency mtof 48
-giEventsForNoteInstruments[giBirshitSongIndex][giGreenPadNote][0] ftgen 0, 0, 0, -2, 0, nstrnum("BirdshitSynth"), 0, 2, 0, giBirdshitGreenNoteFrequency
-giEventsForNoteInstruments[giBirshitSongIndex][giGreenPadNote][1] ftgen 0, 0, 0, -2, 0, nstrnum("BirdshitSynth"), 0, 2, 0, giBirdshitGreenNoteFrequency*2
+giEventsForNoteInstruments[giBirdshitSongIndex][giSpd30Pad7Note][0] ftgen 0, 0, 0, -2, 0, nstrnum("BirdShitSynthSamples"), 0, 2.5, 0, 1
+giEventsForNoteInstruments[giBirdshitSongIndex][giSpd30Pad3Note][0] ftgen 0, 0, 0, -2, 0, nstrnum("BirdShitSynthSamples"), 0, 2.5, 0, 2
 
-giBirdshitTomPad2Frequency mtof 51
-giEventsForNoteInstruments[giBirshitSongIndex][giTomPad2Note][0] ftgen 0, 0, 0, -2, 0, nstrnum("BirdshitSynth"), 0, 2, 0, giBirdshitTomPad2Frequency
+giEventsForNoteInstruments[giBirdshitSongIndex][giSpd30Pad2Note][0] ftgen 0, 0, 0, -2, 1, nstrnum("NoamCatSample"), 0, 1, 0, 1
 
 ; Interrupts
-giMidiNoteInterruptList[giBirshitSongIndex][giHatPedalNote] ftgen 0, 0, 0, -2, nstrnum("BirdshitOpenHat")
-giMidiNoteInterruptList[giBirshitSongIndex][giHatClosedNote] ftgen 0, 0, 0, -2, nstrnum("BirdshitOpenHat")
+giMidiNoteInterruptList[giBirdshitSongIndex][giHatPedalNote] ftgen 0, 0, 0, -2, nstrnum("BirdshitOpenHat")
+giMidiNoteInterruptList[giBirdshitSongIndex][giHatClosedNote] ftgen 0, 0, 0, -2, nstrnum("BirdshitOpenHat")
+
+giMidiNoteInterruptList[giBirdshitSongIndex][giKickNote] ftgen 0, 0, 0, -2, nstrnum("BirdshitCbKick"), nstrnum("BirdshitLongDeepKick"), nstrnum("BirdshitSharpKick")
+
+giEventsForNoteInstruments[giBirdshitSongIndex][giPadC13Note][0] ftgen 0, 0, 0, -2, 0, nstrnum("SwitchSong"), 0, 0.1, 0, 0, 0
+giEventsForNoteInstruments[giBirdshitSongIndex][giPadC14Note][0] ftgen 0, 0, 0, -2, 0, nstrnum("SwitchSong"), 0, 0.1, 0, 0, 1
+giEventsForNoteInstruments[giBirdshitSongIndex][giPadC15Note][0] ftgen 0, 0, 0, -2, 0, nstrnum("SwitchSong"), 0, 0.1, 0, 0, 2
+giEventsForNoteInstruments[giBirdshitSongIndex][giPadC16Note][0] ftgen 0, 0, 0, -2, 0, nstrnum("SwitchSong"), 0, 0.1, 0, 0, 3
