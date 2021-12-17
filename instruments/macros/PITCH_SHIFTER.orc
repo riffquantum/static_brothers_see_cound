@@ -1,3 +1,23 @@
+/*
+  PITCH_SHIFTER
+  Creates an effect instrument that applies pitch shifting to a signal.
+
+  Global Variables:
+    None
+
+  P Fields:
+    p4 - StartingPitch - Pitch factor shift the signal by.
+    p5 - EndingPitch - If 0, pitch will remain stable for the duration
+      of the effect. Any other value will linearly change the pitch value
+      over the duration of the effect.
+    p6 - WetRelease - Release time for the effect's signal
+
+  Macro Arguments:
+    $INSTRUMENT_NAME - String - Name for the instrument to be generated
+    $WET_ROUTE - String - The route for the instrument's Wet output
+    $DRY_ROUTE - String - The route for the instrument's Dry output
+*/
+
 #define PITCH_SHIFTER(INSTRUMENT_NAME'DRY_ROUTE'WET_ROUTE) #
   $EFFECT_BYPASS($INSTRUMENT_NAME'$DRY_ROUTE'$WET_ROUTE'0'1)
 

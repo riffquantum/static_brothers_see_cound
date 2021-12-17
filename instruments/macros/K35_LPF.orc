@@ -1,11 +1,30 @@
+/*
+  K35_LPF
+  Creates an effect instrument that applies a lowpass filter. Uses csound's k35_lpf
+  opcode.
+
+  Global Variables:
+    CutoffFrequency - k - filter cutoff frequency (i-, k-, or a-rate).
+    Saturation - k - saturation amount to use for non-linear processing. Values > 1 increase the steepness of the NLP curve.
+    NonLinearProcessingMethod - i - 0 = no processing, 1 = non-linear processing. Method 1 uses tanh(ksaturation * input). Enabling NLP may increase the overall output of filter above unity and should be compensated for outside of the filter.
+    Q - k - filter Q value (i-, k-, or a-rate). Range 1.0-10.0 (clamped by opcode). Self-oscillation occurs at 10.0.
+
+  P Fields:
+    p4 - CutoffFrequency - Instance modifier for corresponding global variable.
+    p5 - Q - Instance modifier for corresponding global variable.
+
+  Macro Arguments:
+    $INSTRUMENT_NAME - String - Name for the instrument to be generated
+    $WET_ROUTE - String - The route for the instrument's Wet output
+    $DRY_ROUTE - String - The route for the instrument's Dry output
+*/
+
 #define K35_LPF(INSTRUMENT_NAME'DRY_ROUTE'WET_ROUTE) #
   $EFFECT_BYPASS($INSTRUMENT_NAME'$DRY_ROUTE'$WET_ROUTE'0'1)
 
-  gk$INSTRUMENT_NAME.DryAmount init 0
-  gk$INSTRUMENT_NAME.WetAmount init 1
   gk$INSTRUMENT_NAME.CutoffFrequency init 5000
-  gk$INSTRUMENT_NAME.Saturation init .3 ; saturation amount to use for non-linear processing. Values > 1 increase the steepness of the NLP curve.
-  gi$INSTRUMENT_NAME.NonLinearProcessingMethod init 0 ; Non-linear processing method. 0 = no processing, 1 = non-linear processing. Method 1 uses tanh(ksaturation * input). Enabling NLP may increase the overall output of filter above unity and should be compensated for outside of the filter.
+  gk$INSTRUMENT_NAME.Saturation init .3
+  gi$INSTRUMENT_NAME.NonLinearProcessingMethod init 0
   gk$INSTRUMENT_NAME.Q init 4
 
   instr $INSTRUMENT_NAME

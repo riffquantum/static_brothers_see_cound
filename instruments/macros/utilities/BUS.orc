@@ -1,3 +1,26 @@
+/*
+  BUS
+  Creates a mixer channel instrument with a route argument. Useful for gathering multiple
+  inputs into a single signal for modification.
+
+  Global Variables:
+    EqBass - k - Modifies low frequency content of signal
+      in a three band equalizer.
+    EqMid - k - Modifies mid frequency content of signal
+      in a three band equalizer.
+    EqHigh - k - Modifies high frequency content of signal
+      in a three band equalizer.
+    Fader - k - Volume modifier for signal.
+    Pan - k - 0 to 100, pans the signal right or left.
+
+  P Fields:
+    None
+
+  Macro Arguments:
+    $INSTRUMENT_NAME - String - Name for the instrument to be generated
+    $ROUTE - String - Name of the route for the signal.
+*/
+
 #define BUS(INSTRUMENT_NAME'ROUTE) #
   stereoRoute "$INSTRUMENT_NAME", "$ROUTE"
   alwayson "$INSTRUMENT_NAME"

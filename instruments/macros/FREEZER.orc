@@ -1,3 +1,20 @@
+/*
+  FREEZER
+  Creates an effect instrument that loops a segment of input.
+
+  P Fields:
+    p4 - BeatsToLoopStart - Length of input in beats to be looped at init time.
+    p5 - BeatsToLoopEnd - Length of loop in beats at release time. Applied as
+      linear change to delay time.
+    p6 - DWetRelease - Release time for the instance.
+    p7 - PanAmount - Amount for alternating panning of each loop iteration.
+
+  Macro Arguments:
+    $INSTRUMENT_NAME - String - Name for the instrument to be generated
+    $WET_ROUTE - String - The route for the instrument's Wet output
+    $DRY_ROUTE - String - The route for the instrument's Dry output
+*/
+
 #define FREEZER(INSTRUMENT_NAME'DRY_ROUTE'WET_ROUTE) #
   $EFFECT_BYPASS($INSTRUMENT_NAME'$DRY_ROUTE'$WET_ROUTE'0'1)
 

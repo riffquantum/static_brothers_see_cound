@@ -1,3 +1,4 @@
+; This should probably be rewritten to call SYNCLOOP_SAMPLER
 #define TWISTED_KICK(INSTRUMENT_NAME'ROUTE'SAMPLE_PATH) #
   instrumentRoute "$INSTRUMENT_NAME.", "$ROUTE"
 

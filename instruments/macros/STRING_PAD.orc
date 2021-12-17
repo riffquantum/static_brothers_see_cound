@@ -1,6 +1,35 @@
 ; An attempt at a string/pad synth
-; https://www.youtube.com/watch?v=TosV3erGfsg
-;
+
+/*
+  STRING_PAD
+  Creates an instrument that synthesizes an string/pad like sound. Based on this
+  youtube video: https://www.youtube.com/watch?v=TosV3erGfsg
+
+  Global Variables:
+    CenterFrequency - k - Center frequency for the filter applied to the signal.
+    Bandwidth - k - Bandwidth for the filter applied to the signal.
+    FilterExponent - i -  Filter is modified over note duration by the envelope
+      This exponent can change the intensity of that effect.
+    Wave - i, table - Wave form for signal.
+    Attack - i - Attack for note envelope.
+    Decay - i - Decay for note envelope.
+    Sustain - i - Sustain for note envelope.
+    Release - i - Release for note envelope.
+    VibratoRate - k - Rate for vibrato applied to signal.
+    VibratoPitchAmount - k - Amount of pitch vibrato to apply.
+    VibratoAmplitudeAmount - k - Amount of amplitude vibrato to apply.
+    NumberOfVoices - i - 1 to 7. The number of voices added to the signal.
+
+  P Fields:
+    p4 - Velocity - Number - A velocity expressed as a number between 0 and 127.
+    p5 - Pitch - Number - Can be a midi input, a pitch class value, or a frequency in Hz.
+
+  Macro Arguments:
+    $INSTRUMENT_NAME - String - Name for the instrument to be generated.
+    $ROUTE - String - The route for the instrument.
+    $GLOBAL_SETTINGS - String - Optional chance to override init values for global
+      variables.
+*/
 
 #define STRING_PAD(INSTRUMENT_NAME'ROUTE'GLOBAL_SETTINGS) #
   instrumentRoute "$INSTRUMENT_NAME", "$ROUTE"

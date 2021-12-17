@@ -1,4 +1,28 @@
-; Inspired by: https://www.musicradar.com/how-to/the-art-of-synth-soloing-how-to-get-lyle-mays-signature-synth-sound
+/*
+  OCARINA
+  Creates an instrument that synthesizes an ocarina like sound. Based on this
+  blog article about the guy from the Pat Metheny Group:
+  https://www.musicradar.com/how-to/the-art-of-synth-soloing-how-to-get-lyle-mays-signature-synth-sound
+
+  Global Variables:
+    Attack - i - Attack for note envelope.
+    Decay - i - Decay for note envelope.
+    Sustain - i - Sustain for note envelope.
+    Release - i - Release for note envelope.
+    VibratoRate - k - Rate for vibrato applied to signal.
+    VibratoAttack - i - Attack time for application of vibrato.
+    VibratoAmount - k - Amplitude of vibrato wave.
+
+  P Fields:
+    p4 - Velocity - Number - A velocity expressed as a number between 0 and 127.
+    p5 - Pitch - Number - Can be a midi input, a pitch class value, or a frequency in Hz.
+
+  Macro Arguments:
+    $INSTRUMENT_NAME - String - Name for the instrument to be generated.
+    $ROUTE - String - The route for the instrument.
+    $GLOBAL_SETTINGS - String - Optional chance to override init values for global
+      variables.
+*/
 
 #define OCARINA(INSTRUMENT_NAME'ROUTE'GLOBAL_SETTINGS) #
   instrumentRoute "$INSTRUMENT_NAME", "$ROUTE"

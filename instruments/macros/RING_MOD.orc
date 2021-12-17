@@ -1,3 +1,29 @@
+/*
+  RING_MOD
+  Creates an effect instrument that applies five bands of ring
+  modulation to a signal.
+
+  Global Variables:
+    Modulator1Frequency - k - The frequency of the first modulator band.
+    Modulator1Amount - k - The amplitude of the first modulator band.
+    Modulator2Frequency - k - The frequency of the second modulator band.
+    Modulator2Amount - k - The amplitude of the second modulator band.
+    Modulator3Frequency - k - The frequency of the third modulator band.
+    Modulator3Amount - k - The amplitude of the third modulator band.
+    Modulator4Frequency - k - The frequency of the fourth modulator band.
+    Modulator4Amount - k - The amplitude of the fourth modulator band.
+    Modulator5Frequency - k - The frequency of the fifth modulator band.
+    Modulator5Amount - k - The amplitude of the fifth modulator band.
+
+  P Fields:
+    none
+
+  Macro Arguments:
+    $INSTRUMENT_NAME - String - Name for the instrument to be generated
+    $WET_ROUTE - String - The route for the instrument's Wet output
+    $DRY_ROUTE - String - The route for the instrument's Dry output
+*/
+
 #define RING_MOD(INSTRUMENT_NAME'DRY_ROUTE'WET_ROUTE) #
   $EFFECT_BYPASS($INSTRUMENT_NAME'$DRY_ROUTE'$WET_ROUTE'0'1)
 

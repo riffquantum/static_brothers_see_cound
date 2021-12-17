@@ -1,3 +1,36 @@
+/*
+  IN_TIME_SYNCLOOP_SAMPLER
+  An instrument that processes and plays a sample with cSound's syncloop opcode and
+  applies time stretching to scale to gkBPM.
+
+  Global Variables:
+    Hold - k -
+    GrainSpacing - k -
+    WaveSpacing - k -
+    FxDepth - k -
+    FxSpeed - k -
+    Randomize - k -
+    SamplePath - S - Path to sample for playback.
+    Channels - i - Number of channels in the sample, derived from file.
+    SampleLength - i - Length of sample in seconds, derived from file.
+    SampleLengthInBeats - i - Length of sample in beats.
+    LengthOfBeat - i - One beat in seconds within the sample.
+    BPM - i - The BPM of the sample.
+    Factor - i - Ratio of global playback BPM to sample BPM
+    Sample - i, table - A table containing the sample
+    EnvelopeTable - i, table - A table containing the grain envelope
+
+  P Fields:
+    p4 - Velocity - Number - A velocity expressed as a number between 0 and 127.
+    p5 - Pitch - Number - Can be a midi input, a pitch class value, or a frequency in Hz.
+
+  Macro Arguments:
+    $INSTRUMENT_NAME - String - Name for the instrument to be generated.
+    $ROUTE - String - The route for the instrument.
+    $SAMPLE_PATH - String - A path to the sample for playback.
+    $LENGTH_SAMPLE_IN_BEATS - Number - The length of the sample in beats.
+*/
+
 #define IN_TIME_SYNCLOOP_SAMPLER(INSTRUMENT_NAME'ROUTE'SAMPLE_PATH'LENGTH_SAMPLE_IN_BEATS) #
   instrumentRoute "$INSTRUMENT_NAME.", "$ROUTE"
 

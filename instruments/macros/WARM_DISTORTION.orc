@@ -1,3 +1,31 @@
+/*
+  WARM_DISTORTION
+  Creates an effect instrument that applies distortion to a signal. It uses multiple
+  gain stages, clipping stages and filters to make a warmer distortion effect.
+
+  Global Variables:
+    PreGain - k - Gain applied before clipping.
+    PostGain - k - Gain applied after first clipping stage.
+    DutyOffset - k - Duty offset value for first clipping stage.
+    SlopeShift - k - Slope shift value for first clipping stage.
+    Stage2ClipLevel - i - Level for second clipping stage.
+    FinalGainAmount - i - Final gain modifier applied before output.
+      Typically used for overall volume control of the signal.
+
+  P Fields:
+    p4 - PreGainInstanceModifier - Instance modifier of corresponding global variable.
+    p5 - PostGainInstanceModifier - Instance modifier of corresponding global variable.
+    p6 - DutyOffsetModifier - Instance modifier of corresponding global variable.
+    p7 - SlopeShiftOffsetModifier - Instance modifier of corresponding global variable.
+    p8 - Stage2ClipLevelInstanceModifier - Instance modifier of corresponding global variable.
+    p9 - FinalGainAmountInstanceModifier - Instance modifier of corresponding global variable.
+
+  Macro Arguments:
+    $INSTRUMENT_NAME - String - Name for the instrument to be generated
+    $WET_ROUTE - String - The route for the instrument's Wet output
+    $DRY_ROUTE - String - The route for the instrument's Dry output
+*/
+
 #define WARM_DISTORTION(INSTRUMENT_NAME'DRY_ROUTE'WET_ROUTE) #
   $EFFECT_BYPASS($INSTRUMENT_NAME'$DRY_ROUTE'$WET_ROUTE'0'1)
 

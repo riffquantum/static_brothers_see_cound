@@ -1,7 +1,41 @@
+/*
+  DISTORTED_808_KICK
+  Samples a drum, typically a nice fat 808 kick, and applies distortion internally per
+  instance.
+
+  Global Variables:
+    SamplePath - S - Path to the drum sample.
+    Sample - i, table - Table containing the sample.
+    DryAmount - k - Amount of undistorted signal to include in output.
+    WetAmount - k - Amount of distorted signal to include in output.
+    PreGain - k - Pre gain for distortion.
+    PostGain - k - Post gain for distortion
+    DutyOffset - k - Duty offset for distortion.
+    SlopeShift - k - Slopeshift for distortion.
+    Stage2ClipLevel - i - Secondary clipping stage limit level.
+    FinalGainAmount - i - Final adjustment to gain after distortion.
+
+  P Fields:
+    p4 - Velocity - Number - A velocity expressed as a number between 0 and 127.
+    p5 - Pitch - Number - A pitch factor. Sample speed will be multiplied by it.
+      0 defaults to 1.
+    p6 - iPreGainInstanceModifier - Instance modifier for corresponding global variable.
+    p7 - iPostGainInstanceModifier - Instance modifier for corresponding global variable.
+    p8 - iDutyOffsetModifier - Instance modifier for corresponding global variable.
+    p9 - iSlopeShiftOffsetModifier - Instance modifier for corresponding global variable.
+    p10 - iStage2ClipLevelInstanceModifier - Instance modifier for corresponding global variable.
+
+  Macro Arguments:
+    $INSTRUMENT_NAME - String - Name for the instrument to be generated.
+    $ROUTE - String - The route for the instrument.
+    $SAMPLE_PATH - String - Path to the sample. localSamples/Drums/TR-808_Kick_41.wav is a
+      a good choice for this instruments intended purpose.
+*/
+
 #define DISTORTED_808_KICK(INSTRUMENT_NAME'ROUTE'SAMPLE_PATH) #
   instrumentRoute "$INSTRUMENT_NAME", "$ROUTE"
 
-  gS$INSTRUMENT_NAME.SamplePath = "$SAMPLE_PATH" ;"localSamples/Drums/TR-808_Kick_41.wav"
+  gS$INSTRUMENT_NAME.SamplePath init "$SAMPLE_PATH" ;"localSamples/Drums/TR-808_Kick_41.wav"
   gi$INSTRUMENT_NAME.Sample ftgen 0, 0, 0, 1, gS$INSTRUMENT_NAME.SamplePath, 0, 0, 0
 
   gk$INSTRUMENT_NAME.DryAmount init 0
@@ -38,9 +72,6 @@
     iDutyOffsetModifier = p8
     iSlopeShiftOffsetModifier = p9
     iStage2ClipLevelInstanceModifier = p10
-
-    aSignalOutL = aSampleSignalL
-    aSignalOutR = aSampleSignalR
 
     iDistortionTable ftgenonce 0, 0, 8192, 8, -.8, 336, -.78, 800, -.7, 5920, .7, 800, .78, 336, .8
 

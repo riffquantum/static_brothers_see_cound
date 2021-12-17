@@ -1,3 +1,4 @@
+; This should probably be rewritten to call SYNCLOOP_SAMPLER
 #define TWISTED_UP_HAT_GRAIN_SETTINGS #
   ;Grain Parameter Adjustments
   kTimeStretch = .01 + poscil(.04, 1.87) + poscil(.2, .3)

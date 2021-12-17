@@ -1,3 +1,25 @@
+/*
+  BUS
+  Creates a mixer channel instrument that applies volume, panning and EQ modifications
+  to a signal.
+
+  Global Variables:
+    EqBass - k - Modifies low frequency content of signal
+      in a three band equalizer.
+    EqMid - k - Modifies mid frequency content of signal
+      in a three band equalizer.
+    EqHigh - k - Modifies high frequency content of signal
+      in a three band equalizer.
+    Fader - k - Volume modifier for signal.
+    Pan - k - 0 to 100, pans the signal right or left.
+
+  P Fields:
+    None
+
+  Macro Arguments:
+    $INSTRUMENT_NAME - String - Name for the instrument to be generated
+*/
+
 #define MIXER_CHANNEL(INSTRUMENT_NAME) #
   alwayson "$INSTRUMENT_NAME.MixerChannel"
 

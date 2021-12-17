@@ -1,3 +1,25 @@
+/*
+  DISTORTION
+  Creates an effect instrument that applies distortion to a signal. This isn't great and was really
+  just for trying out different distortion opcodes to see the differences.
+
+  Global Variables:
+    PreGain - k - Gain applied before clipping.
+    PostGain - k - Gain applied after clipping.
+    DutyCycleOffset - k - Used in some clipping opcodes.
+    SlopeOffset - k - Used in some clipping opcodes.
+    Mode - i - 1-5, Selects from 5 different clipping opcodes: clip,
+      distort, distort1, pdhalf, and hasnDistortion.
+
+  P Fields:
+    None
+
+  Macro Arguments:
+    $INSTRUMENT_NAME - String - Name for the instrument to be generated
+    $WET_ROUTE - String - The route for the instrument's Wet output
+    $DRY_ROUTE - String - The route for the instrument's Dry output
+*/
+
 #define DISTORTION(INSTRUMENT_NAME'DRY_ROUTE'WET_ROUTE) #
   $EFFECT_BYPASS($INSTRUMENT_NAME'$DRY_ROUTE'$WET_ROUTE'0'1)
 

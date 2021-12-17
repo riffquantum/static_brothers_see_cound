@@ -1,3 +1,30 @@
+/*
+  MULTI_MODE_REVERB
+  Creates an effect instrument that applies reverb to a signal. This isn't great and was really
+  just for trying out different reverb opcodes to see the differences.
+
+  Global Variables:
+    Mode - i - 1-9, Selects from 9 different reverb opcodes
+      1.alpass
+      3. reverb
+      3. reverbsc
+      4. freeverb
+      5. pconvolve
+      6. convolve
+      7. ftconv
+      8. nreverb
+      9. babo
+
+  P Fields:
+    None
+
+  Macro Arguments:
+    $INSTRUMENT_NAME - String - Name for the instrument to be generated
+    $WET_ROUTE - String - The route for the instrument's Wet output
+    $DRY_ROUTE - String - The route for the instrument's Dry output
+    $MODE - Starting mode setting for reverb.
+*/
+
 #define MULTI_MODE_REVERB(INSTRUMENT_NAME'DRY_ROUTE'WET_ROUTE'MODE) #
   $EFFECT_BYPASS($INSTRUMENT_NAME'$DRY_ROUTE'$WET_ROUTE'1'0.3)
 

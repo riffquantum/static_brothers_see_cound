@@ -18,6 +18,8 @@
 #include "macros/DISTORTED_808_KICK.orc"
 #include "macros/DISTORTION.orc"
 #include "macros/DRUM_SAMPLE.orc"
+#include "macros/DRUM_SAMPLE_2.orc"
+#include "macros/DRUM_SAMPLE_P.orc"
 #include "macros/EFFECT_CHAIN.orc"
 #include "macros/FREEZER.orc"
 #include "macros/FT_CONV_REVERB.orc"

@@ -1,3 +1,29 @@
+/*
+  BREAK_SAMPLER
+  Looped sample playback with speed adjusted for tempo (gkBPM).
+
+  Global Variables:
+    SamplePath - S - Path to the sample for playback.
+    SampleChannels - i - Number of channels in the sample, derived from the file.
+    SampleLength - i - Length of sample in seconds, derived from the file.
+    SampleL - i, table - Table holding the sample's left channel.
+    SampleR - i, table - Table holding the sample's right channel.
+    Tuning - k - Global pitch adjustment applied to the sample by multiplication.
+
+  P Fields:
+    p4 - Velocity - Number - A velocity expressed as a number between 0 and 127.
+    p5 - Pitch - Number - Pitch for the instance expressed as a factor.
+    p6 - StartBeat - Number - Time to skip in the sample expressed in beats.
+
+  Macro Arguments:
+    $INSTRUMENT_NAME - String - Name for the instrument to be generated.
+    $ROUTE - String - The route for the instrument.
+    $SAMPLE_PATH - String - Optional chance to override init values for global
+      variables.
+    $LENGTH_OF_SAMPLE_IN_BEATS - Number - Total length of sample in beats. Used
+      to calculate the pitch factor to keep the sample in time.
+*/
+
 #define BREAK_SAMPLE(INSTRUMENT_NAME'ROUTE'SAMPLE_PATH'LENGTH_OF_SAMPLE_IN_BEATS) #
   instrumentRoute "$INSTRUMENT_NAME", "$ROUTE"
 

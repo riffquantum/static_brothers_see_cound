@@ -1,9 +1,9 @@
-opcode drumSample, aa, iikop
-  iSampleTable, iVelocity, kPitch, iShouldRespectP3, iVelocityCurveDegree xin
+opcode drumSample, aa, iikopj
+  iSampleTable, iVelocity, kPitch, iShouldRespectP3, iVelocityCurveDegree, iReleaseTime xin
 
   iAmplitude = velocityToAmplitude(iVelocity, iVelocityCurveDegree)
   kPitch = kPitch == 0 ? 1 : kPitch
-  iReleaseTime = 0.01
+  iReleaseTime = iReleaseTime == -1 ? 0.01 : iReleaseTime
 
   iSampleLength = nsamp(iSampleTable) / sr
 
@@ -24,7 +24,7 @@ opcode drumSample, aa, iikop
   xout aSampleL, aSampleR
 endop
 
-opcode drumSample2, aa, ikiopp
+opcode drumSampleP, aa, ikiopp
   iVelocity, kFrequency, iSampleTableL, iSampleTableR, iShouldRespectP3, iVelocityCurveDegree xin
 
   print i(kFrequency)

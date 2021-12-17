@@ -1,3 +1,15 @@
+/*
+  EFFECT_CHAIN
+  Creates a standardized effect chain with one of a bunch of effects for
+  quick, convenient effect chains. The mixer channel for the chain occurs
+  after all effect instruments.
+
+  Macro Arguments:
+    $EFFECT_CHAIN_NAME - String - Name for the effect chain. All effect instrument
+      names and routes will be based on it.
+    $ROUTE - String - The route for the final output of the chain.
+*/
+
 #define EFFECT_CHAIN(EFFECT_CHAIN_NAME'ROUTE) #
   alwayson "$EFFECT_CHAIN_NAME"
   stereoRoute "$EFFECT_CHAIN_NAME", "$EFFECT_CHAIN_NAME.TapeWobbleInput"

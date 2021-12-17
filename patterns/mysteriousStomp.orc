@@ -1,3 +1,8 @@
+instr SetTuning
+  giGlobalTuningSystem = p4
+  giDivisionsInTuningSystem = p5
+endin
+
 instr mysteriousStomp
   gkLayeredBassSynthFader = .75
   gkGlobalFxChorusAmount = oscil(.5, .2) + 1

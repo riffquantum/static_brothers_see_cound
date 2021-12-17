@@ -1,3 +1,20 @@
+/*
+  MULTI_MODE_REVERB
+  Creates an effect instrument that applies distortion to a signal. Distortion is a
+  generated from multiple clipping and filtering stages in sequence.
+
+  Global Variables:
+    None
+
+  P Fields:
+    None
+
+  Macro Arguments:
+    $INSTRUMENT_NAME - String - Name for the instrument to be generated
+    $WET_ROUTE - String - The route for the instrument's Wet output
+    $DRY_ROUTE - String - The route for the instrument's Dry output
+*/
+
 #define MULTI_STAGE_DISTORTION(INSTRUMENT_NAME'DRY_ROUTE'WET_ROUTE) #
   $EFFECT_BYPASS($INSTRUMENT_NAME'$DRY_ROUTE'$WET_ROUTE'0'1)
 

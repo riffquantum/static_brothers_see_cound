@@ -1,3 +1,23 @@
+/*
+  PATTERN_LOOP, END_PATTERN_LOOP
+  Two macros that should surround beatScoreline (or _) statements within pattern
+  instruments.
+
+  Loop Variables:
+    iPatternLength - The total duration for the instance of the
+      pattern in beats.
+    iBeatsPerMeasure - Length in beats of pattern to be looped in
+      beats
+    iMeasureIndex - The current index of the loop.
+    iMeasureCount - The index of the loop plus 1.
+    iBasetime - The starting time of the measure per loop instance.
+      All events in the loop should modify this value for their
+      p2 value.
+
+  Macro Arguments:
+    $PATTERN_LENGTH - Length in beats of pattern to be looped
+      in beats.
+*/
 #define PATTERN_LOOP(PATTERN_LENGTH) #
   iPatternLength = secondsToBeats(p3)
   iBeatsPerMeasure = $PATTERN_LENGTH

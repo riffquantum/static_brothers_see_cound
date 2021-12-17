@@ -1,3 +1,29 @@
+/*
+  ARPEGGIATOR
+  Creates a pair of instruments that arpeggiate another instrument by triggering notes according to
+  a given table of pitches.
+
+  Global Variables:
+    Index - i - Used internally to iterate across the arpeggio.
+    Notes - i, ftable - A table of pitches that constitute the arpeggio to play.
+    NoteDuration - k - The duration of notes triggered.
+    NoteFrequency - k - The frequency at which notes will be triggered as notes per second.
+    InstrumentToArpegiate
+
+  P Fields:
+    p4 - Velocity - Number - A velocity expressed as a number between 0 and 127.
+    p5 - Starting Pitch - Number - The starting pitch for the arpeggio. Should be
+      written as a pitch class value.
+    p6 - Number - DurationOfNotes - Modifies global duration for the instance by multiplication.
+      0 defaults to 1.
+    p7 - Number - FrequencyOfNotes - Modifies global frequency for the instance by multiplication.
+      0 defaults to 1.
+
+  Macro Arguments:
+    $INSTRUMENT_NAME - String - Name for the instrument to be generated
+    INSTRUMENT_TO_ARPEGGIATE - String - Name of the instrument to be triggered by the Arpeggiator
+*/
+
 #define ARPEGGIATOR(INSTRUMENT_NAME'INSTRUMENT_TO_ARPEGGIATE) #
   gi$INSTRUMENT_NAME.Index init 0
   gi$INSTRUMENT_NAME.Notes ftgen 0, 0, 0, -2, 0.00, 0.03, 0.04, 0.06, 0.08, 0.095, 0.11, 1, 1.02, 1.07
