@@ -13,6 +13,7 @@
     iBasetime - The starting time of the measure per loop instance.
       All events in the loop should modify this value for their
       p2 value.
+    i0 - Alias of iBasetime
 
   Macro Arguments:
     $PATTERN_LENGTH - Length in beats of pattern to be looped
@@ -25,6 +26,7 @@
 
   until iMeasureIndex * iBeatsPerMeasure >= iPatternLength do
     iBaseTime = iMeasureIndex * iBeatsPerMeasure
+    i0 = iBaseTime
     iMeasureCount = iMeasureIndex + 1
 
 #
