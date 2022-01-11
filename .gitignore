@@ -10,5 +10,6 @@ audioOut.wav
 midiout.mid
 
 *.wav
+*.wav.reapeaks
 *.mp3
 *.aif
