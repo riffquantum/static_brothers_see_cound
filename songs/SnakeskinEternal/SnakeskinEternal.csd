@@ -1,9 +1,9 @@
 <CsoundSynthesizer>
   <CsOptions>
-      ; -odac
-      -Ma
-      -m0
-      -W -o "Jormungandrv0.1.wav"
+      -odac
+      --midi-device=a
+      --messagelevel=0
+      ; -W -o "Jormungandrv0.1.wav"
       ; -iadc
       ; --realtime
       ; -B512 -b60
@@ -92,7 +92,6 @@
 
         beatScoreline "ScaleFlow", iBaseTime+0, .25, 50, 3.11, 0, 0, 4
         beatScoreline "ScaleFlow", iBaseTime+1, 1, 50, 3.11, 0, 0, 4
-
       $END_PATTERN_LOOP
     endin
 

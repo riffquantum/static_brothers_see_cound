@@ -36,13 +36,6 @@ opcode beatScoreline, 0, Siioooooooooo
   schedule nstrnum(SName), iStart, iDuration, iP4, iP5, iP6, iP7, iP8, iP9, iP10, iP11, iP12, iP13
 endop
 
-opcode _, 0, Siioooooooooo
-  SName, iStart, iDuration, iP4, iP5, iP6, iP7, iP8, iP9, iP10, iP11, iP12, iP13 xin
-
-  beatScoreline SName, iStart, iDuration, iP4, iP5, iP6, iP7, iP8, iP9, iP10, iP11, iP12, iP13
-endop
-
-
 /* An attempt at a version of this opcode that would work with fluid tempo changes
 
 giNewArray[][][] init 99999999, 1000, 13

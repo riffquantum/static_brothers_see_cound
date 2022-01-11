@@ -1,10 +1,10 @@
 <CsoundSynthesizer>
   <CsOptions>
       -odac
-      -W -o "Underv0.1.wav"
-      -Ma
-      -m0
-      -iadc
+      ; -W -o "Underv0.1.wav"
+      --midi-device=a
+      --messagelevel=0
+      ; -iadc
       ; --realtime
       ; -B512 -b60
       ; -B512 -b128 ;http://www.csounds.com/manualOLPC/UsingOptimizing.html

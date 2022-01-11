@@ -1,10 +1,10 @@
 <CsoundSynthesizer>
   <CsOptions>
-    -m0
-    -Ma
+    --messagelevel=0
+    --midi-device=a
     -t80
     -odac
-    ; -W -o "DrumPerfection.wav" -m0
+    ; -W -o "DrumPerfection.wav
   </CsOptions>
 
   <CsInstruments>

@@ -1,11 +1,11 @@
 <CsoundSynthesizer>
   <CsOptions>
-    -m0
-    ; -Ma
+    --messagelevel=0
+    ; --midi-device=a
     -t190
     ; -odac
     ; --realtime
-    -W -o "AvianPeter.wav" -m0
+    -W -o "AvianPeter.wav
   </CsOptions>
 
   <CsInstruments>

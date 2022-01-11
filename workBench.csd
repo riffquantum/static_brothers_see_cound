@@ -1,15 +1,20 @@
 <CsoundSynthesizer>
   <CsOptions>
+      /*
+      * This file is meant to serve as place to quickly sketch out ideas or to work on
+      * instruments and opcodes outside of the context of any particular song. Nothing
+      * in this file should be considered permanent or stable.
+      */
       -odac
       ; -W -o "newLoop.wav"
-      -Ma
-      -m0
-      -iadc
+      --midi-device=a
+      --messagelevel=0
+      ; -iadc
       ; --realtime
       -B512 -b256
       ; -B512 -b128 ;http://www.csounds.com/manualOLPC/UsingOptimizing.html
       ; -B4096 -b4096
-      -t90      ;--midioutfile=midiout.mid
+      -t170     ;--midioutfile=midiout.mid
       ;-F midiout.mid
       ;-+rtmidi=virtual
   </CsOptions>
@@ -18,12 +23,13 @@
     #include "config/defaultConfig.orc"
     #include "config/defaultMidiAssignments.orc"
     #include "config/defaultMidiRouterMapping.orc"
-    ; #include "config/guitarMidiAssignments.orc"
     #include "opcodes/opcode-manifest.orc"
     #include "instruments/orchestra-manifest.orc"
+    #include "instruments/DrumKits/DefaultDrumKit.orc"
+    #include "patterns/pattern-manifest.orc"
 
-    ; #include "instruments/DrumKits/DefaultDrumKit.orc"
-    #include "instruments/DrumKits/BirdshitDrumKit.orc"
+    #include "instruments/DrumKits/DefaultDrumKit.orc"
+    ; #include "instruments/DrumKits/BirdshitDrumKit.orc"
     ; #include "instruments/DrumKits/TR606/TR606-manifest.orc"
     ; #include "config/defaultMidiRouterEvents.orc"
     #include "patterns/pattern-manifest.orc"
@@ -31,80 +37,119 @@
     ; $BREAK_SAMPLE(TestInstrument'DefaultEffectChain'localSamples/ZZ Top - Asleep In The Desert/asleepInTheDesertLoop3.wav'24)
 
     instr config
-      giCurrentSong = 1
-      gkNewEffectQ = 4 ;+ oscil(14, 0.1)
-      gkNewEffectShift = 5000 ; + oscil(250, 0.5)
-      gkNewEffectIntNoise = 0
-      gkNewEffectMode = 0
-      ; gkNewEffectDryAmount = 1
-
-      gkNewEffectEqBass = 1.5
-      gkNewEffectEqHigh = .5
-
-      gkMuffledKickFader = 1.5
-
-      gkBassSynthFader = 0.35
+      gkNewInstrumentEqHigh = 0
+      gkNewInstrumentEqMid = 2
+      gkNewInstrumentEqBass = 0
     endin
 
-    #define STRING_SYNTH_SETTINGS #
-      giStringSynthNumberOfVoices = 1
+
+    $MIXER_CHANNEL(SmallSynth)
+    instrumentRoute("SmallSynth", "Mixer")
+    instr SmallSynth
+      iAmplitude flexibleAmplitudeInput p4
+      iPitch = flexiblePitchInput(p5)
+
+      kAmplitudeEnvelope madsr .025, .01, 1, .2
+
+      aSignalL = poscil(iAmplitude, iPitch * 1.01) * kAmplitudeEnvelope
+      aSignalR = poscil(iAmplitude, iPitch * 0.99) * kAmplitudeEnvelope
+
+      outleta "OutL", aSignalL
+      outleta "OutR", aSignalR
+    endin
+
+    #define NEW_SETTINGS #
+      ; kTimeStretch = 1.33
+      ; kGrainSizeAdjustment = 0.5 ;+ oscil(0.25, 0.5)
+      ; kGrainFrequencyAdjustment = 1.5 + oscil(0.25, 0.5)
+      ; kPitchAdjustment = 0.75 + oscil(0.05, 2)
+      ; kGrainOverlapPercentageAdjustment = 0.9
     #
 
-    $STRING_PAD(StringSynth'Mixer'$STRING_SYNTH_SETTINGS)
+    $SYNCLOOP_SAMPLER(Lose'Mixer'localSamples/Soul Searchers - All In Your Mind Loop 3.wav'$NEW_SETTINGS'4)
 
-    $OCARINA(Ocarina'Mixer')
+    $DRUM_SAMPLE(Kick'Mixer'localSamples/Drums/Alesis-HR16A_Kick_05.wav'1'1)
+    $DRUM_SAMPLE(Kick909'Mixer'localSamples/Drums/TR-909_Kick_EA7409.wav'1'1)
 
-    $BASS_SYNTH(BassSynth'BassSynthDistInput')
-    $WARM_DISTORTION(BassSynthDist'BassSynthChorusInput'BassSynthChorusInput)
-    $CHORUS(BassSynthChorus'BassSynthDelayInput'BassSynthDelayInput)
-    $DELAY(BassSynthDelay'Mixer'VocoderCarrier'5'0.25'0.85'1'0.0)
+    $DRUM_SAMPLE(Cowbell'Mixer'localSamples/Drums/TR-808_Cowbell_EA7327.wav'0'1)
 
-    $ARPEGGIATOR(BassArp'BassSynth)
-
-    $DRUM_SAMPLE(Snare'Mixer'localSamples/Drums/Funk-Kit_Snare_EA8141.wav'1'1)
-    $DRUM_SAMPLE(MuffledKick'Mixer'localSamples/Drums/Beatbox-Drums_Kick_EA7538.wav'1'1)
-    $TWISTED_KICK(TwistedUpKick'Mixer'localSamples/CB_Kick.wav)
-    $EFFECT_CHAIN(TwistedUpKickFx'Mixer)
-
-    #define VIBE_LINE_GRAIN_SETTINGS #
-      kTimeStretch = .3 + (.1 - poscil(10, .25) + poscil(.2, .3))
-      kGrainSizeAdjustment = (10 + poscil(2, .25)) * (1 + poscil(3, .05))
-      kGrainFrequencyAdjustment = 2 + (.1 - poscil(10, .25) + poscil(.2, .3))
-      kPitchAdjustment = 1 ;* (1 + oscil(.025, 2))
-      kGrainOverlapPercentageAdjustment = 2
-    #
-    $SYNCLOOP_SAMPLER(VibeLineGrain'Mixer'localsamples/ajq - vibe out.wav'$VIBE_LINE_GRAIN_SETTINGS'5)
 
     instr WorkingPattern
-      beatScoreline "BassSynthChorus", 0, -1
-      beatScoreline "BassSynthDist", 0, -1
-      gkTwistedUpKickEqBass = 2
-      gkVibeLineGrainPitchAdjustment = 1 + oscil(0.01, 0.3) ;loopseg 1/beatsToSeconds(8), 0, 0, 1, beatsToSeconds(4), 1, beatsToSeconds(4), 0.5
+      gkCowbellFader = 0.5
+      gkKickFader = 0.75
+      gkAmenBreakFader = 1.25
+
       $PATTERN_LOOP(8)
-        ; beatScoreline "BassSynth", iBaseTime, 4, 100, 2.00
-        ; beatScoreline "BassSynth", iBaseTime+4, 4, 100, 2.04
-        beatScoreline "VibeLineGrain", iBaseTime, 4, 50, 3.07
-        beatScoreline "VibeLineGrain", iBaseTime+4, 4, 50, 3.05
+        ; _ "AmenBreak", i0+1.0, .5, 120, 1, 10.5
+        ; _ "AmenBreak", i0+1.5, .5, 120, 1, 10.5
+        ; _ "AmenBreak", i0+2.0, .5, 120, 1, 11.5
+        ; _ "AmenBreak", i0+2.5, .5, 120, 1, 10.
+        ; _ "Lose", i0, 8, 120, 3.0, 3
 
-        beatScoreline "TwistedUpKick", iBaseTime, 4, 80, 4.02, 1.9, 2
-        beatScoreline "TwistedUpKick", iBaseTime+4, 4, 80, 4.06, .8
+        _ "AmenBreak", i0+0.0, 1.0, 120, 1, 10.5
+        _ "Kick909", i0+0.0, 1.0, 120, 0.8
+        ; _ "AmenBreak", i0+0.5, 1.0, 120, 1, 10.5
+        _ "AmenBreak", i0+1.0, 1.0, 120, 1, 10.5
+        _ "Kick909", i0+1.0, 1.0, 120, 0.8
+        _ "AmenBreak", i0+2.0,1.0, 120, 1, 11.5
+        _ "AmenBreak", i0+3.0, 1.0, 120, 1, 11.5
 
-        beatScoreline "Snare", iBaseTime+1, 1, 120, 1
-        beatScoreline "Snare", iBaseTime+3, 1, 120, 1
-        beatScoreline "Snare", iBaseTime+5, 1, 120, 1
-        beatScoreline "Snare", iBaseTime+7, 1, 120, 1
+        _ "Kick909", i0+3, 1.0, 120, 0.8
 
+        _ "AmenBreak", i0+4.0, 1.0, 120, 1, 10.5
+        _ "Kick909", i0+4.0, 1.0, 120, 0.8
+        _ "AmenBreak", i0+5.0, 1.25, 120, 1, 12
+        _ "AmenBreak", i0+6.0, 2.0, 120, 1, 12
+        ; _ "AmenBreak", i0+0.0, 0.5, 120, 1, 14.5
+        ; _ "AmenBreak", i0+0.5, 0.5, 120, 1, 14.5
+        ; _ "AmenBreak", i0+1.0, .75, 120, 1, 11.5
+        ; _ "AmenBreak", i0+1.5, .75, 120, 1, 11.5
+        ; _ "AmenBreak", i0+2.0, 2, 120, 1, 11.5
+        ; _ "AmenBreak", i0+1.5, 0.5, 120, 1, 11.5
+        ; _ "AmenBreak", i0+1.75, 0.5, 120, 1, 10.5
+        ; _ "AmenBreak", i0+0.0, 3.0, 120, 1, 12
+        ; _ "AmenBreak", i0+3.0, 1.0, 120, 1, 12
+
+        ; _ "AmenBreak", i0+2.0, 2, 120, 1, 12
+
+        _ "Kick", i0+0.0, 2, 120, .95
+        _ "Kick", i0+3.5, 2, 120, .9
+        _ "Kick", i0+6, 2, 120, .75
+
+        _ "Cowbell", i0+1, 2, 20, .75
+        _ "Cowbell", i0+1.5, 2, 80, .75
+        _ "Cowbell", i0+3, 2, 80, .75
+        _ "Cowbell", i0+4.5, 2, 80, .75
+        _ "Cowbell", i0+5.5, 2, 80, .75
+        _ "Cowbell", i0+7, 2, 80, .75
+
+        ; _ "DefaultKick", i0+2.5, 1, 120, 0.75
+        ; _ "DefaultKick", i0+2, 1, 120, 1
+        ; _ "DefaultKick", i0+3, 1, 120, 1
+
+        ; _ "DefaultSnare", i0+1, 1, 80, .8
+        ; _ "DefaultSnare", i0+3, 1, 80, .8
+
+        ; _ "SmallSynth", i0, 3, 120, iMeasureCount % 4 == 0 ? 2.11 : 3.01
+
+        if iMeasureCount % 2 != 0 then
+          _ "Lose", i0+0, 8, 58, 2.090000, 1, 24, 50
+          _ "Lose", i0+8, 8, 58, 2.090000, 1
+          ; _ "Lose", i0+1.921011, 1.027023, 58, 4.040000
+          ; _ "Lose", i0+2.993265, 0.940550, 58, 5.000000
+        endif
       $END_PATTERN_LOOP
+
+      ; midiMonitor
     endin
 
-    beatScoreline "NewEffect", 0, -1
     beatScoreline "config", 0, -1
-    ; beatScoreline "PatternWriter", 0, -1, 8
+    beatScoreline "PatternWriter", 0, -1, 4
   </CsInstruments>
   <CsScore>
     ; i "Metronome" 0 3600
-    ; i "NewLoop" 0 300
-    ; i "WorkingPattern" 1 256
+
+    i "WorkingPattern" 1 256
     ; i "Break" 0 400
   </CsScore>
 </CsoundSynthesizer>

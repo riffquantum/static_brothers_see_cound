@@ -1,10 +1,10 @@
 <CsoundSynthesizer>
   <CsOptions>
       -odac
-      -Ma
-      -m0
-      ; -W -o "EscapePrismv0.1.wav" -m0
-      -iadc
+      --midi-device=a
+      --messagelevel=0
+      ; -W -o "EscapePrismv0.1.wav
+      ; -iadc
       ; -B512 -b60
       -t80
       ;--midioutfile=midiout.mid

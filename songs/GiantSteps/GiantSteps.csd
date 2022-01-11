@@ -1,8 +1,10 @@
 <CsoundSynthesizer>
 
   <CsOptions>
-    -odac -Ma  -m0
-    ; -W -o "GiantSteps.wav" -m0
+    -odac
+--midi-device=a
+--messagelevel=0
+    ; -W -o "GiantSteps.wav
     -iadc
     ; -B512 -b60
     -t250

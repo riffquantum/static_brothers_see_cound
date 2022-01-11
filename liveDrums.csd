@@ -2,8 +2,8 @@
   <CsOptions>
       -odac
       ; -W -o "newLoop.wav"
-      -Ma
-      -m0
+      --midi-device=a
+      --messagelevel=0
       ; -iadc
       ; --realtime
       ; -B512 -b256

@@ -1,10 +1,10 @@
 <CsoundSynthesizer>
   <CsOptions>
-    -m0
-    -Ma
+    --messagelevel=0
+    --midi-device=a
     -t103.2
     -odac
-    ; -W -o "ShaLaLa.wav" -m0
+    ; -W -o "ShaLaLa.wav
   </CsOptions>
 
   <CsInstruments>

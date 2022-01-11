@@ -1,9 +1,9 @@
 <CsoundSynthesizer>
   <CsOptions>
-    -m0
+    --messagelevel=0
     -t85
     -odac
-    ; -W -o "getDiluvian.wav" -m0
+    ; -W -o "getDiluvian.wav
   </CsOptions>
 
   <CsInstruments>

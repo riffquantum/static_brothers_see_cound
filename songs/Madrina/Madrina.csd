@@ -1,10 +1,10 @@
 <CsoundSynthesizer>
   <CsOptions>
-    -m0
-    -Ma
+    --messagelevel=0
+    --midi-device=a
     -t30
     -odac
-    ; -W -o "Madrina-v1.0.wav" -m0
+    ; -W -o "Madrina-v1.0.wav
   </CsOptions>
 
   <CsInstruments>

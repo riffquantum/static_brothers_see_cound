@@ -1,10 +1,10 @@
 <CsoundSynthesizer>
   <CsOptions>
-    -m0
-    -Ma
+    --messagelevel=0
+    ; --midi-device=a
     -t30
     -odac
-    ; -W -o "Withers.wav" -m0
+    ; -W -o "Withers.wav
   </CsOptions>
 
   <CsInstruments>

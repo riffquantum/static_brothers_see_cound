@@ -1,11 +1,11 @@
 <CsoundSynthesizer>
   <CsOptions>
-    -m0
-    -Ma
+    -odac
+    --messagelevel=0
+    --midi-device=a
     -t57.61
     ; -t72 ;and it's in 5
-    -odac
-    ; -W -o "songs/ZZZBottom/ZZZBottom-v0.2.wav" -m0
+    ; -W -o "songs/ZZZBottom/ZZZBottom-v0.2.wav"
   </CsOptions>
 
   <CsInstruments>

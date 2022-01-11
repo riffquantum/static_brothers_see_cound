@@ -1,9 +1,9 @@
 <CsoundSynthesizer>
   <CsOptions>
       -odac
-      -W -o "Credits.wav" -m0
-      -Ma
-      -m0
+      -W -o "Credits.wav
+      --midi-device=a
+      --messagelevel=0
       -iadc
       -t100
   </CsOptions>

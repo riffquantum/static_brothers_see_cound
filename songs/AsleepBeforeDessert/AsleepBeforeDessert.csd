@@ -1,8 +1,8 @@
 <CsoundSynthesizer>
   <CsOptions>
       ; -odac
-      -Ma
-      -m0
+      --midi-device=a
+      --messagelevel=0
       -iadc
       -W -o "AsleepBeforeDessertv0.1"
       ; --realtime

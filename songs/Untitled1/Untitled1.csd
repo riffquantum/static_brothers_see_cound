@@ -1,10 +1,10 @@
 <CsoundSynthesizer>
   <CsOptions>
-    -m0
-    -Ma
+    --messagelevel=0
+    --midi-device=a
     -t60
     -odac
-    -W -o "Untitled1-v0.1.wav" -m0
+    -W -o "Untitled1-v0.1.wav
   </CsOptions>
 
   <CsInstruments>

@@ -1,7 +1,7 @@
 <CsoundSynthesizer>
 
     <CsOptions>
-        -odac -m0 -t160
+        -odac --messagelevel=0 -t160
     </CsOptions>
 
     <CsInstruments>

@@ -1,10 +1,10 @@
 <CsoundSynthesizer>
   <CsOptions>
-      -Ma
-      -m0
+      --midi-device=a
+      --messagelevel=0
       -odac
       -t100
-      ; -W -o "Charybdisv0.1.wav" -m0
+      ; -W -o "Charybdisv0.1.wav
   </CsOptions>
 
   <CsInstruments>

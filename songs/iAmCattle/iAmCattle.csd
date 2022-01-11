@@ -1,8 +1,8 @@
 <CsoundSynthesizer>
 
   <CsOptions>
-      -odac -m0
-      ;-W -o "IAmCattle.wav" -m0
+      -odac --messagelevel=0
+      ;-W -o "IAmCattle.wav
   </CsOptions>
 
   <CsInstruments>

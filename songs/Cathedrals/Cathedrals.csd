@@ -1,10 +1,10 @@
 <CsoundSynthesizer>
   <CsOptions>
-    -m0
-    ; -Ma
+    --messagelevel=0
+    ; --midi-device=a
     -t144
     -odac
-    ; -W -o "Cathedrals.wav" -m0
+    ; -W -o "Cathedrals.wav
   </CsOptions>
 
   <CsInstruments>

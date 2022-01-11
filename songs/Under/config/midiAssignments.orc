@@ -3,7 +3,7 @@ gSMidiChannelAssignments[] fillarray "", \
   "VibeLine2", \
   "PillarBreakGrain", \
   "LayeredBassSynth", \
-  "NewInstrument", \
+  "PillarBreakGrain", \
   "FlowingTrumpetingOvertones", \
   "MidiRouter", \
   "Arpeggiator", \

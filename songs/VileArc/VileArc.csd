@@ -1,9 +1,9 @@
 <CsoundSynthesizer>
   <CsOptions>
-      ; -Ma
-      -m0
+      ; --midi-device=a
+      --messagelevel=0
       -odac
-      ; -W -o "VileArcv1.0.wav" -m0
+      ; -W -o "VileArcv1.0.wav
       ; -iadc
       ; -B512 -b60
       -t80
