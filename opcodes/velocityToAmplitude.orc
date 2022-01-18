@@ -1,7 +1,6 @@
 opcode velocityToAmplitude, i, ip
   iNoteVelocity, iCurveDegree xin
 
-
   iScaledVelocity velocityCurve iNoteVelocity, iCurveDegree
   iVelocityRatio = iScaledVelocity/127
   iHeadRoom = 0dbfs * 3/4

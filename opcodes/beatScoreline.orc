@@ -4,7 +4,7 @@
   schedule statements and calculating start times and durations based on the value of gkBPM.
 
   Global Variables:
-    BPM - k - This opcode has no global variables scoped to it but it is heavily coupled
+    gkBPM - k - This opcode has no global variables scoped to it but it is heavily coupled
       with gkBPM which it uses to calculate timeing for events. Aliased to _ for convenience
       in sequencing.
 

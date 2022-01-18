@@ -1,11 +1,39 @@
-opcode selectTuningSystemAndReturnFrequency, i, io
+/*
+  selectTuningSystemAndReturnFrequency
+  Accepts a pitch class input and returns a frequency in Hertz according
+  to a chosen tuning system.
+
+  Global Variables
+    giGlobalTuningSystem - i - Should be defined in a song's config file as
+    an integer that corresponds to a tuning system as defined in the body of
+    this opcode.
+
+  Input Arugments:
+    iPitch - A pitch class value to be converted to Hertz.
+    iTuningSystem - An integer referring to the tuning system through which the
+      pitch class should be should be interpreted. Integers are associated with
+      particular tuning systems in the body of the opcode. If none is provided,
+      the opcode falls back to the giGlobalTuningSystem Value.
+  Outputs:
+    iFrequency - a frequency value in Hertz.
+
+  To Do:
+    Consider better ways of defining the tuning system list and pairing number of
+    divisions with them somehow.
+*/
+
+opcode selectTuningSystemAndReturnFrequency, i, ij
   iPitch, iTuningSystem xin
-  iTuningSystem = iTuningSystem == 0 ? giGlobalTuningSystem : iTuningSystem
+  iTuningSystem = iTuningSystem == -1 ? giGlobalTuningSystem : iTuningSystem
 
   iOctave, iNoteNumber splitPitchClass iPitch
 
   if iTuningSystem == 0 then
-    ;Csound's cpspch - Note From the Manual: The conversion from pch, oct, or midinn into cps is not a linear operation but involves an exponential process that could be time-consuming when executed repeatedly. Csound now uses a built-in table lookup to do this efficiently, even at audio rates. Because the table index is truncated without interpolation, pitch resolution when using one of these opcodes is limited to 8192 discrete and equal divisions of the octave, and some pitches of the standard 12-tone equally-tempered scale are very slightly mistuned (by at most 0.15 cents). If you need more precision in the calculation, use cps2pch or cpsxpch instead.
+    /*
+      Csound's cpspch - Due to the particular implementation of this opcode
+      some pitches of the standard 12-tone equally-tempered scale are very
+      slightly mistuned (by at most 0.15 cents).
+    */
     iFrequency = cpspch(iOctave + (iNoteNumber/100) + 4)
   elseif iTuningSystem == 1 then
     ; 12 Tone Equal Temperment
