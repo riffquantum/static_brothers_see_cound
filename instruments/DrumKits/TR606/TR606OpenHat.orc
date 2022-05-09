@@ -13,7 +13,7 @@ instr TR606OpenHat
 
   iSampleIndex += iIsAccented + iIsSaturated
 
-  aTR606OpenHatL, aTR606OpenHatR drumSample2 giTR606OpenHatSamples[iSampleIndex], p4, p5
+  aTR606OpenHatL, aTR606OpenHatR drumSample giTR606OpenHatSamples[iSampleIndex], p4, p5
 
   outleta "OutL", aTR606OpenHatL
   outleta "OutR", aTR606OpenHatR

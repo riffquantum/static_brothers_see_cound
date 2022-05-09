@@ -13,7 +13,7 @@ instr TR606Cymbal
 
   iSampleIndex += iIsAccented + iIsSaturated
 
-  aTR606CymbalL, aTR606CymbalR drumSample2 giTR606CymbalSamples[iSampleIndex], p4, p5
+  aTR606CymbalL, aTR606CymbalR drumSample giTR606CymbalSamples[iSampleIndex], p4, p5
 
   outleta "OutL", aTR606CymbalL
   outleta "OutR", aTR606CymbalR

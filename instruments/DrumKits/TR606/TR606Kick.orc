@@ -13,7 +13,7 @@ instr TR606Kick
 
   iSampleIndex += iIsAccented + iIsSaturated
 
-  aTR606KickL, aTR606KickR drumSample2 giTR606KickSamples[iSampleIndex], p4, p5
+  aTR606KickL, aTR606KickR drumSample giTR606KickSamples[iSampleIndex], p4, p5
 
   outleta "OutL", aTR606KickL
   outleta "OutR", aTR606KickR

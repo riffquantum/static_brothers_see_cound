@@ -13,7 +13,7 @@ instr TR606TomHigh
 
   iSampleIndex += iIsAccented + iIsSaturated
 
-  aTR606TomHighL, aTR606TomHighR drumSample2 giTR606TomHighSamples[iSampleIndex], p4, p5
+  aTR606TomHighL, aTR606TomHighR drumSample giTR606TomHighSamples[iSampleIndex], p4, p5
 
   outleta "OutL", aTR606TomHighL
   outleta "OutR", aTR606TomHighR

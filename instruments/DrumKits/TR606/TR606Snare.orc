@@ -13,7 +13,7 @@ instr TR606Snare
 
   iSampleIndex += iIsAccented + iIsSaturated
 
-  aTR606SnareL, aTR606SnareR drumSample2 giTR606SnareSamples[iSampleIndex], p4, p5
+  aTR606SnareL, aTR606SnareR drumSample giTR606SnareSamples[iSampleIndex], p4, p5
 
   outleta "OutL", aTR606SnareL
   outleta "OutR", aTR606SnareR
