@@ -32,9 +32,13 @@
     $INSTRUMENT_NAME - String - Name for the instrument to be generated.
     $ROUTE - String - The route for the instrument.
     $SAMPLE_PATH - String - A path to the sample for playback.
-    $GRAIN_SETTINGS - Set of variables - Optional place to override the per instance values
-      of certain granular synethesis variables. Example:
+    $GRAIN_AND_ADSR_SETTINGS - Set of variables - Optional place to override the per instance values of certain granular synethesis variables and ADSR values. Example:
         #define EXAMPLE_SETTINGS #
+          iAttack = .01
+          iDecay = .01
+          iSustain = 1
+          iRelease = .1
+
           kTimeStretch = 1
           kGrainSizeAdjustment = 1
           kGrainFrequencyAdjustment = 1
@@ -44,15 +48,16 @@
     $LENGTH_SAMPLE_IN_BEATS - Number - The length of the sample in beats. If provided, the pointer
       rate will be modified to match the global tempo (gkBPM). A 0 value keeps the sample decoupled
       from the global tempo.
+    $SAMPLE_START_TIME - Number - Time in seconds to start the sample from during table creation.
 */
 
-#define SYNCLOOP_SAMPLER(INSTRUMENT_NAME'ROUTE'SAMPLE_PATH'GRAIN_SETTINGS'LENGTH_SAMPLE_IN_BEATS) #
+#define SYNCLOOP_SAMPLER(INSTRUMENT_NAME'ROUTE'SAMPLE_PATH'GRAIN_AND_ADSR_SETTINGS'LENGTH_SAMPLE_IN_BEATS'SAMPLE_START_TIME) #
   instrumentRoute "$INSTRUMENT_NAME.", "$ROUTE"
 
   gS$INSTRUMENT_NAME.SampleFilePath = "$SAMPLE_PATH"
   gi$INSTRUMENT_NAME.NumberOfChannels filenchnls gS$INSTRUMENT_NAME.SampleFilePath
   gi$INSTRUMENT_NAME.SampleLength filelen gS$INSTRUMENT_NAME.SampleFilePath
-  gi$INSTRUMENT_NAME.StartTime = 0
+  gi$INSTRUMENT_NAME.StartTime = $SAMPLE_START_TIME
   gi$INSTRUMENT_NAME.EndTime = gi$INSTRUMENT_NAME.SampleLength - gi$INSTRUMENT_NAME.StartTime
   gi$INSTRUMENT_NAME.EnvelopeTable ftgenonce 2, 0, 16384, 9, 0.5, 1, 0
   gi$INSTRUMENT_NAME.SampleRate filesr gS$INSTRUMENT_NAME.SampleFilePath
@@ -71,34 +76,41 @@
   gk$INSTRUMENT_NAME.GrainOverlapPercentageAdjustment init 1
 
   instr $INSTRUMENT_NAME
+    ; Pitch and Amplitude Inputs
     iAmplitude flexibleAmplitudeInput p4
+    iPitch = flexiblePitchInput(p5)
+    kPitch = iPitch / 261.626
+    kPitchBend = 0
+    midipitchbend kPitchBend, 0, 100
+
+    ; Envelope Settings
     iAttack = .01
     iDecay = .01
     iSustain = 1
     iRelease = .1
-    kAmplitudeEnvelope = madsr(iAttack, iDecay, iSustain, iRelease) * iAmplitude
 
-    iPitch = flexiblePitchInput(p5)
-    kPitch = iPitch / 261.626
-
-    iBeatsInSample = $LENGTH_SAMPLE_IN_BEATS
-
+    ; Grain Settings
     kTimeStretch = 1
     kGrainSizeAdjustment = 1
     kGrainFrequencyAdjustment = 1
     kPitchAdjustment = 1
     kGrainOverlapPercentageAdjustment = 1
 
-    $GRAIN_SETTINGS
+    ; Override default grain and envelope settings here. Pitch, amplitude and midi
+    ; pitchbend are defined above so they can be used freely in these settings.
+
+    $GRAIN_AND_ADSR_SETTINGS
+
+    kAmplitudeEnvelope = madsr(iAttack, iDecay, iSustain, iRelease) * iAmplitude
+
+
+    iBeatsInSample = $LENGTH_SAMPLE_IN_BEATS
 
     kTimeStretch *= p6 == 0 ? 1 : p6
     kGrainSizeAdjustment *= p8 == 0 ? 1 : p8
     kGrainFrequencyAdjustment *= p9 == 0 ? 1 : p9
     kPitchAdjustment *= p10 == 0 ? 1 : p10
     kGrainOverlapPercentageAdjustment *= p11 == 0 ? 1 : p11
-
-    kPitchBend = 0
-    midipitchbend kPitchBend, 0, 100
 
     kTimeStretch *= gk$INSTRUMENT_NAME.TimeStretch
     kGrainSizeAdjustment *= gk$INSTRUMENT_NAME.GrainSizeAdjustment

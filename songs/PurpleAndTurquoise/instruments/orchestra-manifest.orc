@@ -28,4 +28,4 @@ $DARKSIDE_50_REVERB(TwistedUpKickReverb'Mixer'Mixer)
   kPitchAdjustment = 1 ;* (1 + oscil(.025, 2))
   kGrainOverlapPercentageAdjustment = 2
 #
-$SYNCLOOP_SAMPLER(VibeLineGrain'Mixer'localsamples/ajq - vibe out.wav'$VIBE_LINE_GRAIN_SETTINGS'5)
+$SYNCLOOP_SAMPLER(VibeLineGrain'Mixer'localsamples/ajq - vibe out.wav'$VIBE_LINE_GRAIN_SETTINGS'5'0)

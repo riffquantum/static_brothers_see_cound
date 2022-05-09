@@ -31,7 +31,7 @@
       kPitchAdjustment = 1
       kGrainOverlapPercentageAdjustment = 1
     #
-    $SYNCLOOP_SAMPLER(NewInst'NewInstFx'localSamples/gloria7.wav'$NEW_GRAIN'0)
+    $SYNCLOOP_SAMPLER(NewInst'NewInstFx'localSamples/gloria7.wav'$NEW_GRAIN'0'0)
     $EFFECT_CHAIN(NewInstFx'Mixer)
     beatScoreline "NewInstFxDelay", 0, -1
     ; beatScoreline "NewInst", 0, -1, 100, 2.05

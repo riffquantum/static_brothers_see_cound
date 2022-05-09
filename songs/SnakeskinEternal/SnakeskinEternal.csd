@@ -4,6 +4,9 @@
       --midi-device=a
       --messagelevel=0
       ; -W -o "Jormungandrv0.1.wav"
+      ;aka Thulsa Doom Transitioning to the Afterworld by Sliding Along the Back of a Green Snake
+      ;aka Thulsa Doom Transitioning Into A Serpent of Pure Spirit As His Head Rolls Down The Stairs.
+      ;aka Walking Snake Way With No Intention of Resurrection
       ; -iadc
       ; --realtime
       ; -B512 -b60
@@ -33,7 +36,7 @@
       kPitchAdjustment = 1
       kGrainOverlapPercentageAdjustment = 1
     #
-    $SYNCLOOP_SAMPLER(ScaleFlow'ScaleFlowEffectChain'localSamples/ZZ Top - Asleep In The Desert/asleepInTheDesertLoop1.wav'$SCALE_FLOW_GRAIN'0)
+    $SYNCLOOP_SAMPLER(ScaleFlow'ScaleFlowEffectChain'localSamples/ZZ Top - Asleep In The Desert/asleepInTheDesertLoop1.wav'$SCALE_FLOW_GRAIN'0'0)
     $EFFECT_CHAIN(ScaleFlowEffectChain'Mixer)
 
     #define SCALE_FLOW_GRAIN2 #
@@ -43,7 +46,7 @@
       kPitchAdjustment = 1
       kGrainOverlapPercentageAdjustment = 1
     #
-    $SYNCLOOP_SAMPLER(ScaleFlow2'ScaleFlowEffectChain'localSamples/ZZ Top - Asleep In The Desert/asleepInTheDesertLoop2.wav'$SCALE_FLOW_GRAIN2'0)
+    $SYNCLOOP_SAMPLER(ScaleFlow2'ScaleFlowEffectChain'localSamples/ZZ Top - Asleep In The Desert/asleepInTheDesertLoop2.wav'$SCALE_FLOW_GRAIN2'0'0)
 
     instr config
       beatScoreline "ScaleFlowEffectChainReverb", 0, -1

@@ -5,4 +5,4 @@
   kPitchAdjustment = 1
   kGrainOverlapPercentageAdjustment = 1
 #
-$SYNCLOOP_SAMPLER(SyncLoopSamplerTemplate2'DefaultEffectChain'localSamples/windDemonStab1.wav'$SETTINGS_FOR_SyncLoopSamplerTemplate2'0)
+$SYNCLOOP_SAMPLER(SyncLoopSamplerTemplate2'DefaultEffectChain'localSamples/windDemonStab1.wav'$SETTINGS_FOR_SyncLoopSamplerTemplate2'0'0)

@@ -46,7 +46,7 @@
       kGrainOverlapPercentageAdjustment = 1
     #
 
-    $SYNCLOOP_SAMPLER(AsleepBeforeDessert'AsleepBeforeDessertEffectChain'localSamples/ZZ Top - Asleep In The Desert/asleepInTheDesertLoop2.wav'$ASLEEP_IN_THE_DESSERT_GRAIN'0)
+    $SYNCLOOP_SAMPLER(AsleepBeforeDessert'AsleepBeforeDessertEffectChain'localSamples/ZZ Top - Asleep In The Desert/asleepInTheDesertLoop2.wav'$ASLEEP_IN_THE_DESSERT_GRAIN'0'0)
     $EFFECT_CHAIN(AsleepBeforeDessertEffectChain'Mixer)
 
     instr NewLoop

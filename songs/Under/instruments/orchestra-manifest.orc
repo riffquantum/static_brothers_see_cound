@@ -4,7 +4,7 @@
 $DRUM_SAMPLE(Snare'Mixer'localSamples/Drums/Funk-Kit_Snare_EA8141.wav'1'1)
 $DRUM_SAMPLE(MuffledKick'Mixer'localSamples/Drums/Beatbox-Drums_Kick_EA7538.wav'1'1)
 $BREAK_SAMPLE(PillarBreak'Mixer'localsamples/pillarToPostBreak.wav'15.75)
-$SYNCLOOP_SAMPLER(PillarBreakGrain'Mixer'localsamples/pillarToPostBreak.wav''15.75)
+$SYNCLOOP_SAMPLER(PillarBreakGrain'Mixer'localsamples/pillarToPostBreak.wav''15.75'0)
 $DRUM_SAMPLE(ClosedHat'Mixer'localSamples/Drums/R8-Drums_Closed-Hat_E703.wav'0'1)
 
 ; Samples
@@ -25,6 +25,6 @@ $MULTI_MODE_REVERB(PercLoopReverb'Mixer'Mixer'3)
   kPitchAdjustment = 1 ;* (1 + oscil(.025, 2))
   kGrainOverlapPercentageAdjustment = 2
 #
-$SYNCLOOP_SAMPLER(VibeLineGrain'Mixer'localsamples/ajq - vibe out.wav'$VIBE_LINE_GRAIN_SETTINGS'5)
+$SYNCLOOP_SAMPLER(VibeLineGrain'Mixer'localsamples/ajq - vibe out.wav'$VIBE_LINE_GRAIN_SETTINGS'5'0)
 
 
