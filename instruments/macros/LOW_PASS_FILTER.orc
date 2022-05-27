@@ -23,26 +23,25 @@
 #define LOW_PASS_FILTER(INSTRUMENT_NAME'DRY_ROUTE'WET_ROUTE) #
   $EFFECT_BYPASS($INSTRUMENT_NAME'$DRY_ROUTE'$WET_ROUTE'0'1)
 
-  gk$INSTRUMENT_NAME.Amount init .1
+  gk$INSTRUMENT_NAME.Amount init .5
   gi$INSTRUMENT_NAME.Mode init 5
+  gk$INSTRUMENT_NAME.HalfPowerPoint init 1000
+  gk$INSTRUMENT_NAME.Q init 1
+  gk$INSTRUMENT_NAME.Resonance init 1
 
   instr $INSTRUMENT_NAME
     aSignalInL inleta "InL"
     aSignalInR inleta "InR"
 
     iBalanceSignal = 1
-    kHalfPowerPoint = 1000
-    kHalfPowerPointOscilator oscil kHalfPowerPoint/2, .5
-    kHalfPowerPointValue = kHalfPowerPoint/2 + kHalfPowerPointOscilator + 100
-    kQ = 1
 
     /* ********
         tone
       ********
     */
     if gi$INSTRUMENT_NAME.Mode == 1 then
-      aSignalOutL tone aSignalInL, kHalfPowerPointValue
-      aSignalOutR tone aSignalInR, kHalfPowerPointValue
+      aSignalOutL tone aSignalInL, gk$INSTRUMENT_NAME.HalfPowerPoint
+      aSignalOutR tone aSignalInR, gk$INSTRUMENT_NAME.HalfPowerPoint
     endif
 
     /* ********
@@ -50,8 +49,8 @@
       ********
     */
     if gi$INSTRUMENT_NAME.Mode == 2 then
-      aSignalOutL butterlp aSignalInL, kHalfPowerPointValue
-      aSignalOutR butterlp aSignalInR, kHalfPowerPointValue
+      aSignalOutL butterlp aSignalInL, gk$INSTRUMENT_NAME.HalfPowerPoint
+      aSignalOutR butterlp aSignalInR, gk$INSTRUMENT_NAME.HalfPowerPoint
     endif
 
     /* ********
@@ -59,8 +58,8 @@
       ********
     */
     if gi$INSTRUMENT_NAME.Mode == 3 then
-      aSignalOutL bqrez aSignalInL, kHalfPowerPointValue, 1
-      aSignalOutR bqrez aSignalInR, kHalfPowerPointValue, 1
+      aSignalOutL bqrez aSignalInL, gk$INSTRUMENT_NAME.HalfPowerPoint, gk$INSTRUMENT_NAME.Resonance
+      aSignalOutR bqrez aSignalInR, gk$INSTRUMENT_NAME.HalfPowerPoint, gk$INSTRUMENT_NAME.Resonance
     endif
 
     /* ********
@@ -68,8 +67,8 @@
       ********
     */
     if gi$INSTRUMENT_NAME.Mode == 4 then
-      aSignalOutL lowpass2 aSignalInL, kHalfPowerPointValue, kQ
-      aSignalOutR lowpass2 aSignalInR, kHalfPowerPointValue, kQ
+      aSignalOutL lowpass2 aSignalInL, gk$INSTRUMENT_NAME.HalfPowerPoint, gk$INSTRUMENT_NAME.Q
+      aSignalOutR lowpass2 aSignalInR, gk$INSTRUMENT_NAME.HalfPowerPoint, gk$INSTRUMENT_NAME.Q
     endif
 
     /* ********
@@ -77,7 +76,7 @@
       ********
     */
     if gi$INSTRUMENT_NAME.Mode == 5 then
-      kCornerFrequency = kHalfPowerPointValue
+      kCornerFrequency =  gk$INSTRUMENT_NAME.HalfPowerPoint
       iLowPassOrHighPass = 0 ; 0 or 1
       iNumberOfPoles = 4 ; The number of poles in the filter. It must be an even number from 2 to 80.
       iFilterType = 0 ; 0 for Butterworth, 1 for Chebyshev Type I, 2 for Chebyshev Type II, 3 for Elliptical. Defaults to 0 (Butterworth)
@@ -90,6 +89,7 @@
     endif
 
     aSignalOutL = (aSignalOutL * gk$INSTRUMENT_NAME.Amount) + (1 - gk$INSTRUMENT_NAME.Amount) * aSignalInL
+    aSignalOutR = (aSignalOutR * gk$INSTRUMENT_NAME.Amount) + (1 - gk$INSTRUMENT_NAME.Amount) * aSignalInR
 
     if iBalanceSignal == 1 then
       aSignalOutL balance aSignalOutL, aSignalInL
