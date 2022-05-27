@@ -22,6 +22,7 @@
 #define PATTERN_LOOP(PATTERN_LENGTH) #
   iPatternLength = secondsToBeats(p3)
   iBeatsPerMeasure = $PATTERN_LENGTH
+  iPatternLengthInMeasures = p3/iBeatsPerMeasure
   iMeasureIndex = 0
 
   until iMeasureIndex * iBeatsPerMeasure >= iPatternLength do
