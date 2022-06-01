@@ -58,7 +58,7 @@
   gi$INSTRUMENT_NAME.NumberOfChannels filenchnls gS$INSTRUMENT_NAME.SampleFilePath
   gi$INSTRUMENT_NAME.SampleLength filelen gS$INSTRUMENT_NAME.SampleFilePath
   gi$INSTRUMENT_NAME.StartTime = $SAMPLE_START_TIME
-  gi$INSTRUMENT_NAME.EndTime = gi$INSTRUMENT_NAME.SampleLength - gi$INSTRUMENT_NAME.StartTime
+  gi$INSTRUMENT_NAME.EndTime = gi$INSTRUMENT_NAME.SampleLength ;- gi$INSTRUMENT_NAME.StartTime
   gi$INSTRUMENT_NAME.EnvelopeTable ftgenonce 2, 0, 16384, 9, 0.5, 1, 0
   gi$INSTRUMENT_NAME.SampleRate filesr gS$INSTRUMENT_NAME.SampleFilePath
 

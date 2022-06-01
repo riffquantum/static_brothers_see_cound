@@ -25,17 +25,28 @@ instr DrumLoop1
       _ "ClosedHat", i0+3.5, 1, 50, 1
     endif
 
-    ; _ "Snare", i0+1, 1, 70, 1
-    ; _ "Snare", i0+2.3333, 1,70, 1
-    ; _ "Snare", i0+2.6666, 1,70, 1
+    _ "Snare", i0+1, 1, 70, 1
+
+    if iMeasureCount % 8 == 5 then
+      _ "Snare", i0+3, 1, 70, 1
+    elseif iMeasureCount % 4 != 3 then
+      _ "Snare2", i0+2.3333, 1,70, 1
+      _ "Snare2", i0+2.6666, 1,70, 1
+    endif
 
     _ "Drums", i0, .25, 120, 3.0
+
     if iMeasureCount % 8 == 7 then
       _ "Drums", i0+.25, 1.75, 120, 3.0, .5
       _ "Drums", i0+2, 2, 120, 3.0, .5
     elseif iMeasureCount % 4 == 3 then
       _ "Drums", i0+.25, 1.75, 120, 3.0
       _ "Drums", i0+2, 2, 120, 3.0
+    elseif iMeasureCount % 8 == 5 then
+      _ "Drums", i0, .25, 120, 3.0
+      _ "Drums", i0+.25, 1.75, 120, 3.0
+      _ "Drums", i0+2, .25, 120, 3.0
+      _ "Drums", i0+2.25, 1.75, 120, 3.0
     else
       _ "Drums", i0+.25, 3.75, 120, 3.0
     endif

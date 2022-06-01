@@ -9,4 +9,4 @@
   kPitchAdjustment = 1
   kGrainOverlapPercentageAdjustment = linseg(1, beatsToSeconds(4), .5)
 #
-$SYNCLOOP_SAMPLER(Stab'Mixer'localSamples/windDemonStab1.wav'$STAB_SETTINGS'0'0)
+$SYNCLOOP_SAMPLER(Stab'IcemanLoopDelayInput'localSamples/windDemonStab1.wav'$STAB_SETTINGS'0'0)

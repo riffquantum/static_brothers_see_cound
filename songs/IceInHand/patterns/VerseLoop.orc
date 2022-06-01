@@ -1,4 +1,6 @@
 instr VerseLoop
+  ; _ "PianoInterrupt", 4, 10
+
   $PATTERN_LOOP(16)
     if iMeasureIndex % 2 == 1 then
       ; beatScoreline("Crash", iBaseTime+0.00, 0.5, 20, 1)
