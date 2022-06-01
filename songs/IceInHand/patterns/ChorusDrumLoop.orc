@@ -2,15 +2,16 @@ instr ChorusDrumLoop
   $PATTERN_LOOP(4)
     ; iMeasureCount -= 2
 
-    if iMeasureCount % 2 == 0 then
-      _ "Drums", i0, 4, 120, 4.0, 1, .5, 1.5, .7, 1
-      _ "Snare", i0+.95, 1, 60, 1
-      _ "Snare", i0+1.9, 1, 60, 1
-    elseif iMeasureCount % 8 == 7 then
+
+    if iMeasureCount % 16 == 14 then
       _ "Drums", i0, 1.75, 120, 4.0, 1, .5, 1.5, .7, 1
       _ "Drums", i0+2, 1.75, 120, 4.0, 1, .5, 1.5, 1, 1
       _ "Snare", i0+.95, 1, 60, 1
       _ "Snare", i0+2.875, 1, 60, 1
+    elseif iMeasureCount % 2 == 0 then
+      _ "Drums", i0, 4, 120, 4.0, 1, .5, 1.5, .7, 1
+      _ "Snare", i0+.95, 1, 60, 1
+      _ "Snare", i0+1.9, 1, 60, 1
     elseif iMeasureCount % 4 == 3 then
       _ "Drums", i0, 1.75, 120, 4.0, 1, .5, 1.5, .7, 1
       _ "Drums", i0+2, 1.75, 120, 4.0, 1, .5, 1.5, .7, .9
