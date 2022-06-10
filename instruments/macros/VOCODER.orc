@@ -1,6 +1,6 @@
 /*
   VOCODER
-  Creates an a set of effect instruments modulates one signal with another
+  Creates a set of effect instruments. Modulates one signal with another
   like a vocoder. The instruments are the Vocoder itself and the Carrier
   which is simply used for routing. Vocoder uses Jeanette C.'s m_vc110 opcode.
 

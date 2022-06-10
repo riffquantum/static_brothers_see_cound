@@ -5,6 +5,7 @@
 #include "macros/utilities/NEW_EFFECT.orc"
 #include "macros/utilities/NEW_INSTRUMENT.orc"
 #include "macros/utilities/PATTERN_LOOP.orc"
+#include "macros/utilities/TABLE.orc"
 
 /* Instrument Macros */
 #include "macros/ARPEGGIATOR.orc"
@@ -32,6 +33,7 @@
 #include "macros/OCARINA.orc"
 #include "macros/PITCH_SHIFTER.orc"
 #include "macros/RING_MOD.orc"
+#include "macros/SPECTRAL_DELAY.orc"
 #include "macros/STEREO_SHIFTER.orc"
 #include "macros/STRING_PAD.orc"
 #include "macros/SYNCLOOP_SAMPLER.orc"
