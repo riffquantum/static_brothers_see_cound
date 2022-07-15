@@ -4,7 +4,7 @@
 
   Global Variables:
     SampleFilePath - S - Path to sample for playback.
-    NumberOfChannels - i - Number of channels in sample, derived from file.
+    NumberOfChanne2ls - i - Number of channels in sample, derived from file.
     SampleLength - i - Length of sample in seconds, derived from file.
     StartTime - i - Starting point within file to sample.
     EndTime - i - End point within file to sample.
