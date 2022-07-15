@@ -1,7 +1,7 @@
 <CsoundSynthesizer>
   <CsOptions>
       -odac
-      --midi-device=a
+      ; --midi-device=a
       --messagelevel=0
       ; -W -o "EscapePrismv0.1.wav
       ; -iadc
@@ -119,11 +119,11 @@
     ; good scratch sample souce - April in Pris by Australian Jazz Quartet
     ; i "PreIntro" 0 16
 
-    i "Intro" 0 16
-    i "Verse" 16 32
-    i "Verse2" 48 32
-    i "Verse" 80 32
-    i "Verse2" 112 32
+    i "Section" 0 16 "Intro"
+    i "Section" + 32 "Verse"
+    i "Section" + 32 "Verse2"
+    i "Section" + 32 "Verse"
+    i "Section" + 32 "Verse2"
 
     ; i "Verse" 0 64
     ; i "Verse2" 0 64

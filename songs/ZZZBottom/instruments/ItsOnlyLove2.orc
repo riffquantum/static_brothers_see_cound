@@ -12,3 +12,4 @@
 #
 
 $SYNCLOOP_SAMPLER(ItsOnlyLove2'Mixer'localSamples/itsOnlyLoveBreak.wav'$ITS_ONLY_LOVE_SETTINGS'0'3.2)
+giItsOnlyLove2EndTime = giItsOnlyLove2SampleLength - giItsOnlyLove2StartTime

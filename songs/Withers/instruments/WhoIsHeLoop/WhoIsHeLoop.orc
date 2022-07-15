@@ -1,4 +1,4 @@
-instrumentRoute "WhoIsHeLoop", "FreezerInput"
+instrumentRoute "WhoIsHeLoop", "Mixer"
 alwayson "WhoIsHeLoopMixerChannel"
 
 gkWhoIsHeLoopEqBass init 1

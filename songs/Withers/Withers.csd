@@ -2,7 +2,7 @@
   <CsOptions>
     --messagelevel=0
     ; --midi-device=a
-    -t30
+    -t80
     -odac
     ; -W -o "Withers.wav
   </CsOptions>

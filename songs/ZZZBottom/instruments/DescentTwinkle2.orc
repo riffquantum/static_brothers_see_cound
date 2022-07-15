@@ -12,4 +12,4 @@
 #
 
 $SYNCLOOP_SAMPLER(DescentTwinkle2'Mixer'localSamples/gloria2.wav'$DESCENT_TWINKLE_2_SETTINGS'0'2)
-
+giDescentTwinkle2EndTime = giDescentTwinkle2SampleLength - giDescentTwinkle2StartTime ; This song was written when this was still the default vaule. I thas since been updated.

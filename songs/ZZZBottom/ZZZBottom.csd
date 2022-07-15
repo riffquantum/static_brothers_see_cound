@@ -2,7 +2,7 @@
   <CsOptions>
     -odac
     --messagelevel=0
-    --midi-device=a
+    ; --midi-device=a
     -t57.61
     ; -t72 ;and it's in 5
     ; -W -o "songs/ZZZBottom/ZZZBottom-v0.2.wav"
