@@ -5,7 +5,7 @@
     --messagelevel=0
     ; -B512 -b256
     -t80
-    ; -W -o "IceInHand-v0.3.wav"
+    ; -W -o "IceInHand-v0.4.wav"
   </CsOptions>
 
   <CsInstruments>
@@ -87,10 +87,10 @@
     i "GlobalFxTapeWobble" 0 -1
 
     i "Section" + 16 "CleanLoop"
-    i "Section" + 64 "Verse"
+    i "Section" + 64 "Verse" 0
     i "Section" + 96 "Chorus"
     i "Section" + 35.9 "PianoInterrupt"
-    i "Section" + 32 "Verse"
+    i "Section" + 32 "Verse" 1
     i "Section" + 4 "Outro"
     ; ; i "Section" ^+68 32 "Bridge"
     ; e
