@@ -1,9 +1,9 @@
 <CsoundSynthesizer>
   <CsOptions>
       -odac
-      --midi-device=a
+      ; --midi-device=a
       --messagelevel=0
-      -iadc
+      ; -iadc
       ; --realtime
       ; -B512 -b60
       -t100

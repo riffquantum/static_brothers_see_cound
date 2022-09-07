@@ -30,22 +30,18 @@
     instr config
       ; midiMonitor
       gkDefaultEffectChainReverbWetAmount = .03
-      gkSyncLoopSamplerTemplate2Fader = .5
 
       gkDefaultEffectChainChorusAmount = oscil(2, .5) + 1
       gkDefaultEffectChainChorusWetAmount = .5
       gkDefaultEffectChainChorusDryAmount = 1
       giMetronomeIsOn = 1
+
+      gkKickSquiggleEqBass = 2
+      gkKickSquiggleFader = 2
     endin
 
-
-
-
-
-
-
     beatScoreline "config", 0, -1
-    beatScoreline "PatternWriter", 0, -1, 24
+    ; beatScoreline "PatternWriter", 0, -1, 24
     ; beatScoreline "WorkingPattern", 0, 128
     ; beatScoreline "DefaultEffectChainWarmDistortion", 0, -1
     ; beatScoreline "DefaultEffectChainReverb", 0, -1
@@ -55,7 +51,7 @@
   <CsScore>
     ; i "Metronome" 0 3600
     i "KickSquiggleGroove" 0 300
-    i "BassLine" 16 240
-    i "YiSynth3Pattern" 32 208
+    i "BassLine" 32 240
+    ; i "YiSynth3Pattern" 0 208
   </CsScore>
 </CsoundSynthesizer>

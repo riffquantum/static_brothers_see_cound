@@ -11,22 +11,14 @@
   gk$INSTRUMENT_NAME.Mode init 0
 
   instr $INSTRUMENT_NAME
-    aSignalInL inleta "InL"
-    aSignalInR inleta "InR"
+    aInL inleta "InL"
+    aInR inleta "InR"
 
-    aCarrierL inleta "CarrierInL"
-    aCarrierR inleta "CarrierInR"
+    aOutL = aInL
+    aOutR = aInR
 
-    kQ = gk$INSTRUMENT_NAME.Q
-    kShift = gk$INSTRUMENT_NAME.Shift
-    kIntNoise = gk$INSTRUMENT_NAME.IntNoise
-    kMode = gk$INSTRUMENT_NAME.Mode
-
-    aSignalOutL m_vc110 aCarrierL, aSignalInL, kQ, kShift, kIntNoise, kMode
-    aSignalOutR m_vc110 aCarrierR, aSignalInR, kQ, kShift, kIntNoise, kMode
-
-    outleta "OutL", aSignalOutL
-    outleta "OutR", aSignalOutR
+    outleta "OutL", aOutL
+    outleta "OutR", aOutR
   endin
 
   $MIXER_CHANNEL($INSTRUMENT_NAME)

@@ -4,12 +4,13 @@
     --midi-device=a
     -t60
     -odac
-    -W -o "Untitled1-v0.1.wav
+    ; -W -o "Untitled1-v0.1.wav
   </CsOptions>
 
   <CsInstruments>
     #include "config/defaultConfig.orc"
     #include "songs/Untitled1/config/midiAssignments.orc"
+    #include "config/defaultMidiRouterMapping.orc"
     #include "opcodes/opcode-manifest.orc"
     #include "instruments/orchestra-manifest.orc"
     #include "instruments/DrumKits/DefaultDrumKit.orc"

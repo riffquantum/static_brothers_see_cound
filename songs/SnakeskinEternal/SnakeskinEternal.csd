@@ -7,6 +7,7 @@
       ;aka Thulsa Doom Transitioning to the Afterworld by Sliding Along the Back of a Green Snake
       ;aka Thulsa Doom Transitioning Into A Serpent of Pure Spirit As His Head Rolls Down The Stairs.
       ;aka Walking Snake Way With No Intention of Resurrection
+      ; aka Endless Eternal Coils of Green Scaled Flesh, Thulsa Doom's Death Vision
       ; -iadc
       ; --realtime
       ; -B512 -b60
@@ -14,6 +15,9 @@
       ;--midioutfile=midiout.mid
       ;-F midiout.mid
       ;-+rtmidi=virtual
+
+
+      ; POSIBLE TO DO: Higgs sample pitched down "As wise as serpents"
   </CsOptions>
 
   <CsInstruments>

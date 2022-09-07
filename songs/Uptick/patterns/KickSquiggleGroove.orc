@@ -19,12 +19,11 @@ instr KickSquiggleGroove
       beatScoreline "KickSquiggle", iBaseTime+4, 4, 100, 3.03
     endif
 
-    beatScoreline "DefaultSnare", iBaseTime+1, 1, 70, .8
-    beatScoreline "DefaultSnare", iBaseTime+3, 1, 70, .8
-    beatScoreline "DefaultSnare", iBaseTime+5, 1, 70, .8
-    beatScoreline "DefaultSnare", iBaseTime+7, 1, 70, .8
-
     if iMeasureCount > 4 then
+      beatScoreline "DefaultSnare", iBaseTime+1, 1, 70, .8
+      beatScoreline "DefaultSnare", iBaseTime+3, 1, 70, .8
+      beatScoreline "DefaultSnare", iBaseTime+5, 1, 70, .8
+      beatScoreline "DefaultSnare", iBaseTime+7, 1, 70, .8
       beatScoreline "TR606Kick", iBaseTime+0, 1, 120, .9
       beatScoreline "TR606Kick", iBaseTime+1, 1, 120, .9
       beatScoreline "TR606Kick", iBaseTime+2, 1, 120, .9

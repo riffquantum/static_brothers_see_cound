@@ -9,12 +9,12 @@ gSMidiChannelAssignments[] fillarray "", \
   "SimpleOscillator", \
   "YiSynth3", \
   "TwistedUpHatExample", \
-  "SyncLoopSamplerTemplate2", \
+  "SyncLoopSamplerTemplate", \
   "SimpleOscillator", \
   "DisonantSynth", \
   "SimpleOscillator", \
   "BigCrunchySynth", \
-  "SyncloopSamplerTemplate"
+  "SyncLoopSamplerTemplate"
 
 massign  1, gSMidiChannelAssignments[1]
 massign  2, gSMidiChannelAssignments[2]

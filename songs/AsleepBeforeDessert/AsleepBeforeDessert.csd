@@ -29,7 +29,6 @@
     instr config
       ; midiMonitor
       ; gkDefaultEffectChainReverbWetAmount = .03
-      ; gkSyncLoopSamplerTemplate2Fader = .5
       gkAsleepBeforeDessertEqBass = 3
 
       ; gkDefaultEffectChainChorusAmount = oscil(2, .5) + 1

@@ -1,15 +1,15 @@
 <CsoundSynthesizer>
   <CsOptions>
-      -odac
---midi-device=a
---messagelevel=0
-      -iadc
-      -B512 -b60
-      -t80
+    -odac
+    --midi-device=a
+    --messagelevel=0
+    ; -iadc
+    -B512 -b60
+    -t80
 
-      ;--midioutfile=midiout.mid
-      ;-F midiout.mid
-      ;-+rtmidi=virtual
+    ;--midioutfile=midiout.mid
+    ;-F midiout.mid
+    ;-+rtmidi=virtual
   </CsOptions>
 
   <CsInstruments>
