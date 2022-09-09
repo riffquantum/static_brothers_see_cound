@@ -7,11 +7,11 @@ gSMidiChannelAssignments[] fillarray "", \
   "FlowingTrumpetingOvertones", \
   "NewInstrument", \
   "DisonantSynth", \
-  "SyncLoopSamplerTemplate", \
+  "SyncloopSamplerTemplate", \
   "TwistedUpHatExample", \
   "SimpleOscillator", \
   "BigCrunchySynth", \
-  "SyncLoopSamplerTemplate", \
+  "SyncloopSamplerTemplate", \
   "BassPluck", \
   "BassPluck", \
   "BassPluck"

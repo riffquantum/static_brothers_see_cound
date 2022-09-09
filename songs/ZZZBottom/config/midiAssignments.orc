@@ -1,6 +1,6 @@
 gSMidiChannelAssignments[] fillarray "", \
   "BassTone", \
-  "SyncLoopSamplerTemplate", \
+  "SyncloopSamplerTemplate", \
   "DescentTwinkle2", \
   "ItsOnlyLove2", \
   "DisonantSynth", \
@@ -10,7 +10,7 @@ gSMidiChannelAssignments[] fillarray "", \
   "BigCrunchySynth", \
   "TwistedUpKickExample", \
   "FlowingTrumpetingOvertones", \
-  "SyncLoopSamplerTemplate", \
+  "SyncloopSamplerTemplate", \
   "BassPluck", \
   "BassPluck", \
   "BassPluck", \

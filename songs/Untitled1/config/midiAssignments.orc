@@ -2,7 +2,7 @@ gSMidiChannelAssignments[] fillarray "", \
   "LayeredBassSynth", \
   "DisonantSynth", \
   "SimpleOscillator", \
-  "SyncLoopSamplerTemplate", \
+  "SyncloopSamplerTemplate", \
   "NewInstrument", \
   "BassPluck", \
   "SimpleOscillator", \
@@ -10,7 +10,7 @@ gSMidiChannelAssignments[] fillarray "", \
   "BigCrunchySynth", \
   "TwistedUpKickExample", \
   "FlowingTrumpetingOvertones", \
-  "SyncLoopSamplerTemplate", \
+  "SyncloopSamplerTemplate", \
   "BassPluck", \
   "BassPluck", \
   "BassPluck", \

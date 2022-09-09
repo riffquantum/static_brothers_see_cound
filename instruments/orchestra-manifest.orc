@@ -83,7 +83,6 @@ $DISTORTED_808_KICK(Distorted808Kick'Mixer'localSamples/Drums/TR-808_Kick_41.wav
 #include "Section.orc"
 #include "SimpleOscillator.orc"
 #include "SyncloopSamplerTemplate.orc"
-#include "SyncLoopSamplerTemplate2.orc"
 #include "TR808/TR808.orc"
 #include "TR606/TR606.orc"
 #include "TwistedUpKickExample.orc"
