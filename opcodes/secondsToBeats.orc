@@ -6,3 +6,8 @@ opcode secondsToBeats, i, io
 
   xout iBeats
 endop
+
+opcode stb, i, io
+  iSeconds, iBPM xin
+  xout secondsToBeats(iSeconds, iBPM)
+endop
