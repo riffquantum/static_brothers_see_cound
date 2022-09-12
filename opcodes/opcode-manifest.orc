@@ -23,6 +23,7 @@
 #include "customTuningFrequency.orc"
 #include "quarterCommaMeanToneFrequency.orc"
 #include "selectTuningSystemAndReturnFrequency.orc"
+#include "recordBuffer.orc"
 
 /*
   Audio Processors and Effects
