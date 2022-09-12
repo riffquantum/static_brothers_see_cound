@@ -4,6 +4,10 @@
   affecting the delay signal recursively. Patch in a pitchshifter for a descending
   delay or something cool like that.
 
+  I originally designed it to make a granular delay. An example of that usage would be:
+    $DELAY_WITH_PATCH(PatchDelay'Mixer'Mixer'LiveGrainInput)
+    $LIVE_SYNCLOOP(LiveGrain'PatchDelayPatch'PatchDelayPatch)
+
   Global Variables:
     BufferLength - i - Maximum length for delay buffer.
     Time - a - Delay time.

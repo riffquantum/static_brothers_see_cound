@@ -28,6 +28,7 @@
 #include "macros/IN_TIME_SYNCLOOP_SAMPLER.orc"
 #include "macros/IN_TIME_SNDWARP_SAMPLER.orc"
 #include "macros/K35_LPF.orc"
+#include "macros/LIVE_SYNCLOOP.orc"
 #include "macros/LOW_PASS_FILTER.orc"
 #include "macros/MULTI_MODE_REVERB.orc"
 #include "macros/MULTI_STAGE_DISTORTION.orc"
