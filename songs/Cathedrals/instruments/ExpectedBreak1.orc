@@ -8,7 +8,7 @@ gkExpectedBreak1FxSpeed init .8
 gkExpectedBreak1Randomize init 0
 
 /* Sound File Data */
-gSExpectedBreak1sampleFilePath = "instruments/breakBeatInstruments/itsExpectedBreak.wav"
+gSExpectedBreak1sampleFilePath = "localSamples/itsExpectedBreak.wav"
 giExpectedBreak1FileNumChannels filenchnls gSExpectedBreak1sampleFilePath
 giExpectedBreak1FileLength filelen gSExpectedBreak1sampleFilePath
 giExpectedBreak1FileSampleRate filesr gSExpectedBreak1sampleFilePath

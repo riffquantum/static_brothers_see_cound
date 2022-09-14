@@ -15,7 +15,7 @@
 ;   kGrainOverlapPercentageAdjustment = .5
 ; #
 
-; $SYNCLOOP_SAMPLER(ItsExpected1'Mixer'instruments/breakBeatInstruments/itsExpectedBreak.wav'$EXPECTED_1_SETTINGS'16)
+; $SYNCLOOP_SAMPLER(ItsExpected1'Mixer'localSamples/itsExpectedBreak.wav'$EXPECTED_1_SETTINGS'16'0)
 
 ; #define EXPECTED_3_SETTINGS #
 ;   kTimeStretch = 10
@@ -25,7 +25,7 @@
 ;   kGrainOverlapPercentageAdjustment = 1
 ; #
 
-; $SYNCLOOP_SAMPLER(ItsExpected1'Mixer'instruments/breakBeatInstruments/itsExpectedBreak.wav'$EXPECTED_3_SETTINGS'16)
+; $SYNCLOOP_SAMPLER(ItsExpected1'Mixer'localSamples/itsExpectedBreak.wav'$EXPECTED_3_SETTINGS'16'0)
 
 ; #define EXPECTED_2_SETTINGS #
 ;   kTimeStretch = 10
@@ -35,7 +35,7 @@
 ;   kGrainOverlapPercentageAdjustment = 10
 ; #
 
-; $SYNCLOOP_SAMPLER(ItsExpected2'Mixer'instruments/breakBeatInstruments/itsExpectedBreak.wav'$EXPECTED_1_SETTINGS'16)
+; $SYNCLOOP_SAMPLER(ItsExpected2'Mixer'localSamples/itsExpectedBreak.wav'$EXPECTED_1_SETTINGS'16'0)
 
 
 ; ; ExpectedBreakFill2

@@ -7,7 +7,7 @@ gkThinkBreakEqHigh init 1
 gkThinkBreakFader init 1
 gkThinkBreakPan init 50
 
-gSThinkBreakSamplePath = "instruments/breakBeatInstruments/thinkBreak0.wav"
+gSThinkBreakSamplePath = "localSamples/thinkBreak0.wav"
 giThinkBreakSampleChannels filenchnls gSThinkBreakSamplePath
 giThinkBreakSampleLength filelen gSThinkBreakSamplePath
 

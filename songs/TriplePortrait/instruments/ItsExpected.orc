@@ -13,7 +13,7 @@ gkItsExpectedGrainFrequencyAdjustment init 1
 gkItsExpectedPitchAdjustment init 1
 gkItsExpectedGrainOverlapPercentageAdjustment init 1
 
-gSItsExpectedSampleFilePath = "instruments/breakBeatInstruments/itsExpectedBreak.wav"
+gSItsExpectedSampleFilePath = "localSamples/itsExpectedBreak.wav"
 giItsExpectedNumberOfChannels filenchnls gSItsExpectedSampleFilePath
 giItsExpectedSampleLength filelen gSItsExpectedSampleFilePath
 giItsExpectedStartTime = 2.2
