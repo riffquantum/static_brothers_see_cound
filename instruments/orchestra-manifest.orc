@@ -11,6 +11,7 @@
 #include "macros/ARPEGGIATOR.orc"
 #include "macros/BASS_SYNTH.orc"
 #include "macros/BREAK_SAMPLE.orc"
+#include "macros/CASSETTE.orc"
 #include "macros/COMPRESSOR.orc"
 #include "macros/CHORUS.orc"
 #include "macros/CLIP.orc"
@@ -48,26 +49,30 @@
 #include "macros/VOCODER.orc"
 #include "macros/WARM_DISTORTION.orc"
 
+/* Compound Instrument Macros */
+#include "macros/DELAY_TO_GRAIN.orc"
+#include "macros/GRAIN_TO_DELAY.orc"
+#include "macros/RECURSIVE_GRAIN_DELAY.orc"
+
 /* Instruments */
 #include "BassPluck.orc"
 #include "LayeredBassSynth.orc"
 #include "BigCrunchySynth.orc"
 #include "BigRichSynth.orc"
 
-$BREAK_SAMPLE(AmenBreak'Mixer'instruments/breakBeatInstruments/amenBreak.wav'16)
-$BREAK_SAMPLE(FunkyDrummerBreak'Mixer'instruments/breakBeatInstruments/funkyDrummerBreak.wav'32)
-$BREAK_SAMPLE(GettinHappyBreak'Mixer'instruments/breakBeatInstruments/gettinHappyBreak0.wav'16)
-$BREAK_SAMPLE(ItsExpectedBreak'Mixer'instruments/breakBeatInstruments/handInTheHandBreak0.wav'16)
-$BREAK_SAMPLE(ItsExpectedBreak'Mixer'instruments/breakBeatInstruments/itsExpectedBreak.wav'16)
-$BREAK_SAMPLE(ItsOnlyLoveBreak'Mixer'instruments/breakBeatInstruments/itsOnlyLoveBreak.wav'8)
-$BREAK_SAMPLE(JbShoutBreak'Mixer'instruments/breakBeatInstruments/jbSHoutBreakClean.wav'16)
-$BREAK_SAMPLE(JohnnyTheFoxBreak'Mixer'instruments/breakBeatInstruments/johnnyTheFoxBreak.wav'16)
-$BREAK_SAMPLE(KissingMyLoveBreak'Mixer'instruments/breakBeatInstruments/kissingMyLoveBreak0.wav'8)
-$BREAK_SAMPLE(KissingMyLoveSpankyBreak'Mixer'instruments/breakBeatInstruments/kissingMyLoveSpankyBreak.wav'16)
-$BREAK_SAMPLE(LoserInTheEndBreak'Mixer'instruments/breakBeatInstruments/loserInTheEndBreak.wav'16)
-$BREAK_SAMPLE(NothingIDontLikeBreak'Mixer'instruments/breakBeatInstruments/nothingIDontLikeBreak.wav'16)
-$BREAK_SAMPLE(RafflesiaBreak'Mixer'instruments/breakBeatInstruments/rafflesiaBreak.wav'4)
-$BREAK_SAMPLE(ThinkBreak'Mixer'instruments/breakBeatInstruments/thinkBreak0.wav'4)
+$BREAK_SAMPLE(AmenBreak'Mixer'localSamples/amenBreak.wav'16)
+$BREAK_SAMPLE(FunkyDrummerBreak'Mixer'localSamples/funkyDrummerBreak.wav'32)
+$BREAK_SAMPLE(GettinHappyBreak'Mixer'localSamples/gettinHappyBreak0.wav'16)
+$BREAK_SAMPLE(ItsExpectedBreak'Mixer'localSamples/handInTheHandBreak0.wav'16)
+$BREAK_SAMPLE(ItsOnlyLoveBreak'Mixer'localSamples/itsOnlyLoveBreak.wav'8)
+$BREAK_SAMPLE(JbShoutBreak'Mixer'localSamples/jbSHoutBreakClean.wav'16)
+$BREAK_SAMPLE(JohnnyTheFoxBreak'Mixer'localSamples/johnnyTheFoxBreak.wav'16)
+$BREAK_SAMPLE(KissingMyLoveBreak'Mixer'localSamples/kissingMyLoveBreak0.wav'8)
+$BREAK_SAMPLE(KissingMyLoveSpankyBreak'Mixer'localSamples/kissingMyLoveSpankyBreak.wav'16)
+$BREAK_SAMPLE(LoserInTheEndBreak'Mixer'localSamples/loserInTheEndBreak.wav'16)
+$BREAK_SAMPLE(NothingIDontLikeBreak'Mixer'localSamples/nothingIDontLikeBreak.wav'16)
+$BREAK_SAMPLE(RafflesiaBreak'Mixer'localSamples/rafflesiaBreak.wav'4)
+$BREAK_SAMPLE(ThinkBreak'Mixer'localSamples/thinkBreak0.wav'4)
 #include "chorusedSynth.orc"
 $EFFECT_CHAIN(DefaultEffectChain'Mixer)
 #include "DelayHiHat.orc"

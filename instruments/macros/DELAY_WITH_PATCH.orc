@@ -5,8 +5,8 @@
   delay or something cool like that.
 
   I originally designed it to make a granular delay. An example of that usage would be:
-    $DELAY_WITH_PATCH(PatchDelay'Mixer'Mixer'LiveGrainInput)
-    $LIVE_SYNCLOOP(LiveGrain'PatchDelayPatch'PatchDelayPatch)
+    $DELAY_WITH_PATCH(PatchDelay'Mixer'Mixer'GranularSynthInput)
+    $LIVE_SYNCLOOP(GranularSynth'PatchDelayPatch'PatchDelayPatch')
 
   Global Variables:
     BufferLength - i - Maximum length for delay buffer.
@@ -31,7 +31,7 @@
   $EFFECT_BYPASS($INSTRUMENT_NAME'$DRY_ROUTE'$WET_ROUTE'1'1)
 
   gi$INSTRUMENT_NAME.BufferLength init 5
-  ga$INSTRUMENT_NAME.Time init 1
+  ga$INSTRUMENT_NAME.Time init .5
   gk$INSTRUMENT_NAME.FeedbackAmount init .7
   gk$INSTRUMENT_NAME.Level init 1
   gk$INSTRUMENT_NAME.StereoOffset init 0
