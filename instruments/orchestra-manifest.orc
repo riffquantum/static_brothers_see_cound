@@ -42,6 +42,7 @@
 #include "macros/STRING_PAD.orc"
 #include "macros/SYNCLOOP_SAMPLER.orc"
 #include "macros/TAPE_WOBBLE.orc"
+#include "macros/TB_303.orc"
 #include "macros/TO_MONO.orc"
 #include "macros/TREMOLO.orc"
 #include "macros/TWISTED_KICK.orc"
