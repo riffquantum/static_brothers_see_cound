@@ -1,8 +1,8 @@
 <CsoundSynthesizer>
   <CsOptions>
       -odac
---midi-device=a
---messagelevel=0
+      --midi-device=a
+      --messagelevel=0
       ; -iadc
       -t60
       ;--midioutfile=midiout.mid
