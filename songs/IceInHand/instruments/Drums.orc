@@ -8,7 +8,7 @@
   kPitchAdjustment = 1
   kGrainOverlapPercentageAdjustment = 1 ;linseg(1, beatsToSeconds(4), .5)
 #
-$SYNCLOOP_SAMPLER(Drums'DrumBus'instruments/breakBeatInstruments/jbShoutBreakClean.wav'$DRUMS_SETTINGS'0'0)
+$SYNCLOOP_SAMPLER(Drums'DrumBus'localSamples/jbShoutBreakClean.wav'$DRUMS_SETTINGS'0'0)
 
 #define DRUMS2_SETTINGS #
   kTimeStretch = linseg(1, beatsToSeconds(1), 1, beatsToSeconds(1), 1.8, beatsToSeconds(1), .8)
@@ -20,4 +20,4 @@ $SYNCLOOP_SAMPLER(Drums'DrumBus'instruments/breakBeatInstruments/jbShoutBreakCle
   kPitchAdjustment = 1
   kGrainOverlapPercentageAdjustment = 2 * linseg(1, beatsToSeconds(3), 1, beatsToSeconds(1), 5)
 #
-$SYNCLOOP_SAMPLER(Drums2'DrumBus'instruments/breakBeatInstruments/handInTheHandBreak2.wav'$DRUMS2_SETTINGS'0'1.2)
+$SYNCLOOP_SAMPLER(Drums2'DrumBus'localSamples/handInTheHandBreak2.wav'$DRUMS2_SETTINGS'0'1.2)

@@ -5,14 +5,14 @@ gSMidiChannelAssignments[] fillarray "", \
   "MachineSickness", \
   "FlowingTrumpetingOvertones", \
   "LayeredBassSynth", \
-  "SyncLoopSamplerTemplate", \
+  "SyncloopSamplerTemplate", \
   "YiSynth3", \
   "SimpleOscillator", \
   "DisonantSynth", \
   "BassPluck", \
   "SimpleOscillator", \
   "BigCrunchySynth", \
-  "SyncLoopSamplerTemplate", \
+  "SyncloopSamplerTemplate", \
   "BassPluck", \
   "BassPluck"
 

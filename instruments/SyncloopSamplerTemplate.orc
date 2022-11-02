@@ -22,7 +22,7 @@ giSyncloopSamplerTemplateFxDepthAdjustmentControl = 4
 giSyncloopSamplerTemplateFxSpeedAdjustmentControl = 5
 
 /* Sound File Data */
-gSSyncloopSamplerTemplatesampleFilePath = "instruments/breakBeatInstruments/AmenBreak.wav"
+gSSyncloopSamplerTemplatesampleFilePath = "localSamples/AmenBreak.wav"
 giSyncloopSamplerTemplateFileNumChannels filenchnls gSSyncloopSamplerTemplatesampleFilePath
 giSyncloopSamplerTemplateFileLength filelen gSSyncloopSamplerTemplatesampleFilePath
 giSyncloopSamplerTemplateFileSampleRate filesr gSSyncloopSamplerTemplatesampleFilePath

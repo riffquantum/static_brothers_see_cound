@@ -32,7 +32,8 @@
     $INSTRUMENT_NAME - String - Name for the instrument to be generated.
     $ROUTE - String - The route for the instrument.
     $SAMPLE_PATH - String - A path to the sample for playback.
-    $GRAIN_AND_ADSR_SETTINGS - Set of variables - Optional place to override the per instance values of certain granular synethesis variables and ADSR values. Example:
+    $GRAIN_AND_ADSR_SETTINGS - Set of variables - Optional place to override the per instance values of certain granular
+      synethesis variables and ADSR values. Example:
         #define EXAMPLE_SETTINGS #
           iAttack = .01
           iDecay = .01
@@ -106,6 +107,8 @@
 
     iBeatsInSample = $LENGTH_SAMPLE_IN_BEATS
 
+    ; TODO: Why is there no p7? Also why is there a second
+    ; p-field for pitch? We got some problems here.
     kTimeStretch *= p6 == 0 ? 1 : p6
     kGrainSizeAdjustment *= p8 == 0 ? 1 : p8
     kGrainFrequencyAdjustment *= p9 == 0 ? 1 : p9

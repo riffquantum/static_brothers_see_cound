@@ -5,8 +5,7 @@
   Creates an effect instrument which applies separate delays to
   different frequency bands for an audio input. The various delay times,
   feedback levels, and volumes are stored in separate Left and Right tables.
-  The tables can be altered while the instrument is active which I don't
-  understand since they are i rate variables.
+  The tables can be altered while the instrument is active.
   Setting table values here is not the most intuitive thing. Gen routines 2 and
   7 are both good candidates though. Gen routine 21 might be a good option for
   random values. Below are some examples:
