@@ -28,12 +28,12 @@
 */
 
 
-opcode beatScoreline, 0, Siioooooooooo
-  SName, iStart, iDuration, iP4, iP5, iP6, iP7, iP8, iP9, iP10, iP11, iP12, iP13 xin
+opcode beatScoreline, 0, Siioooooooooooooooo
+  SName, iStart, iDuration, iP4, iP5, iP6, iP7, iP8, iP9, iP10, iP11, iP12, iP13, iP14, iP15, iP16, iP17, iP18, iP19 xin
   iStart = beatsToSeconds(iStart)
   iDuration = beatsToSeconds(iDuration)
 
-  schedule nstrnum(SName), iStart, iDuration, iP4, iP5, iP6, iP7, iP8, iP9, iP10, iP11, iP12, iP13
+  schedule nstrnum(SName), iStart, iDuration, iP4, iP5, iP6, iP7, iP8, iP9, iP10, iP11, iP12, iP13, iP14, iP15, iP16, iP17, iP18, iP19
 endop
 
 /* An attempt at a version of this opcode that would work with fluid tempo changes

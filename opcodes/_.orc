@@ -29,8 +29,8 @@
     none
 */
 
-opcode _, 0, Siioooooooooo
-  SName, iStart, iDuration, iP4, iP5, iP6, iP7, iP8, iP9, iP10, iP11, iP12, iP13 xin
+opcode _, 0, Siioooooooooooooooo
+  SName, iStart, iDuration, iP4, iP5, iP6, iP7, iP8, iP9, iP10, iP11, iP12, iP13, iP14, iP15, iP16, iP17, iP18, iP19 xin
 
-  beatScoreline SName, iStart, iDuration, iP4, iP5, iP6, iP7, iP8, iP9, iP10, iP11, iP12, iP13
+  beatScoreline SName, iStart, iDuration, iP4, iP5, iP6, iP7, iP8, iP9, iP10, iP11, iP12, iP13, iP14, iP15, iP16, iP17, iP18, iP19
 endop
