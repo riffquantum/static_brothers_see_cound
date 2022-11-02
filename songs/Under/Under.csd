@@ -41,52 +41,55 @@
 
     instr Intro
       gkPercLoopReverbWetAmount = linseg(0, secondsToBeats(p3/2), 1)
-      beatScoreline "PercLoopReverb", 0, secondsToBeats(p3 + 2)
+      _ "PercLoopReverb", 0, secondsToBeats(p3 + 2)
 
       $PATTERN_LOOP(4)
-        beatScoreline "BassSynth", iBaseTime+0, 3, 120, 1.110000
-        beatScoreline "PercLoop", iBaseTime+0, 4, 50, 2, 4
+        _ "BassSynth", iBaseTime+0, 3, 120, 1.110000
+        _ "PercLoop", iBaseTime+0, 4, 50, 2, 4
       $END_PATTERN_LOOP
     endin
 
+    instr DrumShift
+      gkMelodyGrainDryAmount = linseg(1, p3 - bts(12), 0, bts(4), 1, 0, 1)
+      gkMelodyGrainWetAmount = linseg(0, p3 - bts(12), 1, bts(4), 0, 0, 0)
+      gkMelodyGrainGrainSizeAdjustment = linseg(1, p3, .01)
+      gkMelodyGrainGrainFrequencyAdjustment = oscil(.05, 1/p3) + 1
+      _ "MelodyGrain", 0, stb(p3)
+    endin
+
     instr Verse
+      _ "DrumShift", 0, stb(p3)
       $PATTERN_LOOP(48)
-        beatScoreline "DrumLoop", iBaseTime+0, 36
-        beatScoreline "BassLineVerse", iBaseTime+0, 48
-        beatScoreline "VibeLoop", iBaseTime+0, 48
+        _ "DrumLoop", iBaseTime+0, 36
+        _ "BassLineVerse", iBaseTime+0, 48
+        _ "VibeLoop", iBaseTime+0, 48
       $END_PATTERN_LOOP
     endin
 
     instr Chorus
       $PATTERN_LOOP(32)
-        beatScoreline "DrumLoop", iBaseTime+0, 32
-        beatScoreline "BassLineVerse", iBaseTime+0, 32
-        if p4 == 2 then
-          beatScoreline "VibeLoop2", iBaseTime+0, 32
+        _ "DrumLoop", iBaseTime+0, 32
+        _ "BassLineVerse", iBaseTime+0, 32
+        if p4 == 2 || p4 == 1 then
+          _ "VibeLoop2", iBaseTime+0, 32
         elseif p4 == 3 then
-          beatScoreline "VibeLoop3", iBaseTime+0, 32
+          _ "VibeLoop3", iBaseTime+0, 32
         elseif p4 == 4 then
-          beatScoreline "VibeLoop4", iBaseTime+0, 32
+          _ "VibeLoop4", iBaseTime+0, 32
         elseif p4 == 5 then
-          beatScoreline "VibeLoop5", iBaseTime+0, 32
+          _ "VibeLoop5", iBaseTime+0, 32
         elseif p4 == 6 then
-          beatScoreline "VibeLoop6", iBaseTime+0, 32
+          _ "VibeLoop6", iBaseTime+0, 32
         endif
       $END_PATTERN_LOOP
     endin
 
-    instr Section
-      SinstrumentName = p4
-
-      beatScoreline SinstrumentName, 0, secondsToBeats(p3), p5, p6, p7, p8
-    endin
-
-    beatScoreline "config", 0, -1
-    ; beatScoreline "PatternWriter", 0, -1, 8
+    _ "config", 0, -1
+    ; _ "PatternWriter", 0, -1, 8
   </CsInstruments>
   <CsScore>
     ; i "Section" + 32 "Chorus" 4
-    i "Section" + 16 "Intro"
+    ; i "Section" + 16 "Intro"
     i "Section" + 48 "Verse"
     i "Section" + 32 "Chorus" 1
     i "Section" + 48 "Verse"
