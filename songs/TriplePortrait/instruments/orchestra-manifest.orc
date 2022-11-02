@@ -4,6 +4,8 @@
 #include "ItsExpected.orc"
 #include "santanaBell2.orc"
 
+
+; PUT THESE THROUGH A STEREO SHIFTER TO ISOLATE VIBES AND STRINGS MORE
 $BREAK_SAMPLE(Violin1'Mixer'localsamples/TriplePortraitViolinLoop.wav'8)
 $BREAK_SAMPLE(Violin2'Mixer'localsamples/TriplePortraitViolinLoop2.wav'8)
 $BREAK_SAMPLE(Violin3'Mixer'localsamples/TriplePortraitViolinLoop3.wav'8)
