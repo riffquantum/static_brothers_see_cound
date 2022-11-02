@@ -2,7 +2,9 @@
   <CsOptions>
     --messagelevel=0
     ; --midi-device=a
-    -t80
+    ; -t100
+    ; -t90
+    -t70
     -odac
     ; -W -o "Withers.wav
   </CsOptions>
@@ -16,6 +18,10 @@
     #include "songs/Withers/instruments/orchestra-manifest.orc"
     #include "songs/Withers/patterns/pattern-manifest.orc"
 
+    instr config
+      gkWhoIsHeLoopPan = 0
+    endin
+
     instr Pattern1
       iPatternLength = secondsToBeats(p3)
       iBeatsPerMeasure = 4
@@ -25,24 +31,24 @@
       until iMeasureCount * iBeatsPerMeasure >= iPatternLength do
         iBaseTime = iMeasureCount*iBeatsPerMeasure
 
-        beatScoreline "Kick", iBaseTime+0, .01, 100,  1.1
-        beatScoreline "Kick", iBaseTime+0.25, .01, 100,  1.1
+        ; beatScoreline "Kick", iBaseTime+0, .01, 100,  1.1
+        ; beatScoreline "Kick", iBaseTime+0.25, .01, 100,  1.1
 
-        beatScoreline "Kick", iBaseTime+0.75+0.125, .01, 100,  1.1
-        beatScoreline "Kick", iBaseTime+1, .01, 100,  1.1
+        ; beatScoreline "Kick", iBaseTime+0.75+0.125, .01, 100,  1.1
+        ; beatScoreline "Kick", iBaseTime+1, .01, 100,  1.1
 
-        beatScoreline "Kick", iBaseTime+1.75+0.125, .01, 100,  1.1
-        beatScoreline "Kick", iBaseTime+2, .01, 100,  1.1
+        ; beatScoreline "Kick", iBaseTime+1.75+0.125, .01, 100,  1.1
+        ; beatScoreline "Kick", iBaseTime+2, .01, 100,  1.1
 
-        beatScoreline "Kick", iBaseTime+2.75+0.125, .01, 100,  1.1
-        beatScoreline "Kick", iBaseTime+3, .01, 100,  1.1
-        beatScoreline "Kick", iBaseTime+3.25, .01, 100,  1.1
+        ; beatScoreline "Kick", iBaseTime+2.75+0.125, .01, 100,  1.1
+        ; beatScoreline "Kick", iBaseTime+3, .01, 100,  1.1
+        ; beatScoreline "Kick", iBaseTime+3.25, .01, 100,  1.1
 
-        beatScoreline "Snare", iBaseTime+.5, .01, 100,  .9
-        beatScoreline "Snare", iBaseTime+3.5, .01, 100,  .9
+        ; beatScoreline "Snare", iBaseTime+.5, .01, 100,  .9
+        ; beatScoreline "Snare", iBaseTime+3.5, .01, 100,  .9
 
 
-        beatScoreline "OpenHat", iBaseTime+0.0, 16, 80,  .25
+        ; beatScoreline "OpenHat", iBaseTime+0.0, 16, 80,  .25
 
 
         iMeasureCount += 1
@@ -52,12 +58,7 @@
   </CsInstruments>
 
   <CsScore>
-    m section1
-      i "WithersLoop2" 0 16
-      i "WithersLoop2" 16 8
-      i "WithersLoop1" 24 16
-      i "WithersLoop2" 40 16
-      i "Pattern1" 0 56
-    s
+    i "config" -1
+    i "WithersLoop2" 0 256
   </CsScore>
 </CsoundSynthesizer>
