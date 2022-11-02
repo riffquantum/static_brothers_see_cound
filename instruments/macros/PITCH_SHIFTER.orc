@@ -22,20 +22,26 @@
   $EFFECT_BYPASS($INSTRUMENT_NAME'$DRY_ROUTE'$WET_ROUTE'0'1)
 
   instr $INSTRUMENT_NAME
-    aSignalInL inleta "InL"
-    aSignalInR inleta "InR"
+    aInL inleta "InL"
+    aInR inleta "InR"
 
     iStartingPitch = p4
     iEndingPitch = p5 != 0 ? p5 : p4
     iWetRelease = p6
-    kPitchShift = linseg(iStartingPitch, p3, iEndingPitch)
+    kPitchShift = p4
     kWetLevel madsr .001, .001, 1, iWetRelease
 
-    aSignalOutL pitchShifter aSignalInL, kPitchShift, 1, 1
-    aSignalOutR pitchShifter aSignalInR, kPitchShift, 1, 1
+    aOutL pitchShifter aInL, kPitchShift, 0, 1
+    aOutR pitchShifter aInR, kPitchShift, 0, 1
 
-    outleta "OutL", aSignalOutR
-    outleta "OutR", aSignalOutL
+    ; aOutL pitchShifter4 aInL, kPitchShift, 0.1, 0.11
+    ; aOutR pitchShifter4 aInR, kPitchShift, 0.1, 0.11
+
+    ; aOutL pitchShifter2 aInL
+    ; aOutR pitchShifter2 aInR
+
+    outleta "OutL", aOutL
+    outleta "OutR", aOutR
   endin
 
   $MIXER_CHANNEL($INSTRUMENT_NAME)
