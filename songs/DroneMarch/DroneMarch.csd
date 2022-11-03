@@ -17,6 +17,7 @@
     ; #include "config/guitarMidiAssignments.orc"
     #include "opcodes/opcode-manifest.orc"
     #include "instruments/orchestra-manifest.orc"
+    #include "instruments/LayeredBassSynth.orc"
     ; #include "instruments/DrumKits/DefaultDrumKit.orc"
     #include "instruments/DrumKits/TR606/TR606-manifest.orc"
     #include "patterns/pattern-manifest.orc"

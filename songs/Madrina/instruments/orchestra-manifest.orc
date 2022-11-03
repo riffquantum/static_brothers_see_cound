@@ -9,6 +9,7 @@
 #include "DrumKit/DrumKitLPF.orc"
 #include "DrumKit/DrumKitReverb.orc"
 
+#include "../../../instruments/LayeredBassSynth.orc"
 #include "DisonantPianoRise.orc"
 #include "Guitar.orc"
 #include "GuitarTrill.orc"

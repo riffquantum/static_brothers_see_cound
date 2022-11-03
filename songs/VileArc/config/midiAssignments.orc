@@ -1,7 +1,6 @@
 gSMidiChannelAssignments[] fillarray "", \
   "PainSpiral2", \
   "SimpleOscillator", \
-  "TwistedUpHatExample", \
-  "LayeredBassSynth"
+  "TwistedUpHatExample"
 
 #include "config/assignMidiChannels.orc"

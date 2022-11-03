@@ -1,3 +1,5 @@
+#include "../../../instruments/LayeredBassSynth.orc"
+
 ; #include "WhoIsHeLoop/WhoIsHeLoop.orc"
 $BREAK_SAMPLE(WhoIsHeLoop'Mixer'songs/Withers/instruments/WhoIsHeLoop/WhoIsHeLoop.wav'16)
 

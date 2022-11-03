@@ -1,5 +1,4 @@
 gSMidiChannelAssignments[] fillarray "", \
-  "LayeredBassSynth", \
   "MidiRouter", \
   "NewInstrument"
 

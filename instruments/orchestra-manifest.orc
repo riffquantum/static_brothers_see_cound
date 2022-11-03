@@ -9,6 +9,7 @@
 
 /* Instrument Macros */
 #include "macros/ARPEGGIATOR.orc"
+#include "macros/BASS_PLUCK.orc"
 #include "macros/BASS_SYNTH.orc"
 #include "macros/BREAK_SAMPLE.orc"
 #include "macros/CASSETTE.orc"
@@ -56,8 +57,6 @@
 #include "macros/RECURSIVE_GRAIN_DELAY.orc"
 
 /* Instruments */
-#include "BassPluck.orc"
-#include "LayeredBassSynth.orc"
 #include "BigCrunchySynth.orc"
 #include "BigRichSynth.orc"
 
@@ -101,4 +100,3 @@ $DISTORTED_808_KICK(Distorted808Kick'Mixer'localSamples/Drums/TR-808_Kick_41.wav
 #include "YiSynth1.orc"
 #include "YiSynth2.orc"
 #include "YiSynth3.orc"
-#include "Arpeggiator.orc"

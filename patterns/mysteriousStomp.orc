@@ -1,3 +1,5 @@
+#include "../instruments/LayeredBassSynth.orc"
+
 instr SetTuning
   giGlobalTuningSystem = p4
   giDivisionsInTuningSystem = p5

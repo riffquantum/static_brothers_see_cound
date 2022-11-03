@@ -1,4 +1,4 @@
-#define LAYERED_BASS_SYNTH_BODY #
+#define LAYERED_BASS_SYNTH_BODY(INSTRUMENT_NAME'ROUTE) #
   iAmplitude flexibleAmplitudeInput p4
   iPitch flexiblePitchInput p5
   iSineTable sineWave
@@ -47,5 +47,7 @@
   outleta "OutR", aLayeredBassSynth
 #
 
-$NEW_INSTRUMENT(LayeredBassSynth'LayeredBassSynthFx''$LAYERED_BASS_SYNTH_BODY)
-$EFFECT_CHAIN(LayeredBassSynthFx'Mixer)
+$NEW_INSTRUMENT(LayeredBassSynth'LayeredBassSynthFxWarmDistortionInput''$LAYERED_BASS_SYNTH_BODY)
+$WARM_DISTORTION(LayeredBassSynthFxWarmDistortion'LayeredBassSynthFxChorusInput'LayeredBassSynthFxChorusInput)
+$CHORUS(LayeredBassSynthFxChorus'LayeredBassSynthFxReverbInput'LayeredBassSynthFxReverbInput)
+$MULTI_MODE_REVERB(LayeredBassSynthFxReverb'Mixer'Mixer'3)
