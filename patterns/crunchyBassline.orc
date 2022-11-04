@@ -1,3 +1,5 @@
+#include "../instruments/BigCrunchySynth.orc"
+
 instr crunchyBassline
   iPatternLength = secondsToBeats(p3)
 

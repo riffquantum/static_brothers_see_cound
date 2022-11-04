@@ -1,3 +1,5 @@
+$BREAK_SAMPLE(AmenBreak'Mixer'localSamples/amenBreak.wav'16)
+
 instr hardAmenPattern
   beatScorelineS( "AmenBreakDiskin", 3, .5, {{ 4 2 }} )
   beatScorelineS( "AmenBreakDiskin", 3.5, .5, {{ 4 2 }} )

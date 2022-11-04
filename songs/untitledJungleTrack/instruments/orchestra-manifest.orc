@@ -4,3 +4,5 @@
 #include "TablaBreakdown/TablaBreakdown.orc"
 #include "TablaLoop2/TablaLoop2.orc"
 #include "TablaRasaRanga2/TablaRasaRanga2.orc"
+#include "../../../instruments/TR606/TR606.orc"
+#include "../../../instruments/TR808/TR808.orc"

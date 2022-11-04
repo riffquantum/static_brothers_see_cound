@@ -4,3 +4,4 @@
 #include "Voidlessness.orc"
 #include "DrumKit.orc"
 #include "../../../instruments/LayeredBassSynth.orc"
+#include "TwistedUpHatExample.orc"

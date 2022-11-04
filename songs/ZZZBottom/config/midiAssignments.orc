@@ -3,7 +3,6 @@ gSMidiChannelAssignments[] fillarray "", \
   "SyncloopSamplerTemplate", \
   "DescentTwinkle2", \
   "ItsOnlyLove2", \
-  "DisonantSynth", \
   "GrowlOn"
 
 #include "config/assignMidiChannels.orc"

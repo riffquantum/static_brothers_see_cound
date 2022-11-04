@@ -16,6 +16,8 @@
     #include "config/defaultMidiRouterMapping.orc"
     #include "opcodes/opcode-manifest.orc"
     #include "instruments/orchestra-manifest.orc"
+    #include "SimpleOscillator.orc"
+
     instr MainRiff
         iRiffVelocity = 100
 

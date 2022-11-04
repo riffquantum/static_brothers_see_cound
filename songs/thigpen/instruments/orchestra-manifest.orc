@@ -2,3 +2,4 @@
 
 #include "../../../songs/thigpen/instruments/Kick.orc"
 
+#include "../../../instruments/TR606/TR606.orc"

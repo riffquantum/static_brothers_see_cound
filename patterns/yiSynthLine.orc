@@ -1,3 +1,6 @@
+#include "YiSynth1.orc"
+#include "YiSynth2.orc"
+#include "YiSynth3.orc"
 $TWISTED_UP_HAT(SnickerSnack'Mixer'localSamples/Drums/Beatbox-Drums_Closed-Hat_EA7544.wav'$TWISTED_UP_HAT_GRAIN_SETTINGS)
 
 instr YiSynthLine

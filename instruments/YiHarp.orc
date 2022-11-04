@@ -1,4 +1,4 @@
-instrumentRoute "YiHarp", "DefaultEffectChain"
+instrumentRoute "YiHarp", "Mixer"
 
 instr YiHarp
   ; An adaptation of code by Steven Yi

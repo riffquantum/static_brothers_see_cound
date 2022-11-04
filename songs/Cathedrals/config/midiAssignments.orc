@@ -1,4 +1,3 @@
-gSMidiChannelAssignments[] fillarray "", \
-  "SimpleOscillator"
+gSMidiChannelAssignments[] fillarray ""
 
 #include "config/assignMidiChannels.orc"

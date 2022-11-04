@@ -1,4 +1,4 @@
-instrumentRoute "YiBanjo", "DefaultEffectChain"
+instrumentRoute "YiBanjo", "Mixer"
 
 instr YiBanjo
   ; An adaptation of code by Steven Yi

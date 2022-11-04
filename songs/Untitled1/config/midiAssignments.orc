@@ -1,6 +1,4 @@
 gSMidiChannelAssignments[] fillarray "", \
-  "DisonantSynth", \
-  "SimpleOscillator", \
   "SyncloopSamplerTemplate", \
   "NewInstrument"
 

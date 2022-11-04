@@ -1,3 +1,5 @@
+$BREAK_SAMPLE(NothingIDontLikeBreak'Mixer'localSamples/nothingIDontLikeBreak.wav'16)
+
 instr goofyFiveGroove
   iPatternLength = secondsToBeats(p3)
   iBeatsPerMeasure = 5

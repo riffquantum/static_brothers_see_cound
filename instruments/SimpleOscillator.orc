@@ -1,5 +1,5 @@
 gSSimpleOscillatorName = "SimpleOscillator"
-gSSimpleOscillatorRoute = "K35LowPassFilterInput"
+gSSimpleOscillatorRoute = "Mixer"
 instrumentRoute gSSimpleOscillatorName, gSSimpleOscillatorRoute
 
 instr SimpleOscillator

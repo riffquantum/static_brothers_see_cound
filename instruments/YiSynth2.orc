@@ -1,4 +1,4 @@
-instrumentRoute "YiSynth2", "DefaultEffectChain"
+instrumentRoute "YiSynth2", "Mixer"
 
 instr YiSynth2
   ; An adaptation of code by Steven Yi

@@ -1,6 +1,4 @@
 gSMidiChannelAssignments[] fillarray "", \
-  "PainSpiral2", \
-  "SimpleOscillator", \
-  "TwistedUpHatExample"
+  "PainSpiral2"
 
 #include "config/assignMidiChannels.orc"

@@ -1,4 +1,5 @@
 #include "../instruments/LayeredBassSynth.orc"
+$BREAK_SAMPLE(AmenBreak'Mixer'localSamples/amenBreak.wav'16)
 
 instr SetTuning
   giGlobalTuningSystem = p4

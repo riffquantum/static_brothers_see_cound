@@ -18,10 +18,10 @@
     #include "config/defaultConfig.orc"
     #include "config/defaultMidiAssignments.orc"
     #include "config/defaultMidiRouterMappingWithSPD30.orc"
-    ; #include "config/guitarMidiAssignments.orc"
     #include "opcodes/opcode-manifest.orc"
     #include "instruments/orchestra-manifest.orc"
 
+    #include "MidiRouter.orc"
     #include "instruments/DrumKits/BirdshitDrumKit.orc"
     #include "instruments/DrumKits/AvianPeterDrumKit.orc"
     #include "instruments/DrumKits/CharybdisDrumKit.orc"

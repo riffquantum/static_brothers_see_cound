@@ -57,46 +57,14 @@
 #include "macros/RECURSIVE_GRAIN_DELAY.orc"
 
 /* Instruments */
-#include "BigCrunchySynth.orc"
-#include "BigRichSynth.orc"
-
-$BREAK_SAMPLE(AmenBreak'Mixer'localSamples/amenBreak.wav'16)
-$BREAK_SAMPLE(FunkyDrummerBreak'Mixer'localSamples/funkyDrummerBreak.wav'32)
-$BREAK_SAMPLE(GettinHappyBreak'Mixer'localSamples/gettinHappyBreak0.wav'16)
-$BREAK_SAMPLE(ItsExpectedBreak'Mixer'localSamples/handInTheHandBreak0.wav'16)
-$BREAK_SAMPLE(ItsOnlyLoveBreak'Mixer'localSamples/itsOnlyLoveBreak.wav'8)
-$BREAK_SAMPLE(JbShoutBreak'Mixer'localSamples/jbSHoutBreakClean.wav'16)
-$BREAK_SAMPLE(JohnnyTheFoxBreak'Mixer'localSamples/johnnyTheFoxBreak.wav'16)
-$BREAK_SAMPLE(KissingMyLoveBreak'Mixer'localSamples/kissingMyLoveBreak0.wav'8)
-$BREAK_SAMPLE(KissingMyLoveSpankyBreak'Mixer'localSamples/kissingMyLoveSpankyBreak.wav'16)
-$BREAK_SAMPLE(LoserInTheEndBreak'Mixer'localSamples/loserInTheEndBreak.wav'16)
-$BREAK_SAMPLE(NothingIDontLikeBreak'Mixer'localSamples/nothingIDontLikeBreak.wav'16)
-$BREAK_SAMPLE(RafflesiaBreak'Mixer'localSamples/rafflesiaBreak.wav'4)
-$BREAK_SAMPLE(ThinkBreak'Mixer'localSamples/thinkBreak0.wav'4)
-#include "chorusedSynth.orc"
 $EFFECT_CHAIN(DefaultEffectChain'Mixer)
-#include "DelayHiHat.orc"
-#include "DisonantSynth.orc"
 $DISTORTED_808_KICK(Distorted808Kick'Mixer'localSamples/Drums/TR-808_Kick_41.wav)
 #include "FlowingTrumpetingOvertones.orc"
-#include "K35LowPassFilter.orc"
-#include "linnDrum/linnDrum.orc"
 #include "Metronome/Metronome.orc"
 #include "Mixer.orc"
-#include "MidiRouter.orc"
 #include "MidiControlInputs/MidiControlInputs.orc"
 #include "NewEffect.orc"
 #include "NewInstrument.orc"
 #include "PatternWriter.orc"
 #include "Section.orc"
-#include "SimpleOscillator.orc"
 #include "SyncloopSamplerTemplate.orc"
-#include "TR808/TR808.orc"
-#include "TR606/TR606.orc"
-#include "TwistedUpKickExample.orc"
-#include "TwistedUpHatExample.orc"
-#include "YiBanjo.orc"
-#include "YiHarp.orc"
-#include "YiSynth1.orc"
-#include "YiSynth2.orc"
-#include "YiSynth3.orc"

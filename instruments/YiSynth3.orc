@@ -1,4 +1,4 @@
-instrumentRoute "YiSynth3", "DefaultEffectChain"
+instrumentRoute "YiSynth3", "Mixer"
 
 gkModulatorOne init 1.734
 

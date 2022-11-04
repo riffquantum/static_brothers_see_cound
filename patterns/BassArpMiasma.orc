@@ -1,3 +1,4 @@
+$BREAK_SAMPLE(AmenBreak'Mixer'localSamples/amenBreak.wav'16)
 $BASS_SYNTH(BassSynth'BassSynthDistInput')
 $WARM_DISTORTION(BassSynthDist'BassSynthDelayInput'BassSynthDelayInput)
 $DELAY(BassSynthDelay'Mixer'Mixer'5'0.05'0.85'1'0.0)

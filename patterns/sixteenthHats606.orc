@@ -1,3 +1,5 @@
+#include "../instruments/TR606/TR606.orc"
+
 instr sixteenthHats606
     itotalNotes = p3 * i(gkBPM)/60 * 4
     iHatVelocity = p4

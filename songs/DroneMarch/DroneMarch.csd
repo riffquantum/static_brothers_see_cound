@@ -22,6 +22,10 @@
     #include "instruments/DrumKits/TR606/TR606-manifest.orc"
     #include "patterns/pattern-manifest.orc"
 
+    $BREAK_SAMPLE(AmenBreak'Mixer'localSamples/amenBreak.wav'16)
+    $BREAK_SAMPLE(KissingMyLoveSpankyBreak'Mixer'localSamples/kissingMyLoveSpankyBreak.wav'16)
+    #include "SimpleOscillator.orc"
+
     instr config
       ; midiMonitor
       gaDefaultEffectChainDelayTime = (poscil(1/8, 1) + .25) * (poscil(2.5, .5) + 2.6) * (poscil(.1, .1) + 1)

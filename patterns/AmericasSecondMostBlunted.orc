@@ -1,3 +1,4 @@
+$BREAK_SAMPLE(KissingMyLoveSpankyBreak'Mixer'localSamples/kissingMyLoveSpankyBreak.wav'16)
 $BREAK_SAMPLE(NinetyNine'NinetyNineMonoInput'localsamples/ninetyNineAndAHalfIntroLoop.wav'8)
 $BREAK_SAMPLE(Inhale'Mixer'localsamples/inhale.wav'4)
 $TO_MONO(NinetyNineMono'Mixer'Mixer)

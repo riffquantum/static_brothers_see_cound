@@ -1,4 +1,4 @@
-instrumentRoute "BigRichSynth", "DefaultEffectChain"
+instrumentRoute "BigRichSynth", "Mixer"
 
 instr BigRichSynth
   iAmplitude flexibleAmplitudeInput p4

@@ -158,7 +158,6 @@
     ; beatScoreline "WorkingPattern", 0, 128
     ; beatScoreline "DefaultEffectChainWarmDistortion", 0, -1
     beatScoreline "DefaultEffectChainReverb", 0, -1
-    beatScoreline "K35LowPassFilter", 0, -1
     ; beatScoreline "DefaultEffectChainChorus", 0, -1
   </CsInstruments>
   <CsScore>
