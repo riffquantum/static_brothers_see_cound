@@ -36,6 +36,7 @@
 #include "macros/MULTI_STAGE_DISTORTION.orc"
 #include "macros/OCARINA.orc"
 #include "macros/PITCH_SHIFTER.orc"
+#include "macros/REVERSE_BUFFER.orc"
 #include "macros/RING_MOD.orc"
 #include "macros/SAMPLE_SCRUBBER.orc"
 #include "macros/SPECTRAL_DELAY.orc"
@@ -55,6 +56,7 @@
 #include "macros/DELAY_TO_GRAIN.orc"
 #include "macros/GRAIN_TO_DELAY.orc"
 #include "macros/RECURSIVE_GRAIN_DELAY.orc"
+#include "macros/REVERSE_DELAY.orc"
 
 /* Instruments */
 $EFFECT_CHAIN(DefaultEffectChain'Mixer)
