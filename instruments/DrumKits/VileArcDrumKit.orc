@@ -12,7 +12,7 @@ giVileArcSongIndex init 3
 #include "../../songs/VileArc/instruments/AwfulCrash.orc"
 #include "../../songs/VileArc/instruments/DelayForAwfulCrash.orc"
 
-$DRUM_SAMPLE(VileArcSnare'DistortionForSnareInput'localSamples/Drums/Funk-Kit_Snare_EA8141.wav'0'1)
+$DRUM_SAMPLE_V1(VileArcSnare'DistortionForSnareInput'localSamples/Drums/Funk-Kit_Snare_EA8141.wav'0'1)
 
 
 instr VileArcPattern1

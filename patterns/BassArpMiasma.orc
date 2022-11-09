@@ -4,9 +4,9 @@ $WARM_DISTORTION(BassSynthDist'BassSynthDelayInput'BassSynthDelayInput)
 $DELAY(BassSynthDelay'Mixer'Mixer'5'0.05'0.85'1'0.0)
 $ARPEGGIATOR(BassArp'BassSynth)
 
-$DRUM_SAMPLE(Snare'Mixer'localSamples/Drums/Funk-Kit_Snare_EA8141.wav'1'1)
+$DRUM_SAMPLE_V1(Snare'Mixer'localSamples/Drums/Funk-Kit_Snare_EA8141.wav'1'1)
 
-$DRUM_SAMPLE(MuffledKick'Mixer'localSamples/Drums/Beatbox-Drums_Kick_EA7538.wav'1'1)
+$DRUM_SAMPLE_V1(MuffledKick'Mixer'localSamples/Drums/Beatbox-Drums_Kick_EA7538.wav'1'1)
 
 $TWISTED_KICK(TwistedUpKick'Mixer'localSamples/CB_Kick.wav)
 $EFFECT_CHAIN(TwistedUpKickFx'Mixer)

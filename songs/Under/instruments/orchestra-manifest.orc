@@ -1,11 +1,11 @@
 #include "BassSynth.orc"
 
 ; Drums
-$DRUM_SAMPLE(Snare'DrumBus'localSamples/Drums/Funk-Kit_Snare_EA8141.wav'1'1)
-$DRUM_SAMPLE(MuffledKick'DrumBus'localSamples/Drums/Beatbox-Drums_Kick_EA7538.wav'1'1)
+$DRUM_SAMPLE_V1(Snare'DrumBus'localSamples/Drums/Funk-Kit_Snare_EA8141.wav'1'1)
+$DRUM_SAMPLE_V1(MuffledKick'DrumBus'localSamples/Drums/Beatbox-Drums_Kick_EA7538.wav'1'1)
 $BREAK_SAMPLE(PillarBreak'DrumBus'localsamples/pillarToPostBreak.wav'15.75)
 $SYNCLOOP_SAMPLER(PillarBreakGrain'DrumBus'localsamples/pillarToPostBreak.wav''15.75'0)
-$DRUM_SAMPLE(ClosedHat'DrumBus'localSamples/Drums/R8-Drums_Closed-Hat_E703.wav'0'1)
+$DRUM_SAMPLE_V1(ClosedHat'DrumBus'localSamples/Drums/R8-Drums_Closed-Hat_E703.wav'0'1)
 $BUS(DrumBus'MelodyGrainInput)
 $LIVE_SYNCLOOP(DrumGrain'Mixer'Mixer')
 

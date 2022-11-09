@@ -1,11 +1,11 @@
 ; Drums
-$DRUM_SAMPLE_2(OpenHat1'DrumBus'localSamples/Drums/Alesis-HR16A_Open-Hat_27.wav'1'1'+'0'-1)
-$DRUM_SAMPLE_2(OpenHat2'DrumBus'localSamples/Drums/Alesis-HR16A_Open-Hat_28.wav'1'1'+'0'-1)
-$DRUM_SAMPLE_2(ClosedHat'DrumBus'localSamples/Drums/Alesis-HR16A_Closed-Hat_16.wav'1'1'+'0'-1)
-$DRUM_SAMPLE_2(Crash'DrumBus'localSamples/Drums/Alesis-HR16A_Crash_21.wav'0'1'+'0'-1)
-$DRUM_SAMPLE_2(Kick'DrumBus'localSamples/Drums/Alesis-HR16A_Kick_04.wav'0'0'+'0'0)
-$DRUM_SAMPLE_2(Snare'DrumBus'localSamples/Drums/Mixed-Drums_Snare_EA8519.wav'1'1'+'0'-1)
-$DRUM_SAMPLE_2(Snare2'DrumBus'localSamples/Drums/Vinylistics-3_Snare_VC25.wav'1'1'+'0'-1)
+$DRUM_SAMPLE_V2(OpenHat1'DrumBus'localSamples/Drums/Alesis-HR16A_Open-Hat_27.wav'1'1'+'0'-1)
+$DRUM_SAMPLE_V2(OpenHat2'DrumBus'localSamples/Drums/Alesis-HR16A_Open-Hat_28.wav'1'1'+'0'-1)
+$DRUM_SAMPLE_V2(ClosedHat'DrumBus'localSamples/Drums/Alesis-HR16A_Closed-Hat_16.wav'1'1'+'0'-1)
+$DRUM_SAMPLE_V2(Crash'DrumBus'localSamples/Drums/Alesis-HR16A_Crash_21.wav'0'1'+'0'-1)
+$DRUM_SAMPLE_V2(Kick'DrumBus'localSamples/Drums/Alesis-HR16A_Kick_04.wav'0'0'+'0'0)
+$DRUM_SAMPLE_V2(Snare'DrumBus'localSamples/Drums/Mixed-Drums_Snare_EA8519.wav'1'1'+'0'-1)
+$DRUM_SAMPLE_V2(Snare2'DrumBus'localSamples/Drums/Vinylistics-3_Snare_VC25.wav'1'1'+'0'-1)
 #include "Drums.orc"
 
 ; Drum Bus

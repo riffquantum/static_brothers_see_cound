@@ -1,13 +1,13 @@
 ;Kicks
-$DRUM_SAMPLE(BirdshitCbKick'BirdshitKickBus'localSamples/CB_Kick.wav'1'1)
-$DRUM_SAMPLE(BirdshitLongDeepKick'BirdshitKickBus'localSamples/Drums/R8-Drums_Kick_EA7604.wav'1'1)
+$DRUM_SAMPLE_V1(BirdshitCbKick'BirdshitKickBus'localSamples/CB_Kick.wav'1'1)
+$DRUM_SAMPLE_V1(BirdshitLongDeepKick'BirdshitKickBus'localSamples/Drums/R8-Drums_Kick_EA7604.wav'1'1)
 
-$DRUM_SAMPLE(BirdshitSharpKick'BirdshitReverbForSharpKick'localSamples/Drums/R8-Drums_Kick_EA7614.wav'1'1)
+$DRUM_SAMPLE_V1(BirdshitSharpKick'BirdshitReverbForSharpKick'localSamples/Drums/R8-Drums_Kick_EA7614.wav'1'1)
 
-$DRUM_SAMPLE(NoamCatSample'Mixer'localSamples/noam-cat-worth.wav'0'1)
+$DRUM_SAMPLE_V1(NoamCatSample'Mixer'localSamples/noam-cat-worth.wav'0'1)
 
-; $DRUM_SAMPLE(BirdShitSynth1'BirdshitBus'localSamples/Birdshit/BirdShitSynthSample1.wav'0'1)
-; $DRUM_SAMPLE(BirdShitSynth2'BirdshitBus'localSamples/Birdshit/BirdShitSynthSample1.wav'0'1)
+; $DRUM_SAMPLE_V1(BirdShitSynth1'BirdshitBus'localSamples/Birdshit/BirdShitSynthSample1.wav'0'1)
+; $DRUM_SAMPLE_V1(BirdShitSynth2'BirdshitBus'localSamples/Birdshit/BirdShitSynthSample1.wav'0'1)
 
 #include "../../songs/sbDrumKit/instruments/BirdShit/BirdShitSynthSamples/BirdShitSynthSamples.orc"
 
@@ -50,8 +50,8 @@ endin
 $BUS(BirdshitKickBus'Mixer)
 
 ;Snares
-$DRUM_SAMPLE(BirdshitSnare'BirdshitSnareBus'localSamples/Drums/R8-Drums_Snare_EA7741.wav'1'1)
-$DRUM_SAMPLE(BirdshitSharpSnare'BirdshitSnareBus'localSamples/Drums/R8-Drums_Snare_EA7739.wav'1'1)
+$DRUM_SAMPLE_V1(BirdshitSnare'BirdshitSnareBus'localSamples/Drums/R8-Drums_Snare_EA7741.wav'1'1)
+$DRUM_SAMPLE_V1(BirdshitSharpSnare'BirdshitSnareBus'localSamples/Drums/R8-Drums_Snare_EA7739.wav'1'1)
 
 instr BirdshitSnare
   event_i "i", "Snare", 0, p3, p4, p5
@@ -64,16 +64,16 @@ endin
 $BUS(BirdshitSnareBus'BirdshitBus)
 
 ;Other Drums
-$DRUM_SAMPLE(BirdshitCrash'BirdshitBus'localSamples/Drums/R8-Drums_Crash_EA7847.wav'1'1) ; missing from localsamples
+$DRUM_SAMPLE_V1(BirdshitCrash'BirdshitBus'localSamples/Drums/R8-Drums_Crash_EA7847.wav'1'1) ; missing from localsamples
 
-$DRUM_SAMPLE(BirdshitPitchedDownCrash'BirdshitBus'localSamples/Drums/R8-Drums_Crash_EA7847.wav'1'1)
+$DRUM_SAMPLE_V1(BirdshitPitchedDownCrash'BirdshitBus'localSamples/Drums/R8-Drums_Crash_EA7847.wav'1'1)
 
 
-$DRUM_SAMPLE(BirdshitClosedHat'BirdshitBus'localSamples/Drums/R8-Drums_Closed-Hat_EA7803.wav'1'1)
-$DRUM_SAMPLE(BirdshitOpenHat'BirdshitBus'localSamples/Drums/R8-Drums_Open-Hat_EA7804.wav'1'1)
-$DRUM_SAMPLE(BirdshitRide'BirdshitBus'localSamples/Drums/R8-Drums_Ride_EA7810.wav'1'1)
-$DRUM_SAMPLE(BirdshitTomLow'BirdshitBus'localSamples/Drums/R8-Drums_Tom_E7661.wav'0'1)
-$DRUM_SAMPLE(BirdshitTomMid'BirdshitBus'localSamples/Drums/R8-Drums_Tom_E7662.wav'0'1)
+$DRUM_SAMPLE_V1(BirdshitClosedHat'BirdshitBus'localSamples/Drums/R8-Drums_Closed-Hat_EA7803.wav'1'1)
+$DRUM_SAMPLE_V1(BirdshitOpenHat'BirdshitBus'localSamples/Drums/R8-Drums_Open-Hat_EA7804.wav'1'1)
+$DRUM_SAMPLE_V1(BirdshitRide'BirdshitBus'localSamples/Drums/R8-Drums_Ride_EA7810.wav'1'1)
+$DRUM_SAMPLE_V1(BirdshitTomLow'BirdshitBus'localSamples/Drums/R8-Drums_Tom_E7661.wav'0'1)
+$DRUM_SAMPLE_V1(BirdshitTomMid'BirdshitBus'localSamples/Drums/R8-Drums_Tom_E7662.wav'0'1)
 
 
 ;Final Bus

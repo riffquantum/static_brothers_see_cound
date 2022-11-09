@@ -1,5 +1,5 @@
 /*
-  DRUM_SAMPLE_3
+  DRUM_SAMPLE_PLUS
   Expanded version of DRUM_SAMPLE. Creates an instrument that plays back a sample once per instrument instance.Suitable for direct MIDI input.
 
   Global Variables:
@@ -31,7 +31,7 @@
 */
 
 
-#define DRUM_SAMPLE_3(INSTRUMENT_NAME'ROUTE'SAMPLE_PATH'SHOULD_RESPECT_P3'VELOCITY_CURVE'NORMALIZE_SIGN'PITCH_MODE'RELEASE_TIME) #
+#define DRUM_SAMPLE_PLUS(INSTRUMENT_NAME'ROUTE'SAMPLE_PATH'SHOULD_RESPECT_P3'VELOCITY_CURVE'NORMALIZE_SIGN'PITCH_MODE'RELEASE_TIME) #
   instrumentRoute "$INSTRUMENT_NAME", "$ROUTE"
 
   gS$INSTRUMENT_NAME.SamplePath = "$SAMPLE_PATH"
@@ -54,8 +54,6 @@
     else
       iPitch = p5
     endif
-
-    iSampleLengthInSamples = gi$INSTRUMENT_NAME.SampleLength * sr
 
     if iPitch < 0 then
       iPitch = abs(iPitch)
@@ -84,8 +82,6 @@
     else
       aOutR = aOutL
     endif
-
-    iReleaseAsPercentage = $RELEASE_TIME/gi$INSTRUMENT_NAME.SampleLength
 
     aOutL *= aAmplitudeEnvelope
     aOutR *= aAmplitudeEnvelope

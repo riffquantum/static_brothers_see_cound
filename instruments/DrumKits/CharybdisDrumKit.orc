@@ -8,7 +8,7 @@
 #include "../../songs/Charybdis/instruments/DustyBassGrain.orc"
 #include "../../songs/Charybdis/instruments/DelayForDustyBassGrain.orc"
 
-$DRUM_SAMPLE(CharybdisSnare'Mixer'localSamples/Drums/Mixed-Drums_Snare_EA8512.wav'0'1)
+$DRUM_SAMPLE_V1(CharybdisSnare'Mixer'localSamples/Drums/Mixed-Drums_Snare_EA8512.wav'0'1)
 
 instr CharybdisConfig
   gaDelayForDustyBassGrainTime = oscil(.1, .05) + 3
