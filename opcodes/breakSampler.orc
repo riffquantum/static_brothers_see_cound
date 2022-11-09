@@ -4,15 +4,15 @@ opcode breakSampler, aa, ikiiiio
   iLengthOfBeat = iSampleLength / iSampleLengthInBeats
   iBreakBPM = 60 / iLengthOfBeat
 
-  kAmplitudeEnvelope = madsr(.005, .01, 1, .01) * iAmplitude
+  aAmplitudeEnvelope = madsr:a(.005, .01, 1, .01) * iAmplitude
   kPitch *= 1 / iSampleLength * gkBPM / iBreakBPM
   iStartTime = iStartBeat / iSampleLengthInBeats
 
   if iSampleR != 0 then
-    aSampleR poscil kAmplitudeEnvelope, kPitch, iSampleR, iStartTime
-    aSampleL poscil kAmplitudeEnvelope, kPitch, iSampleL, iStartTime
+    aSampleR poscil aAmplitudeEnvelope, kPitch, iSampleR, iStartTime
+    aSampleL poscil aAmplitudeEnvelope, kPitch, iSampleL, iStartTime
   else
-    aSampleL poscil kAmplitudeEnvelope, kPitch, iSampleL, iStartTime
+    aSampleL poscil aAmplitudeEnvelope, kPitch, iSampleL, iStartTime
     aSampleR = aSampleL
   endif
 
