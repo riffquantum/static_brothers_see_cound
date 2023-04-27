@@ -11,11 +11,13 @@ $DRUM_SAMPLE_V2(HMSnare'HMDrumBus'localSamples/Drums/House-Drums_Snare_EA8708.wa
 $DRUM_SAMPLE_V2(HMBigSnare'HMDrumBus'localSamples/Drums/Alesis-HR16A_Snare_42.wav'1'1'+'0'-1)
 $BUS(HMDrumBus'HMDrumDistInput)
 $CLIP(HMDrumDist'HMDrumPostBus'HMDrumPostBus)
-$BUS(HMDrumPostBus'Mixer)
+$BUS(HMDrumPostBus'BirdshitFxMainReverbInput)
 alwayson "HMDrumDist"
 
 instr HMAggKick
+  gkDistorted808KickPreGain = 200
+  gkDistorted808KickPostGain = .8
   schedule "Distorted808Kick", 0, p3, p4*.50, .5
   schedule "Distorted808Kick", 0, p3, p4*.40, .75
-  schedule "Kick", 0, p3, p4, 1
+  schedule "HMKick", 0, p3, p4, 1
 endin

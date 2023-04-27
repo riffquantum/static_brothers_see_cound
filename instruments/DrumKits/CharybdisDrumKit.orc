@@ -64,13 +64,13 @@ giEventsForNoteInstruments[giCharybdisSongIndex][giSpd30Pad5Note][0] ftgen 0, 0,
 
 giEventsForNoteInstruments[giCharybdisSongIndex][giSpd30Pad4Note][0] ftgen 0, 0, 0, -2, 1, nstrnum("CharybdisLoop2"), 0, beatsToSeconds(4, 100), 0, 0.5, 0, 1
 
-giEventsForNoteInstruments[giCharybdisSongIndex][giSpd30Pad7Note][0] ftgen 0, 0, 0, -2, 1, nstrnum("DustyBass"), 0, beatsToSeconds(3, 100), 0, 3.09
-giEventsForNoteInstruments[giCharybdisSongIndex][giSpd30Pad7Note][1] ftgen 0, 0, 0, -2, 0, nstrnum("CharybdisLoop2"), 0, beatsToSeconds(3, 100), 0, 0.5, 0, 1
-giEventsForNoteInstruments[giCharybdisSongIndex][giSpd30Pad7Note][2] ftgen 0, 0, 0, -2, 0, nstrnum("CharybdisLoop2"), beatsToSeconds(3, 100), beatsToSeconds(3, 100), 0, 0.5, 0, 1
+giEventsForNoteInstruments[giCharybdisSongIndex][giSpd30Pad7Note][0] ftgen 0, 0, 0, -2, 1, nstrnum("DustyBass"), 0, beatsToSeconds(3, 100), 120, 3.09
+giEventsForNoteInstruments[giCharybdisSongIndex][giSpd30Pad7Note][1] ftgen 0, 0, 0, -2, 0, nstrnum("CharybdisLoop2"), 0, beatsToSeconds(3, 100), 120, 0.5, 0, 1
+giEventsForNoteInstruments[giCharybdisSongIndex][giSpd30Pad7Note][2] ftgen 0, 0, 0, -2, 0, nstrnum("CharybdisLoop2"), beatsToSeconds(3, 100), beatsToSeconds(3, 100), 120, 0.5, 0, 1
 
-giEventsForNoteInstruments[giCharybdisSongIndex][giSpd30Pad3Note][0] ftgen 0, 0, 0, -2, 1, nstrnum("DustyBass"), 0, beatsToSeconds(3, 100), 0, 3.07
-giEventsForNoteInstruments[giCharybdisSongIndex][giSpd30Pad3Note][1] ftgen 0, 0, 0, -2, 0, nstrnum("CharybdisLoop2"), 0, beatsToSeconds(3, 100), 0, 0.5, 0, 1
-giEventsForNoteInstruments[giCharybdisSongIndex][giSpd30Pad3Note][2] ftgen 0, 0, 0, -2, 0, nstrnum("CharybdisLoop2"), beatsToSeconds(3, 100), beatsToSeconds(3, 100), 0, 0.5, 0, 1
+giEventsForNoteInstruments[giCharybdisSongIndex][giSpd30Pad3Note][0] ftgen 0, 0, 0, -2, 1, nstrnum("DustyBass"), 0, beatsToSeconds(3, 100), 120, 3.07
+giEventsForNoteInstruments[giCharybdisSongIndex][giSpd30Pad3Note][1] ftgen 0, 0, 0, -2, 0, nstrnum("CharybdisLoop2"), 0, beatsToSeconds(3, 100), 120, 0.5, 0, 1
+giEventsForNoteInstruments[giCharybdisSongIndex][giSpd30Pad3Note][2] ftgen 0, 0, 0, -2, 0, nstrnum("CharybdisLoop2"), beatsToSeconds(3, 100), beatsToSeconds(3, 100), 120, 0.5, 0, 1
 
 giEventsForNoteInstruments[giCharybdisSongIndex][giSpd30Pad1Note][0] ftgen 0, 0, 0, -2, 1, nstrnum("DustyBassGrainToggle"), 0, 2, 0, 0.5
 
@@ -79,10 +79,25 @@ giEventsForNoteInstruments[giCharybdisSongIndex][giSpd30Pad1Note][0] ftgen 0, 0,
 giMidiNoteInterruptList[giCharybdisSongIndex][giHatPedalNote] ftgen 0, 0, 0, -2, nstrnum("BirdshitOpenHat")
 giMidiNoteInterruptList[giCharybdisSongIndex][giHatClosedNote] ftgen 0, 0, 0, -2, nstrnum("BirdshitOpenHat")
 
+instr CharybdisInit
+  iOnOff = p6
 
-
-
-giEventsForNoteInstruments[giCharybdisSongIndex][giPadC13Note][0] ftgen 0, 0, 0, -2, 0, nstrnum("SwitchSong"), 0, 0.1, 0, 0, 0
-giEventsForNoteInstruments[giCharybdisSongIndex][giPadC14Note][0] ftgen 0, 0, 0, -2, 0, nstrnum("SwitchSong"), 0, 0.1, 0, 0, 1
-giEventsForNoteInstruments[giCharybdisSongIndex][giPadC15Note][0] ftgen 0, 0, 0, -2, 0, nstrnum("SwitchSong"), 0, 0.1, 0, 0, 2
-giEventsForNoteInstruments[giCharybdisSongIndex][giPadC16Note][0] ftgen 0, 0, 0, -2, 0, nstrnum("SwitchSong"), 0, 0.1, 0, 0, 3
+  if iOnOff == 1 then
+    prints "%n%n Initializing Charybdis %n%n"
+    giCurrentSong = giCharybdisSongIndex
+    gkBPM = 100
+    giMetronomeCount = 0
+    giMetronomeBeatsPerMeasure = 4
+    giMetronomeAccents[] init 1
+    giMetronomeAccents fillarray 1
+    event_i "i", "CharybdisConfig", 0, -1
+    event_i "i", "BirdshitReverbForSharpKick", 0, -1
+    event_i "i", "BirdshitFxMainReverb", 0, -1
+  else
+    turnoff2 "CharybdisConfig", 0, 1
+    turnoff2 "BirdshitReverbForSharpKick", 0, 1
+    turnoff2 "BirdshitFxMainReverb", 0, 1
+    turnoff2 "DustyBassGrain", 0, 1
+    turnoff2 "DelayForDustyBassGrain", 0, 1
+  endif
+endin

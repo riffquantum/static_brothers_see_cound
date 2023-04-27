@@ -60,3 +60,25 @@ giEventsForNoteInstruments[giAvianPeterSongIndex][giPadC13Note][0] ftgen 0, 0, 0
 giEventsForNoteInstruments[giAvianPeterSongIndex][giPadC14Note][0] ftgen 0, 0, 0, -2, 0, nstrnum("SwitchSong"), 0, 0.1, 0, 0, 1
 giEventsForNoteInstruments[giAvianPeterSongIndex][giPadC15Note][0] ftgen 0, 0, 0, -2, 0, nstrnum("SwitchSong"), 0, 0.1, 0, 0, 2
 giEventsForNoteInstruments[giAvianPeterSongIndex][giPadC16Note][0] ftgen 0, 0, 0, -2, 0, nstrnum("SwitchSong"), 0, 0.1, 0, 0, 3
+
+instr AvianPeterInit
+  iOnOff = p6
+
+  if iOnOff == 1 then
+    printsBlock "Initializing AvianPeter"
+    giCurrentSong = giAvianPeterSongIndex
+    gkBPM = 112
+    giMetronomeCount = 0
+    giMetronomeBeatsPerMeasure = 21
+    giMetronomeAccents[] init 1
+    giMetronomeAccents fillarray 1, 3, 6, 8, 11, 13, 16, 18, 19, 20, 21
+    event_i "i", "AvianPeterConfig", 0, -1
+    event_i "i", "BirdshitReverbForSharpKick", 0, -1
+    event_i "i", "BirdshitFxMainReverb", 0, -1
+
+  else
+    turnoff2 "AvianPeterConfig", 0, 1
+    turnoff2 "BirdshitReverbForSharpKick", 0, 1
+    turnoff2 "BirdshitFxMainReverb", 0, 1
+  endif
+endin

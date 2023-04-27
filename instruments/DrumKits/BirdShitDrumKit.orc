@@ -15,7 +15,6 @@ instr BirdshitConfig
 
 endin
 
-alwayson "BirdshitReverbForSharpKick"
 stereoRoute "BirdshitReverbForSharpKick", "BirdshitKickBus"
 
 gkBirdshitReverbForSharpKickWetAmount init .2
@@ -23,7 +22,6 @@ gkBirdshitReverbForSharpKickDry init 1
 gkBirdshitReverbForSharpKickDelay init .9
 gkBirdshitReverbForSharpKickCutoff init sr/2-100
 gkBirdshitPitchedDownCrashTuning init .5
-
 
 instr BirdshitReverbForSharpKick
   aSignalL inleta "InL"
@@ -77,7 +75,6 @@ $DRUM_SAMPLE_V1(BirdshitTomMid'BirdshitBus'localSamples/Drums/R8-Drums_Tom_E7662
 
 
 ;Final Bus
-alwayson "BirdshitFxMainReverb"
 $BUS(BirdshitBus'BirdshitFxMainReverbInput)
 $FT_CONV_REVERB(BirdshitFxMainReverb'BirdshitPostFxBus'BirdshitPostFxBus'./localSamples/IMreverbs/Narrow Bumpy Space.wav)
 $BUS(BirdshitPostFxBus'Mixer)
@@ -109,7 +106,6 @@ endin
 $MIXER_CHANNEL(BirdshitSynth)
 
 instrumentRoute "BirdshitSynthDistortion", "Mixer"
-alwayson "BirdshitSynthDistortion"
 instr BirdshitSynthDistortion
   aBirdShitSynthDistortionInL inleta "InL"
   aBirdShitSynthDistortionInR inleta "InR"
@@ -133,7 +129,7 @@ $MIXER_CHANNEL(BirdshitSynthDistortion)
 
 
 ; Midi Controller Setup
-giBirdshitSongIndex init 0
+giBirdshitSongIndex init 5
 giEventsForNoteInstruments[giBirdshitSongIndex][giKickNote][0] ftgen 0, 0, 0, -2, 0, nstrnum("BirdshitKick"), 0, 1, 0, 1
 giEventsForNoteInstruments[giBirdshitSongIndex][giHatPedalNote][0] ftgen 0, 0, 0, -2, 0, nstrnum("BirdshitKick"), 0, 1, 0, 1
 
@@ -148,6 +144,7 @@ giEventsForNoteInstruments[giBirdshitSongIndex][giHatPedalNote][1] ftgen 0, 0, 0
 giEventsForNoteInstruments[giBirdshitSongIndex][giHatOpenNote][0] ftgen 0, 0, 0, -2, 0, nstrnum("BirdshitOpenHat"), 0, 1, 0, 1
 
 giEventsForNoteInstruments[giBirdshitSongIndex][giRideNote][0] ftgen 0, 0, 0, -2, 1, nstrnum("BirdshitRide"), 0, 1, 0, 1
+giEventsForNoteInstruments[giBirdshitSongIndex][giSpd30Pad4Note][0] ftgen 0, 0, 0, -2, 1, nstrnum("BirdshitRide"), 0, 1, 0, 1
 
 giEventsForNoteInstruments[giBirdshitSongIndex][giTom1Note][0] ftgen 0, 0, 0, -2, 1, nstrnum("BirdshitTomLow"), 0, 1, 0, 1
 giEventsForNoteInstruments[giBirdshitSongIndex][giTom2Note][0] ftgen 0, 0, 0, -2, 1, nstrnum("BirdshitTomMid"), 0, 1, 0, 1
@@ -164,7 +161,25 @@ giMidiNoteInterruptList[giBirdshitSongIndex][giHatClosedNote] ftgen 0, 0, 0, -2,
 
 giMidiNoteInterruptList[giBirdshitSongIndex][giKickNote] ftgen 0, 0, 0, -2, nstrnum("BirdshitCbKick"), nstrnum("BirdshitLongDeepKick"), nstrnum("BirdshitSharpKick")
 
-giEventsForNoteInstruments[giBirdshitSongIndex][giPadC13Note][0] ftgen 0, 0, 0, -2, 0, nstrnum("SwitchSong"), 0, 0.1, 0, 0, 0
-giEventsForNoteInstruments[giBirdshitSongIndex][giPadC14Note][0] ftgen 0, 0, 0, -2, 0, nstrnum("SwitchSong"), 0, 0.1, 0, 0, 1
-giEventsForNoteInstruments[giBirdshitSongIndex][giPadC15Note][0] ftgen 0, 0, 0, -2, 0, nstrnum("SwitchSong"), 0, 0.1, 0, 0, 2
-giEventsForNoteInstruments[giBirdshitSongIndex][giPadC16Note][0] ftgen 0, 0, 0, -2, 0, nstrnum("SwitchSong"), 0, 0.1, 0, 0, 3
+instr BirdshitInit
+  iOnOff = p6
+
+  if iOnOff == 1 then
+    prints "%n%n Initializing Birdshit %n%n"
+    giCurrentSong = giBirdshitSongIndex
+    event_i "i", "BirdshitConfig", 0, -1
+    event_i "i", "BirdshitReverbForSharpKick", 0, -1
+    event_i "i", "BirdshitFxMainReverb", 0, -1
+    event_i "i", "BirdshitSynthDistortion", 0, -1
+    gkBPM = 140
+    giMetronomeCount = 0
+    giMetronomeBeatsPerMeasure = 4
+    giMetronomeAccents[] init 1
+    giMetronomeAccents fillarray 1
+  else
+    turnoff2 "BirdshitConfig", 0, 1
+    turnoff2 "BirdshitReverbForSharpKick", 0, 1
+    turnoff2 "BirdshitFxMainReverb", 0, 1
+    turnoff2 "BirdshitSynthDistortion", 0, 1
+  endif
+endin

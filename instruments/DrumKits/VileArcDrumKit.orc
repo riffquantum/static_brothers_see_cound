@@ -21,16 +21,16 @@ instr VileArcPattern1
 
   print iGrainVariation
 
-  interruptThenTrigger nstrnum("KickHelix"), beatsToSeconds(4), 100, 3.05
+  interruptThenTrigger nstrnum("KickHelix"), 0, beatsToSeconds(4), 100, 3.05
   event_i "i", nstrnum("HatWarp"), 0, beatsToSeconds(4), 100, 3.05
 
   event_i "i", "PainSpiral", 0.0, beatsToSeconds(2.5), 120, 2.06
   event_i "i", "PainSpiral", 0.0, beatsToSeconds(2.5), 120, 4.06
 
   if iVariation == 1 then
-    interruptThenTrigger nstrnum("HatWarp"), beatsToSeconds(4), 40, 2.05
+    interruptThenTrigger nstrnum("HatWarp"), 0, beatsToSeconds(4), 40, 2.05
   elseif iVariation == 2 then
-    interruptThenTrigger nstrnum("HatWarp"), beatsToSeconds(4), 40, 1.05
+    interruptThenTrigger nstrnum("HatWarp"), 0, beatsToSeconds(4), 40, 1.05
   endif
 
   if iGrainVariation >= 3 && iGrainVariation < 4 then
@@ -85,8 +85,8 @@ endin
 instr VileArcPattern2
 
   gkKickHelixGrainFrequencyAdjustment = 2.1
-  interruptThenTrigger nstrnum("KickHelix"), beatsToSeconds(4), 70, 3.05
-  interruptThenTrigger nstrnum("HatWarp"), beatsToSeconds(4), 100, 3.05
+  interruptThenTrigger nstrnum("KickHelix"), 0, beatsToSeconds(4), 70, 3.05
+  interruptThenTrigger nstrnum("HatWarp"), 0, beatsToSeconds(4), 100, 3.05
 
   event_i "i", "AwfulCrash", 0.0, beatsToSeconds(2.5), 0, .25
 endin
@@ -145,13 +145,29 @@ instr VileArcConfig
   gkDistortionForSnareFader = .0025
   gkSnareFader = 2
   gkReverbForSnareWetAmount = .15
-
-  event_i "i", "GlobalReverb", 0, -1
-  event_i "i", "DistortionForSnare", 0, -1
-
 endin
 
-giEventsForNoteInstruments[giVileArcSongIndex][giPadC13Note][0] ftgen 0, 0, 0, -2, 0, nstrnum("SwitchSong"), 0, 0.1, 0, 0, 0
-giEventsForNoteInstruments[giVileArcSongIndex][giPadC14Note][0] ftgen 0, 0, 0, -2, 0, nstrnum("SwitchSong"), 0, 0.1, 0, 0, 1
-giEventsForNoteInstruments[giVileArcSongIndex][giPadC15Note][0] ftgen 0, 0, 0, -2, 0, nstrnum("SwitchSong"), 0, 0.1, 0, 0, 2
-giEventsForNoteInstruments[giVileArcSongIndex][giPadC16Note][0] ftgen 0, 0, 0, -2, 0, nstrnum("SwitchSong"), 0, 0.1, 0, 0, 3
+instr VileArcInit
+  iOnOff = p6
+
+  if iOnOff == 1 then
+    prints "%n%n Initializing VileArc %n%n"
+    giCurrentSong = giVileArcSongIndex
+    gkBPM = 80
+    giMetronomeCount = 0
+    giMetronomeBeatsPerMeasure = 4
+    giMetronomeAccents[] init 1
+    giMetronomeAccents fillarray 1
+    event_i "i", "VileArcConfig", 0, -1
+    event_i "i", "BirdshitReverbForSharpKick", 0, -1
+    event_i "i", "BirdshitFxMainReverb", 0, -1
+    event_i "i", "GlobalReverb", 0, -1
+    event_i "i", "DistortionForSnare", 0, -1
+  else
+    turnoff2 "VileArcConfig", 0, 1
+    turnoff2 "BirdshitReverbForSharpKick", 0, 1
+    turnoff2 "BirdshitFxMainReverb", 0, 1
+    turnoff2 "GlobalReverb", 0, 1
+    turnoff2 "DistortionForSnare", 0, 1
+  endif
+endin
