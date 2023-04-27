@@ -8,11 +8,11 @@
 giSpd30Pad1Note = 68
 giSpd30Pad2Note = 61
 giSpd30Pad3Note = 62
-giSpd30Pad4Note = 71
+giSpd30Pad4Note = 71 ; 63 at less than full velocity
 giSpd30Pad5Note = 72
 giSpd30Pad6Note = 73
 giSpd30Pad7Note = 66
-giSpd30Pad8Note = 67
+giSpd30Pad8Note = 67 ;75 at full velocity
 
 /* Drum Kit Notes */
 giRideNote = 49
