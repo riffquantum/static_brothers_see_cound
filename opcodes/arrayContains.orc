@@ -10,3 +10,17 @@ opcode arrayContains, i, i[]i
 
   xout iMatchFound
 endop
+
+opcode arrayContainsS, i, S[]S
+  SArray[], SElement xin
+  iIndex = 0
+  iMatchFound = -1
+
+  until iMatchFound == 0 || iIndex == lenarray(SArray) do
+    iMatchFound = strcmp(SArray[iIndex], SElement)
+
+    iIndex += 1
+  od
+
+  xout iMatchFound == 0 ? 1 : 0
+endop
