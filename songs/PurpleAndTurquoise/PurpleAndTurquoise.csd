@@ -27,7 +27,7 @@
     #include "songs/PurpleAndTurquoise/patterns/pattern-manifest.orc"
 
     instr config
-      gkMuffledKickFader = 1
+      gkMuffledKickFader = 4
       gkMuffledKickEqMid = 2
 
       gkTwistedUpKickFader = (0.75 + oscil(0.05, 0.2))
@@ -98,8 +98,11 @@
         endif
 
         beatScoreline "MuffledKick", iBaseTime, 2, 127, 1
-        beatScoreline "MuffledKick", iBaseTime+2, 2, 127, .9
+        beatScoreline "MuffledKick", iBaseTime+1.5, 2, 127, .9
+        beatScoreline "MuffledKick", iBaseTime+3.5, 2, 127, .9
         beatScoreline "MuffledKick", iBaseTime+4, 4, 127, 1
+
+        beatScoreline "MuffledKick", iBaseTime+6.5, 2, 127, 1
 
 
         beatScoreline "Snare", iBaseTime+1, 1, 120, 1

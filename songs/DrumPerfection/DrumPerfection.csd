@@ -1,14 +1,14 @@
 <CsoundSynthesizer>
   <CsOptions>
     --messagelevel=0
-    --midi-device=a
+    ; --midi-device=a
     -t80
     -odac
     ; -W -o "DrumPerfection.wav
   </CsOptions>
 
   <CsInstruments>
-  #include "config/defaultConfig.orc"
+    #include "config/defaultConfig.orc"
     #include "config/defaultMidiAssignments.orc"
     #include "config/defaultMidiRouterMapping.orc"
     #include "opcodes/opcode-manifest.orc"

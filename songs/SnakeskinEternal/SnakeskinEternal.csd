@@ -21,7 +21,20 @@
   </CsOptions>
 
   <CsInstruments>
-    #include "config/defaultConfig.orc"
+    #define SONG_NAME # Jormungandr #
+
+    sr = 44100
+    ; changes to KR apparently cause issues with the particular grain settings
+    ; of this song
+    ksmps = 32
+    kr = 1378.125
+    nchnls = 2
+    0dbfs = 10
+    gkBPM miditempo
+
+
+    giGlobalTuningSystem init 1
+    giDivisionsInTuningSystem init 12
     #include "songs/SnakeskinEternal/config/midiAssignments.orc"
     #include "config/defaultMidiRouterMapping.orc"
     ; #include "config/guitarMidiAssignments.orc"
@@ -30,7 +43,7 @@
 
     #include "instruments/DrumKits/DefaultDrumKit.orc"
     ; #include "instruments/DrumKits/TR606/TR606-manifest.orc"
-    #include "config/defaultMidiRouterEvents.orc"
+    ; #include "config/defaultMidiRouterEvents.orc"
     #include "patterns/pattern-manifest.orc"
 
     #define SCALE_FLOW_GRAIN #
@@ -163,8 +176,9 @@
   <CsScore>
     ; i "Metronome" 0 3600
     ; i "Chorus" 0 64
-    i "ScaleFlow" 0 12 60 3.06
-    i "ScaleFlowPattern2" 12 42
-    i "Verse" 54 300
+    ; i "ScaleFlow" 0 12 60 3.06
+    ; i "ScaleFlowPattern2" 12 42
+    ; i "Verse" 54 300
+    i "Verse" 0 300
   </CsScore>
 </CsoundSynthesizer>

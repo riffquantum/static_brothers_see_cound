@@ -42,7 +42,7 @@ instr DelayToGrainTest
   gkDelayToGrainGrainPitch = 1 + poscil:a(.25, .2)
   gkDelayToGrainGrainGrainOverlapPercentageAdjustment = 1 + poscil:a(.25, .5)
 
-  _ "DelayToGrain", 0, stb(p3)\
+  _ "DelayToGrain", 0, stb(p3)
 
   $PATTERN_LOOP(12)
     _ "GrainDelayTestSample3", i0, 2, 100, .65, .6

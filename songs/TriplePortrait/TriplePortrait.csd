@@ -16,7 +16,6 @@
     #include "config/defaultMidiRouterMapping.orc"
     #include "instruments/orchestra-manifest.orc"
     #include "songs/TriplePortrait/instruments/orchestra-manifest.orc"
-    #include "config/defaultMidiRouterEvents.orc"
     #include "songs/TriplePortrait/patterns/pattern-manifest.orc"
     #include "instruments/DrumKits/DefaultDrumKit.orc"
 
