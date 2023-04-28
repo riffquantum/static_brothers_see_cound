@@ -36,6 +36,12 @@
 
     aSignalOutL, aSignalOutR mixerChannel aSignalInL, aSignalInR, gk$INSTRUMENT_NAME.Fader, gk$INSTRUMENT_NAME.Pan, gk$INSTRUMENT_NAME.EqBass, gk$INSTRUMENT_NAME.EqMid, gk$INSTRUMENT_NAME.EqHigh
 
+    ; IDEA FOR BOUNCING STEMS -- Set the SONG_MACRO macro and declare the gSStemsToWrite array
+    ; as a list of instrument names in the main csd.
+    ; if arrayContainsS(gSStemsToWrite, "$INSTRUMENT_NAME") == 1 then
+    ;   fout "songs/$SONG_NAME/stems/$SONG_NAME._$INSTRUMENT_NAME..wav", 14, aSignalOutL, aSignalOutR
+    ; endif
+
     outleta "OutL", aSignalOutL
     outleta "OutR", aSignalOutR
   endin

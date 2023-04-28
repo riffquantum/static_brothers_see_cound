@@ -9,6 +9,22 @@
   </CsOptions>
 
   <CsInstruments>
+    ; #define SONG_NAME #IceInHand#
+    ; gSStemsToWrite[] fillarray \
+    ;   "OpenHat1", \
+    ;   "OpenHat2", \
+    ;   "ClosedHat", \
+    ;   "Crash", \
+    ;   "Kick", \
+    ;   "Snare", \
+    ;   "Snare2", \
+    ;   "Drums", \
+    ;   "Drums2", \
+    ;   "Piano", \
+    ;   "IcemanLoopDelay", \
+    ;   "AjqLoop", \
+    ;   "AjqLoop2"
+
     #include "config/defaultConfig.orc"
     #include "config/defaultMidiAssignments.orc"
     #include "config/defaultMidiRouterMapping.orc"
