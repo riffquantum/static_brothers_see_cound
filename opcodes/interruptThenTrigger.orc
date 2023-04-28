@@ -8,8 +8,9 @@ instr Interrupter
   turnoff2 iInstrumentNumberToInterrupt, 4, 1
 endin
 
-opcode interruptThenTrigger, 0, iiooooooo
-	iBaseInstrumentNumber, iNewNoteDuration, iP4, iP5, iP6, iP7, iP8, iP9, iP10 xin
+opcode interruptThenTrigger, 0, iiiooooooo
+  ; TWO TODOS HERE: Let this schedule notes ahead of time. Basically make it accept p2. Then also see if we can cancel all scheduled notes for an instrument.
+	iBaseInstrumentNumber, iNewNoteStart, iNewNoteDuration, iP4, iP5, iP6, iP7, iP8, iP9, iP10 xin
   iInstrumentNumber = iBaseInstrumentNumber
 
   iInstrumentNumberToInterrupt = iInstrumentNumber + (giLastUsedFractionalModifierList[iInstrumentNumber])/1000
@@ -22,8 +23,8 @@ opcode interruptThenTrigger, 0, iiooooooo
   endif
 
   if iInstrumentNumberToInterrupt > iBaseInstrumentNumber then
-    event_i "i", "Interrupter", 0, 0.1, iInstrumentNumberToInterrupt
+    event_i "i", "Interrupter", iNewNoteStart, 0.1, iInstrumentNumberToInterrupt
   endif
 
-  event_i "i", iInstrumentNumber, 0, iNewNoteDuration, iP4, iP5, iP6, iP7, iP8, iP9, iP10
+  event_i "i", iInstrumentNumber, iNewNoteStart, iNewNoteDuration, iP4, iP5, iP6, iP7, iP8, iP9, iP10
 endop

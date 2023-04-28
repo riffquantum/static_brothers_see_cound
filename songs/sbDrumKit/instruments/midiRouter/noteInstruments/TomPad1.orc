@@ -7,6 +7,6 @@ instr 2054 ;TomPad1, PadA11,
   iAmplitude velocityToAmplitude iNoteVelocity
 
   if giCurrentSong == 1 then
-    interruptThenTrigger nstrnum("PunishmentAwaits"), giMidiNoteDurationList[giTomPad1Note], iAmplitude
+    interruptThenTrigger nstrnum("PunishmentAwaits"), 0, giMidiNoteDurationList[giTomPad1Note], iAmplitude
   endif
 endin

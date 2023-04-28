@@ -37,16 +37,17 @@ opcode triggerEventFromTable, 0, ioo
   if iInterruptSelf == 0 then
     event_i "i", iEventInstrumentNumber, iEventStartTime, iEventDuration, iEventVelocity, iEventPitch, iEventP6, iEventP7, iEventP8, iEventP9, iEventP10
   else
-    interruptThenTrigger iEventInstrumentNumber, iEventDuration, iEventVelocity, iEventPitch, iEventP6, iEventP7, iEventP8, iEventP9, iEventP10
+    interruptThenTrigger iEventInstrumentNumber, iEventStartTime, iEventDuration, iEventVelocity, iEventPitch, iEventP6, iEventP7, iEventP8, iEventP9, iEventP10
   endif
 endop
 
-opcode triggerEventsForNoteNumber, 0, ii
-  iNoteNumber, iNoteVelocity xin
+opcode triggerEventsForNoteNumber, 0, iij
+  iNoteNumber, iNoteVelocity, iSongIndex xin
   iEventsIndex = 0
+  iSongIndex = iSongIndex == -1 ? giCurrentSong : iSongIndex
   eventsLoop:
     iIndexToUse = lenarray(giGlobalEvents, 2) - 1 - iEventsIndex
-    iEventTable = giEventsForNoteInstruments[giCurrentSong][iNoteNumber][iIndexToUse]
+    iEventTable = giEventsForNoteInstruments[iSongIndex][iNoteNumber][iIndexToUse]
 
     if iEventTable != 0 then
       triggerEventFromTable(iEventTable, iNoteVelocity)
@@ -85,8 +86,14 @@ instr MidiRouter
     iNoteNumber = pitchClassToIntegerNote(p5)
   endif
 
+  ; Convert test notes to equivalent values
   iNoteNumber = iNoteNumber < 27 ? giTestNotes[iNoteNumber] : iNoteNumber
 
+  ; TODO: Try to get the triggerBuffer idea to work.
+
+  ; Trigger events that are not song specific
+  triggerEventsForNoteNumber(iNoteNumber, iNoteVelocity, 0)
+  ; Trigger events for the current song
   triggerEventsForNoteNumber(iNoteNumber, iNoteVelocity)
   handleNoteInterupts(giMidiNoteInterruptList[giCurrentSong][iNoteNumber])
   triggerGlobalEvents(iNoteNumber, iNoteVelocity)

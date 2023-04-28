@@ -5,6 +5,6 @@ instr 2045 ;BluePad, PadB1,
   iAmplitude velocityToAmplitude iNoteVelocity
 
   if giCurrentSong == 1 then
-    interruptThenTrigger nstrnum("PunishYou"), filelen("songs/sbDrumKit/samples/punishYou.wav"), iAmplitude
+    interruptThenTrigger nstrnum("PunishYou"), 0, filelen("songs/sbDrumKit/samples/punishYou.wav"), iAmplitude
   endif
 endin

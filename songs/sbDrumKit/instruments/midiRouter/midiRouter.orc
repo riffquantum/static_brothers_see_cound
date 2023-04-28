@@ -45,7 +45,7 @@ instr MidiRouter
       iInstrumentToInterrupt = 2000 + iInstrumentToInterruptNoteNumber
 
       if iInstrumentToInterruptNoteNumber == iNoteNumber then
-        interruptThenTrigger iInstrumentNumber, iLengthOfNote, iNoteVelocity
+        interruptThenTrigger iInstrumentNumber, 0, iLengthOfNote, iNoteVelocity
       elseif iInstrumentToInterruptNoteNumber < 2000 then
         turnoff2 iInstrumentToInterruptNoteNumber, 1, 1
         event_i   "i", iInstrumentNumber, 0, iLengthOfNote, iNoteVelocity
