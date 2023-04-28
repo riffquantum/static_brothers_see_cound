@@ -58,13 +58,13 @@
 
     iSampleLength = nsamp(gi$INSTRUMENT_NAME.Sample) / sr
 
-    kAmplitudeEnvelope linsegr iAmplitude, p3, iAmplitude, iReleaseTime, 0
+    aAmplitudeEnvelope = linsegr:a(iAmplitude, p3, iAmplitude, iReleaseTime, 0)
 
     if ftchnls(gi$INSTRUMENT_NAME.Sample) == 1 then
-      aSampleSignalL loscil kAmplitudeEnvelope, kPitch, gi$INSTRUMENT_NAME.Sample, 1, 0
+      aSampleSignalL loscil aAmplitudeEnvelope, kPitch, gi$INSTRUMENT_NAME.Sample, 1, 0
       aSampleSignalR = aSampleSignalL
     else
-      aSampleSignalL, aSampleSignalR loscil kAmplitudeEnvelope, kPitch, gi$INSTRUMENT_NAME.Sample, 1, 0
+      aSampleSignalL, aSampleSignalR loscil aAmplitudeEnvelope, kPitch, gi$INSTRUMENT_NAME.Sample, 1, 0
     endif
 
     iPreGainInstanceModifier = p6
@@ -81,7 +81,7 @@
     kSlopeShift = (gk$INSTRUMENT_NAME.SlopeShift + iSlopeShiftOffsetModifier) * (oscil(9.9, .25) + .1)
 
     ; kDeclick madsr .005, .01, 1, .03
-    kDeclick = linsegr(1, .1, 0)
+    aDeclick = linsegr:a(1, .1, 0)
 
     aSignalOutL hansDistortion aSampleSignalL, kPreGain, kPostGain, kDutyOffset, kSlopeShift, iDistortionTable
     aSignalOutR hansDistortion aSampleSignalR, kPreGain, kPostGain, kDutyOffset, kSlopeShift, iDistortionTable
@@ -101,8 +101,8 @@
     aSignalOutL *= gi$INSTRUMENT_NAME.FinalGainAmount
     aSignalOutR *= gi$INSTRUMENT_NAME.FinalGainAmount
 
-    aSignalOutL *= kDeclick
-    aSignalOutR *= kDeclick
+    aSignalOutL *= aDeclick
+    aSignalOutR *= aDeclick
 
 
     aSignalOutL = (aSignalOutL * gk$INSTRUMENT_NAME.WetAmount) + (aSampleSignalL * gk$INSTRUMENT_NAME.DryAmount)
