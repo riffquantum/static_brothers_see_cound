@@ -62,6 +62,7 @@
 #include "beatScoreline.orc"
 #include "_.orc"
 #include "repeatNotes.orc"
+#include "__.orc"
 #include "instrumentToggle.orc"
 
 /*
