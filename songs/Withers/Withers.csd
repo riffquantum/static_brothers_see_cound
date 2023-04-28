@@ -15,6 +15,7 @@
     #include "config/defaultMidiRouterMapping.orc"
     #include "opcodes/opcode-manifest.orc"
     #include "instruments/orchestra-manifest.orc"
+    #include "instruments/DrumKits/DefaultDrumKit.orc"
     #include "songs/Withers/instruments/orchestra-manifest.orc"
     #include "songs/Withers/patterns/pattern-manifest.orc"
 
@@ -59,6 +60,7 @@
 
   <CsScore>
     i "config" -1
-    i "WithersLoop2" 0 256
+    i "Verse" 0 256
+    ; i "WithersLoop1" 0 256
   </CsScore>
 </CsoundSynthesizer>

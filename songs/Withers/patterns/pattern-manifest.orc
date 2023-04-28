@@ -1,3 +1,7 @@
 #include "WithersLoop1.orc"
-#include "WithersLoop2.orc"
+#include "VerseLoop.orc"
 #include "BassLine.orc"
+#include "Verse.orc"
+#include "DrumLoop1.orc"
+#include "HatTrill.orc"
+#include "VerseTurnAround.orc"

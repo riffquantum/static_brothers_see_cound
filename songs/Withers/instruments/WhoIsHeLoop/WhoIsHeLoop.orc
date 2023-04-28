@@ -45,26 +45,6 @@ instr WhoIsHeLoop
   outleta "OutR", aWhoIsHeLoopR
 endin
 
-instr WhoIsHeLoopBassKnob
-  gkWhoIsHeLoopEqBass linseg p4, p3, p5
-endin
-
-instr WhoIsHeLoopMidKnob
-  gkWhoIsHeLoopEqMid linseg p4, p3, p5
-endin
-
-instr WhoIsHeLoopHighKnob
-  gkWhoIsHeLoopEqHigh linseg p4, p3, p5
-endin
-
-instr WhoIsHeLoopFader
-  gkWhoIsHeLoopFader linseg p4, p3, p5
-endin
-
-instr WhoIsHeLoopPan
-  gkWhoIsHeLoopPan linseg p4, p3, p5
-endin
-
 instr WhoIsHeLoopMixerChannel
   aWhoIsHeLoopL inleta "InL"
   aWhoIsHeLoopR inleta "InR"

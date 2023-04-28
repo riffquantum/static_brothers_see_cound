@@ -2,6 +2,11 @@
 
 ; #include "WhoIsHeLoop/WhoIsHeLoop.orc"
 $BREAK_SAMPLE(WhoIsHeLoop'Mixer'songs/Withers/instruments/WhoIsHeLoop/WhoIsHeLoop.wav'16)
+$BREAK_SAMPLE(WhoIsHeLoopMelody'WhoPitchShifterInput'songs/Withers/instruments/WhoIsHeLoop/WhoIsHeLoop.wav'16)
+$PITCH_SHIFTER(WhoPitchShifter'WhoWarpInput'WhoWarpInput)
+$LIVE_SNDWARP(WhoWarp'WhoMinceInput'WhoMinceInput)
+$LIVE_MINCER(WhoMince'Mixer'Mixer)
+
 
 ; "localSamples/Drums/TR-808_Kick_005.wav"
 ; "localSamples/Drums/TR-808_Kick_41.wav"
