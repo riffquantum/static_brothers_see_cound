@@ -33,8 +33,8 @@ endin
 instr Metronome
   kTrigger  metro  gkBPM/60
 
-  schedkwhen    kTrigger, 0, 0, "MetronomeTone", 0, gkBPM/60
-  schedkwhen    kTrigger, 0, 0, "MetronomeCounter", 0, .1
+  schedkwhen kTrigger, 0, 0, "MetronomeTone", 0, gkBPM/60
+  schedkwhen kTrigger, 0, 0, "MetronomeCounter", 0, .1
 endin
 
 instr MetronomeSwitch
@@ -57,33 +57,4 @@ instr MetronomeCounter
   endif
 endin
 
-instr MetronomeBassKnob
-  gkMetronomeEqBass linseg p4, p3, p5
-endin
-
-instr MetronomeMidKnob
-  gkMetronomeEqMid linseg p4, p3, p5
-endin
-
-instr MetronomeHighKnob
-  gkMetronomeEqHigh linseg p4, p3, p5
-endin
-
-instr MetronomeFader
-  gkMetronomeFader linseg p4, p3, p5
-endin
-
-instr MetronomePan
-  gkMetronomePan linseg p4, p3, p5
-endin
-
-instr MetronomeMixerChannel
-  aMetronomeL inleta "InL"
-  aMetronomeR inleta "InR"
-
-  aMetronomeL, aMetronomeR mixerChannel aMetronomeL, aMetronomeR, gkMetronomeFader, gkMetronomePan, gkMetronomeEqBass, gkMetronomeEqMid, gkMetronomeEqHigh
-
-  outleta "OutL", aMetronomeL
-  outleta "OutR", aMetronomeR
-endin
-
+$MIXER_CHANNEL(Metronome)
