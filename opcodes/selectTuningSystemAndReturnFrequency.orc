@@ -66,7 +66,7 @@ opcode selectTuningSystemAndReturnFrequency, i, ij
     ; Csound's cps2pch
     iFrequency = cps2pch((iOctave + (iNoteNumber/100) + 4), giDivisionsInTuningSystem)
   elseif iTuningSystem == 11 then
-    ; Turkish (?) Scale
+    ; Turkish (?) Scale -- 24 tone scale based on 53-TET intervals
     iFrequency = customTuningFrequency(iOctave, iNoteNumber, giTurkishRatios)
   elseif iTuningSystem == 12 then
     ; https://en.wikipedia.org/wiki/Arab_tone_system
@@ -76,6 +76,8 @@ opcode selectTuningSystemAndReturnFrequency, i, ij
   elseif iTuningSystem == 13 then
     ; TO DO: https://en.wikipedia.org/wiki/Shruti_(music) and https://en.wikipedia.org/wiki/Just_intonation#Indian_scales
     ; Some sets based on Indian systems of 22 discernable tones.
+  elseif iTuningSystem == 14 then
+    iFrequency = customTuningFrequency(iOctave, iNoteNumber, giJustBaglama)
   endif
 
   xout iFrequency
