@@ -1,6 +1,6 @@
 /*
  * Midi note and control assignments for an electric drumkit
- * and SPD-30 running into an Akai MPC-200XL and X-Session
+ * and SPD-30 running into an Akai MPC-2000XL and X-Session
  * controller/interface.
  */
 
