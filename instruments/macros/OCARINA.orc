@@ -38,7 +38,7 @@
 
   $GLOBAL_SETTINGS
 
-  instr $INSTRUMENT_NAME.
+  instr $INSTRUMENT_NAME
     iAmplitude flexibleAmplitudeInput p4
     iPitch flexiblePitchInput p5
 
