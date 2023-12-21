@@ -32,6 +32,7 @@ opcode midiMonitor, 0, 0
       printks "%t Status Code: %d -- %s %n %t Channel: %d %n %t Data 1: %d %n %t Data 2: %d %n", 0, kStatusCode, SStatusCodeString, kChannel, kData1, kData2
     endif
 
+    printks "%t Assigned Instrument: %s %n", 0, gSMidiChannelAssignments[kChannel]
 
     printks "---- %n%n", 0
 
