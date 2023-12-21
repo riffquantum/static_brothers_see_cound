@@ -79,39 +79,45 @@
 #include "flexiblePitchInput.orc"
 
 /*
-  Intervals and Chords
+  Intervals and Chords - These are actually stupid. Like I can't remember
+  how many steps up a third is? Come on. Sheesh. They were really a programming
+  slash music theory excercise. Maybe the chord ones are worth having. Meh. I should
+  include these on a per-project basis if I want them. Commenting out for now.
 */
 
-#include "flat.orc"
-#include "sharp.orc"
-#include "second.orc"
-#include "minorThird.orc"
-#include "third.orc"
-#include "fourth.orc"
-#include "flatFifth.orc"
-#include "fifth.orc"
-#include "sixth.orc"
-#include "dominantSeventh.orc"
-#include "majorSeventh.orc"
-#include "octaveUp.orc"
-#include "ninth.orc"
-#include "eleventh.orc"
-#include "thirteenth.orc"
-#include "majorChord.orc"
-#include "minorChord.orc"
-#include "majorSeventhChord.orc"
-#include "minorSeventhChord.orc"
-#include "dominantSeventhChord.orc"
-#include "powerChord.orc"
-#include "augmentedFifthChord.orc"
-#include "diminishedFifthChord.orc"
-#include "halfDiminishedSeventhChord.orc"
-#include "thirteenthChord.orc"
-#include "minorThirteenthChord.orc"
+; #include "flat.orc"
+; #include "sharp.orc"
+; #include "second.orc"
+; #include "minorThird.orc"
+; #include "third.orc"
+; #include "fourth.orc"
+; #include "flatFifth.orc"
+; #include "fifth.orc"
+; #include "sixth.orc"
+; #include "dominantSeventh.orc"
+; #include "majorSeventh.orc"
+; #include "octaveUp.orc"
+; #include "ninth.orc"
+; #include "eleventh.orc"
+; #include "thirteenth.orc"
+; #include "majorChord.orc"
+; #include "minorChord.orc"
+; #include "majorSeventhChord.orc"
+; #include "minorSeventhChord.orc"
+; #include "dominantSeventhChord.orc"
+; #include "powerChord.orc"
+; #include "augmentedFifthChord.orc"
+; #include "diminishedFifthChord.orc"
+; #include "halfDiminishedSeventhChord.orc"
+; #include "thirteenthChord.orc"
+; #include "minorThirteenthChord.orc"
 
 /*
   Signal Generators
 */
 
+; Have instrument macros rendered these obsolete? Definitely breakSampler. drumSample
+; still sees a lot of action.
+; TODO: Consider removing these in favor of macros.
 #include "drumSample.orc"
 #include "breakSampler.orc"
