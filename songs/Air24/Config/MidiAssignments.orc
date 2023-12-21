@@ -2,7 +2,6 @@ gSMidiChannelAssignments[] fillarray "", \
   "BreezeNudge", \
   "CloudThoughts", \
   "Voidlessness", \
-  "MachineSickness", \
-  "FlowingTrumpetingOvertones"
+  "MachineSickness"
 
 #include "config/assignMidiChannels.orc"

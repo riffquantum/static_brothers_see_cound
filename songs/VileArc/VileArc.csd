@@ -1,15 +1,16 @@
 <CsoundSynthesizer>
   <CsOptions>
-      ; --midi-device=a
-      --messagelevel=0
-      -odac
-      ; -W -o "VileArcv1.0.wav
-      ; -iadc
-      ; -B512 -b60
-      -t80
-      ;--midioutfile=midiout.mid
-      ;-F midiout.mid
-      ;-+rtmidi=virtual
+    ; --midi-device=a
+    --messagelevel=0
+    -odac
+    -d
+    ; -W -o "VileArcv1.0.wav
+    ; -iadc
+    ; -B512 -b60
+    -t80
+    ;--midioutfile=midiout.mid
+    ;-F midiout.mid
+    ;-+rtmidi=virtual
   </CsOptions>
 
   <CsInstruments>
@@ -19,7 +20,6 @@
     #include "opcodes/opcode-manifest.orc"
     #include "instruments/orchestra-manifest.orc"
     #include "instruments/DrumKits/DefaultDrumKit.orc"
-    #include "patterns/pattern-manifest.orc"
     #include "songs/VileArc/instruments/orchestra-manifest.orc"
     #include "songs/VileArc/patterns/pattern-manifest.orc"
 

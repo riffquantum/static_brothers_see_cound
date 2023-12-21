@@ -2,8 +2,9 @@
 
   <CsOptions>
     -odac
---midi-device=a
---messagelevel=0
+    -d
+    --midi-device=a
+    --messagelevel=0
     ; -W -o "GiantSteps.wav
     -iadc
     ; -B512 -b60

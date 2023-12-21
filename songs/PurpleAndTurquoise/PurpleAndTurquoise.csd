@@ -1,6 +1,7 @@
 <CsoundSynthesizer>
   <CsOptions>
     -odac
+    -d
     ; -W -o "PurpleAndTurquoisev0.1.wav"
     ; -Ma
     -m0

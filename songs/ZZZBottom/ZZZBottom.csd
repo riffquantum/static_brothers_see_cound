@@ -1,6 +1,7 @@
 <CsoundSynthesizer>
   <CsOptions>
     -odac
+    -d
     --messagelevel=0
     ; --midi-device=a
     -t57.61

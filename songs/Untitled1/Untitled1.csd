@@ -4,6 +4,7 @@
     --midi-device=a
     -t60
     -odac
+    -d
     ; -W -o "Untitled1-v0.1.wav
   </CsOptions>
 

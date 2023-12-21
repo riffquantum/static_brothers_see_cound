@@ -6,6 +6,7 @@
     ; -t90
     -t70
     -odac
+    -d
     ; -W -o "Withers.wav
   </CsOptions>
 

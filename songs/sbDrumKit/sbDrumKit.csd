@@ -1,11 +1,12 @@
 <CsoundSynthesizer>
     <CsOptions>
-        -odac
---midi-device=a
---messagelevel=0
-        -B512 -b128
-        -t120
-        ;-+rtmidi=virtual
+      -odac
+      -d
+      --midi-device=a
+      --messagelevel=0
+      -B512 -b128
+      -t120
+      ;-+rtmidi=virtual
     </CsOptions>
 
     <CsInstruments>

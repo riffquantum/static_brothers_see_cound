@@ -1,5 +1,5 @@
 instr ChorusLoop
-  gkStabFader *= 0.9
+  ; gkStabFader *= 0.9
 
   $PATTERN_LOOP(4)
     if iMeasureCount > 1 then

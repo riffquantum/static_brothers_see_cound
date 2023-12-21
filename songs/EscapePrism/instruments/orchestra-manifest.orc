@@ -1,3 +1,4 @@
+$EFFECT_CHAIN(DefaultEffectChain'Mixer)
 $BREAK_SAMPLE(AmenBreak'Mixer'localSamples/amenBreak.wav'16)
 #include "../../../instruments/LayeredBassSynth.orc"
 #include "PainSpiral.orc"

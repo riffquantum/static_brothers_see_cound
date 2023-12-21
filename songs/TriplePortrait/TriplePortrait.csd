@@ -5,6 +5,7 @@
     ; -t87.5
     -t100
     -odac
+    -d
     ; -W -o "TriplePortrait.wav
   </CsOptions>
 

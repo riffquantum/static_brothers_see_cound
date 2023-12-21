@@ -1,3 +1,4 @@
+$EFFECT_CHAIN(DefaultEffectChain'Mixer)
 #include "CharybdisLoop1.orc"
 #include "DelayForCharybdisLoop1.orc"
 #include "CharybdisLoop2.orc"

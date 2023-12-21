@@ -1,11 +1,12 @@
 <CsoundSynthesizer>
   <CsOptions>
-      -odac
-      ; -W -o "Credits.wav
-      ; --midi-device=a
-      --messagelevel=0
-      ; -iadc
-      -t100
+    -odac
+    -d
+    ; -W -o "Credits.wav
+    ; --midi-device=a
+    --messagelevel=0
+    ; -iadc
+    -t100
   </CsOptions>
 
   <CsInstruments>
@@ -16,9 +17,9 @@
     #include "instruments/orchestra-manifest.orc"
     #include "instruments/DrumKits/DefaultDrumKit.orc"
     #include "songs/Air24/config/midiRouterEvents.orc"
-    #include "patterns/pattern-manifest.orc"
     #include "songs/Air24/instruments/orchestra-manifest.orc"
     #include "songs/Air24/patterns/pattern-manifest.orc"
+    $EFFECT_CHAIN(DefaultEffectChain'Mixer)
 
     instr config
       ; midiMonitor
@@ -284,7 +285,6 @@
     beatScoreline "config", 0, -1
     ; beatScoreline "PatternWriter", 0, -1, 24
     beatScoreline "DefaultDrumKitReverb", 0 , -1
-    ; beatScoreline "NewInstrumentEffectChainDelay", 0, -1
   </CsInstruments>
   <CsScore>
     ; i "SuperStructure" 0 40

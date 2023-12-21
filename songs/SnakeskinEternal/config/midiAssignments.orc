@@ -1,7 +1,4 @@
 gSMidiChannelAssignments[] fillarray "", \
-  "ScaleFlow2", \
-  "NewInstrument", \
-  "NewInstrument", \
-  "FlowingTrumpetingOvertones"
+  "ScaleFlow2"
 
 #include "config/assignMidiChannels.orc"

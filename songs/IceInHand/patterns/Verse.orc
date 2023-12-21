@@ -1,5 +1,3 @@
-
-
 instr Verse
   iVerseVariation = p4
 

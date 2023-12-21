@@ -1,15 +1,16 @@
 <CsoundSynthesizer>
   <CsOptions>
-      -odac
-      ; --midi-device=a
-      --messagelevel=0
-      ; -iadc
-      ; --realtime
-      ; -B512 -b60
-      -t100
-      ;--midioutfile=midiout.mid
-      ;-F midiout.mid
-      ;-+rtmidi=virtual
+    -odac
+    -d
+    ; --midi-device=a
+    --messagelevel=0
+    ; -iadc
+    ; --realtime
+    ; -B512 -b60
+    -t100
+    ;--midioutfile=midiout.mid
+    ;-F midiout.mid
+    ;-+rtmidi=virtual
   </CsOptions>
 
   <CsInstruments>
@@ -23,7 +24,7 @@
 
     #include "instruments/DrumKits/DefaultDrumKit.orc"
     ; #include "instruments/DrumKits/TR606/TR606-manifest.orc"
-    #include "config/defaultMidiRouterEvents.orc"
+    ; #include "config/defaultMidiRouterEvents.orc"
     #include "patterns/pattern-manifest.orc"
 
 

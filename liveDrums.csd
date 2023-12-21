@@ -1,17 +1,18 @@
 <CsoundSynthesizer>
   <CsOptions>
-      -odac
-      ; -W -o "newLoop.wav"
-      --midi-device=a
-      --messagelevel=0
-      ; -iadc
-      ; --realtime
-      ; -B512 -b256
-      -B512 -b128 ;http://www.csounds.com/manualOLPC/UsingOptimizing.html
-      ; -B4096 -b4096
-      -t100      ;--midioutfile=midiout.mid
-      ;-F midiout.mid
-      ;-+rtmidi=virtual
+    -odac
+    -d
+    ; -W -o "newLoop.wav"
+    --midi-device=a
+    --messagelevel=0
+    ; -iadc
+    ; --realtime
+    ; -B512 -b256
+    -B512 -b128 ;http://www.csounds.com/manualOLPC/UsingOptimizing.html
+    ; -B4096 -b4096
+    -t100      ;--midioutfile=midiout.mid
+    ;-F midiout.mid
+    ;-+rtmidi=virtual
   </CsOptions>
 
   <CsInstruments>
@@ -19,8 +20,7 @@
 
     ; Midi Assignments
     gSMidiChannelAssignments[] fillarray "", \
-      "MidiRouter",
-      ""
+      "MidiRouter"
 
     #include "config/assignMidiChannels.orc"
     ; End Midi Assignments
@@ -28,7 +28,9 @@
     #include "config/defaultMidiRouterMappingWithSPD30.orc"
     #include "opcodes/opcode-manifest.orc"
     #include "instruments/orchestra-manifest.orc"
+    #include "MidiControlInputs/MidiControlInputs.orc"
     #include "instruments/MidiRouter.orc"
+
     #include "instruments/DrumKits/BirdshitDrumKit.orc"
     #include "instruments/DrumKits/AvianPeterDrumKit.orc"
     #include "instruments/DrumKits/CharybdisDrumKit.orc"
@@ -38,7 +40,7 @@
     ; #include "instruments/DrumKits/DefaultDrumKit.orc"
     ; #include "config/defaultMidiRouterEvents.orc"
 
-    giCurrentSong init giQuietPracticeSongIndex
+    giCurrentSong init 5
     if giCurrentSong == 5 then
       beatScoreline "BirdshitInit", 0, -1
     elseif giCurrentSong == 1 then

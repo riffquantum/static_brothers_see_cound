@@ -1,6 +1,7 @@
 <CsoundSynthesizer>
   <CsOptions>
     -odac
+    -d
     ; --midi-device=a
     --messagelevel=0
     ; -B512 -b256
@@ -9,28 +10,12 @@
   </CsOptions>
 
   <CsInstruments>
-    ; #define SONG_NAME #IceInHand#
-    ; gSStemsToWrite[] fillarray \
-    ;   "OpenHat1", \
-    ;   "OpenHat2", \
-    ;   "ClosedHat", \
-    ;   "Crash", \
-    ;   "Kick", \
-    ;   "Snare", \
-    ;   "Snare2", \
-    ;   "Drums", \
-    ;   "Drums2", \
-    ;   "Piano", \
-    ;   "IcemanLoopDelay", \
-    ;   "AjqLoop", \
-    ;   "AjqLoop2"
 
-    #include "config/defaultConfig.orc"
-    #include "config/defaultMidiAssignments.orc"
+    #include "config/config.orc"
+    gSMidiChannelAssignments[] fillarray ""
     #include "config/defaultMidiRouterMapping.orc"
     #include "opcodes/opcode-manifest.orc"
     #include "instruments/orchestra-manifest.orc"
-    #include "patterns/pattern-manifest.orc"
     #include "patterns/pattern-manifest.orc"
 
     #include "songs/IceInHand/instruments/orchestra-manifest.orc"
@@ -68,7 +53,6 @@
       gkDrumPostBusFader = 0
     endin
 
-
     instr TapeFlutter
       gaGlobalFxTapeWobbleSpeed = p4
       if p5 != 0 then
@@ -98,7 +82,6 @@
 
   </CsInstruments>
   <CsScore>
-    ; i "Metronome" 0 3600
     i "config" 0 -1
     i "GlobalFxTapeWobble" 0 -1
 
@@ -108,6 +91,8 @@
     i "Section" + 35.9 "PianoInterrupt"
     i "Section" + 32 "Verse" 1
     i "Section" + 4 "Outro"
+
+
     ; ; i "Section" ^+68 32 "Bridge"
     ; e
 

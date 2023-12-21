@@ -1,8 +1,5 @@
 gSMidiChannelAssignments[] fillarray "", \
   "DustyBass", \
   "Stab", \
-  "RaspingTone", \
-  "FlowingTrumpetingOvertones", \
-  "NewInstrument"
-
+  "RaspingTone"
 #include "config/assignMidiChannels.orc"

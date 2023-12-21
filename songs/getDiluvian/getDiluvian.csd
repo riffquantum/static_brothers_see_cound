@@ -3,6 +3,7 @@
     --messagelevel=0
     -t85
     -odac
+    -d
     ; -W -o "getDiluvian.wav
   </CsOptions>
 

@@ -1,6 +1,7 @@
 <CsoundSynthesizer>
   <CsOptions>
       -odac
+    -d
       --midi-device=a
       --messagelevel=0
       ; -W -o "Jormungandrv0.1.wav"
@@ -40,11 +41,10 @@
     ; #include "config/guitarMidiAssignments.orc"
     #include "opcodes/opcode-manifest.orc"
     #include "instruments/orchestra-manifest.orc"
+    $EFFECT_CHAIN(DefaultEffectChain'Mixer)
 
     #include "instruments/DrumKits/DefaultDrumKit.orc"
     ; #include "instruments/DrumKits/TR606/TR606-manifest.orc"
-    ; #include "config/defaultMidiRouterEvents.orc"
-    #include "patterns/pattern-manifest.orc"
 
     #define SCALE_FLOW_GRAIN #
       kTimeStretch = 1 * (.1 - poscil(10, .25) + poscil(.2, .3))

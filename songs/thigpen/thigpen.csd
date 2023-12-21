@@ -1,8 +1,10 @@
 <CsoundSynthesizer>
     <CsOptions>
-        -odac --messagelevel=0
-        -B512 -b128
-        ;-+rtmidi=virtual
+      -odac
+      -d
+      --messagelevel=0
+      -B512 -b128
+      ;-+rtmidi=virtual
     </CsOptions>
 
     <CsInstruments>

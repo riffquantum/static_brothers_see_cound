@@ -1,6 +1,7 @@
 <CsoundSynthesizer>
   <CsOptions>
       ; -odac
+    -d
       --midi-device=a
       --messagelevel=0
       -iadc
@@ -16,15 +17,9 @@
   <CsInstruments>
     #include "config/defaultConfig.orc"
     #include "config/defaultMidiAssignments.orc"
-    #include "config/defaultMidiRouterMapping.orc"
-    ; #include "config/guitarMidiAssignments.orc"
     #include "opcodes/opcode-manifest.orc"
     #include "instruments/orchestra-manifest.orc"
-
-    #include "instruments/DrumKits/DefaultDrumKit.orc"
-    #include "instruments/DrumKits/TR606/TR606-manifest.orc"
-    #include "config/defaultMidiRouterEvents.orc"
-    #include "patterns/pattern-manifest.orc"
+    $EFFECT_CHAIN(DefaultEffectChain'Mixer)
 
     instr config
       ; midiMonitor
@@ -47,12 +42,6 @@
 
     $SYNCLOOP_SAMPLER(AsleepBeforeDessert'AsleepBeforeDessertEffectChain'localSamples/ZZ Top - Asleep In The Desert/asleepInTheDesertLoop2.wav'$ASLEEP_IN_THE_DESSERT_GRAIN'0'0)
     $EFFECT_CHAIN(AsleepBeforeDessertEffectChain'Mixer)
-
-    instr NewLoop
-      $PATTERN_LOOP(4)
-        beatScoreline "NewInstrument", iBaseTime, 4, 120, 5.00
-      $END_PATTERN_LOOP
-    endin
 
     instr MainLoop
       $PATTERN_LOOP(4)
@@ -159,7 +148,6 @@
   </CsInstruments>
   <CsScore>
     ; i "Metronome" 0 3600
-    ; i "NewLoop" 0 300
     ; i "WorkingPattern" 0 300
 
 

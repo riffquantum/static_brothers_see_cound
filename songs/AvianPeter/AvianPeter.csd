@@ -4,6 +4,7 @@
     ; --midi-device=a
     -t190
     ; -odac
+    -d
     ; --realtime
     -W -o "AvianPeter.wav
   </CsOptions>

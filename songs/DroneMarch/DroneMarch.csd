@@ -1,13 +1,14 @@
 <CsoundSynthesizer>
   <CsOptions>
-      -odac
-      --midi-device=a
-      --messagelevel=0
-      ; -iadc
-      -t60
-      ;--midioutfile=midiout.mid
-      ;-F midiout.mid
-      ;-+rtmidi=virtual
+    -odac
+    -d
+    --midi-device=a
+    --messagelevel=0
+    ; -iadc
+    -t60
+    ;--midioutfile=midiout.mid
+    ;-F midiout.mid
+    ;-+rtmidi=virtual
   </CsOptions>
 
   <CsInstruments>
@@ -20,11 +21,12 @@
     #include "instruments/LayeredBassSynth.orc"
     ; #include "instruments/DrumKits/DefaultDrumKit.orc"
     #include "instruments/DrumKits/TR606/TR606-manifest.orc"
-    #include "patterns/pattern-manifest.orc"
 
     $BREAK_SAMPLE(AmenBreak'Mixer'localSamples/amenBreak.wav'16)
     $BREAK_SAMPLE(KissingMyLoveSpankyBreak'Mixer'localSamples/kissingMyLoveSpankyBreak.wav'16)
     #include "SimpleOscillator.orc"
+    #include "FlowingTrumpetingOvertones.orc"
+    $EFFECT_CHAIN(DefaultEffectChain'Mixer)
 
     instr config
       ; midiMonitor

@@ -2,8 +2,6 @@ gSMidiChannelAssignments[] fillarray "", \
   "VibeLineGrain", \
   "VibeLine2", \
   "PillarBreakGrain", \
-  "LayeredBassSynth", \
-  "PillarBreakGrain", \
-  "FlowingTrumpetingOvertones"
+  "PillarBreakGrain"
 
 #include "config/assignMidiChannels.orc"

@@ -4,6 +4,7 @@
     ; --midi-device=a
     -t80
     -odac
+    -d
     ; -W -o "DrumPerfection.wav
   </CsOptions>
 

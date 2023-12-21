@@ -1,15 +1,16 @@
 <CsoundSynthesizer>
   <CsOptions>
-      -odac
-      ; --midi-device=a
-      --messagelevel=0
-      ; -W -o "EscapePrismv0.1.wav
-      ; -iadc
-      ; -B512 -b60
-      -t80
-      ;--midioutfile=midiout.mid
-      ;-F midiout.mid
-      ;-+rtmidi=virtual
+    -odac
+    -d
+    ; --midi-device=a
+    --messagelevel=0
+    ; -W -o "EscapePrismv0.1.wav
+    ; -iadc
+    ; -B512 -b60
+    -t80
+    ;--midioutfile=midiout.mid
+    ;-F midiout.mid
+    ;-+rtmidi=virtual
   </CsOptions>
 
   <CsInstruments>
@@ -20,7 +21,6 @@
     #include "instruments/orchestra-manifest.orc"
     #include "instruments/DrumKits/DefaultDrumKit.orc"
     #include "songs/EscapePrism/config/midiRouterEvents.orc"
-    #include "patterns/pattern-manifest.orc"
     #include "songs/EscapePrism/instruments/orchestra-manifest.orc"
     #include "songs/EscapePrism/patterns/pattern-manifest.orc"
 

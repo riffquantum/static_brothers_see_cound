@@ -60,14 +60,9 @@
 #include "macros/REVERSE_DELAY.orc"
 
 /* Instruments */
-$EFFECT_CHAIN(DefaultEffectChain'Mixer)
-$DISTORTED_808_KICK(Distorted808Kick'Mixer'localSamples/Drums/TR-808_Kick_41.wav)
-#include "FlowingTrumpetingOvertones.orc"
 #include "Metronome/Metronome.orc"
 #include "Mixer.orc"
-#include "MidiControlInputs/MidiControlInputs.orc"
-#include "NewEffect.orc"
-#include "NewInstrument.orc"
 #include "PatternWriter.orc"
 #include "Section.orc"
-#include "SyncloopSamplerTemplate.orc"
+
+$DISTORTED_808_KICK(Distorted808Kick'Mixer'localSamples/Drums/TR-808_Kick_41.wav) ; Probably want this to be song by song, not global

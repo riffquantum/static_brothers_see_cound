@@ -1,8 +1,9 @@
 <CsoundSynthesizer>
   <CsOptions>
       -odac
+    -d
       ; -W -o "Underv0.1.wav"
-      --midi-device=a
+      ; --midi-device=a
       --messagelevel=0
       ; -iadc
       ; --realtime
@@ -25,15 +26,6 @@
     #include "songs/Under/patterns/pattern-manifest.orc"
 
     instr config
-      gkNewEffectQ = 4 ;+ oscil(14, 0.1)
-      gkNewEffectShift = 5000 ; + oscil(250, 0.5)
-      gkNewEffectIntNoise = 0
-      gkNewEffectMode = 0
-      ; gkNewEffectDryAmount = 1
-
-      gkNewEffectEqBass = 1.5
-      gkNewEffectEqHigh = .5
-
       gkMuffledKickFader = 1.5
 
       gkBassSynthFader = 0.35

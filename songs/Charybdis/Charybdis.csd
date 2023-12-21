@@ -3,6 +3,7 @@
       --midi-device=a
       --messagelevel=0
       -odac
+      -d
       -t100
       ; -W -o "Charybdisv0.1.wav
   </CsOptions>
@@ -14,7 +15,6 @@
     #include "opcodes/opcode-manifest.orc"
     #include "instruments/orchestra-manifest.orc"
     #include "instruments/DrumKits/DefaultDrumKit.orc"
-    #include "patterns/pattern-manifest.orc"
     #include "songs/Charybdis/instruments/orchestra-manifest.orc"
     #include "songs/Charybdis/patterns/pattern-manifest.orc"
 
