@@ -61,7 +61,7 @@
 
   instr $INSTRUMENT_NAME
     iAmplitude = velocityToAmplitude(p4)
-    kAmplitudeEnvelope = madsr(.005, .01, 1, .01) * iAmplitude
+    aAmplitudeEnvelope = madsr:a(.005, .01, 1, .01) * iAmplitude
     kPitch = (p5 == 0 ? 1 : p5) * gk$INSTRUMENT_NAME.Tuning
     iStartBeat = p6
 
@@ -89,8 +89,8 @@
       aOutR = aOutL
     endif
 
-    aOutL *= kAmplitudeEnvelope
-    aOutR *= kAmplitudeEnvelope
+    aOutL *= aAmplitudeEnvelope
+    aOutR *= aAmplitudeEnvelope
 
     outleta "OutL", aOutL
     outleta "OutR", aOutR

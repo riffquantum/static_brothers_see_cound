@@ -50,14 +50,16 @@
     iChannelL = 1
     iChannelR = 2
 
-    kEnvelope = madsr(.01, .01, 1, iRelease)
+    aEnvelope = madsr(.01, .01, 1, iRelease)
 
     aOutL pconvolve aInL, SImpulseResponseFiles[p4], iPartitionSize, iChannelL
     aOutR pconvolve aInR, SImpulseResponseFiles[p4], iPartitionSize, iChannelR
 
+    aOutL *= aEnvelope
+    aOutR *= aEnvelope
 
-    outleta "OutL", aOutL * kEnvelope
-    outleta "OutR", aOutR * kEnvelope
+    outleta "OutL", aOutL
+    outleta "OutR", aOutR
   endin
 
   $MIXER_CHANNEL($INSTRUMENT_NAME)

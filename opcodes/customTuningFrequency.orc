@@ -21,7 +21,6 @@ opcode customTuningFrequency, i, iiooo
   iNoteNumber = round(iNoteNumber % iDivisions)
 
   iRatio = table(iNoteNumber, iRatios)
-  print iRatio
 
   iOctaveFrequency = iFrequencyOfMiddleC * iOctaveSize^(iOctaveNumber -4)
   iFrequency = iOctaveFrequency * iRatio

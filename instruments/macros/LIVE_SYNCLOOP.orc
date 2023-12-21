@@ -53,7 +53,7 @@
   ; gi$INSTRUMENT_NAME.EnvelopeTable ftgen 1, 0, 8192, 20, 2, 1
 
   gk$INSTRUMENT_NAME.TimeStretch init 1
-  gk$INSTRUMENT_NAME.GrainSizeAdjustment init .1
+  gk$INSTRUMENT_NAME.GrainSizeAdjustment init 1
   gk$INSTRUMENT_NAME.GrainFrequencyAdjustment init 1
   gk$INSTRUMENT_NAME.PitchAdjustment init 1
   gk$INSTRUMENT_NAME.GrainOverlapPercentageAdjustment init 1
@@ -66,6 +66,12 @@
 
     kStartInSeconds = 0
     kEndInSeconds = gi$INSTRUMENT_NAME.BufferLengthInSeconds
+
+    iAttack = .1
+    iDecay = .01
+    iSustain = 1
+    iRelease = .1
+    aAmplitudeEnvelope = madsr(iAttack, iDecay, iSustain, iRelease)
 
     ; Grain Settings
     kPitch = 1
@@ -97,6 +103,9 @@
 
     aOutL syncloop 1, kGrainFrequency, kPitch, kGrainSize, kPointerRate, kStartInSeconds, kEndInSeconds, gi$INSTRUMENT_NAME.RecordBufferL, gi$INSTRUMENT_NAME.EnvelopeTable, iMaxOverlaps
 		aOutR syncloop 1, kGrainFrequency, kPitch, kGrainSize, kPointerRate, kStartInSeconds, kEndInSeconds, gi$INSTRUMENT_NAME.RecordBufferR, gi$INSTRUMENT_NAME.EnvelopeTable, iMaxOverlaps
+
+    aOutL *= aAmplitudeEnvelope
+    aOutR *= aAmplitudeEnvelope
 
     outleta "OutL", aOutL
     outleta "OutR", aOutR
