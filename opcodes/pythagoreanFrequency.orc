@@ -1,5 +1,10 @@
+; Returns a frequency for a split pitch class value by calculating perfect
+; fifths. https://en.wikipedia.org/wiki/Pythagorean_tuning
+
 opcode pythagoreanFrequency, i, iio
   iOctaveNumber, iNoteNumber, iFrequencyOfRoot xin
+
+  ; This should correspond to your C4, hence the default of 261.63
   iFrequencyOfRoot = iFrequencyOfRoot == 0 ? 261.63 : iFrequencyOfRoot
 
   ; Normalize note numbers that exceed number of divisions
