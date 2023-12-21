@@ -17,7 +17,7 @@
 
   Macro Arguments:
     $PATTERN_LENGTH - Length in beats of pattern to be looped
-      in beats.
+      in beats. Must be an integer.
 */
 #define PATTERN_LOOP(PATTERN_LENGTH) #
   iPatternLength = secondsToBeats(p3)
@@ -25,7 +25,7 @@
   iPatternLengthInMeasures = p3/iBeatsPerMeasure
   iMeasureIndex = 0
 
-  until iMeasureIndex * iBeatsPerMeasure >= iPatternLength do
+  until floor(iMeasureIndex * iBeatsPerMeasure) >= floor(iPatternLength) do
     iBaseTime = iMeasureIndex * iBeatsPerMeasure
     i0 = iBaseTime
     iMeasureCount = iMeasureIndex + 1
