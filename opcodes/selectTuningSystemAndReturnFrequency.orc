@@ -78,6 +78,9 @@ opcode selectTuningSystemAndReturnFrequency, i, ij
     ; Some sets based on Indian systems of 22 discernable tones.
   elseif iTuningSystem == 14 then
     iFrequency = customTuningFrequency(iOctave, iNoteNumber, giJustBaglama)
+  elseif iTuningSystem == 15 then
+    ; 17-TET
+    iFrequency = equalTempermentFrequency(iOctave, iNoteNumber, 17)
   endif
 
   xout iFrequency
