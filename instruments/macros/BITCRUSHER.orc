@@ -24,11 +24,14 @@
 
     kNyquist = gk$INSTRUMENT_NAME.SampleRate/2
     if gk$INSTRUMENT_NAME.AntiAlias != 0 then
-      ; This kinda sucks and I don't think it's working well. The idea
-      ; is to hard cut everything above the nyquist frequency before
-      ; processing.
-      aInL pareq aInL, kNyquist, 0, sqrt(.5), 2
-      aInR pareq aInR, kNyquist, 0, sqrt(.5), 2
+      ; The idea here is to filter out everything above the nyquist frequency
+      ; before sample rate transformation to eliminate aliasing. I chose a
+      ; butterworth lowpass filter because I wanted a flat frequency response
+      ; below the cutoff and maximum attenuation above it. It does not completely
+      ; eliminate alias tones but it does significantly reduce their volume.
+
+      aInL butterlp aInL, kNyquist
+      aInR butterlp aInR, kNyquist
     endif
 
     ; This number is halved because audio resolution
