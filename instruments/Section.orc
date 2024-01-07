@@ -14,6 +14,7 @@
 
 instr Section
   SInstrumentName = p4
-
-  beatScoreline SInstrumentName, 0, secondsToBeats(p3), p5, p6, p7, p8
+  if nstrnum(SInstrumentName) != 0 then
+    beatScoreline SInstrumentName, 0, secondsToBeats(p3), p5, p6, p7, p8
+  endif
 endin
