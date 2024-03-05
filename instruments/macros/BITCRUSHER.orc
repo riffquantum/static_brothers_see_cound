@@ -1,5 +1,5 @@
 #define BITCRUSHER(INSTRUMENT_NAME'DRY_ROUTE'WET_ROUTE) #
-  $EFFECT_BYPASS($INSTRUMENT_NAME'$DRY_ROUTE'$WET_ROUTE'0'1)
+  $EFFECT_BYPASS($INSTRUMENT_NAME'$DRY_ROUTE'$WET_ROUTE'0'1'1)
 
   gk$INSTRUMENT_NAME.BitDepth init 16
   gk$INSTRUMENT_NAME.SampleRate init 44100
@@ -89,8 +89,8 @@
     ; Iain McCurdy does it this way so it's probably actually the best way.
     ; After some testing I've found that it sounds indistinguisable from the above.
     ; I guess I'll just use it since its more concise.
-    aOutL = fold(aOutL, sr/gk$INSTRUMENT_NAME.SampleRate)
-    aOutR = fold(aOutR, sr/gk$INSTRUMENT_NAME.SampleRate)
+    aOutL = fold(aOutL, sr/kSampleRate)
+    aOutR = fold(aOutR, sr/kSampleRate)
 
     ; This is just a volume attenuation based on how low the resolution
     ; goes to keep the output volume roughly around the input volume.

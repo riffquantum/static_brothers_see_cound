@@ -83,7 +83,7 @@
     if $PITCH_MODE == 1 || p5 == 0 then
       iPitch = flexiblePitchInput(p5)/261.626
     else
-      iPitch = p5
+      iPitch = p5 == 0 ? 1 : p5
     endif
 
     kPitch = iPitch * ga$INSTRUMENT_NAME.Tuning
