@@ -1,17 +1,17 @@
 <CsoundSynthesizer>
   <CsOptions>
-      ; -odac
+    -odac
     -d
-      --midi-device=a
-      --messagelevel=0
-      -iadc
-      -W -o "AsleepBeforeDessertv0.1"
-      ; --realtime
-      ; -B512 -b60
-      -t73.5
-      ;--midioutfile=midiout.mid
-      ;-F midiout.mid
-      ;-+rtmidi=virtual
+    ; --midi-device=a
+    --messagelevel=0
+    ; -iadc
+    ; -W -o "songs/AsleepBeforeDessert/AsleepBeforeDessertv0.3.1.wav"
+    ; --realtime
+    ; -B512 -b60
+    -t73.5
+    ;--midioutfile=midiout.mid
+    ;-F midiout.mid
+    ;-+rtmidi=virtual
   </CsOptions>
 
   <CsInstruments>
@@ -19,6 +19,9 @@
     #include "config/defaultMidiAssignments.orc"
     #include "opcodes/opcode-manifest.orc"
     #include "instruments/orchestra-manifest.orc"
+    #include "songs/AsleepBeforeDessert/instruments/orchestra.orc"
+    #include "songs/AsleepBeforeDessert/patterns/patterns.orc"
+
     $EFFECT_CHAIN(DefaultEffectChain'Mixer)
 
     instr config
@@ -29,78 +32,10 @@
       ; gkDefaultEffectChainChorusAmount = oscil(2, .5) + 1
       ; gkDefaultEffectChainChorusWetAmount = .5
       ; gkDefaultEffectChainChorusDryAmount = 1
-      giMetronomeIsOn = 1
-    endin
-
-    #define ASLEEP_IN_THE_DESSERT_GRAIN #
-      kTimeStretch = 1 ;* (.1 - poscil(10, .25) + poscil(.2, .3))
-      kGrainSizeAdjustment = 10 * poscil(.2, .25)
-      kGrainFrequencyAdjustment = 1 ;*(.1 - poscil(10, .25) + poscil(.2, .3))
-      kPitchAdjustment = 1
-      kGrainOverlapPercentageAdjustment = 1
-    #
-
-    $SYNCLOOP_SAMPLER(AsleepBeforeDessert'AsleepBeforeDessertEffectChain'localSamples/ZZ Top - Asleep In The Desert/asleepInTheDesertLoop2.wav'$ASLEEP_IN_THE_DESSERT_GRAIN'0'0)
-    $EFFECT_CHAIN(AsleepBeforeDessertEffectChain'Mixer)
-
-    instr MainLoop
-      $PATTERN_LOOP(4)
-        beatScoreline "AsleepBeforeDessert", iBaseTime, 4, 120, 4.05
-      $END_PATTERN_LOOP
-    endin
-
-    instr MainLoopC
-      $PATTERN_LOOP(4)
-        beatScoreline "AsleepBeforeDessert", iBaseTime, 4, 120, 4.00
-      $END_PATTERN_LOOP
-    endin
-
-    instr MainLoopCLow
-      $PATTERN_LOOP(4)
-        beatScoreline "AsleepBeforeDessert", iBaseTime, 4, 120, 3.00
-      $END_PATTERN_LOOP
-    endin
-
-    instr MainLoop2
-      $PATTERN_LOOP(4)
-        beatScoreline "AsleepBeforeDessert", iBaseTime, 4, 120, 4.05
-        beatScoreline "AsleepBeforeDessert", iBaseTime, 4, 120, 3.05
-      $END_PATTERN_LOOP
-    endin
-
-    instr Intro
-      gkAsleepBeforeDessertTimeStretch linseg .001, p3, 1
-
-      $PATTERN_LOOP(4)
-        beatScoreline "AsleepBeforeDessert", iBaseTime, 4, 120, 4.05
-        beatScoreline "AsleepBeforeDessert", iBaseTime, 4, 120, 3.05
-      $END_PATTERN_LOOP
-    endin
-
-    instr PastelLoop
-      $PATTERN_LOOP(4)
-        beatScoreline "AsleepBeforeDessert", iBaseTime, 4, 120, 4.00
-        beatScoreline "AsleepBeforeDessert", iBaseTime, 4, 120, 3.05
-      $END_PATTERN_LOOP
-    endin
-
-    instr BuzzingSprites
-      beatScoreline "AsleepBeforeDessert", 0, secondsToBeats(p3), 20, 7.00
-      beatScoreline "AsleepBeforeDessert", 0, secondsToBeats(p3), 20, 6.05
-    endin
-
-    instr PastelLoopWithFlourish
-      $PATTERN_LOOP(4)
-        beatScoreline "AsleepBeforeDessert", iBaseTime, 4, 120, 4.00
-        beatScoreline "AsleepBeforeDessert", iBaseTime, 4, 120, 3.05
-
-        beatScoreline "AsleepBeforeDessert", iBaseTime+2, 2, 120, 4.05
-        beatScoreline "AsleepBeforeDessert", iBaseTime+2, 2, 120, 5.00
-      $END_PATTERN_LOOP
+      ; giMetronomeIsOn = 1
     endin
 
     instr WorkingPattern
-
       $PATTERN_LOOP(8)
         beatScoreline "AsleepBeforeDessert", iBaseTime+0, 1, 120, 4.05
         beatScoreline "AsleepBeforeDessert", iBaseTime+1, 1, 120, 4.07
@@ -111,33 +46,6 @@
       $END_PATTERN_LOOP
     endin
 
-    instr Bridge
-      $PATTERN_LOOP(4)
-        beatScoreline "AsleepBeforeDessert", iBaseTime+0, 1.15, 120, 4.05
-        beatScoreline "AsleepBeforeDessert", iBaseTime+1, 1.15, 120, 4.07
-        beatScoreline "AsleepBeforeDessert", iBaseTime+2, 1.15, 120, 4.00
-        beatScoreline "AsleepBeforeDessert", iBaseTime+3, 1.15, 120, 4.04
-      $END_PATTERN_LOOP
-    endin
-
-    instr BridgeToC
-      $PATTERN_LOOP(4)
-        beatScoreline "AsleepBeforeDessert", iBaseTime+0, 2, 120, 4.10
-        beatScoreline "AsleepBeforeDessert", iBaseTime+2, 2, 120, 4.05
-        beatScoreline "AsleepBeforeDessert", iBaseTime+0, 2, 120, 3.10
-        beatScoreline "AsleepBeforeDessert", iBaseTime+2, 2, 120, 3.05
-      $END_PATTERN_LOOP
-    endin
-
-
-    instr Outro
-      gkAsleepBeforeDessertFader linseg 1, p3/2, 1, p3/2, 0
-      beatScoreline "AsleepBeforeDessert", 0, secondsToBeats(p3), 56, 4.000000
-      beatScoreline "AsleepBeforeDessert", 0.02, secondsToBeats(p3), 67, 4.050000
-      beatScoreline "AsleepBeforeDessert", 0.01, secondsToBeats(p3), 65, 3.050000
-      beatScoreline "AsleepBeforeDessert", 0.05, secondsToBeats(p3), 73, 5.000000
-    endin
-
     beatScoreline "config", 0, -1
     ; beatScoreline "PatternWriter", 0, -1, 4
     ; beatScoreline "WorkingPattern", 0, 128
@@ -145,23 +53,72 @@
     beatScoreline "DefaultEffectChainReverb", 0, -1
     ; beatScoreline "DefaultEffectChainChorus", 0, -1
 
+
   </CsInstruments>
   <CsScore>
     ; i "Metronome" 0 3600
     ; i "WorkingPattern" 0 300
 
 
-    i "Intro" 0 32
-    i "MainLoop2" 32 32
-    i "MainLoopC" 48 16
+    ; i "Section" + 32 "Intro" ; Evan Starts halfway through here
+    ; i "Section" + 32 "Verse"
+    ; i "DarkoVoxWhole" 0 -1 127 1
+    ; i "iAliveVoxWhole" 0 -1 127 1
 
-    i "BridgeToC" 64 4
 
-    i "MainLoopC" 68 16
-    i "MainLoopCLow" 68 4
-    i "PastelLoop" 84 32
-    i "BuzzingSprites" 100 32
-    i "Outro" 116 64
+    ; Intercut Version
+    ; i "Section" + 80 "DarkoVerse1"
+    ; i "Section" + 32 "DarkoChorus" 1
+    ; i "Section" + 52 "DonVerse"
+    ; i "Section" + 32 "DarkoChorus" 0
+    ; i "Section" + 31.75 "DarkoVerse2"
+    ; i "Section" + 28 "DonVerse2"
+    ; i "Section" + 64 "Outro"
+
+    ; Verse/Verse Version
+    ; i "Section" + 80 "DarkoVerse1"
+    ; i "Section" + 28 "DarkoChorus"
+    ; i "Section" + 31.75 "DarkoVerse2"
+    i "Section" + 56 "DonVerse"
+    i "Section" + 24 "DonVerse2"
+    i "Section" + 64 "Outro"
+
+
+
+    ; i "Section" + 15.75 "Test"
+    ; i "Section" + 16 "DonBridge"
+    ; i "Section" + 16 "DonBridge2"
+    ; i "Section" + 32 "DarkoChorus"
+
+    ; i "Section" + 16 "BridgeToC" ; Bullshit artists... Go back to bed america
+    ; i "Section" + 32 "Chorus" ; "I ruminate on the subject" starts at buzzsprites
+    ; i "Section" + 24 "Verse2"
+    ; i "Section" + 32 "Chorus"
+    ; i "Section" + 24 "Verse2"
+
+
+    ; i "MainLoopC" 68 16
+    ; i "MainLoopCLow" 68 4
+    ; i "PastelLoop" 84 32
+    ; i "BuzzingSprites" 100 32
+
+
+
+
+
+    ; ORIGINAL LAYOUT
+
+    ; i "Intro" 0 32
+    ; i "MainLoop2" 32 32
+    ; i "MainLoopC" 48 16
+
+    ; i "BridgeToC" 64 4
+
+    ; i "MainLoopC" 68 16
+    ; i "MainLoopCLow" 68 4
+    ; i "PastelLoop" 84 32
+    ; i "BuzzingSprites" 100 32
+    ; i "Outro" 116 64
 
   </CsScore>
 </CsoundSynthesizer>

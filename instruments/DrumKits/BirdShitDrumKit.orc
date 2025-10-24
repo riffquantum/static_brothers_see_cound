@@ -70,6 +70,7 @@ $DRUM_SAMPLE_V1(BirdshitPitchedDownCrash'BirdshitBus'localSamples/Drums/R8-Drums
 $DRUM_SAMPLE_V1(BirdshitClosedHat'BirdshitBus'localSamples/Drums/R8-Drums_Closed-Hat_EA7803.wav'1'1)
 $DRUM_SAMPLE_V1(BirdshitOpenHat'BirdshitBus'localSamples/Drums/R8-Drums_Open-Hat_EA7804.wav'1'1)
 $DRUM_SAMPLE_V1(BirdshitRide'BirdshitBus'localSamples/Drums/R8-Drums_Ride_EA7810.wav'1'1)
+; $DRUM_SAMPLE_V1(BirdshitRide'BirdshitBus'localSamples/Drums/R8-Drums_Ride_EA7811.wav'1'1)
 $DRUM_SAMPLE_V1(BirdshitTomLow'BirdshitBus'localSamples/Drums/R8-Drums_Tom_E7661.wav'0'1)
 $DRUM_SAMPLE_V1(BirdshitTomMid'BirdshitBus'localSamples/Drums/R8-Drums_Tom_E7662.wav'0'1)
 

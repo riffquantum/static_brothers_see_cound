@@ -36,3 +36,26 @@
     iMeasureIndex += 1
   od
 #
+
+; Experimental attempt at a realtime tempo version of this. Not working yet
+#define PATTERN_LOOP2(PATTERN_LENGTH) #
+  kPatternLength = secondsToBeats(p3)
+  iBeatsPerMeasure = $PATTERN_LENGTH
+  ; PatternLengthInMeasures = kPatternLength/kBeatsPerMeasure
+  kMeasureIndex = 0
+
+  loop:
+    ; print floor(iMeasureIndex * kBeatsPerMeasure)
+    ; prints "LOOPING"
+    iBaseTime = i(kMeasureIndex) * iBeatsPerMeasure
+    ; print iBaseTime
+    i0 = iBaseTime
+    kMeasureCount = kMeasureIndex + 1
+    ; print kMeasureIndex
+
+#
+
+#define END_PATTERN_LOOP2 #
+  loop_lt  kMeasureIndex, 1, kPatternLength, loop
+  prints "ENDLOOP"
+#

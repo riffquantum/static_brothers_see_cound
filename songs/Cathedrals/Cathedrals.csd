@@ -4,6 +4,7 @@
     ; --midi-device=a
     -t144
     -odac
+    -d
     ; -W -o "Cathedrals.wav
   </CsOptions>
 
@@ -16,13 +17,13 @@
     #include "config/defaultMidiRouterMapping.orc"
     #include "instruments/orchestra-manifest.orc"
     #include "songs/Cathedrals/instruments/orchestra-manifest.orc"
-    ; #include "config/defaultMidiRouterEvents.orc"
     #include "songs/Cathedrals/patterns/pattern-manifest.orc"
     ; #include "instruments/DrumKits/DefaultDrumKit.orc"
 
     instr DrumLoop
       $PATTERN_LOOP(6)
-        beatScoreline "ExpectedBreak1", iBaseTime, 5.5, 100, 3.0
+        ; beatScoreline "ItsExpected1", iBaseTime, 5.5, 100, 1
+        beatScoreline "ExpectedBreak1", iBaseTime, 5.5, 100, 4.00
 
         iMeasureCount += 1
       $END_PATTERN_LOOP

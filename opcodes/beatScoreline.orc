@@ -36,6 +36,21 @@ opcode beatScoreline, 0, Siioooooooooooooooo
   schedule nstrnum(SName), iStart, iDuration, iP4, iP5, iP6, iP7, iP8, iP9, iP10, iP11, iP12, iP13, iP14, iP15, iP16, iP17, iP18, iP19
 endop
 
+; experimental attempt at a realtime tempo version of this. Does not work.
+opcode beatScoreline2, 0, Siioooooooooooooooo
+  SName, iStart, iDuration, iP4, iP5, iP6, iP7, iP8, iP9, iP10, iP11, iP12, iP13, iP14, iP15, iP16, iP17, iP18, iP19 xin
+  kTime = timeinsts()
+  kStart = iStart * 60/gkBPM
+  kDuration = iDuration * 60/gkBPM
+  kTrigger = trigger(kTime, kStart, 0)
+  print iStart
+  printk2 kTrigger
+  ; printk2 kDuration
+  ; printk2 kStart
+  printk2 kTime
+  schedwhen kTrigger, nstrnum(SName), 0, kDuration, iP4, iP5, iP6, iP7, iP8, iP9, iP10, iP11, iP12, iP13, iP14, iP15, iP16, iP17, iP18, iP19
+endop
+
 /* An attempt at a version of this opcode that would work with fluid tempo changes
 
 giNewArray[][][] init 99999999, 1000, 13

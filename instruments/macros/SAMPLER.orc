@@ -133,7 +133,7 @@
       aPointer += iStart
     else
       /*
-        Every mode except for 4 user the phasor opcode. I chose this over the line code
+        Every mode except for 4 use the phasor opcode. I chose this over the line code
         commented below because I could have the pitch affect it as a true speed modifier
         as ooposed to a hard multiplier of the slope which allows for a 0 tuning value to
         to pause the pointer instead of resetting it. That in turn allows for a smoother

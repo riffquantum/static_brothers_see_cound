@@ -50,7 +50,7 @@
     endin
 
     instr Verse
-      _ "DrumShift", 0, stb(p3)
+      ; _ "DrumShift", 0, stb(p3)
       $PATTERN_LOOP(48)
         _ "DrumLoop", iBaseTime+0, 36
         _ "BassLineVerse", iBaseTime+0, 48
@@ -76,21 +76,43 @@
       $END_PATTERN_LOOP
     endin
 
+    #include "./instruments/SimpleOscillator.orc"
+
+    instr BrightBridge
+       $PATTERN_LOOP(4)
+        _ "AjqLoopN", i0, 4, 100, 1, 4
+
+        if iMeasureIndex % 2 == 0 then
+        ; _ "AjqLoop", i0, .5, 100, -1, 4
+        ; _ "AjqLoop", i0+.5, 1.5, 100, -1, 5
+        else
+        _ "AjqLoopN", i0, .5, 100, 1, .5
+        _ "AjqLoopN", i0+.5, 1.5, 100, -1, .5
+        endif
+      $END_PATTERN_LOOP
+
+      ; _ "DrumLoop", 0, stb(p3)
+    endin
+
+
     _ "config", 0, -1
     ; _ "PatternWriter", 0, -1, 8
   </CsInstruments>
   <CsScore>
+    ; i "Section" + 1 ""
+    i "Section" + 500 "BrightBridge"
+
     ; i "Section" + 32 "Chorus" 4
     ; i "Section" + 16 "Intro"
-    i "Section" + 48 "Verse"
-    i "Section" + 32 "Chorus" 1
-    i "Section" + 48 "Verse"
-    i "Section" + 32 "Chorus" 3
-    i "Section" + 48 "Verse"
-    i "Section" + 32 "Chorus" 4
-    i "Section" + 48 "Verse"
-    i "Section" + 32 "Chorus" 5
-    i "Section" + 48 "Verse"
-    i "Section" + 32 "Chorus" 6
+    ; i "Section" + 48 "Verse"
+    ; i "Section" + 32 "Chorus" 1
+    ; i "Section" + 48 "Verse"
+    ; i "Section" + 32 "Chorus" 3
+    ; i "Section" + 48 "Verse"
+    ; i "Section" + 32 "Chorus" 4
+    ; i "Section" + 48 "Verse"
+    ; i "Section" + 32 "Chorus" 5
+    ; i "Section" + 48 "Verse"
+    ; i "Section" + 32 "Chorus" 6
   </CsScore>
 </CsoundSynthesizer>

@@ -13,6 +13,7 @@
     -t100      ;--midioutfile=midiout.mid
     ;-F midiout.mid
     ;-+rtmidi=virtual
+    ; -j 2
   </CsOptions>
 
   <CsInstruments>
@@ -28,7 +29,7 @@
     #include "config/defaultMidiRouterMappingWithSPD30.orc"
     #include "opcodes/opcode-manifest.orc"
     #include "instruments/orchestra-manifest.orc"
-    #include "MidiControlInputs/MidiControlInputs.orc"
+    #include "instruments/MidiControlInputs/MidiControlInputs.orc"
     #include "instruments/MidiRouter.orc"
 
     #include "instruments/DrumKits/BirdshitDrumKit.orc"
@@ -72,7 +73,7 @@
     endin
 
     instr config
-      ; midiMonitor
+      midiMonitor
       ; gkMetronomeFader = 0.65
 
       gkBirdshitKickBusEqBass = 1.5

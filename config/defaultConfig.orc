@@ -1,7 +1,7 @@
 ; Default Config Values
-sr = 44100
 
-; Control Rate Settings
+; 44.1K Mode
+sr = 44100
 ksmps = 32
 kr = 1378.125
 ; ksmps = 10
@@ -9,12 +9,17 @@ kr = 1378.125
 ; ksmps = 8
 ; kr = 5512.5
 
+; 48K Mode
+; sr = 48000
+; ksmp = 10
+; kr = 4800
+
 nchnls = 2
 0dbfs = 10
 
-; Tempo for composotions should be set at the CsOptions level with the -t flag.
+; Tempo for compositions should be set at the CsOptions level with the -t flag.
 ; This variable assignment ensures that the widely used gkBPM value is set.
-; TODO: Consider eliminating this variable in favor of miditempo usage throughout
+; TODO: Consider eliminating this variable in favor of miditempo usage throuxxghout
 ; the repo.
 gkBPM miditempo
 

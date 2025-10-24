@@ -71,7 +71,7 @@
     iDecay = .01
     iSustain = 1
     iRelease = .1
-    aAmplitudeEnvelope = madsr(iAttack, iDecay, iSustain, iRelease)
+    aAmplitudeEnvelope = madsr:a(iAttack, iDecay, iSustain, iRelease)
 
     ; Grain Settings
     kPitch = 1

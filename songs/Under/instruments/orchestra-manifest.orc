@@ -16,6 +16,8 @@ $BREAK_SAMPLE(VibeLine2'MelodyGrainInput'localsamples/atq - autumn leaves vibe a
 $BREAK_SAMPLE(AjqShort'MelodyGrainInput'localsamples/ajq-shortloop.wav'2)
 $BREAK_SAMPLE(AjqShort2'MelodyGrainInput'localsamples/ajq-shortloop2.wav'2.5)
 $BREAK_SAMPLE(AjqLoop'MelodyGrainInput'localsamples/ajqLoop.wav'8)
+$BREAK_SAMPLE_N(AjqLoopN'BitInput'localsamples/ajqLoop.wav'8)
+$BITCRUSHER(Bit'Mixer'Mixer)
 
 $LIVE_SYNCLOOP(MelodyGrain'Mixer'Mixer')
 

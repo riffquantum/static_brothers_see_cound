@@ -83,4 +83,4 @@ $BREAK_SAMPLE(AjqLoop'Mixer'localSamples/ajq-shortloop2.wav'4.25)
   kPitchAdjustment = .5
   kGrainOverlapPercentageAdjustment = 1 ;linseg(1, beatsToSeconds(4), .5)
 #
-$SYNCLOOP_SAMPLER(AJQLoop2'DrumBus'localSamples/ajq-shortloop2.wav'$AJQLOOP2_SETTINGS'0'0)
+$SYNCLOOP_SAMPLER(AJQLoop2'Mixer'localSamples/ajq-shortloop2.wav'$AJQLOOP2_SETTINGS'0'0)
