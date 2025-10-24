@@ -1,0 +1,5 @@
+#include "MainLoop.orc"
+#include "BazoukiBridge.orc"
+#include "HandLoop.orc"
+#include "SparkleLoop.orc"
+#include "DrumLoops.orc"
